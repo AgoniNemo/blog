@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2017/06/12/%E6%88%91%E4%B8%8Eps/</loc>
-    <lastmod>2017-06-12T13:33:45.000Z</lastmod>
+    <lastmod>2017-06-12T13:37:41.000Z</lastmod>
     <data>
         <display>
         <title>我与ps</title>
