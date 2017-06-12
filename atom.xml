@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-11T10:17:18.000Z</updated>
+  <updated>2017-06-12T13:33:45.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我与ps</title>
+    <link href="http://yoursite.com/2017/06/12/%E6%88%91%E4%B8%8Eps/"/>
+    <id>http://yoursite.com/2017/06/12/我与ps/</id>
+    <published>2017-06-12T12:54:09.000Z</published>
+    <updated>2017-06-12T13:33:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160; 第一次搞Ps的时候，还是比较的早，那时的版本好像还是4.0没有现在这么强大，也没有这么多的功能。<br>&#160; &#160; &#160; &#160; 博主当时还在念初中，还记得那个时候是在QQ的一个bbs模块里看到别人的教程的，当时是给一个长得很漂亮的女生染发、美瞳。那对当初的博主来说，是多么的神奇，于是，博主就走了为期两个月的学习之旅。当然，现在已经没有当初那种感觉了，下面是博主最新的一个设计，也是前年的了，人呀，就是懒呀！</p>
+<p><img src="http://orfd017lz.bkt.clouddn.com/icon.png" alt="程序猿专用"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160; 第一次搞Ps的时候，还是比较的早，那时的版本好像还是4.0没有现在这么强大，也没有这么多的功能。&lt;br&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160; 博主当时还在念初中，还记得那个时候是在QQ的一个bbs模块
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>不能说的秘密</title>
     <link href="http://yoursite.com/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/"/>
     <id>http://yoursite.com/2017/06/11/不能说的秘密/</id>
     <published>2017-06-11T10:13:53.000Z</published>
-    <updated>2017-06-11T10:17:18.000Z</updated>
+    <updated>2017-06-12T12:37:44.000Z</updated>
     
     <content type="html"><![CDATA[<script src=/js/crypto-js.js></script><script>
 function doDecrypt(pwd, onError) {
@@ -39,7 +61,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1/NrUvKN241A+bcrdHRwD4h2TAfMRzt/tgWfDjfD+K1nbTbi0371vm0lELHgrBcHfRxzx+yc9BV/uz08QiIgFloA/vo8boxu4E=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1/LlxzOpfbpD4spMc9u/7BFNvgwHFhjsZs3M17Dg5YNBd68DvIoCwQfz/ldKlQt7/Q1kDAsLaPWsfUpHzvZfxM4QljOZ5ShrAcotls6Ecu06XJm41z7x8uDxzsIHVXc7o6PU54jvEXAkm31EbmhrE0lVXUKH+dFicGnBeDFrGdGOq40An4nlWYw</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"

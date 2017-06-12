@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/11/不能说的秘密/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="function doDecrypt(pwd, onError) { 	console.log(&quot;in doDecrypt&quot;); 	var txt = document.getElementById(&quot;enc_content&quot;).innerHTML; 	var plantext; 	try { 	  	var bytes = CryptoJS.AES.decrypt(txt, pwd); 		p">
-<meta property="og:updated_time" content="2017-06-11T10:17:18.000Z">
+<meta property="og:updated_time" content="2017-06-12T12:37:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不能说的秘密">
 <meta name="twitter:description" content="function doDecrypt(pwd, onError) { 	console.log(&quot;in doDecrypt&quot;); 	var txt = document.getElementById(&quot;enc_content&quot;).innerHTML; 	var plantext; 	try { 	  	var bytes = CryptoJS.AES.decrypt(txt, pwd); 		p">
@@ -195,7 +195,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1/NrUvKN241A+bcrdHRwD4h2TAfMRzt/tgWfDjfD+K1nbTbi0371vm0lELHgrBcHfRxzx+yc9BV/uz08QiIgFloA/vo8boxu4E=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1/LlxzOpfbpD4spMc9u/7BFNvgwHFhjsZs3M17Dg5YNBd68DvIoCwQfz/ldKlQt7/Q1kDAsLaPWsfUpHzvZfxM4QljOZ5ShrAcotls6Ecu06XJm41z7x8uDxzsIHVXc7o6PU54jvEXAkm31EbmhrE0lVXUKH+dFicGnBeDFrGdGOq40An4nlWYw</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -288,6 +288,15 @@ doDecrypt(passwd, onError);
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/06/12/我与ps/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我与ps
+        
+      </div>
+    </a>
   
   
     <a href="/2017/06/11/随笔/" id="article-nav-older" class="article-nav-link-wrap">
@@ -421,10 +430,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
@@ -441,6 +446,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">sh</a>
               </li>
              
@@ -454,10 +467,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

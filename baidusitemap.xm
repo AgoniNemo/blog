@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/06/12/%E6%88%91%E4%B8%8Eps/</loc>
+    <lastmod>2017-06-12T13:33:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>我与ps</title>
+        <pubTime>2017-06-12T12:54:09.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</loc>
-    <lastmod>2017-06-11T10:17:18.000Z</lastmod>
+    <lastmod>2017-06-12T12:37:44.000Z</lastmod>
     <data>
         <display>
         <title>不能说的秘密</title>
