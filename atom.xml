@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>AgoniNemo&#39;s blog</title>
   <subtitle>在你想要放弃的那一刻,想想为什么当初坚持走到这里...</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://agoninemo.github.io/blog/"/>
   <updated>2017-06-12T13:37:41.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://agoninemo.github.io/blog/</id>
   
   <author>
     <name>AgoniNemo</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>我与ps</title>
-    <link href="http://yoursite.com/2017/06/12/%E6%88%91%E4%B8%8Eps/"/>
-    <id>http://yoursite.com/2017/06/12/我与ps/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/12/%E6%88%91%E4%B8%8Eps/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/12/我与ps/</id>
     <published>2017-06-12T12:54:09.000Z</published>
     <updated>2017-06-12T13:37:41.000Z</updated>
     
@@ -32,18 +32,18 @@
     </summary>
     
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://agoninemo.github.io/blog/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>不能说的秘密</title>
-    <link href="http://yoursite.com/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/"/>
-    <id>http://yoursite.com/2017/06/11/不能说的秘密/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/11/不能说的秘密/</id>
     <published>2017-06-11T10:13:53.000Z</published>
     <updated>2017-06-12T12:37:44.000Z</updated>
     
-    <content type="html"><![CDATA[<script src=/js/crypto-js.js></script><script>
+    <content type="html"><![CDATA[<script src=/blog/js/crypto-js.js></script><script>
 function doDecrypt(pwd, onError) {
 	console.log("in doDecrypt");
 	var txt = document.getElementById("enc_content").innerHTML;
@@ -60,7 +60,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1+fe+JRKvfLaEjmzKSkh4dvNdMYEJnA7ydz5qbeFGTgfjQm//N9K+VWhXYpgWFq/t2e9Ov+onx6ZPw++GOLxuNunbnKdVuvHF08ssx6H8uJ1xogsUmzdwk4VVpwPzjcvyplos7a4zKy4MuWbOUjPoFoWXS+L1cCz58lTj0/MNvt0sW4k9w0sF8v</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX19gA9ueke56fYqiLjLlFePLsvrEV/pcMwmveF4HNVN7T1itX4oXxLaZ71XNm4Nw519ht13W0XkBNDkaKL4mEasbBWrVNsxpW6dC+vbmEa6JiFtJd2fMN4vqXtqn5UhsC2eukJ0FFLjOYd/JJu2zKBmLdDMB7SKZvOt9bBwLu55TswweBp/NTthK</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -75,22 +75,22 @@ doDecrypt(passwd, onError);
     
     <summary type="html">
     
-      &lt;script src=/js/crypto-js.js&gt;&lt;/script&gt;&lt;script&gt;
+      &lt;script src=/blog/js/crypto-js.js&gt;&lt;/script&gt;&lt;script&gt;
 function doDecrypt(pwd, onError) {
 	console.log(&quot;in doDecrypt&quot;);
-	var txt = document.getEleme
+	var txt = document.get
     
     </summary>
     
     
-      <category term="能看到吗？" scheme="http://yoursite.com/tags/%E8%83%BD%E7%9C%8B%E5%88%B0%E5%90%97%EF%BC%9F/"/>
+      <category term="能看到吗？" scheme="http://agoninemo.github.io/blog/tags/%E8%83%BD%E7%9C%8B%E5%88%B0%E5%90%97%EF%BC%9F/"/>
     
   </entry>
   
   <entry>
     <title>随笔</title>
-    <link href="http://yoursite.com/2017/06/11/%E9%9A%8F%E7%AC%94/"/>
-    <id>http://yoursite.com/2017/06/11/随笔/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/11/%E9%9A%8F%E7%AC%94/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/11/随笔/</id>
     <published>2017-06-11T09:38:19.000Z</published>
     <updated>2017-06-11T10:15:18.000Z</updated>
     
@@ -105,14 +105,14 @@ function doDecrypt(pwd, onError) {
     </summary>
     
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://agoninemo.github.io/blog/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>使用脚本生成包文件问题汇总</title>
-    <link href="http://yoursite.com/2017/06/11/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E5%8C%85%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2017/06/11/使用脚本生成包文件问题汇总/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/11/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E5%8C%85%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/11/使用脚本生成包文件问题汇总/</id>
     <published>2017-06-11T09:28:57.000Z</published>
     <updated>2017-06-11T09:38:46.000Z</updated>
     
@@ -140,16 +140,16 @@ function doDecrypt(pwd, onError) {
     </summary>
     
     
-      <category term="sh" scheme="http://yoursite.com/tags/sh/"/>
+      <category term="sh" scheme="http://agoninemo.github.io/blog/tags/sh/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://agoninemo.github.io/blog/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>iOS脚本打包</title>
-    <link href="http://yoursite.com/2017/06/10/iOS%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85/"/>
-    <id>http://yoursite.com/2017/06/10/iOS脚本打包/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/10/iOS%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/10/iOS脚本打包/</id>
     <published>2017-06-10T12:12:38.000Z</published>
     <updated>2017-06-10T12:15:37.000Z</updated>
     
@@ -178,18 +178,18 @@ function doDecrypt(pwd, onError) {
     </summary>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
     
-      <category term="ipa" scheme="http://yoursite.com/tags/ipa/"/>
+      <category term="ipa" scheme="http://agoninemo.github.io/blog/tags/ipa/"/>
     
-      <category term="打包" scheme="http://yoursite.com/tags/%E6%89%93%E5%8C%85/"/>
+      <category term="打包" scheme="http://agoninemo.github.io/blog/tags/%E6%89%93%E5%8C%85/"/>
     
   </entry>
   
   <entry>
     <title>用UIWebView加载本地文件（设置fragment问题）</title>
-    <link href="http://yoursite.com/2017/06/10/%E7%94%A8UIWebView%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%88%E8%AE%BE%E7%BD%AEfragment%E9%97%AE%E9%A2%98%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/10/%E7%94%A8UIWebView%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%88%E8%AE%BE%E7%BD%AEfragment%E9%97%AE%E9%A2%98%EF%BC%89/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/</id>
     <published>2017-06-10T11:54:26.000Z</published>
     <updated>2017-06-10T12:19:32.000Z</updated>
     
@@ -213,16 +213,16 @@ function doDecrypt(pwd, onError) {
     </summary>
     
     
-      <category term="ios" scheme="http://yoursite.com/tags/ios/"/>
+      <category term="ios" scheme="http://agoninemo.github.io/blog/tags/ios/"/>
     
-      <category term="UIWebView" scheme="http://yoursite.com/tags/UIWebView/"/>
+      <category term="UIWebView" scheme="http://agoninemo.github.io/blog/tags/UIWebView/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/06/10/hello-world/"/>
-    <id>http://yoursite.com/2017/06/10/hello-world/</id>
+    <link href="http://agoninemo.github.io/blog/2017/06/10/hello-world/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/10/hello-world/</id>
     <published>2017-06-10T05:10:11.000Z</published>
     <updated>2017-06-11T10:16:49.000Z</updated>
     
@@ -245,7 +245,7 @@ function doDecrypt(pwd, onError) {
     </summary>
     
     
-      <category term="Hello" scheme="http://yoursite.com/tags/Hello/"/>
+      <category term="Hello" scheme="http://agoninemo.github.io/blog/tags/Hello/"/>
     
   </entry>
   

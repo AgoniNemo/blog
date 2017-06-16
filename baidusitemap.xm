@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/12/%E6%88%91%E4%B8%8Eps/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/12/%E6%88%91%E4%B8%8Eps/</loc>
     <lastmod>2017-06-12T13:37:41.000Z</lastmod>
     <data>
         <display>
@@ -21,7 +21,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</loc>
     <lastmod>2017-06-12T12:37:44.000Z</lastmod>
     <data>
         <display>
@@ -38,7 +38,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/10/hello-world/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/10/hello-world/</loc>
     <lastmod>2017-06-11T10:16:49.000Z</lastmod>
     <data>
         <display>
@@ -55,7 +55,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/11/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/11/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2017-06-11T10:15:18.000Z</lastmod>
     <data>
         <display>
@@ -72,7 +72,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/11/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E5%8C%85%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/11/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E5%8C%85%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2017-06-11T09:38:46.000Z</lastmod>
     <data>
         <display>
@@ -91,7 +91,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/10/%E7%94%A8UIWebView%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%88%E8%AE%BE%E7%BD%AEfragment%E9%97%AE%E9%A2%98%EF%BC%89/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/10/%E7%94%A8UIWebView%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%88%E8%AE%BE%E7%BD%AEfragment%E9%97%AE%E9%A2%98%EF%BC%89/</loc>
     <lastmod>2017-06-10T12:19:32.000Z</lastmod>
     <data>
         <display>
@@ -110,7 +110,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/10/iOS%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85/</loc>
+    <loc>http://agoninemo.github.io/blog/blog/2017/06/10/iOS%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85/</loc>
     <lastmod>2017-06-10T12:15:37.000Z</lastmod>
     <data>
         <display>
