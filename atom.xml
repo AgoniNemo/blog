@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-06-16T11:53:34.000Z</updated>
+  <updated>2017-06-18T04:37:29.000Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用七牛做hexo图床</title>
+    <link href="http://agoninemo.github.io/blog/2017/06/18/%E7%94%A8%E4%B8%83%E7%89%9B%E5%81%9Ahexo%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://agoninemo.github.io/blog/2017/06/18/用七牛做hexo图床/</id>
+    <published>2017-06-18T03:04:35.000Z</published>
+    <updated>2017-06-18T04:37:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>博主用的是Mac系统，下面的命令在windows上有些不同,原理上是一样的，可以在下载七牛命令工具的那个网页查找windows下的命令<br><br>为什么要用七牛做图床，博主觉得以下两点就行了：</p>
+<p><ul><br>    <li>它是免费的</li><br>    <li>它有10G的空间</li><br></ul><br><a id="more"></a><br>现在先去做注册了七牛：<a href="https://portal.qiniu.com/signup?code=3lcfmuw7yntci" target="_blank" rel="external">点这里注册</a></p>
+<p>注册好了，登录以后点对象存储：<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/1qn.png" alt=""></p>
+<p>新建存储空间（创建好了在存储空间列表里可以看到，博主的是blog,还可以在右边的内容管理里看到上传的文件）<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/2qn.png" alt=""><br><br></p>
+<p>下面来说说怎样上传，先<a href="https://github.com/qiniu/qshell?ref=developer.qiniu.com" target="_blank" rel="external">点这里</a>去到git上下载七牛的命令工具。<br>下载好以后，找到这个文件，给他重命名为qshell。</p>
+<p>打开终端,输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv qshell的绝对路径 /usr/local/bin/（比如：mv /Users/xxxx/Downloads/qsshell /usr/local/bin/）</div></pre></td></tr></table></figure>
+<p>再输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod u+x /usr/local/bin/qshell</div></pre></td></tr></table></figure></p>
+<p>这个命令就是给qshell这个文件执行权限，完成后再输入下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qshell account AK SK</div></pre></td></tr></table></figure>
+<p>上面的AK，SK可以在七牛的这个界面找到:</p>
+<p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/3qn.png" alt=""><br><br></p>
+<p>下面需要一个json文件，新建文件（比如：新建qnConf.json放在桌面）<br>内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">            &quot;bucket&quot;: &quot;blog&quot;,</div><div class="line">            &quot;src_dir&quot;: &quot;/Users/xxx/Documents/Blog/qImg&quot;,</div><div class="line">            &quot;overwrite&quot;: true,</div><div class="line">            &quot;rescan_local&quot;: true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>bucket的值填上七牛上存储空间的名字（博主的是blog），src_dir是本地要上传到七牛空间的图片，都放这个qImg文件夹。其他两个key不要管，如果想了解可以<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md" target="_blank" rel="external">点这里</a>。</p>
+<p>打开终端，输入命令上传图片，图片少就快<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qshell qupload 10  /Users/xxx/Documents/Blog/qnConf.json</div></pre></td></tr></table></figure></p>
+<p>后面的路径要修改为你创建的qnConf.json绝对路径，那个数字10是指并发上传的协程数量，默认为1，即文件一个个上传，对于大量小文件来说，可以通过提高该参数值来提升同步速度。<br></p>
+<p>觉得麻烦的童鞋<a href="https://github.com/AgoniNemo/other" target="_blank" rel="external">点这里</a>下载博主已经写好的脚本。<br>最后说下图片地址，从下面的界面找到测试域名：<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/4qn.png" alt=""><br><br><br>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">域名是这样的</div><div class="line">17lz.bkt.clouddn.com</div><div class="line"></div><div class="line">图片地址是这样</div><div class="line">http://17lz.bkt.clouddn.com/avatar.png</div></pre></td></tr></table></figure>
+<p>后面的avatar.png是图片名字，如果在你上面的文件夹里还是文件夹，就像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/Users/xxx/Documents/Blog/qImg是同步的文件</div><div class="line">qimg里面有个image文件夹里面有个1.pgn图片</div><div class="line">在七牛的图片地址是：</div><div class="line">http://17lz.bkt.clouddn.com/image/1.png</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;博主用的是Mac系统，下面的命令在windows上有些不同,原理上是一样的，可以在下载七牛命令工具的那个网页查找windows下的命令&lt;br&gt;&lt;br&gt;为什么要用七牛做图床，博主觉得以下两点就行了：&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;br&gt;    &lt;li&gt;它是免费的&lt;/li&gt;&lt;br&gt;    &lt;li&gt;它有10G的空间&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="sh" scheme="http://agoninemo.github.io/blog/tags/sh/"/>
+    
+      <category term="hexo" scheme="http://agoninemo.github.io/blog/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>我与ps</title>
@@ -60,7 +104,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19gA9ueke56fYqiLjLlFePLsvrEV/pcMwmveF4HNVN7T1itX4oXxLaZ71XNm4Nw519ht13W0XkBNDkaKL4mEasbBWrVNsxpW6dC+vbmEa6JiFtJd2fMN4vqXtqn5UhsC2eukJ0FFLjOYd/JJu2zKBmLdDMB7SKZvOt9bBwLu55TswweBp/NTthK</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+zp5ozPsY/3DItC3DXWA4e0w3q7/PM6ZDQal1D0u6gBNcQBxWByKyG8/XA/eNOzz91E2DFubA/6BC3TKxlM+rXKVdv78RlQzhmsWFhk5sFZ5w7l86gVYKBXSlUCHyyeiZ6rTPOx1GwLbAXbe/8XWFOBc5uz18ztC5jZ0w12f91xdx02/J5GW0u</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
