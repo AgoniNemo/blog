@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-07-29T05:45:24.000Z</updated>
+  <updated>2017-07-29T05:50:15.000Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://agoninemo.github.io/blog/2017/07/29/blog%E9%A6%96%E7%95%8C%E9%9D%A2%E5%AE%9E%E7%8E%B0/"/>
     <id>http://agoninemo.github.io/blog/2017/07/29/blog首界面实现/</id>
     <published>2017-07-29T04:40:32.000Z</published>
-    <updated>2017-07-29T05:45:24.000Z</updated>
+    <updated>2017-07-29T05:50:15.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>非常感谢一个不知名的博主（偶然间看到的一个博客，发现进入他的博客前，有一个动画界面，非常的好看，点<a href="https://agoninemo.github.io/">这里</a>观看）</p>
-<p>开始我们的正题，首先我们要去git上创建一个放首界面的仓库，命名规则是：用户名+github.io</p>
+<p>开始我们的正题，首先我们要去git上创建一个放首界面的仓库，命名规则是：用户名+github.io<br><a id="more"></a></p>
 <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/git.png" alt="git"></p>
 <p>把备份下载下来，按照下面的方式修改为自己的<br><img src="https://git.oschina.net/AgoniNemo/backup/raw/master/html.png" alt="修改html"></p>
 <p>备份文件夹里有个favicon.ico图片，把它换为自己的头像就行。当然，你也可以修改html文件里的33行。<br></p>
@@ -37,7 +37,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;非常感谢一个不知名的博主（偶然间看到的一个博客，发现进入他的博客前，有一个动画界面，非常的好看，点&lt;a href=&quot;https://agon
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;非常感谢一个不知名的博主（偶然间看到的一个博客，发现进入他的博客前，有一个动画界面，非常的好看，点&lt;a href=&quot;https://agoninemo.github.io/&quot;&gt;这里&lt;/a&gt;观看）&lt;/p&gt;
+&lt;p&gt;开始我们的正题，首先我们要去git上创建一个放首界面的仓库，命名规则是：用户名+github.io&lt;br&gt;
     
     </summary>
     

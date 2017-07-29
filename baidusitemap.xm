@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/07/29/blog%E9%A6%96%E7%95%8C%E9%9D%A2%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2017-07-29T05:45:24.000Z</lastmod>
+    <lastmod>2017-07-29T05:50:15.000Z</lastmod>
     <data>
         <display>
         <title>blog首界面实现</title>
