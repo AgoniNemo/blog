@@ -164,6 +164,76 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Swift上传文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/09/01/Swift上传文件/">swift上传文件</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2017/09/01/Swift上传文件/" class="archive-article-date">
+  	<time datetime="2017-09-01T11:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01 19:41:19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-c87e0a95952f5395.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在使用Vapor遇到很多的问题，坑也填了不少，下面就来说说由这个坑引发一系列的问题。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>在应用来，需要使用保存用户的上传头像，那么问题来了，如果发布到heroku上，空间是有限的，然而用户量是不可估计的，所以在对比了国内几家的OSS后，选择了<a href="https://portal.qiniu.com/signup?code=3lcfmuw7yntci" target="_blank" rel="external">七牛对象存储</a>做为图片的存储空间，上传的图片的库已经找好，用的是Alamofire。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在使用Alamofire时，发现一个了问题，我们都知道Alamofire这个库使用得最多的iOS开发，而用Alamofire做iOS的网络请求，它的内部返回的结果都是在主线程下执行的，这样做的确方便了iOS开发的，但是在Vapor里主线程是会被拦截而不被触发的，所以在使用Alamofire上传图片时，结果是不会返回的。</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>第一想到的是Alamofire是否有相关的API可以使用，但是遗憾的是，只有在返回结果后，对结果进行处理时才有，所以这个方案fail。第三方的实现不了，那只能自己实现这个功能了。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>在查看了七牛的文档后，看到<a href="https://developer.qiniu.com/kodo/api/1312/upload" target="_blank" rel="external">七牛上传api</a>是表单上传，先来看个示例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Content-Type:   multipart/form-data; boundary=分隔线</div><div class="line"></div><div class="line">--分隔线</div><div class="line">Content-Disposition:       form-data; name=&quot;token&quot;</div><div class="line">&lt;uploadToken&gt;</div><div class="line">--分隔线</div><div class="line">Content-Disposition:       form-data; name=&quot;key&quot;</div><div class="line">&lt;key&gt;</div><div class="line">--分隔线</div><div class="line">Content-Disposition:       form-data; name=&quot;file&quot;; filename=&quot;&lt;fileName&gt;&quot;</div><div class="line">Content-Type:              application/octet-stream</div><div class="line">Content-Transfer-Encoding: binary</div><div class="line">&lt;fileBinaryData&gt;</div><div class="line">--分隔线--</div></pre></td></tr></table></figure>
+<p>上面的示例中，需要传入的参数有三个,token,key,file。在七牛中，<a href="https://developer.qiniu.com/kodo/manual/1208/upload-token" target="_blank" rel="external">token</a>是要自己生成的，这里就不多说明了，想了解的话可以私信博主。上传的<code>boundary=分隔线</code>是给后台解析时用的，博主看到Alamofire里的是以这个<code>String(format: &quot;Alamofire.boundary.%08x%08x&quot;, arc4random(), arc4random())</code>为分隔线的，博主的分隔线只是把Alamofire给去掉。</p>
+<p>最后生成像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Content-Type:   multipart/form-data; boundary=boundary.73e735e3732b6c0e</div></pre></td></tr></table></figure></p>
+<p>知道怎么生成就开始构建了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">let url = URL(string:&quot;http://up.qiniu.com&quot;)</div><div class="line"></div><div class="line">var request = URLRequest.init(url: url!);</div><div class="line">// 请求类型</div><div class="line">request.httpMethod = &quot;POST&quot;;</div><div class="line">// 超时时间</div><div class="line">request.timeoutInterval = 30;</div><div class="line"></div><div class="line">// 设置分隔线</div><div class="line">let boundary = String(format: &quot;boundary.%08x%08x&quot;, arc4random(), arc4random())</div><div class="line">let contentType = String(format: &quot;multipart/form-data;boundary=%@&quot;, boundary)</div><div class="line">request.addValue(contentType, forHTTPHeaderField: &quot;Content-Type&quot;)</div><div class="line"></div><div class="line">// 创建body</div><div class="line">var body = Data();</div><div class="line"></div><div class="line">// 请求参数</div><div class="line">let dict = [&quot;token&quot;:token,&quot;key&quot;: key]</div><div class="line">let keys = dict.keys;</div><div class="line"></div><div class="line">for key in keys &#123;</div><div class="line">    body.append(String(format:&quot;--%@\r\n&quot;,boundary).data(using: .utf8)!)</div><div class="line">    body.append(String(format:&quot;Content-Disposition:form-data;name=\&quot;%@\&quot;\r\n\r\n&quot;,key as String).data(using: .utf8)!)</div><div class="line">    body.append(&quot;\(dict[key]!)\r\n&quot;.data(using: .utf8)!)</div><div class="line">&#125;</div><div class="line">// 数据之前要用 --分隔线 来隔开 ，否则后台会解析失败</div><div class="line">body.append(String(format:&quot;--%@\r\n&quot;,boundary).data(using: .utf8)!)</div><div class="line"></div><div class="line">// 文件</div><div class="line">let key = &quot;1.jpg&quot;</div><div class="line"></div><div class="line">// 文件主体</div><div class="line">let data = UIImagePNGRepresentation(UIImage.init(named: key)!);</div><div class="line"></div><div class="line">let file = &quot;file&quot;</div><div class="line">// 传入最后一个参数</div><div class="line">body.append(String(format:&quot;Content-Disposition:form-data;name=\&quot;%@\&quot;;filename=\&quot;\(key)\&quot;\r\n&quot;, file).data(using: .utf8)!)</div><div class="line"></div><div class="line">// 文件类型</div><div class="line">body.append(&quot;Content-Type:image/jpeg\r\n\r\n&quot;.data(using: .utf8)!)</div><div class="line"></div><div class="line">// 添加文件主体</div><div class="line">body.append(data)</div><div class="line"></div><div class="line">// 使用\r\n来表示这个这个值的结束符</div><div class="line">body.append(&quot;\r\n&quot;.data(using: .utf8)!)</div><div class="line"></div><div class="line">// --分隔线-- 为整个表单的结束符</div><div class="line">body.append(String(format:&quot;--%@--\r\n&quot;,boundary).data(using: .utf8)!)</div><div class="line"></div><div class="line">// 上传表单</div><div class="line">URLSession.shared.uploadTask(with: request, from: body) &#123; (data, resp, error) in</div><div class="line"></div><div class="line">	do&#123;</div><div class="line">	    let d = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)</div><div class="line">	    print(d)</div><div class="line">	&#125;catch&#123;</div><div class="line">	    print(error)</div><div class="line">	&#125;</div><div class="line">&#125;.resume()</div></pre></td></tr></table></figure>
+<p>以上就是一个很全面的一次表单多参数上传的示例了，还有不明白的童鞋可以私信博主。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-blog首界面实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -263,11 +333,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sh</a>
         		</li>
       		
 		</ul>
@@ -382,7 +452,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1/NCYuNzi7gqpLZpSI4MB7XKfUNC1myzK/RUcrTgl6znG5AQ4AcYbCpKf8LefmzmtounJAT7+rJ0dr8BIx/BK8QYvKYFWyjhGwnaOQk3bSJMUt/ROLAMFu5LcA72STo7DnSJ87K8/oKjgr3LRl0DinhWnQmy747sjnYZvadz8pzY4w+slAfFF38</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+k15sHqhXX9EjchFz4r1g2GELygUKLvqYpIUTY5NtspynynZ2AToZUHc9rrrGZNYc8qZboz5L6+8xLqLc6DWOIcOXn1xqJe9rL+tzPqujX1LpXVnqb9rUUXJy891MI7BHpHVl/N37sub4JA1dZeQQXrN4QDSaU5p7JHXzs2vKbSVLhjYkmSjTM</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -828,11 +898,23 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,15 +930,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,7 +946,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

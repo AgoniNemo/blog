@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/09/01/Swift%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2017-09-01T11:44:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>swift上传文件</title>
+        <pubTime>2017-09-01T11:41:19.000Z</pubTime>
+        
+        <tag>swift</tag>
+         
+        <tag>文件上传</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/07/29/blog%E9%A6%96%E7%95%8C%E9%9D%A2%E5%AE%9E%E7%8E%B0/</loc>
     <lastmod>2017-08-05T04:23:59.000Z</lastmod>
     <data>
@@ -31,9 +50,9 @@
         <title>用七牛做hexo图床</title>
         <pubTime>2017-06-18T03:04:35.000Z</pubTime>
         
-        <tag>sh</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>sh</tag>
          
          
            
