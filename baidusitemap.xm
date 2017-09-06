@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/09/01/Swift%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2017-09-06T13:04:22.000Z</lastmod>
+    <lastmod>2017-09-06T13:06:40.000Z</lastmod>
     <data>
         <display>
         <title>swift上传文件</title>
