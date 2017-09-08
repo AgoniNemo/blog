@@ -17,7 +17,7 @@
 <meta property="og:description" content="之前有写过关于使用Python怎样通过Xcode自带的脚手架项目打包，当时那个也是比较简单的单一的，只能打测试包。那时，人也比较的懒，也说没什么了，反正正式包还是用Xcode来打。到现在有点时间了，就又重写了一个，可以说比上一个强大了太多了，支持上传到fir,邮件发送。下载地址">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-74c4a6f7564c45f8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-0976addfe850abc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-10T12:15:37.000Z">
+<meta property="og:updated_time" content="2017-09-08T16:15:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS脚本打包">
 <meta name="twitter:description" content="之前有写过关于使用Python怎样通过Xcode自带的脚手架项目打包，当时那个也是比较简单的单一的，只能打测试包。那时，人也比较的懒，也说没什么了，反正正式包还是用Xcode来打。到现在有点时间了，就又重写了一个，可以说比上一个强大了太多了，支持上传到fir,邮件发送。下载地址">
@@ -189,7 +189,20 @@ var _hmt = _hmt || [];
       
         <p>之前有写过关于使用Python怎样通过Xcode自带的脚手架项目打包，当时那个也是比较简单的单一的，只能打测试包。那时，人也比较的懒，也说没什么了，反正正式包还是用Xcode来打。到现在有点时间了，就又重写了一个，可以说比上一个强大了太多了，支持上传到fir,邮件发送。<a href="https://github.com/AgoniNemo/Auto-IPA" target="_blank" rel="external">下载地址</a></p>
 <a id="more"></a>
-<h1 id="有几个要注意的地方："><a href="#有几个要注意的地方：" class="headerlink" title="有几个要注意的地方："></a>有几个要注意的地方：</h1><ul>
+<p>自动打包说白了就是使用苹果的<code>xcodebuild</code>来实现脚本打包，这个工具在下载了Xcode后，就已经下载下来了，下面来介绍下使用，由于现在的项目都是使用工作空间来集成第三方库的，所以下面使用的是工作空间打包（没有使用cocoapods的童鞋，快去用起来吧），下面说简单说说它的使用。</p>
+<p>在终端Archive包导出的完整命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcodebuild -workspace 项目路径.xcworkspace -scheme Target名字 -configuration 环境（Release或者Debug,默认release） -archivePath Archive包导出路径 clean archive build CODE_SIGN_IDENTITY=&quot;证书名称&quot; PROVISIONING_PROFILE=&quot;配置文件名称&quot; PRODUCT_BUNDLE_IDENTIFIER=&quot;bundleID&quot;</div></pre></td></tr></table></figure>
+<p>PROVISIONING_PROFILE xcode里的配置文件名称</p>
+<p>CODE_SIGN_IDENTITY  证书名称</p>
+<p>导出Archive包有什么用呢，其实这个Archive只是一个打包的方案，它里面会有打包时需要的一些信息，下面执行打包命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcodebuild  -exportArchive -archivePath Archive包的路径 -exportOptionsPlist plist配置文件的数据 -exportPath 导出IPA包的路径</div></pre></td></tr></table></figure>
+<p>以上就是一个完整的打包命令了，你可以把这两个命令用脚本记录下来</p>
+<p>如果对xcodebuild感兴趣，可以在终端执行下面的命令查看详情</p>
+<blockquote>
+<p>man xcodebuild</p>
+</blockquote>
+<p>如果你不想折腾，可以使用上面博主写的那个脚本，已经放在git上了。</p>
+<h3 id="使用脚本有几个要注意的地方："><a href="#使用脚本有几个要注意的地方：" class="headerlink" title="使用脚本有几个要注意的地方："></a>使用脚本有几个要注意的地方：</h3><ul>
 <li>在使用前，先把使用的ruby版本设置成2.0.0版本（在终端执行命令rvm use system）</li>
 <li>在下载的文件里找到conf.ini文件，填写需要的证书、描述文件等名字</li>
 <li>如果Target-&gt;General-&gt;Automatically manage signing打勾了，要去掉，如下图<br><img src="http://upload-images.jianshu.io/upload_images/1610969-74c4a6f7564c45f8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正确方式"></li>
@@ -466,6 +479,14 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">heroku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vapor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
@@ -502,7 +523,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,15 +535,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
