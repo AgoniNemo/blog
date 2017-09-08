@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
   <title>Heroku休眠问题 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。 正文先说一个比较">
+  <meta name="description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。">
 <meta name="keywords" content="heroku,vapor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Heroku休眠问题">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2017/09/09/Heroku休眠问题/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。 正文先说一个比较">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-e068724b8db4df84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-4ba1b1ccb1800215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-918ef6ccc1574cbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-08T16:17:11.000Z">
+<meta property="og:updated_time" content="2017-09-08T16:22:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Heroku休眠问题">
-<meta name="twitter:description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。 正文先说一个比较">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-e068724b8db4df84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:description" content="前言在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-4ba1b1ccb1800215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -187,8 +187,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-e068724b8db4df84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.png"></p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-4ba1b1ccb1800215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。</p>
+<a id="more"></a>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>先说一个比较省时省力的方法，就是每隔一段时间，发一个请求。博主之前使用的是<a href="http://jk.cloud.360.cn/" target="_blank" rel="external">360网站服务监控</a>，注册完成后进入控制台，选择HTTP监控，创建一个监控项，选择HTTP/HTTPS监控，可以监控多个网站，自定义请求方法。当然这个方法符合大多数应用的需求了。这个方法比较的简单，就不细说了，而且这个时间间隔最长的为60分钟，感觉有点短，需求有点不符合博主的需求。</p>
 <p>现在说说第二种方法，这种方法是要<a href="http://www.jianshu.com/p/ae1dbd031d3e" target="_blank" rel="external">科学上网的（不知道这个文章什么时候会被封）</a>.可定时候比较长，可以一天，一周。使用也是比较的简单，点<a href="https://www.google.com/sheets/about/" target="_blank" rel="external">这里</a>进入界面后，点转到google表格，在B1格填上1，如下图（博主的有运行过脚本，所以是3）：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1610969-918ef6ccc1574cbc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
