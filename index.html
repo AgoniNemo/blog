@@ -164,6 +164,75 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Heroku部署失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/10/28/Heroku部署失败/">Heroku部署失败</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2017/10/28/Heroku部署失败/" class="archive-article-date">
+  	<time datetime="2017-10-28T15:02:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28 23:02:46</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-79a956f261d8c785.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用vapor做的后端应用已经在heroku上跑了有一段时间，也遇到一些问题，下面这个问题就是博主在升级了swift 4.0后遇到的，分享出来给同样遇到这些问题的童鞋一个解决思路，如果你有更好方法可以在下方评论。</p>
+<h2 id="以下为部署时的log"><a href="#以下为部署时的log" class="headerlink" title="以下为部署时的log"></a>以下为部署时的log</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">Counting objects: 19, done.</div><div class="line">Delta compression using up to 4 threads.</div><div class="line">Compressing objects: 100% (19/19), done.</div><div class="line">Writing objects: 100% (19/19), 4.88 KiB | 2.44 MiB/s, done.</div><div class="line">Total 19 (delta 12), reused 0 (delta 0)</div><div class="line">remote: Compressing source files... done.</div><div class="line">remote: Building source:</div><div class="line">remote:</div><div class="line">remote: -----&gt; Swift app detected</div><div class="line">remote: Cloning into &apos;swiftenv&apos;...</div><div class="line">remote: Swift 3 Heroku Installer</div><div class="line">remote: 🔢  Version: 3.1.1</div><div class="line">remote: 🖥  Operating System: ubuntu1404</div><div class="line">remote: 📦 Installing Swiftenv</div><div class="line">remote: Cloning into &apos;/app/.swiftenv&apos;...</div><div class="line">remote: 🐦 Installing Swift</div><div class="line">remote: Downloading https://swift.org/builds/swift-3.1.1-release/ubuntu1604/swift-3.1.1-RELEASE/swift-3.1.1-RELEASE-ubuntu16.04.tar.gz</div><div class="line">remote: /tmp/swiftenv-3.1.1- /tmp/build_554a6f1c55a490cc4f7d6cb2cc75faaa</div><div class="line">remote:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">remote:                                  Dload  Upload   Total   Spent    Left  Speed</div><div class="line">remote: 100  117M  100  117M    0     0  5651k      0  0:00:21  0:00:21 --:--:-- 7384k</div><div class="line">remote: /tmp/build_554a6f1c55a490cc4f7d6cb2cc75faaa</div><div class="line">remote: 3.1.1 has been installed.</div><div class="line">remote: ✅  Done</div><div class="line">remote: precompile</div><div class="line">remote: -----&gt; Building Package ... this will take a while</div><div class="line">remote: swift-build: error: unsatisfiable</div><div class="line">remote:  !     Push rejected, failed to compile Swift app.</div><div class="line">remote:</div><div class="line">remote:  !     Push failed</div><div class="line">remote: Verifying deploy...</div><div class="line">remote:</div><div class="line">remote: !    Push rejected to xxxserver.</div><div class="line">remote:</div><div class="line">To https://git.heroku.com/xxx.git</div><div class="line">! [remote rejected] master -&gt; master (pre-receive hook declined)</div><div class="line">error: failed to push some refs to &apos;https://git.heroku.com/xxx.git&apos;</div></pre></td></tr></table></figure>
+<p>这个问题比较的明显，就是swift的版本对不上，打包不了，当前博主的版本为4.0。脑海中第一个方法就是降级，但是想想，感觉有点不现实，所以只能试试多版本切换了。</p>
+<blockquote>
+<p>swift版本切换工具 swiftenv</p>
+</blockquote>
+<p>安装很简单，用<a href="http://www.jianshu.com/p/d229ac7fe77d" target="_blank" rel="external">brew</a>就行了，一行命令搞定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew install kylef/formulae/swiftenv</div><div class="line"></div><div class="line">// 安装完成后，可以使用下面的命令查看本地安装的所有版本</div><div class="line">swiftenv versions</div></pre></td></tr></table></figure>
+<p>因为要使用到的版本为3.1.1，而本地的版本只有一个就是4.0，所以我们要安装一个3.1.1的，swiftenv已经为我们提供了安装命令install，直接使用就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swiftenv install 3.1.1</div></pre></td></tr></table></figure>
+<p>特别说明下，安装好后，版本会直接切换到3.1.1，所以不需要在切换了。当然，你也许只想要这个项目的版本是3.1.1，其他的要最新的，这个需求swiftenv也可以做到，首先你要设置全局的版本，然后再设置局部的版本，就像这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 新打开一个终端，运行命令</div><div class="line">swiftenv global 4.0</div><div class="line"></div><div class="line">// 切换到你要设置版本项目的根目录下</div><div class="line">swiftenv local 3.1.1</div></pre></td></tr></table></figure>
+<p>以上设置的完成时，你的全局版本为4.0，而你的项目的版本为3.1.1，想了解更多的swiftenv命令的可以点<a href="https://swiftenv.fuller.li/en/latest/commands.html#" target="_blank" rel="external">这里</a>。</p>
+<p>O了，再把代码上传到heroku上打包，就是这么简单。。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">heroku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Heroku休眠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -507,7 +576,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19IkIHFN8ZL9tKCtpIbcTWjb3OOl3MHMy1PCi5E0yuLu+ytSrlaIWwlXiBChOK/zGJFG8r6XpV/umkXK6Ptt9ha9KBgxLS+3aLfllDkDnnWPOhg47wKGoKDu3N0sAADPUIahU9UhgUtBRzf5xaBmBWH1Hiqca5zvS7XJqh4RXa+EPuu2s9JxJiJ</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+Xl3rxa8mdQgKyiLRe5621f7AjVa43Qj7HpqKP2QMxMOhxE6qyuctTiS22QF1b/8e7GWPtu7WlyyRRgL117Rma/Su4Ik1qwzIrDhrOgKpCRHV0Wi6DJ6MK/pOri5ga6fW8oH0+aBzhjFGzCjK8mrWcau55G/XU29lfuRHeqLgFold/aUt7qzKy</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -736,68 +805,6 @@ doDecrypt(passwd, onError);
 
 
   
-    <article id="post-用UIWebView加载本地文件（设置fragment问题）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/">用UIWebView加载本地文件（设置fragment问题）</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/" class="archive-article-date">
-  	<time datetime="2017-06-10T11:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10 19:54:26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记得选creat folder references"><br>别告诉我你不知道怎么加载蓝色的文件？<br>PS:好吧，下面就是加载方法：<br>
-        
-          <a class="article-more-a" href="/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">UIWebView</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -924,6 +931,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
@@ -940,14 +951,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">sh</a>
               </li>
              
@@ -961,6 +964,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

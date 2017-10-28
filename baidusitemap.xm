@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/10/28/Heroku%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</loc>
+    <lastmod>2017-10-28T15:05:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Heroku部署失败</title>
+        <pubTime>2017-10-28T15:02:46.000Z</pubTime>
+        
+        <tag>heroku</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/09/09/Heroku%E4%BC%91%E7%9C%A0%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-09-08T16:22:48.000Z</lastmod>
     <data>
