@@ -4,8 +4,27 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/02/Centos-%E5%AE%89%E8%A3%85GitLab/</loc>
+    <lastmod>2017-11-02T11:38:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 安装GitLab</title>
+        <pubTime>2017-11-02T11:36:16.000Z</pubTime>
+        
+        <tag>GitLab</tag>
+         
+        <tag>Centos</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/10/28/Heroku%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/</loc>
-    <lastmod>2017-10-28T15:05:52.000Z</lastmod>
+    <lastmod>2017-11-02T11:37:21.000Z</lastmod>
     <data>
         <display>
         <title>Heroku部署失败</title>

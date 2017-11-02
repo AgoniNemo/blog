@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>使用脚本生成包文件问题汇总 | AgoniNemo&#39;s blog</title>
+  <title>Centos 安装GitLab | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.描述文件引起的问题。 Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.  这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&amp;gt;Ge">
-<meta name="keywords" content="sh,Python">
+  <meta name="description" content="前言上周末公司说要搭建一个Gitlabe用来管理代码，于是自己就开了琢磨，最后有了这篇文章。 注意事项: 1.注意你的服务器需要2G以上内存（博主用的虚拟机，当时设置1G的内存然后就访问的时候报个502…） 第一种方法先下载Gitlabe—–Gitlab地址 如果链接远程桌面时，提示”远程桌面连接无法验证您希望连接的计算机的身份” 解决方法：  通过连接管理终端功能连接进入云服务器。 点击任务栏">
+<meta name="keywords" content="GitLab,Centos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用脚本生成包文件问题汇总">
-<meta property="og:url" content="http://agoninemo.github.io/blog/2017/06/11/使用脚本生成包文件问题汇总/index.html">
+<meta property="og:title" content="Centos 安装GitLab">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2017/11/02/Centos-安装GitLab/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="1.描述文件引起的问题。 Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.  这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&amp;gt;Ge">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-8350ed708ae43d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-7d30097c9b8bb4c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-11T09:38:46.000Z">
+<meta property="og:description" content="前言上周末公司说要搭建一个Gitlabe用来管理代码，于是自己就开了琢磨，最后有了这篇文章。 注意事项: 1.注意你的服务器需要2G以上内存（博主用的虚拟机，当时设置1G的内存然后就访问的时候报个502…） 第一种方法先下载Gitlabe—–Gitlab地址 如果链接远程桌面时，提示”远程桌面连接无法验证您希望连接的计算机的身份” 解决方法：  通过连接管理终端功能连接进入云服务器。 点击任务栏">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-f3ef73bb372c30dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-02T11:38:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用脚本生成包文件问题汇总">
-<meta name="twitter:description" content="1.描述文件引起的问题。 Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.  这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&amp;gt;Ge">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-8350ed708ae43d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Centos 安装GitLab">
+<meta name="twitter:description" content="前言上周末公司说要搭建一个Gitlabe用来管理代码，于是自己就开了琢磨，最后有了这篇文章。 注意事项: 1.注意你的服务器需要2G以上内存（博主用的虚拟机，当时设置1G的内存然后就访问的时候报个502…） 第一种方法先下载Gitlabe—–Gitlab地址 如果链接远程桌面时，提示”远程桌面连接无法验证您希望连接的计算机的身份” 解决方法：  通过连接管理终端功能连接进入云服务器。 点击任务栏">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-f3ef73bb372c30dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -167,38 +166,71 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用脚本生成包文件问题汇总" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Centos-安装GitLab" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用脚本生成包文件问题汇总
+      Centos 安装GitLab
     </h1>
   
 
         
-        <a href="/blog/2017/06/11/使用脚本生成包文件问题汇总/" class="archive-article-date">
-  	<time datetime="2017-06-11T09:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11 17:28:57</time>
+        <a href="/blog/2017/11/02/Centos-安装GitLab/" class="archive-article-date">
+  	<time datetime="2017-11-02T11:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02 19:36:16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-描述文件引起的问题。"><a href="#1-描述文件引起的问题。" class="headerlink" title="1.描述文件引起的问题。"></a>1.描述文件引起的问题。</h3><blockquote>
-<p>Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.</p>
-</blockquote>
-<p>这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&gt;General-&gt;Automatically manage signing打勾的情况，这个描述文件在开发者中心是找不到的，只存在本地），这个描述文件与填写的证书所需的描述文件不一致造成的（天知道为什么不同  T_T），重新再去开发者中心生成新的再安装就好了。</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-f3ef73bb372c30dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上周末公司说要搭建一个Gitlabe用来管理代码，于是自己就开了琢磨，最后有了这篇文章。</p>
+<p>注意事项:</p>
+<p>1.注意你的服务器需要2G以上内存（博主用的虚拟机，当时设置1G的内存然后就访问的时候报个502…）</p>
+<h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><p>先下载Gitlabe—–<a href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/" target="_blank" rel="external">Gitlab地址</a></p>
+<p>如果链接远程桌面时，提示”远程桌面连接无法验证您希望连接的计算机的身份”</p>
+<p>解决方法：</p>
+<ol>
+<li>通过连接管理终端功能连接进入云服务器。</li>
+<li>点击任务栏powershell,然后输入命令gpedit.msc，输入完成后回车，回车后会显示本地组策略编辑器。</li>
+<li>依次找到【计算机配置】-&gt;【管理模板】-&gt;【windows组件】-&gt;【远程桌面服务】-&gt;【远程桌面会话主机】-&gt;【安全】-&gt;【远程（RDP）连接要求使用指定的安全层】</li>
+<li>双击【远程（RDP）连接要求使用指定的安全层</li>
+<li>修改为已启用，安全层选择 rdp，最后点击应用确认</li>
+</ol>
 <a id="more"></a>
-<h3 id="2-勾选了手动选择证书"><a href="#2-勾选了手动选择证书" class="headerlink" title="2.勾选了手动选择证书"></a>2.勾选了手动选择证书</h3><blockquote>
-<p>Provisioning profile “ReleaseProfiles” doesn’t include signing certificate “iPhone Developer: XXX (3R7YA7C56E)”.</p>
-</blockquote>
-<p>这个问题是由于下面两个地方选择了证书的原因：<br><img src="http://upload-images.jianshu.io/upload_images/1610969-8350ed708ae43d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不要选择"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1610969-7d30097c9b8bb4c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不能打勾"></p>
-<p>PS：还有一个地方是要注意的，如果Target-&gt;General-&gt;Automatically manage signing打勾了，要去掉。</p>
-<p>解决方法就是：有勾的去掉勾，有选择的，去掉选择。</p>
+<h5 id="将系统防火墙打开HTTP和SSH访问"><a href="#将系统防火墙打开HTTP和SSH访问" class="headerlink" title="将系统防火墙打开HTTP和SSH访问"></a>将系统防火墙打开HTTP和SSH访问</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo yum install openssh-server</div><div class="line">sudo yum install postfix </div><div class="line">sudo lokkit -s http -s ssh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">scp 待上传文件名 linux用户名@服务器IP:存放到服务器的哪个位置</div><div class="line"></div><div class="line">比如：scp /Users/xxx/Downloads/gitlab-ce-10.0.0-ce.0.el6.x86_64.rpm root@10.10.10.70:/home/soft/</div></pre></td></tr></table></figure>
+<p>也可以用<a href="https://cyberduck.en.softonic.com/mac" target="_blank" rel="external">Cyberduck </a>工具来上传文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd 到上传的Gitlabe的目录下，执行命令</div><div class="line">rpm -i gitlab-ce-10.0.0-ce.0.el6.x86_64.rpm</div></pre></td></tr></table></figure>
+<p>配置gitlab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>网络安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">将系统防火墙打开HTTP和SSH访问</div><div class="line"></div><div class="line">sudo yum install openssh-server</div><div class="line">sudo yum install postfix </div><div class="line">sudo lokkit -s http -s ssh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</div><div class="line"></div><div class="line">sudo yum install -y gitlab-ee</div></pre></td></tr></table></figure>
+<h4 id="配置Gitlab"><a href="#配置Gitlab" class="headerlink" title="配置Gitlab"></a>配置Gitlab</h4><p>GitLab默认会占用80、8080和9090端口，如果你想安装Jenkins，会通到端口冲突，Jenkins默认也会使用8080端口，所以，这一步操作将会修改GitLab的默认端口为11000、11001和11002。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/gitlab/gitlab.rb</div><div class="line"></div><div class="line">将：</div><div class="line">external_url &apos;http://127.0.0.1&apos;</div><div class="line">修改为：</div><div class="line">external_url &apos;http://&lt;你的服务器地址或域名&gt;:11000&apos;</div><div class="line"></div><div class="line">将：</div><div class="line">unicorn[&apos;port&apos;] = 8080</div><div class="line">修改为：</div><div class="line">unicorn[&apos;port&apos;] = 11001</div><div class="line"></div><div class="line">将：</div><div class="line">prometheus[&apos;listen_address&apos;] = &apos;localhost:9090&apos;</div><div class="line">修改为：</div><div class="line">prometheus[&apos;listen_address&apos;] = &apos;localhost:11002&apos;</div></pre></td></tr></table></figure>
+<h4 id="每次修改完时，记得要使用reconfigure命令重新配置"><a href="#每次修改完时，记得要使用reconfigure命令重新配置" class="headerlink" title="每次修改完时，记得要使用reconfigure命令重新配置"></a>每次修改完时，记得要使用reconfigure命令重新配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<p>PS:这里比较重要，如果你的Gitlab是搭建在Centos系统上的，需要开放上面的端口（因为Centos默认开放的端口只有22）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 开放端口11000（记得还有11001和11002也要设置）</div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 11000 -j ACCEPT</div><div class="line"># 将修改永久保存到防火墙中（不设置的话，下次重启上面的设置就会失效）</div><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 查看安装后的程序运行情况</div><div class="line">sudo gitlab-ctl status</div><div class="line"></div><div class="line"># 重启Gitlab服务</div><div class="line">sudo gitlab-ctl restart</div><div class="line"></div><div class="line"># 启动和关闭Gitlab</div><div class="line">sudo gitlab-ctl start/stop</div></pre></td></tr></table></figure>
+<h3 id="163邮箱设置（下面这里需要注意的地方，就是要把-号去掉，默认有-这是被注释的）"><a href="#163邮箱设置（下面这里需要注意的地方，就是要把-号去掉，默认有-这是被注释的）" class="headerlink" title="163邮箱设置（下面这里需要注意的地方，就是要把#号去掉，默认有#这是被注释的）"></a>163邮箱设置（下面这里需要注意的地方，就是要把#号去掉，默认有#这是被注释的）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">### Email Settings</div><div class="line"> gitlab_rails[&apos;gitlab_email_enabled&apos;] = true</div><div class="line"> </div><div class="line">### GitLab email server settings</div><div class="line">###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html</div><div class="line">###! **Use smtp instead of sendmail/postfix.**</div><div class="line"></div><div class="line"> gitlab_rails[&apos;smtp_enable&apos;] = true</div><div class="line"> gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.163.com&quot;</div><div class="line"> gitlab_rails[&apos;smtp_port&apos;] = 25</div><div class="line"> gitlab_rails[&apos;smtp_user_name&apos;] = &quot;xxxx@163.com&quot;</div><div class="line"> gitlab_rails[&apos;smtp_password&apos;] = &quot;这里填授权密码&quot;</div><div class="line"> gitlab_rails[&apos;smtp_domain&apos;] = &quot;163.com&quot;</div><div class="line"> gitlab_rails[&apos;smtp_authentication&apos;] = &quot;login&quot;</div><div class="line"> gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</div><div class="line"> gitlab_rails[&apos;smtp_tls&apos;] = ture</div><div class="line"></div><div class="line">###! **Can be: &apos;none&apos;, &apos;peer&apos;, &apos;client_once&apos;, &apos;fail_if_no_peer_cert&apos;**</div><div class="line">###! Docs: http://api.rubyonrails.org/classes/ActionMailer/Base.html</div><div class="line"> gitlab_rails[&apos;smtp_openssl_verify_mode&apos;] = &apos;peer&apos;</div><div class="line"> user[&apos;git_user_email&apos;] = &quot;xxxx@163.com&quot;</div><div class="line"> gitlab_rails[&apos;gitlab_email_from&apos;] = &quot;xxxx@163.com&quot;</div></pre></td></tr></table></figure>
+<p>上面要说一个问题，就是<code>user[&#39;git_user_email&#39;]</code>与<code>gitlab_rails[&#39;gitlab_email_from&#39;]</code>是手动添加上去的。在<code>gitlab.rb</code>里也是有这两个参数的，只不过是被注释了。</p>
+<h4 id="测试邮箱"><a href="#测试邮箱" class="headerlink" title="测试邮箱"></a>测试邮箱</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 进入控制台</div><div class="line">gitlab-rails console</div><div class="line">// 发送测试邮件</div><div class="line">Notify.test_email(&apos;收件人邮箱&apos;, &apos;邮件标题&apos;, &apos;邮件正文&apos;).deliver_now</div></pre></td></tr></table></figure>
+<h4 id="安装过程中出现的问题："><a href="#安装过程中出现的问题：" class="headerlink" title="安装过程中出现的问题："></a>安装过程中出现的问题：</h4><p>1.在浏览器中访问GitLab出现502错误<br>原因：1.内存不足。2.修改了 gitlab.rb配置文件没有执行重新配置命令。<br>解决办法：1.检查系统的虚拟内存是否随机启动了，如果系统无虚拟内存，则增加虚拟内存，再重新启动系统。<br>2.使用sudo gitlab-ctl reconfigure重新配置。</p>
+<p>2.80端口冲突<br>原因：Nginx默认使用了80端口。<br>解决办法：为了使Nginx与Apache能够共存，并且为了简化GitLab的URL地址，Nginx端口保持不变，修改Apache的端口为4040。这样就可以直接用使用ip访问Gitlab。而禅道则可以使用4040端口进行访问，像这样：xxx.xx.xxx.xx:4040/zentao。具体修改的地方在/etc/httpd/conf/httpd.conf这个文件中，找到Listen 80这一句并将之注释掉，在底下添加一句Listen 4040，保存后执行service httpd restart重启apache服务即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Listen 4040</div></pre></td></tr></table></figure>
+<p>3.GitLab头像无法正常显示</p>
+<p>原因：gravatar被墙</p>
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">编辑 /etc/gitlab/gitlab.rb</div><div class="line">将</div><div class="line">#gitlab_rails[&apos;gravatar_plain_url&apos;] = &apos;http://gravatar.duoshuo.com/avatar/%&#123;hash&#125;?s=%&#123;size&#125;&amp;d=identicon&apos;</div><div class="line">修改为：</div><div class="line">gitlab_rails[&apos;gravatar_plain_url&apos;] = &apos;http://gravatar.duoshuo.com/avatar/%&#123;hash&#125;?s=%&#123;size&#125;&amp;d=identicon&apos;</div><div class="line">然后在命令行执行：</div><div class="line">sudo gitlab-ctl reconfigure </div><div class="line">sudo gitlab-rake cache:clear RAILS_ENV=production</div></pre></td></tr></table></figure>
+<p>4.EOFError: end of file reached<br>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">将</div><div class="line">gitlab_rails[&apos;smtp_tls&apos;]  = false</div><div class="line">修改为：</div><div class="line">gitlab_rails[&apos;smtp_tls&apos;] = true</div></pre></td></tr></table></figure></p>
+<p>参考文章：</p>
+<p><a href="https://segmentfault.com/a/1190000002722631" target="_blank" rel="external">https://segmentfault.com/a/1190000002722631</a></p>
+<p><a href="https://www.douban.com/note/640641236/" target="_blank" rel="external">https://www.douban.com/note/640641236/</a></p>
+<p><a href="https://my.oschina.net/kylinq/blog/868590" target="_blank" rel="external">https://my.oschina.net/kylinq/blog/868590</a></p>
 
       
 
@@ -243,11 +275,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitLab</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Centos</a>
         		</li>
       		
 		</ul>
@@ -303,7 +335,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2017/06/11/使用脚本生成包文件问题汇总/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2017/11/02/Centos-安装GitLab/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +349,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/2017/06/11/随笔/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          随笔
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2017/06/10/iOS脚本打包/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS脚本打包</div>
+    <a href="/blog/2017/10/28/Heroku部署失败/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Heroku部署失败</div>
       <i class="icon-circle-right"></i>
     </a>
   
