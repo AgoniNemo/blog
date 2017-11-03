@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/02/Centos-%E5%AE%89%E8%A3%85GitLab/</loc>
-    <lastmod>2017-11-02T11:38:33.000Z</lastmod>
+    <lastmod>2017-11-03T11:28:25.000Z</lastmod>
     <data>
         <display>
         <title>Centos 安装GitLab</title>
