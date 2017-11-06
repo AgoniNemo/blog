@@ -4,8 +4,27 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/06/Jenkins%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/</loc>
+    <lastmod>2017-11-06T11:53:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jenkins从零开始</title>
+        <pubTime>2017-11-06T11:48:24.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/02/Centos-%E5%AE%89%E8%A3%85GitLab/</loc>
-    <lastmod>2017-11-03T11:28:25.000Z</lastmod>
+    <lastmod>2017-11-06T11:53:05.000Z</lastmod>
     <data>
         <display>
         <title>Centos 安装GitLab</title>
