@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/</loc>
-    <lastmod>2017-11-14T12:01:28.000Z</lastmod>
+    <lastmod>2017-11-14T12:03:05.000Z</lastmod>
     <data>
         <display>
         <title>AWS搭建SS</title>
