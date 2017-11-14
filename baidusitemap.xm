@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/</loc>
+    <lastmod>2017-11-14T12:01:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>AWS搭建SS</title>
+        <pubTime>2017-11-14T12:00:33.000Z</pubTime>
+        
+        <tag>ss</tag>
+         
+        <tag>aws</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/06/Jenkins%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/</loc>
     <lastmod>2017-11-06T11:53:42.000Z</lastmod>
     <data>

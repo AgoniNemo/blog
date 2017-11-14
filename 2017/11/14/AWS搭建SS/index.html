@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>AgoniNemo&#39;s blog</title>
+  <title>AWS搭建SS | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/index.html">
+  <meta name="description" content="前文之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。  申请 AWS点AWS进入首界面 点注册，进入注册界面，由于没有截图，所以说下需要注意的地方，里面的信息都要用英文填写，里面的信息都要用英文填写，里面的信息都要用英文填写，重要的事件说三遍，在验证">
+<meta name="keywords" content="ss,aws">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS搭建SS">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2017/11/14/AWS搭建SS/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="前文之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。  申请 AWS点AWS进入首界面 点注册，进入注册界面，由于没有截图，所以说下需要注意的地方，里面的信息都要用英文填写，里面的信息都要用英文填写，里面的信息都要用英文填写，重要的事件说三遍，在验证">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-f0e3b22b8912f00e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-a3fce91bd566e078.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-bfd59bb75d93f734.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-30964070350dcb34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-125b24a86585e4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-f70d593ffc7141f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-dbd1421ce79ddc6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-61f1be1fa85ca968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-0a1b3dd83bf12d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-2cef18369a97d0e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-14T12:01:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="AWS搭建SS">
+<meta name="twitter:description" content="前文之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。  申请 AWS点AWS进入首界面 点注册，进入注册界面，由于没有截图，所以说下需要注意的地方，里面的信息都要用英文填写，里面的信息都要用英文填写，里面的信息都要用英文填写，重要的事件说三遍，在验证">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-f0e3b22b8912f00e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,16 +175,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-AWS搭建SS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-AWS搭建SS" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/11/14/AWS搭建SS/">AWS搭建SS</a>
+    <h1 class="article-title" itemprop="name">
+      AWS搭建SS
     </h1>
   
 
@@ -222,6 +233,37 @@ var _hmt = _hmt || [];
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -246,592 +288,99 @@ var _hmt = _hmt || [];
       
 
       
-      <div class="clearfix"></div>
-    </div>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
   </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Jenkins从零开始" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/11/06/Jenkins从零开始/">Jenkins从零开始</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/11/06/Jenkins从零开始/" class="archive-article-date">
-  	<time datetime="2017-11-06T11:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06 19:48:24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-75b3f9d0e4cdcbd4.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要做到项目的自动构建，你需求了解下Jenkins的安装，这文章是博主从零开始安装的过程，记录下了踩过的坑，分享给有需要的童鞋。</p>
-        
-          <a class="article-more-a" href="/blog/2017/11/06/Jenkins从零开始/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Jenkins</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Centos-安装GitLab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/11/02/Centos-安装GitLab/">Centos 安装GitLab</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/11/02/Centos-安装GitLab/" class="archive-article-date">
-  	<time datetime="2017-11-02T11:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02 19:36:16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-f3ef73bb372c30dc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上周末公司说要搭建一个Gitlabe用来管理代码，于是自己就开始琢磨了，其中配置邮件这里踩了一个坑，被坑了两天时间，现把搭建过程记录下来。</p>
-<p>注意事项:</p>
-<p>1.注意你的服务器需要2G以上内存（博主用的虚拟机，当时设置1G的内存然后就访问的时候报个502…）<br>2.Centos的版本是6.5的，用7.0的小伙伴可能部分有些不一样。</p>
-        
-          <a class="article-more-a" href="/blog/2017/11/02/Centos-安装GitLab/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitLab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Centos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Heroku部署失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/10/28/Heroku部署失败/">Heroku部署失败</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/10/28/Heroku部署失败/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:02:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28 23:02:46</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-79a956f261d8c785.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用vapor做的后端应用已经在heroku上跑了有一段时间，也遇到一些问题，下面这个问题就是博主在升级了swift 4.0后遇到的，分享出来给同样遇到这些问题的童鞋一个解决思路，如果你有更好方法可以在下方评论。</p>
-        
-          <a class="article-more-a" href="/blog/2017/10/28/Heroku部署失败/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">heroku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Heroku休眠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/09/09/Heroku休眠问题/">Heroku休眠问题</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/09/09/Heroku休眠问题/" class="archive-article-date">
-  	<time datetime="2017-09-08T16:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09 00:16:04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-4ba1b1ccb1800215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。</p>
-        
-          <a class="article-more-a" href="/blog/2017/09/09/Heroku休眠问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">heroku</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vapor</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Swift上传文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/09/01/Swift上传文件/">swift上传文件</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/09/01/Swift上传文件/" class="archive-article-date">
-  	<time datetime="2017-09-01T11:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01 19:41:19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-c87e0a95952f5395.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在使用Vapor遇到很多的问题，坑也填了不少，下面就来说说由这个坑引发一系列的问题。</p>
-<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>在应用里，需要使用保存用户的上传头像，那么问题来了，如果发布到heroku上，空间是有限的，然而用户量是不可估计的，所以在对比了国内几家的OSS后，选择了<a href="https://portal.qiniu.com/signup?code=3lcfmuw7yntci" target="_blank" rel="external">七牛对象存储</a>做为图片的存储空间，上传的图片的库已经找好，用的是Alamofire。<br>
-        
-          <a class="article-more-a" href="/blog/2017/09/01/Swift上传文件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-blog首界面实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/07/29/blog首界面实现/">blog首界面实现</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/07/29/blog首界面实现/" class="archive-article-date">
-  	<time datetime="2017-07-29T04:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29 12:40:32</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>非常感谢一个不知名的博主（偶然间看到的一个博客，发现进入他的博客前，有一个动画界面，非常的好看，点<a href="https://agoninemo.github.io/">这里</a>观看）</p>
-<p>开始我们的正题，首先我们要去git上创建一个放首界面的仓库，命名规则是：用户名+github.io<br>
-        
-          <a class="article-more-a" href="/blog/2017/07/29/blog首界面实现/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-用七牛做hexo图床" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/18/用七牛做hexo图床/">用七牛做hexo图床</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/18/用七牛做hexo图床/" class="archive-article-date">
-  	<time datetime="2017-06-18T03:04:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18 11:04:35</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博主用的是Mac系统，下面的命令在windows上有些不同,原理上是一样的，可以在下载七牛命令工具的那个网页查找windows下的命令<br><br>为什么要用七牛做图床，博主觉得以下两点就行了：</p>
-<p><ul><br>    <li>它是免费的</li><br>    <li>它有10G的空间</li><br></ul><br>
-        
-          <a class="article-more-a" href="/blog/2017/06/18/用七牛做hexo图床/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sh</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-我与ps" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/12/我与ps/">我与ps</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/12/我与ps/" class="archive-article-date">
-  	<time datetime="2017-06-12T12:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12 20:54:09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#160; &#160; &#160; &#160; 第一次搞Ps的时候，还是比较的早，那时的版本好像还是4.0没有现在这么强大，也没有这么多的功能。<br>&#160; &#160; &#160; &#160; 博主当时还在念初中，还记得那个时候是在QQ的一个bbs模块里看到别人的教程的，当时是给一个长得很漂亮的女生染发、美瞳。那对当初的博主来说，是多么的神奇，于是，博主就走了为期两个月的学习之旅。当然，现在已经没有当初那种感觉了，下面是博主最新的一个设计，也是前年的了，人呀，就是懒呀！<br>
-        
-          <a class="article-more-a" href="/blog/2017/06/12/我与ps/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-不能说的秘密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/11/不能说的秘密/">不能说的秘密</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/11/不能说的秘密/" class="archive-article-date">
-  	<time datetime="2017-06-11T10:13:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11 18:13:53</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src=/blog/js/crypto-js.js></script><script>
-function doDecrypt(pwd, onError) {
-	console.log("in doDecrypt");
-	var txt = document.getElementById("enc_content").innerHTML;
-	var plantext;
-	try {
-	  	var bytes = CryptoJS.AES.decrypt(txt, pwd);
-		plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {onError(err);}
-		return;
-	}
-	document.getElementById("enc_content").innerHTML = plaintext;
-	document.getElementById("enc_content").style.display = "block";
-   document.getElementById("enc_passwd").style.display = "none";
-}
-</script>
-<div id="enc_content" style="display:none">U2FsdGVkX19HfJmDV8dZJhz6fg/PyBaLxqBorUE2WW5Nk3ppmrwHAoAiYKhdWjqQtO7+OfMXvtbitTf34EFZlYqR9DukuIUhKT4rnE0cMR83JEt9h1UCuHj1rmp8imCEvHE1DPwtpHl7OXbZIShgCBbaCTFOc3qxXoMYK8Rs8Eta8+DjhB+Ta7vQKJq3zhO5</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
 </div>
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2017/11/14/AWS搭建SS/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">能看到吗？</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-      
-
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017/11/06/Jenkins从零开始/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jenkins从零开始</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -854,8 +403,8 @@ doDecrypt(passwd, onError);
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

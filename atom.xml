@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-11-06T11:53:42.000Z</updated>
+  <updated>2017-11-14T12:01:28.000Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS搭建SS</title>
+    <link href="http://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/"/>
+    <id>http://agoninemo.github.io/blog/2017/11/14/AWS搭建SS/</id>
+    <published>2017-11-14T12:00:33.000Z</published>
+    <updated>2017-11-14T12:01:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1610969-f0e3b22b8912f00e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<h3 id="前文"><a href="#前文" class="headerlink" title="前文"></a>前文</h3><p>之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。</p>
+<!--mrore-->
+<h3 id="申请-AWS"><a href="#申请-AWS" class="headerlink" title="申请 AWS"></a>申请 AWS</h3><p>点<a href="https://amazonaws-china.com/cn/" target="_blank" rel="external">AWS</a>进入首界面<br><img src="http://upload-images.jianshu.io/upload_images/1610969-a3fce91bd566e078.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
+<p>点注册，进入注册界面，由于没有截图，所以说下需要注意的地方，里面的信息都要用<code>英文</code>填写，里面的信息都要用<code>英文</code>填写，里面的信息都要用<code>英文</code>填写，重要的事件说三遍，在验证信用卡时，要注意会被扣钱，6.66人民币，要扣钱了，才算验证成功（有句mmp，不知当讲不当讲，说好的免费呢！！！还需要注意的是，在没有用超的情况下，是免费的，限额为：每个月提供 15GB 免费流量与 750小时免费时长），在电话认证那里，会有电话打到你留下的手机上，你只要等等她说完你就把界面上的<code>PIN</code>号码输入，然后就完成了。最后你的邮件会收到邮件，说你AWS已经注册完成。</p>
+<p>然后登录账号，点启动虚拟机<br><img src="http://upload-images.jianshu.io/upload_images/1610969-bfd59bb75d93f734.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="界面"></p>
+<p>选择虚拟机<code>Ubuntu Server 16.04 LTS（HVM），SSD Volume Tpye</code>如果界面没有变的话，是第四个，或者点左边的<code>仅免费套餐</code><br><img src="http://upload-images.jianshu.io/upload_images/1610969-30964070350dcb34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<p>这个实例选择默认的或者如下图选择一样<br><img src="http://upload-images.jianshu.io/upload_images/1610969-125b24a86585e4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<p>第3与第4直接默认就行了，第5步的话密钥与值可以随便填写<br><img src="http://upload-images.jianshu.io/upload_images/1610969-f70d593ffc7141f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<p>第6步规则按下面这样填写就可以了<br><img src="http://upload-images.jianshu.io/upload_images/1610969-dbd1421ce79ddc6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
+<p>点启动后弹出的窗口，这里要注意，在输入完成<code>密钥对名称</code>后，要点<code>下载密钥对</code>，点<code>下载密钥对</code>，点<code>下载密钥对</code>，重要的事情说三遍，最后点<code>启动实例</code>。这里要主意一点这个窗口中有ssh 命令要复制下来，下面要用到（类似这样的：ssh -i “*.pem” ec2-user@ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com）</p>
+<p>设置账单通知（土豪请忽略）<br><img src="http://upload-images.jianshu.io/upload_images/1610969-61f1be1fa85ca968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1610969-0a1b3dd83bf12d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
+<p>点实例–&gt;选择后点连接<br><img src="http://upload-images.jianshu.io/upload_images/1610969-2cef18369a97d0e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
+<p>博主用的是mac，所以可以在终端中直接连接，打开终端运行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#  /Users/xxx/Downloads/SecretKeyValue.pem为你下载的密钥对绝对路径</div><div class="line">chmod 400 /Users/xxx/Downloads/SecretKeyValue.pem</div><div class="line"></div><div class="line"># 连接远程虚拟机（ec2-user 是用户名，Amazon Linux AMI默认的是ec2-user，</div><div class="line">ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com 是你的服务器的公有DNS，这些信息右键点击你的实例，点击连接，弹出的提示框里都写着）</div><div class="line">ssh -i /Users/xxx/Downloads/SecretKeyValue.pem ec2-user@ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
+<h3 id="Debian-Ubuntu-安装方式"><a href="#Debian-Ubuntu-安装方式" class="headerlink" title="Debian/Ubuntu:安装方式"></a>Debian/Ubuntu:安装方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 更新apt-get，这里要注意，如果上面的虚拟机选择的是centos的话，是没有apt-get的，centos用的是yum，下面有介绍安装方法</div><div class="line">apt-get update</div><div class="line"></div><div class="line"># 安装python包管理工具(安装shadowsocks需要,提示时填yes)</div><div class="line">apt-get install python-setuptools</div><div class="line">apt-get install python-pip</div></pre></td></tr></table></figure>
+<h3 id="CentOS安装方式（如果是Ubuntu，可以跳这一步）"><a href="#CentOS安装方式（如果是Ubuntu，可以跳这一步）" class="headerlink" title="CentOS安装方式（如果是Ubuntu，可以跳这一步）"></a>CentOS安装方式（如果是Ubuntu，可以跳这一步）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装shadowsocks（提示时填yes）</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
+<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>多个用户使用的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;  </div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;，  </div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,  </div><div class="line"> &quot;local_port&quot;:1080,  </div><div class="line">  &quot;port_password&quot;: &#123;  </div><div class="line">     &quot;8381&quot;: &quot;foobar1&quot;,  </div><div class="line">     &quot;8382&quot;: &quot;foobar2&quot;,  </div><div class="line">     &quot;8383&quot;: &quot;foobar3&quot;,  </div><div class="line">     &quot;8384&quot;: &quot;foobar4&quot;  </div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>单个用户使用的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;: 8381,</div><div class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;foobar1&quot;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,</div><div class="line">    &quot;fast_open&quot;:false,</div><div class="line">    &quot;workers&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="配置完成后重启配置"><a href="#配置完成后重启配置" class="headerlink" title="配置完成后重启配置"></a>配置完成后重启配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 启动Shadowsocks</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure>
+<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 停止Shadowsocks</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d stop</div><div class="line"></div><div class="line"># 重启Shadowsocks服务</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d restart</div></pre></td></tr></table></figure>
+<h4 id="设置Shadowsocks开机启动"><a href="#设置Shadowsocks开机启动" class="headerlink" title="设置Shadowsocks开机启动"></a>设置Shadowsocks开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/rc.local</div><div class="line"></div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure>
+<p>下载客户端</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">Windows客户端下载地址</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="external">macOS客户端下载地址</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases" target="_blank" rel="external">Linux客户端下载地址</a></p>
+<p>安装之后，添加服务器，地址为AWS的外网地址，登录AWS控制台，查看正在运行中的实例，在右边<code>IPv4 公有 IP</code>找到。 端口号为刚才配置Shadowsocks服务器时的端口号，密码也是刚才配置的，设置完之后保存，接下来就可以自由的浪了！</p>
+<p>参考文章：</p>
+<p><a href="https://sunny856.xyz/1537" target="_blank" rel="external">https://sunny856.xyz/1537</a></p>
+<p><a href="http://celerysoft.github.io/2016-01-15.html" target="_blank" rel="external">http://celerysoft.github.io/2016-01-15.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1610969-f0e3b22b8912f00e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
+    
+    </summary>
+    
+    
+      <category term="ss" scheme="http://agoninemo.github.io/blog/tags/ss/"/>
+    
+      <category term="aws" scheme="http://agoninemo.github.io/blog/tags/aws/"/>
+    
+  </entry>
   
   <entry>
     <title>Jenkins从零开始</title>
@@ -399,7 +455,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19fKEr+sirdyb+FZOF/78cXq468G5y3yooapanBby4Tn2geoWODkXYe+4rwB47MOthiDPszunjWQv4Etigjl5uaMkq+iG+AIkjxiKUqUD3cs838Sj4yfekY3bSAipvtI/Zs1bLxqKooPqTbUT3di2/ydWAMdnVZHxSmeptbpBoImARMTUHjcaNe</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX19HfJmDV8dZJhz6fg/PyBaLxqBorUE2WW5Nk3ppmrwHAoAiYKhdWjqQtO7+OfMXvtbitTf34EFZlYqR9DukuIUhKT4rnE0cMR83JEt9h1UCuHj1rmp8imCEvHE1DPwtpHl7OXbZIShgCBbaCTFOc3qxXoMYK8Rs8Eta8+DjhB+Ta7vQKJq3zhO5</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
