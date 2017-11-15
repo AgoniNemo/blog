@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-11-14T12:03:05.000Z</updated>
+  <updated>2017-11-15T15:03:44.950Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/"/>
     <id>http://agoninemo.github.io/blog/2017/11/14/AWS搭建SS/</id>
     <published>2017-11-14T12:00:33.000Z</published>
-    <updated>2017-11-14T12:03:05.000Z</updated>
+    <updated>2017-11-15T15:03:44.950Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1610969-f0e3b22b8912f00e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
 <h3 id="前文"><a href="#前文" class="headerlink" title="前文"></a>前文</h3><p>之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。</p>
@@ -37,7 +37,7 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1610969-0a1b3dd83bf12d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
 <p>点实例–&gt;选择后点连接<br><img src="http://upload-images.jianshu.io/upload_images/1610969-2cef18369a97d0e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic"></p>
 <p>博主用的是mac，所以可以在终端中直接连接，打开终端运行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#  /Users/xxx/Downloads/SecretKeyValue.pem为你下载的密钥对绝对路径</div><div class="line">chmod 400 /Users/xxx/Downloads/SecretKeyValue.pem</div><div class="line"></div><div class="line"># 连接远程虚拟机（ec2-user 是用户名，Amazon Linux AMI默认的是ec2-user，</div><div class="line">ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com 是你的服务器的公有DNS，这些信息右键点击你的实例，点击连接，弹出的提示框里都写着）</div><div class="line">ssh -i /Users/xxx/Downloads/SecretKeyValue.pem ec2-user@ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#  /Users/xxx/Downloads/SecretKeyValue.pem为你下载的密钥对绝对路径</div><div class="line">chmod 400 /Users/xxx/Downloads/SecretKeyValue.pem</div><div class="line"></div><div class="line"># 连接远程虚拟机（ec2-user 是用户名，Amazon Linux AMI默认的是ec2-user，</div><div class="line">ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com 是你的服务器的公有DNS，这些信息右键点击你的实例，点击连接，弹出的提示框里都写着）</div><div class="line">ssh -i /Users/xxx/Downloads/SecretKeyValue.pem ec2-user@ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com</div><div class="line"></div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
 <h3 id="Debian-Ubuntu-安装方式"><a href="#Debian-Ubuntu-安装方式" class="headerlink" title="Debian/Ubuntu:安装方式"></a>Debian/Ubuntu:安装方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 更新apt-get，这里要注意，如果上面的虚拟机选择的是centos的话，是没有apt-get的，centos用的是yum，下面有介绍安装方法</div><div class="line">apt-get update</div><div class="line"></div><div class="line"># 安装python包管理工具(安装shadowsocks需要,提示时填yes)</div><div class="line">apt-get install python-setuptools</div><div class="line">apt-get install python-pip</div></pre></td></tr></table></figure>
 <h3 id="CentOS安装方式（如果是Ubuntu，可以跳这一步）"><a href="#CentOS安装方式（如果是Ubuntu，可以跳这一步）" class="headerlink" title="CentOS安装方式（如果是Ubuntu，可以跳这一步）"></a>CentOS安装方式（如果是Ubuntu，可以跳这一步）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装shadowsocks（提示时填yes）</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
@@ -437,7 +437,7 @@
     <link href="http://agoninemo.github.io/blog/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/"/>
     <id>http://agoninemo.github.io/blog/2017/06/11/不能说的秘密/</id>
     <published>2017-06-11T10:13:53.000Z</published>
-    <updated>2017-06-12T12:37:44.000Z</updated>
+    <updated>2017-11-15T15:04:53.771Z</updated>
     
     <content type="html"><![CDATA[<script src=/blog/js/crypto-js.js></script><script>
 function doDecrypt(pwd, onError) {
@@ -456,7 +456,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19HfJmDV8dZJhz6fg/PyBaLxqBorUE2WW5Nk3ppmrwHAoAiYKhdWjqQtO7+OfMXvtbitTf34EFZlYqR9DukuIUhKT4rnE0cMR83JEt9h1UCuHj1rmp8imCEvHE1DPwtpHl7OXbZIShgCBbaCTFOc3qxXoMYK8Rs8Eta8+DjhB+Ta7vQKJq3zhO5</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1/EyPkRpYUMaEg12fnMsYo4EpPRtbK9V0asyiPIOksABayTacfkJNJMwWBglkhu8bmF5WZPYXCByZWGs8m2yP3XGJOfafB6LBYaYelbRfQvKZdklotMOALXQoKhRlU6wZDzMg1w1N3Ycuycj01rjMiHwbNvYCDzMccO1Q6EnB8O0fY45k9z+n69Ljf5jj+qUWg4SCVRXiaPKYLWnHoDa0/zTawQCx81F18Q19OBrx/jcb9iPXcSaE+BVKUjqV5eRw7ZNEg7xMh4nusJCH6v6Q2LXLNzXU/PxzmpgYiSt5NWNZfSv9Y9GEqHkfJX3fQjXdU97z2f4TN90+TpdBE4xgzHgHpfwewgqrhCzSE9K77fh+gF5eIUjtkYnXywKg4kNXW0QDbT/1S9/XdbAzWZ7riBECfyzg/8qGnBFlfn7BLkeQ2+WjDZSXQ6HUrrbVhzBQ1KI9EoJynMlYm/pPGGP1OsMs9jN+OyehNi7DCZXQlRRgwofNNeBJKwPCCsOvhneOT+lXiFQZpJibjDc49TjRZnQ96MwUJpqhw=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
