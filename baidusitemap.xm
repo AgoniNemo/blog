@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/18/First%20Translation/</loc>
-    <lastmod>2017-11-18T05:26:19.208Z</lastmod>
+    <lastmod>2017-11-18T05:44:36.402Z</lastmod>
     <data>
         <display>
         <title>First Translation</title>
