@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-11-15T15:03:44.950Z</updated>
+  <updated>2017-11-18T05:24:05.295Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://agoninemo.github.io/blog/2017/11/18/First%20Translation/"/>
+    <id>http://agoninemo.github.io/blog/2017/11/18/First Translation/</id>
+    <published>2017-11-18T05:18:26.675Z</published>
+    <updated>2017-11-18T05:24:05.295Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前方"><a href="#前方" class="headerlink" title="前方"></a>前方</h3><p>当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 </p>
+<h4 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h4><p>欢迎来到Swift.org<br><br>欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。<br></p>
+<p>在2014公布后，它很快成为发展最快的语言之一。Swift 使写的软件（编程）极其安全与快速的设计。我们的目标与野心：我们想要编程简单的事变成更简单，困难的事变成也可能实现。</p>
+<p>对于学习者来说，学习Swift 能更好的了解现在编程的概念与更好的实践。现在Swift 开源了，他们将可以运用到更广泛的平台中，从移动设置到桌面到云平台。<br></p>
+<a id="more"></a>
+<h4 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Welcome to Swift.org</div><div class="line"></div><div class="line">Welcome to the Swift community. Together we are working to build a programming language to empower everyone to turn their ideas into apps on any platform.</div><div class="line"></div><div class="line">Announced in 2014, the Swift programming language has quickly become one of the fastest growing languages in history. Swift makes it easy to write software that is incredibly fast and safe by design. Our goals for Swift are ambitious: we want to make programming simple things easy, and difficult things possible.</div><div class="line"></div><div class="line">For students, learning Swift has been a great introduction to modern programming concepts and best practices. And because it is open, their Swift skills will be able to be applied to an even broader range of platforms, from mobile devices to the desktop to the cloud.</div></pre></td></tr></table></figure>
+<p>部分词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">excited 兴奋</div><div class="line">chapter 章</div><div class="line">quickly 快速</div><div class="line">became 成为</div><div class="line">one of 其中之一</div><div class="line">design 设计</div><div class="line">general 普通</div><div class="line">purpose 用途</div><div class="line">modern 现代</div><div class="line">programming 编程</div><div class="line">concepts 概念</div><div class="line">Announced 公布</div><div class="line">goals 目标</div><div class="line">difficult 困难</div><div class="line">possible 可能</div><div class="line">introduction 采用</div><div class="line">devices 设置</div><div class="line">desktop 桌面</div><div class="line">cloud 云</div><div class="line">applied 应用的</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前方&quot;&gt;&lt;a href=&quot;#前方&quot; class=&quot;headerlink&quot; title=&quot;前方&quot;&gt;&lt;/a&gt;前方&lt;/h3&gt;&lt;p&gt;当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 &lt;/p&gt;
+&lt;h4 id=&quot;译文&quot;&gt;&lt;a href=&quot;#译文&quot; class=&quot;headerlink&quot; title=&quot;译文&quot;&gt;&lt;/a&gt;译文&lt;/h4&gt;&lt;p&gt;欢迎来到Swift.org&lt;br&gt;&lt;br&gt;欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;在2014公布后，它很快成为发展最快的语言之一。Swift 使写的软件（编程）极其安全与快速的设计。我们的目标与野心：我们想要编程简单的事变成更简单，困难的事变成也可能实现。&lt;/p&gt;
+&lt;p&gt;对于学习者来说，学习Swift 能更好的了解现在编程的概念与更好的实践。现在Swift 开源了，他们将可以运用到更广泛的平台中，从移动设置到桌面到云平台。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>AWS搭建SS</title>

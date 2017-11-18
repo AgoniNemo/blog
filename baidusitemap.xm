@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/18/First%20Translation/</loc>
+    <lastmod>2017-11-18T05:24:05.295Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-11-18T05:18:26.675Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/06/11/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86/</loc>
     <lastmod>2017-11-15T15:04:53.771Z</lastmod>
     <data>

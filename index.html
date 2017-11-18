@@ -164,6 +164,40 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-First Translation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前方"><a href="#前方" class="headerlink" title="前方"></a>前方</h3><p>当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 </p>
+<h4 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h4><p>欢迎来到Swift.org<br><br>欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。<br></p>
+<p>在2014公布后，它很快成为发展最快的语言之一。Swift 使写的软件（编程）极其安全与快速的设计。我们的目标与野心：我们想要编程简单的事变成更简单，困难的事变成也可能实现。</p>
+<p>对于学习者来说，学习Swift 能更好的了解现在编程的概念与更好的实践。现在Swift 开源了，他们将可以运用到更广泛的平台中，从移动设置到桌面到云平台。<br></p>
+        
+          <a class="article-more-a" href="/blog/2017/11/18/First Translation/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-AWS搭建SS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -696,88 +730,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-不能说的秘密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/11/不能说的秘密/">不能说的秘密</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/11/不能说的秘密/" class="archive-article-date">
-  	<time datetime="2017-06-11T10:13:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11 18:13:53</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <script src=/blog/js/crypto-js.js></script><script>
-function doDecrypt(pwd, onError) {
-	console.log("in doDecrypt");
-	var txt = document.getElementById("enc_content").innerHTML;
-	var plantext;
-	try {
-	  	var bytes = CryptoJS.AES.decrypt(txt, pwd);
-		plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {onError(err);}
-		return;
-	}
-	document.getElementById("enc_content").innerHTML = plaintext;
-	document.getElementById("enc_content").style.display = "block";
-   document.getElementById("enc_passwd").style.display = "none";
-}
-</script>
-<div id="enc_content" style="display:none">U2FsdGVkX1/EyPkRpYUMaEg12fnMsYo4EpPRtbK9V0asyiPIOksABayTacfkJNJMwWBglkhu8bmF5WZPYXCByZWGs8m2yP3XGJOfafB6LBYaYelbRfQvKZdklotMOALXQoKhRlU6wZDzMg1w1N3Ycuycj01rjMiHwbNvYCDzMccO1Q6EnB8O0fY45k9z+n69Ljf5jj+qUWg4SCVRXiaPKYLWnHoDa0/zTawQCx81F18Q19OBrx/jcb9iPXcSaE+BVKUjqV5eRw7ZNEg7xMh4nusJCH6v6Q2LXLNzXU/PxzmpgYiSt5NWNZfSv9Y9GEqHkfJX3fQjXdU97z2f4TN90+TpdBE4xgzHgHpfwewgqrhCzSE9K77fh+gF5eIUjtkYnXywKg4kNXW0QDbT/1S9/XdbAzWZ7riBECfyzg/8qGnBFlfn7BLkeQ2+WjDZSXQ6HUrrbVhzBQ1KI9EoJynMlYm/pPGGP1OsMs9jN+OyehNi7DCZXQlRRgwofNNeBJKwPCCsOvhneOT+lXiFQZpJibjDc49TjRZnQ96MwUJpqhw=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">能看到吗？</a>
         		</li>
       		
 		</ul>
