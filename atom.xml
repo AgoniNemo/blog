@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2017-11-18T05:24:05.295Z</updated>
+  <updated>2017-11-18T05:26:19.208Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>First Translation</title>
     <link href="http://agoninemo.github.io/blog/2017/11/18/First%20Translation/"/>
     <id>http://agoninemo.github.io/blog/2017/11/18/First Translation/</id>
-    <published>2017-11-18T05:18:26.675Z</published>
-    <updated>2017-11-18T05:24:05.295Z</updated>
+    <published>2017-11-18T05:26:33.000Z</published>
+    <updated>2017-11-18T05:26:19.208Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前方"><a href="#前方" class="headerlink" title="前方"></a>前方</h3><p>当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 </p>
 <h4 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h4><p>欢迎来到Swift.org<br><br>欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。<br></p>
@@ -41,6 +41,8 @@
     
     </summary>
     
+    
+      <category term="swift" scheme="http://agoninemo.github.io/blog/tags/swift/"/>
     
   </entry>
   

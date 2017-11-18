@@ -5,12 +5,14 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/18/First%20Translation/</loc>
-    <lastmod>2017-11-18T05:24:05.295Z</lastmod>
+    <lastmod>2017-11-18T05:26:19.208Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2017-11-18T05:18:26.675Z</pubTime>
+        <title>First Translation</title>
+        <pubTime>2017-11-18T05:26:33.000Z</pubTime>
         
+        <tag>swift</tag>
+         
          
            
         </display>
