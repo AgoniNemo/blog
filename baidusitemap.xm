@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/02/Centos-%E5%AE%89%E8%A3%85GitLab/</loc>
+    <lastmod>2017-11-29T08:42:39.675Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 安装GitLab</title>
+        <pubTime>2017-11-02T11:36:16.000Z</pubTime>
+        
+        <tag>GitLab</tag>
+         
+        <tag>Centos</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/11/18/First%20Translation/</loc>
     <lastmod>2017-11-18T05:44:36.402Z</lastmod>
     <data>
@@ -67,25 +86,6 @@
         <tag>Jenkins</tag>
          
         <tag>Git</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://agoninemo.github.io/blog/blog/2017/11/02/Centos-%E5%AE%89%E8%A3%85GitLab/</loc>
-    <lastmod>2017-11-06T11:53:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>Centos 安装GitLab</title>
-        <pubTime>2017-11-02T11:36:16.000Z</pubTime>
-        
-        <tag>GitLab</tag>
-         
-        <tag>Centos</tag>
          
          
            
