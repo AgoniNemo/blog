@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/03/10/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <lastmod>2018-03-10T09:20:33.523Z</lastmod>
+    <data>
+        <display>
+        <title>shell学习</title>
+        <pubTime>2018-03-10T04:58:04.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2017/12/05/Git%E5%A4%9A%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AEssh/</loc>
     <lastmod>2017-12-05T13:33:11.102Z</lastmod>
     <data>
