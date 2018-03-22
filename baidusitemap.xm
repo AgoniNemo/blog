@@ -5,13 +5,15 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/03/22/Xcode%E6%89%93%E5%8C%85%E7%9A%84%E5%9D%91%E4%B8%8Eshell%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAPlist/</loc>
-    <lastmod>2018-03-22T11:09:38.427Z</lastmod>
+    <lastmod>2018-03-22T11:12:00.108Z</lastmod>
     <data>
         <display>
         <title>Xcode打包的坑与shell动态创建Plist</title>
         <pubTime>2018-03-22T02:50:41.000Z</pubTime>
         
         <tag>shell</tag>
+         
+        <tag>xcodebuild</tag>
          
          
            

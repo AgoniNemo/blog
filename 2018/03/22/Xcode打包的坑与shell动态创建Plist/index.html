@@ -9,7 +9,7 @@
   <title>Xcode打包的坑与shell动态创建Plist | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知  你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。">
-<meta name="keywords" content="shell">
+<meta name="keywords" content="shell,xcodebuild">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode打包的坑与shell动态创建Plist">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知  你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。">
 <meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/xcode9.jpg">
 <meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Plist.jpg">
-<meta property="og:updated_time" content="2018-03-22T11:09:38.427Z">
+<meta property="og:updated_time" content="2018-03-22T11:12:00.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode打包的坑与shell动态创建Plist">
 <meta name="twitter:description" content="再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知  你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。">
@@ -249,6 +249,10 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xcodebuild</a>
         		</li>
       		
 		</ul>
@@ -551,6 +555,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
               </li>
             
             <div class="clearfix"></div>
