@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Archives: 2017/12 | AgoniNemo&#39;s blog</title>
+  <title>shell学习（二） | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2017/12/index.html">
+  <meta name="description" content="问题点1234&amp;quot;-­n&amp;quot;使用问题			val=&amp;quot;Hello&amp;quot;			if [ -n &amp;quot;$val&amp;quot; ]			then				echo &amp;quot;存在&amp;quot;			else				echo &amp;quot;不存在&amp;quot;			fi			[ -n &amp;quot;$val&amp;quot; ] 不能写成 [ -n $val ]">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell学习（二）">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2018/04/01/shell学习（二）/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="问题点1234&amp;quot;-­n&amp;quot;使用问题			val=&amp;quot;Hello&amp;quot;			if [ -n &amp;quot;$val&amp;quot; ]			then				echo &amp;quot;存在&amp;quot;			else				echo &amp;quot;不存在&amp;quot;			fi			[ -n &amp;quot;$val&amp;quot; ] 不能写成 [ -n $val ]">
+<meta property="og:updated_time" content="2018-04-01T06:24:12.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="shell学习（二）">
+<meta name="twitter:description" content="问题点1234&amp;quot;-­n&amp;quot;使用问题			val=&amp;quot;Hello&amp;quot;			if [ -n &amp;quot;$val&amp;quot; ]			then				echo &amp;quot;存在&amp;quot;			else				echo &amp;quot;不存在&amp;quot;			fi			[ -n &amp;quot;$val&amp;quot; ] 不能写成 [ -n $val ]">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,64 +164,177 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-shell学习（二）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/12/05/Git多用户配置ssh/" class="archive-article-date">
-  	<time datetime="2017-12-05T13:29:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05 21:29:57</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/12/05/Git多用户配置ssh/">Git多用户配置ssh</a>
+    <h1 class="article-title" itemprop="name">
+      shell学习（二）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/2018/04/01/shell学习（二）/" class="archive-article-date">
+  	<time datetime="2018-04-01T05:47:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01 13:47:31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题点"><a href="#问题点" class="headerlink" title="问题点"></a>问题点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;-­n&quot;使用问题</div><div class="line">			val=&quot;Hello&quot;			if [ -n &quot;$val&quot; ]			then				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi</div><div class="line">			</div><div class="line">[ -n &quot;$val&quot; ] 不能写成 [ -n $val ]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">语法一：</div><div class="line">#!/bin/bash#文件B包含文件A./fileA.shecho &quot;我是文件B&quot;</div><div class="line"></div><div class="line">语法二：</div><div class="line">#!/bin/bash#文件B包含文件Asource ./fileA.shecho &quot;我是文件B&quot;</div><div class="line"></div><div class="line">cat [选项] [文件]</div><div class="line">-n选项：可以显示文件内容和行号</div><div class="line">-b选项：和&quot;-n&quot;类似功能，但是只标记非空白行行号</div><div class="line">-e选项：在每一行内容最后加入了一个&quot;$&quot;符号，在需要将多行内容转换为一行内容的时候</div><div class="line"></div><div class="line"></div><div class="line">read语法：</div><div class="line">echo &quot;请输入你的名字：&quot;</div><div class="line">read nameecho &quot;您的名字是：$&#123;name&#125;&quot;</div><div class="line"></div><div class="line">read -p &quot;请输入你的名字：&quot; name</div><div class="line">echo &quot;您的名字是：$&#123;name&#125;&quot;</div><div class="line"></div><div class="line">if read -t 6 -p &quot;请输入你的名字：&quot; namethen			echo &quot;您的名字是：$&#123;name&#125;&quot;else			echo			echo &quot;超时&quot;firead -s -p &quot;请输入您密码：&quot; pwdecho &quot;您的密码是：$&#123;pwd&#125;&quot;#从文件里面读取内容cat fileB.sh | while read linedo			echo &quot;内容：$&#123;line&#125;&quot;done接收输入多行：while read name</div><div class="line"></div><div class="line">方法函数：</div><div class="line">[function] 方法名称()&#123;			逻辑代码&#125;func test()&#123;&#125;&quot;&lt;&quot;：输入重定向</div><div class="line">命令代码：wc fileA.sh	将fileA中内容读取到控制台wc读取到了三个重要信息	第一个参数：文本行数	第二个参数：文本词数	第三个参数：文本字节数</div><div class="line">&quot;&lt;&lt;&quot;：创建文件</div><div class="line"></div><div class="line"> &quot;&gt;&quot;：我们把方向指向一份文件，那么将文件中的内容删除，写入新的内容</div><div class="line"> &quot;&gt;&gt;&quot;：追加</div><div class="line"> </div><div class="line">expr 命令简写</div><div class="line">#!/bin/basha=100b=200val=$[ $a + $b ]echo &quot;val值：$val&quot;</div><div class="line"></div><div class="line">bash计算器-&gt;实际上是一种编程语言，这个允许在命令中输入浮点数表达式，然后解释并且计算表达式，最后返回结果。</div><div class="line">语法结构：val=$(echo &quot;options; expression&quot; | bc)</div><div class="line">options表示-&gt;选项-&gt;可以设置精度expression表示-&gt;表达式#!/bin/bashval=$(echo &quot; 1.56555 * 100 &quot; | bc)echo &quot;val值：$val&quot;</div><div class="line"></div><div class="line">#!/bin/bashval1=1.314val2=0.618val3=100val4=100val=$(bc &lt;&lt; FG	a = ($val1 * $val2)	b = ($val3 * $val4)	a * b	FG)echo &quot;val结果：$val&quot;Shell脚本语言中将：输入、输出、错误分为了三种描述符（3种状态）-&gt;分别对应的值（0、1、2）</div><div class="line">第一种：STDIN-&gt;标准输入-&gt;0-&gt;键盘输入</div><div class="line">第一点：直接输入cat命令-&gt;接收键盘输入，然后打印到控制台</div><div class="line">第二点：采用cat接收一个非STDIN-&gt;文件输入(就是读取文件内容，输出到控制台)第二种：STDOUT-&gt;标准输出-&gt;1-&gt;对应终端显示</div><div class="line">第一点：重定向-&gt;输出文件中(原来是输出到控制台，现在我要重定向到文件)第二点：重定向错误-&gt;输出到文件中</div><div class="line"></div><div class="line">总结一：到我们的命令发生错误时候，shell脚本语言并不会将错误信息重定向到输出重定向文件，shell及时创建了输出重定向文件，当时也不会写入内容</div><div class="line">总结二：虽然创建了文件，但是文件内容是空的</div><div class="line">总结三：shell脚本语言对错误信息处理和普通信息输出是分开的，那么如果我们希望报错错误信息，那么需要采用STDERR实现</div><div class="line"></div><div class="line">第三种：STUERR-&gt;标准错误-&gt;2</div><div class="line">将STDERR文件描述修改为2</div><div class="line">ls -al a.sh 2&gt; error.sh将STDOUT和STDERR结合使用</div><div class="line">ls -al fileA.sh fileB.sh fileC.sh 2&gt; error.sh</div><div class="line"></div><div class="line">报错错误信息，同时还要报错数据</div><div class="line">ls -al fileA.sh fileB.sh fileC.sh 2&gt; error.sh 1&gt; fileContent.sh</div><div class="line"></div><div class="line">&quot;&amp;&gt;&quot;：重定向结构</div><div class="line">将数据和错误信息，同时输出到同一个文件</div><div class="line">ls -al fileA.sh fileB.sh fileC.sh &amp;&gt; error.sh</div><div class="line"></div><div class="line">临时重定向-&gt;&quot;&amp;&quot;</div><div class="line">#!/bin/bash#临时重定向echo &quot;Hello world&quot; &gt;&amp;2echo &quot;你好&quot;</div><div class="line"></div><div class="line">脚本结果Hello world你好将fileA中标记的错误信息，全部保存到error.sh中，通过STDERR重定向到error.sh里面</div><div class="line">#!/bin/bash#临时重定向#一下这句话定义为错误信息echo &quot;Hello world&quot; &gt;&amp;2echo &quot;你好&quot; &gt;&amp;2echo &quot;JAR童鞋&quot;</div><div class="line"></div><div class="line">执行脚本</div><div class="line">./fileA.sh 2&gt; error.sh</div><div class="line"></div><div class="line">#exec命令：批量输出</div><div class="line">exec 1&gt; fileContent.sh</div><div class="line">echo &quot;Hello world&quot;echo &quot;你好&quot;echo &quot;JAR童鞋&quot;#!/bin/bash#从fileContent.sh文件中读取内容到fileA.sh里面exec 0&lt; fileContent.sh					#循环遍历读取count=1while read linedo	echo &quot;当前行数：$count 读取内容：$line&quot;	count=$[ $count + 1 ]done注意：一旦设置了输入重定向，那么read命令自动链接文件输入内容</div><div class="line"></div><div class="line">#!/bin/bash#exec命令：自定义文件描述符#重定向输出exec 40&gt; fileContent.sh					echo &quot;Hello world&quot;echo &quot;你好&quot; &gt;&amp;40echo &quot;JAR童鞋&quot;追加内容</div><div class="line">#exec命令：自定义文件描述符#重定向输出exec 40&gt;&gt; fileContent.sh					echo &quot;Hello world&quot;echo &quot;你好&quot; &gt;&amp;40echo &quot;JAR童鞋&quot;原来是1，然后修改为2了，这个时候需要恢复为1#!/bin/bash#exec命令：自定义文件描述符#最开始是3，然后我重定向到1exec 3&gt;&amp;1exec 1&gt; fileContent.sh					echo &quot;Hello world&quot;echo &quot;你好&quot;echo &quot;JAR童鞋&quot;#将1还原为3exec 1&gt;&amp;3echo &quot;搞完了，完成了&quot;</div><div class="line"></div><div class="line">创建读写文件描述符</div><div class="line">作用：一个文件即可以读取也可以写入</div><div class="line">#!/bin/bashexec 3&lt;&gt; fileContent.sh#从fileContent.sh文件里面读取内容read line &lt;&amp;3echo &quot;Read：$line&quot;#写入内容echo &quot;I have a Dream&quot; &gt;&amp;3</div><div class="line">注意：替换了第二行？因为我们文件指针读取完了第一行，文件指针指向了第二行，所以第二行之后所有的内容被替换</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2018/04/01/shell学习（二）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xcode打包的坑与shell动态创建Plist</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -242,8 +357,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
