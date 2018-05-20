@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/05/20/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/</loc>
+    <lastmod>2018-05-20T02:05:40.765Z</lastmod>
+    <data>
+        <display>
+        <title>shell学习（三）</title>
+        <pubTime>2018-05-20T01:56:01.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+        <tag>sql</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/04/01/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
     <lastmod>2018-04-01T06:24:12.498Z</lastmod>
     <data>
