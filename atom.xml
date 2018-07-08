@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2018-05-20T02:05:40.765Z</updated>
+  <updated>2018-07-08T07:41:28.302Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git命令整理</title>
+    <link href="http://agoninemo.github.io/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
+    <id>http://agoninemo.github.io/blog/2018/07/08/Git命令整理/</id>
+    <published>2018-07-08T07:39:35.000Z</published>
+    <updated>2018-07-08T07:41:28.302Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 基于master创建的Develop分支</div><div class="line">git checkout -b develop master</div><div class="line"></div><div class="line"># 切换到Master分支(本地的)</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 查看远程分支</div><div class="line">git branch -r</div><div class="line"></div><div class="line"># 切换到origin/develop分支(远程的)</div><div class="line">git checkout origin/develop</div><div class="line"></div><div class="line"># 对Develop分支进行合并</div><div class="line">git merge --no-ff -m&apos;注释&apos; develop</div><div class="line"></div><div class="line"># 删除本地feature分支</div><div class="line">git branch -D feature-x</div><div class="line"></div><div class="line"># 删除远程feature分支</div><div class="line">git push origin :feature-x</div><div class="line"></div><div class="line"># 删除预发布分支</div><div class="line">git branch -d release-1.2</div></pre></td></tr></table></figure>
+<h3 id="例子：发现bug"><a href="#例子：发现bug" class="headerlink" title="例子：发现bug"></a>例子：发现bug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 创建一个修补bug分支</div><div class="line">git checkout -b fixbug-0.1 master</div><div class="line"></div><div class="line"># 修补结束后切换master</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 合并到master分支</div><div class="line">git merge --no-ff -m&apos;注释&apos; fixbug-0.1</div><div class="line"></div><div class="line"># 创建新的节点</div><div class="line">git tag -a 0.1.1</div><div class="line"># 推送所有新节点</div><div class="line">git push --tags</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># -b表示要从分支下载(git clone -b release git@xxxxx.git)</div><div class="line">git clone -b 分支名 地址</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</div><div class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</div><div class="line">git reset --hard HASH #返回到某个节点，不保留修改。</div><div class="line">git reset --soft HASH #返回到某个节点。保留修改</div><div class="line"></div><div class="line">git clean -df #返回到某个节点</div><div class="line">git clean 参数</div><div class="line">-n 显示 将要 删除的 文件 和  目录</div><div class="line">-f 删除 文件</div><div class="line">-df 删除 文件 和 目录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">本地仓库的回退（撤销本地的commit）： git  reset：</div><div class="line"></div><div class="line">reset命令有3种方式：</div><div class="line"></div><div class="line">git reset --mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息git </div><div class="line">reset --soft  HEAD^：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</div><div class="line">git reset --hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</div><div class="line">#回退所有内容到上一个版本  </div><div class="line">git reset HEAD^  </div><div class="line">#回退a.py这个文件的版本到上一个版本  </div><div class="line">git reset HEAD^ a.py  </div><div class="line">#向前回退到第3个版本</div><div class="line">git reset –-soft HEAD~3  </div><div class="line">#将本地的状态回退到和远程的一样  </div><div class="line">git reset –-hard origin/master  </div><div class="line">#回退到某个版本  </div><div class="line">git reset 057d  </div><div class="line">#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit  </div><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://agoninemo.github.io/blog/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>shell学习（三）</title>
@@ -703,7 +728,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19wqeObtMJnuSWyN9cZyJIBsIgD8bxl4W20hKI6XaFLYlyT5ewS1EsQorJoU+UdATSzXa9cYdY4MZlo+sWV0Zd8h8PgI2dU8y5EQHwF6hXsheNr6TFCctv4DnHRd950//giGzMXna2BxNQwSDPNv8rapGpzGNlhYU3Lkaw/6xBODv4/lZ6c242DdG7J3qxNhPnu5piMSyekZW+LCxOTuxBY2RK4W2gprZFyAf1Yj2d0K1wOT2Woby0WD/UEC0vOo2Xaf/aQPOdCWhFxFhcYsGssBkgCA+3oKE0jFm3dy5sZpXg1obtSAKSvFODSgfHj0BVJQtofcSCq9AkZ1xUI05/Mttg8fzOGQ6/DWznDATiaAMlah1Md+NHxuNBzbrJTHQstHvU/8qu/dbyz8EJxzzF0gaz/p8Fm2Fwug4g9JPkpJ93aHbmTTlzXB/912zelMiFjnzWurwZCQmIgRqp4uLWcLAQ+9mHjJGTO5ZgD8bweqi/XzCCzMZYlbrnDxvAKRwjuzxqRAAYGN0/jv6K5i/0VC/Gcdf7nguk=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+bFsh7r83167E6zxs7mLgZcFUlv9TK5rk1vRSy4yuSi1pmBzMAc17nPjCNgplhuJky8KCfGRHi2mrc7NsE+e11eJK/4yH88OS2NaK9vVgiaEw37hWKWk1Ftf2Tql6/OVea7UonymduPnKBevWovSw1OqoZmz00lKoM0M2lOBPSPg3Qy8mQinClO+V02laQIw3wl1X5XjGJUHuZymXQ0DAYJiKnQ/NSqyZDBR0jMuNyhlXfpBlikbW7EswzlU1F00lARHYS3Wziv2m77dlYKwkKfhA85Sy/o4PfFiLKoON6I64i6Zuq1IaH0+rAQ8WpHXqub+uPmMAh4ZKys7a5zSAnnfGZADJtxvVKKXJcxXgouOxoiVt5rWZ+rKeieVjkI10QkM2GS6WKVatkFTC4uvZX2SmlWDvk9+aljLlmkFfPz2SXj23aa/ImpP3XsJ79QNYtlId4vECMbbF9tWk0xqTuKMrR3CLQUrU/rfGsGxzqolqXoYpsnRdNh3Kv7b35oqZEWCAemuAm/L08wjBDfmh0HbG2ICE5CaU=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -839,39 +864,6 @@ function doDecrypt(pwd, onError) {
       <category term="ipa" scheme="http://agoninemo.github.io/blog/tags/ipa/"/>
     
       <category term="打包" scheme="http://agoninemo.github.io/blog/tags/%E6%89%93%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用UIWebView加载本地文件（设置fragment问题）</title>
-    <link href="http://agoninemo.github.io/blog/2017/06/10/%E7%94%A8UIWebView%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%EF%BC%88%E8%AE%BE%E7%BD%AEfragment%E9%97%AE%E9%A2%98%EF%BC%89/"/>
-    <id>http://agoninemo.github.io/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/</id>
-    <published>2017-06-10T11:54:26.000Z</published>
-    <updated>2017-06-10T12:19:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记得选creat folder references"><br>别告诉我你不知道怎么加载蓝色的文件？<br>PS:好吧，下面就是加载方法：<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/1610969-7fdc735aff652472.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="拖文件到项目中的选项"><br>为什么要这么选？因为选第一个的话，你本地的html文件里引用的其他js,css文件就要修改路径了，如果文件多的话，工作量就大了。<br>下面问题就来了，比如网络加载的html的URL是这样的：</p>
-<blockquote>
-<p><a href="http://www.xxx.com/#!/cb" target="_blank" rel="external">http://www.xxx.com/#!/cb</a></p>
-</blockquote>
-<p>下面是博主加载本地html的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;index&quot; ofType:@&quot;html&quot; inDirectory:@&quot;dist&quot;];</div><div class="line">NSURL * url = [NSURL fileURLWithPath:path];</div><div class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</div><div class="line">[_webView loadRequest:request];</div></pre></td></tr></table></figure></p>
-<p>然后加载出来了一个空的界面，最后发现要加index.html后面加#!/cb的，当然就想这个容易。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSURL * url = [NSURL fileURLWithPath:[NSString stringWithFormat:@&quot;%@#!/cb&quot;,path]];</div></pre></td></tr></table></figure></p>
-<p>URL改成上面那种后，就连界面都加载不出来了，T^T<br>查看了下加载的错误信息，发现是#号被转义了，在网上找下转义的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *encodedString = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)url, (CFStringRef)@&quot;!NULL,&apos;()*+,-./:;=?@_~%#[]&quot;, NULL, kCFStringEncodingUTF8);</div></pre></td></tr></table></figure></p>
-<p>然后还是没什么用还是加载失败！！！<br>后来发现是方向有问题，URL创建的方法是fileURLWithPath，这个是给个路径的，在后面加东西肯定会出错的，因为这个路径是不存在的。在网上查了下资料，#号叫锚点，是网页内部的超级链接。于是就想像是不是在URL内部设置的。去stackoverflow搜索了下，找到了解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSURL * url = [NSURL fileURLWithPath:path];</div><div class="line">NSString *fragment = @&quot;#!/cb&quot;;</div><div class="line">url = [NSURL URLWithString:fragment relativeToURL:url];</div><div class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</div></pre></td></tr></table></figure></p>
-<p>PS：如果还有更好的方法请在下面评论或者私信博主。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;记得选creat folder references&quot;&gt;&lt;br&gt;别告诉我你不知道怎么加载蓝色的文件？&lt;br&gt;PS:好吧，下面就是加载方法：&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="ios" scheme="http://agoninemo.github.io/blog/tags/ios/"/>
-    
-      <category term="UIWebView" scheme="http://agoninemo.github.io/blog/tags/UIWebView/"/>
     
   </entry>
   

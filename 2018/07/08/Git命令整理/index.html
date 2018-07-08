@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Archives: 2018/5 | AgoniNemo&#39;s blog</title>
+  <title>Git命令整理 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2018/05/index.html">
+  <meta name="description" content="1234567891011121314151617181920212223# 基于master创建的Develop分支git checkout -b develop master# 切换到Master分支(本地的)git checkout master# 查看远程分支git branch -r# 切换到origin/develop分支(远程的)git checkout origin/develop">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git命令整理">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2018/07/08/Git命令整理/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="1234567891011121314151617181920212223# 基于master创建的Develop分支git checkout -b develop master# 切换到Master分支(本地的)git checkout master# 查看远程分支git branch -r# 切换到origin/develop分支(远程的)git checkout origin/develop">
+<meta property="og:updated_time" content="2018-07-08T07:41:28.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="Git命令整理">
+<meta name="twitter:description" content="1234567891011121314151617181920212223# 基于master创建的Develop分支git checkout -b develop master# 切换到Master分支(本地的)git checkout master# 查看远程分支git branch -r# 切换到origin/develop分支(远程的)git checkout origin/develop">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,64 +164,180 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Git命令整理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/05/20/shell学习（三）/" class="archive-article-date">
-  	<time datetime="2018-05-20T01:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 09:56:01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/05/20/shell学习（三）/">shell学习（三）</a>
+    <h1 class="article-title" itemprop="name">
+      Git命令整理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/2018/07/08/Git命令整理/" class="archive-article-date">
+  	<time datetime="2018-07-08T07:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08 15:39:35</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 基于master创建的Develop分支</div><div class="line">git checkout -b develop master</div><div class="line"></div><div class="line"># 切换到Master分支(本地的)</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 查看远程分支</div><div class="line">git branch -r</div><div class="line"></div><div class="line"># 切换到origin/develop分支(远程的)</div><div class="line">git checkout origin/develop</div><div class="line"></div><div class="line"># 对Develop分支进行合并</div><div class="line">git merge --no-ff -m&apos;注释&apos; develop</div><div class="line"></div><div class="line"># 删除本地feature分支</div><div class="line">git branch -D feature-x</div><div class="line"></div><div class="line"># 删除远程feature分支</div><div class="line">git push origin :feature-x</div><div class="line"></div><div class="line"># 删除预发布分支</div><div class="line">git branch -d release-1.2</div></pre></td></tr></table></figure>
+<h3 id="例子：发现bug"><a href="#例子：发现bug" class="headerlink" title="例子：发现bug"></a>例子：发现bug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 创建一个修补bug分支</div><div class="line">git checkout -b fixbug-0.1 master</div><div class="line"></div><div class="line"># 修补结束后切换master</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 合并到master分支</div><div class="line">git merge --no-ff -m&apos;注释&apos; fixbug-0.1</div><div class="line"></div><div class="line"># 创建新的节点</div><div class="line">git tag -a 0.1.1</div><div class="line"># 推送所有新节点</div><div class="line">git push --tags</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># -b表示要从分支下载(git clone -b release git@xxxxx.git)</div><div class="line">git clone -b 分支名 地址</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</div><div class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</div><div class="line">git reset --hard HASH #返回到某个节点，不保留修改。</div><div class="line">git reset --soft HASH #返回到某个节点。保留修改</div><div class="line"></div><div class="line">git clean -df #返回到某个节点</div><div class="line">git clean 参数</div><div class="line">-n 显示 将要 删除的 文件 和  目录</div><div class="line">-f 删除 文件</div><div class="line">-df 删除 文件 和 目录</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">本地仓库的回退（撤销本地的commit）： git  reset：</div><div class="line"></div><div class="line">reset命令有3种方式：</div><div class="line"></div><div class="line">git reset --mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息git </div><div class="line">reset --soft  HEAD^：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</div><div class="line">git reset --hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</div><div class="line">#回退所有内容到上一个版本  </div><div class="line">git reset HEAD^  </div><div class="line">#回退a.py这个文件的版本到上一个版本  </div><div class="line">git reset HEAD^ a.py  </div><div class="line">#向前回退到第3个版本</div><div class="line">git reset –-soft HEAD~3  </div><div class="line">#将本地的状态回退到和远程的一样  </div><div class="line">git reset –-hard origin/master  </div><div class="line">#回退到某个版本  </div><div class="line">git reset 057d  </div><div class="line">#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit  </div><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2018/07/08/Git命令整理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2018/05/20/shell学习（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">shell学习（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -242,8 +360,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
