@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/06/10/%E5%88%9D%E6%8E%A2-vue-router/</loc>
+    <lastmod>2018-07-10T12:06:34.754Z</lastmod>
+    <data>
+        <display>
+        <title>初探 vue-router</title>
+        <pubTime>2018-06-10T12:03:48.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
     <lastmod>2018-07-08T07:42:38.113Z</lastmod>
     <data>
