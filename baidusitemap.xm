@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/06/10/%E5%88%9D%E6%8E%A2-vue-router/</loc>
-    <lastmod>2018-07-10T12:06:34.754Z</lastmod>
+    <lastmod>2018-07-14T02:39:31.295Z</lastmod>
     <data>
         <display>
         <title>初探 vue-router</title>
