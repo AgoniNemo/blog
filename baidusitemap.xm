@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/09/06/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</loc>
+    <lastmod>2018-09-06T12:14:07.533Z</lastmod>
+    <data>
+        <display>
+        <title>vue视频添加键盘事件</title>
+        <pubTime>2018-09-06T11:28:25.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+        <tag>video</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
     <lastmod>2018-08-04T09:11:32.926Z</lastmod>
     <data>
@@ -22,7 +41,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/06/10/%E5%88%9D%E6%8E%A2-vue-router/</loc>
-    <lastmod>2018-07-14T02:39:31.295Z</lastmod>
+    <lastmod>2018-07-14T02:39:31.296Z</lastmod>
     <data>
         <display>
         <title>初探 vue-router</title>
@@ -90,7 +109,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/03/22/Xcode%E6%89%93%E5%8C%85%E7%9A%84%E5%9D%91%E4%B8%8Eshell%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAPlist/</loc>
-    <lastmod>2018-03-22T11:49:33.994Z</lastmod>
+    <lastmod>2018-03-22T11:49:33.995Z</lastmod>
     <data>
         <display>
         <title>Xcode打包的坑与shell动态创建Plist</title>

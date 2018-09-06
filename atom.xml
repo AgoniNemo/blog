@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2018-08-04T09:11:32.926Z</updated>
+  <updated>2018-09-06T12:14:07.533Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue视频添加键盘事件</title>
+    <link href="http://agoninemo.github.io/blog/2018/09/06/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://agoninemo.github.io/blog/2018/09/06/vue视频添加键盘事件/</id>
+    <published>2018-09-06T11:28:25.000Z</published>
+    <updated>2018-09-06T12:14:07.533Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/vue1.jpg" alt="vue"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。</p>
+<a id="more"></a>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>在个人项目中，使用到了<a href="https://github.com/surmon-china/vue-video-player" target="_blank" rel="external">vue的一个视频加载组件</a>，这个组件是比较多人用的，也是比较的容易使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 因为博主很多地方都用到  所以全局引用</div><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import VideoPlayer from &apos;vue-video-player&apos;;</div><div class="line">import &apos;video.js/dist/video-js.css&apos;;</div><div class="line">Vue.use(VideoPlayer);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">#  组件使用</div><div class="line">&lt;template&gt;</div><div class="line">&lt;video-player class=&quot;vjs-custom-skin&quot;</div><div class="line">                ref=&quot;videoPlayer&quot;</div><div class="line">                :playsinline=&quot;true&quot;</div><div class="line">                :options=&quot;playerOptions&quot;&gt;</div><div class="line">        &lt;/video-player&gt;</div><div class="line">&lt;template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">import &#123; videoPlayer &#125; from &apos;vue-video-player&apos;;</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">	data() &#123;</div><div class="line">      return &#123;</div><div class="line">        playerOptions: &#123;</div><div class="line">          muted: false,  //默认情况下将会消除任何音频</div><div class="line">          language: &apos;zh-CN&apos;,</div><div class="line">          preload: &apos;atou&apos;,</div><div class="line">          playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度</div><div class="line">          aspectRatio: &apos;16:9&apos;, //将播放器置于流畅模式，并在计算播放器的动态大小时使用该值</div><div class="line">          fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。</div><div class="line">          notSupportedMessage: &apos;此视频暂无法播放，请稍后再试&apos;,</div><div class="line">          sources: [&#123;</div><div class="line">            type: &apos;video/mp4&apos;,</div><div class="line">            src: mp4</div><div class="line">          &#125;],</div><div class="line">          poster: &quot;bg.png&quot;  //封面地址</div><div class="line">        &#125;,</div><div class="line">        seekStep: 10, /// 后退与进行时间</div><div class="line">        volumeStep: 0.05, /// 加减音量</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    created() &#123;</div><div class="line">    	let than = this;</div><div class="line">      document.onkeydown = function(e) &#123;</div><div class="line">            if (e.keyCode === 32) &#123;</div><div class="line">              than.spaceAction();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 37) &#123;</div><div class="line">              than.controlLeft();</div><div class="line">            &#125; else if (e.keyCode === 38) &#123;</div><div class="line">              than.controlUp();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 39) &#123;</div><div class="line">              than.controlRight();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 40) &#123;</div><div class="line">              than.controlDown();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125;</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123; </div><div class="line">      controlUp() &#123;</div><div class="line">        let currentVolume = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.volume(currentVolume + this.volumeStep);</div><div class="line">      &#125;,</div><div class="line">      controlDown() &#123;</div><div class="line">        let currentVolume = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.volume(currentVolume - this.volumeStep);</div><div class="line">      &#125;,</div><div class="line">      controlLeft() &#123;</div><div class="line">        let currentTime = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.currentTime(currentTime - this.seekStep);</div><div class="line">      &#125;,</div><div class="line">      controlRight() &#123;</div><div class="line">        let currentTime = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.currentTime(currentTime + this.seekStep);</div><div class="line">      &#125;,</div><div class="line">      spaceAction() &#123;</div><div class="line">        if (this.$refs.videoPlayer.player.paused()) &#123;</div><div class="line">            this.$refs.videoPlayer.player.play();</div><div class="line">        &#125; else &#123;</div><div class="line">            this.$refs.videoPlayer.player.pause();</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">        videoPlayer</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是全部的代码，现在来说下思路，当博主配置好这个组件时，发现没有用键盘控件的事件，所以就在<code>created</code>里给<code>document.onkeydown</code>添加监听键盘事件，博主也试过<code>vue</code>的键盘事件，但都没有生效。下面就是控制了视频了，当时博客以为可以在数组里修改数据达到目的，但是找了好久，都没找到方法或者属性，所以只能自己写逻辑，代码很简单，因为这个组件库就是对<code>videojs</code>的封装，可以调用<code>videojs</code>的方法与属性，使用<code>paused()</code>判断当前视频状态，使用控制空格的播放与暂停，使用<code>currentTime()</code>方法可以控制快进与后退，使用<code>volume()</code>方法控制音量大小。再说下<code>e.preventDefault</code>这个调用方法的作用，当我们使用空格时，系统默认会翻页，所以这是为了阻止这一事件的发生的，其他的事件也是一样的作用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://orfd017lz.bkt.clouddn.com/assets/inset/vue1.jpg&quot; alt=&quot;vue&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://agoninemo.github.io/blog/tags/vue/"/>
+    
+      <category term="video" scheme="http://agoninemo.github.io/blog/tags/video/"/>
+    
+  </entry>
   
   <entry>
     <title>Git命令整理</title>
@@ -46,7 +76,7 @@
     <link href="http://agoninemo.github.io/blog/2018/06/10/%E5%88%9D%E6%8E%A2-vue-router/"/>
     <id>http://agoninemo.github.io/blog/2018/06/10/初探-vue-router/</id>
     <published>2018-06-10T12:03:48.000Z</published>
-    <updated>2018-07-14T02:39:31.295Z</updated>
+    <updated>2018-07-14T02:39:31.296Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1610969-3c8ad3a79dec789f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"></p>
 <h3 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h3><p>已经有好些日子没有更新了，是因为博主最近公司的项目比较的忙，加班比较的晚，回到家就不想动了，趁着前天刚上完项目，有点时间去整理，一些学习的东西。</p>
@@ -128,7 +158,7 @@
     <link href="http://agoninemo.github.io/blog/2018/03/22/Xcode%E6%89%93%E5%8C%85%E7%9A%84%E5%9D%91%E4%B8%8Eshell%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAPlist/"/>
     <id>http://agoninemo.github.io/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/</id>
     <published>2018-03-22T10:50:41.000Z</published>
-    <updated>2018-03-22T11:49:33.994Z</updated>
+    <updated>2018-03-22T11:49:33.995Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/xcode9.jpg" alt="bg"></p>
 <blockquote>
@@ -760,7 +790,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1+osEMsyQFy8fB65UTrYoIE79oeCx/La9V+ZCvv1J/81vVBWfDp4QnOqBeYJldm5awHMbd7T6RAEJpAepmQPgJPKmEZ6rxfwo1I03iEBt8yvdB1+NcvzvaLs5KJXrvoXMTNRFJWOJIoFLkcxGrCWsPEQlT7kL6y20+Jz6gBVH3zSKsVBVmR/Y8+xv/NGl/Tq+ADCM9GCXdY+frcis8sC/Ldy2rdmzZafudB7fiyItBOO85qDxqVtHiCwYPVXAHZravR0sZssKP+FLvNJRGFJcR1L8tO5fuaPiDhqj7wVqYUDe2geQgo+J/MUCqGgvD0PMZUnRzLbMKWLO0uUw9wz3uTViotC2UJyWUh7AsGs3v2PvqrG2svaseMLRA1EwBQKxF2zwanW81LyDr6wma0hwWY3en2/LM5DJlSJ0qxcNQ2s/WAOGFglLcbrIi5O1GrzEKBOlB09apqeiRB8Jd0mhbz6a0B5BNVGeDcvSnJCWpGkMZXLqhuSn6vJPazz8mkeNEpb+KRi0zDSD8vCh0VWqWSEnZHtQcWXIE=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+XonmyVQlsfWL/KKFC8Sf/uMCSi47D5A4ztCTTUqME56/wY/cI+CrZfC0NBEv9QPy42Yh1n/3QVp6bUVl4mCXbHqPwfdGjgFJdKoKaUDzSgCjV9i/9LPr0wgq8EivF1q5wCb3xAkRymdCNWo7DSwdXnlS0ScC6fbHRnDd8eacYPcU7JkmgZTYF0uvZTBisE7gSW7JkY9MNtbK4V3MZPF/E8B8tm0QozmIvtmVspLrqnZnWv7d1MUELo4NibGHPHAiKILwsKnEy5SbGCTr62m4rpUNergqAhO5OhD7ZtWYzR2rCGcyGfUMJSoYnEd7KxNKyhyc6CxQvVht2dXQnGDprGBCo49IWWbyri0IAyJqyYzSS0j1GBbVDNTJqO1eQi1G62PeVCMV9PSP8/v+nA/8HZvproESnS1YSKngKKdsSxfzGLCKPHDqBHJeiXNqn4vUZHxwCYV0GjfFE2XGLUKQ/uOq4ZRg69RHy6rD9h+R4EDpBPTZvfkv23ZNviaY2PJeuaVWGEwB5cPOExykj0u5/uC8+c4S6MUE=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -806,43 +836,6 @@ function doDecrypt(pwd, onError) {
     
     
       <category term="随笔" scheme="http://agoninemo.github.io/blog/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用脚本生成包文件问题汇总</title>
-    <link href="http://agoninemo.github.io/blog/2017/06/11/%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E7%94%9F%E6%88%90%E5%8C%85%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://agoninemo.github.io/blog/2017/06/11/使用脚本生成包文件问题汇总/</id>
-    <published>2017-06-11T09:28:57.000Z</published>
-    <updated>2017-06-11T09:38:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-描述文件引起的问题。"><a href="#1-描述文件引起的问题。" class="headerlink" title="1.描述文件引起的问题。"></a>1.描述文件引起的问题。</h3><blockquote>
-<p>Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.</p>
-</blockquote>
-<p>这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&gt;General-&gt;Automatically manage signing打勾的情况，这个描述文件在开发者中心是找不到的，只存在本地），这个描述文件与填写的证书所需的描述文件不一致造成的（天知道为什么不同  T_T），重新再去开发者中心生成新的再安装就好了。</p>
-<a id="more"></a>
-<h3 id="2-勾选了手动选择证书"><a href="#2-勾选了手动选择证书" class="headerlink" title="2.勾选了手动选择证书"></a>2.勾选了手动选择证书</h3><blockquote>
-<p>Provisioning profile “ReleaseProfiles” doesn’t include signing certificate “iPhone Developer: XXX (3R7YA7C56E)”.</p>
-</blockquote>
-<p>这个问题是由于下面两个地方选择了证书的原因：<br><img src="http://upload-images.jianshu.io/upload_images/1610969-8350ed708ae43d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不要选择"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1610969-7d30097c9b8bb4c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不能打勾"></p>
-<p>PS：还有一个地方是要注意的，如果Target-&gt;General-&gt;Automatically manage signing打勾了，要去掉。</p>
-<p>解决方法就是：有勾的去掉勾，有选择的，去掉选择。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-描述文件引起的问题。&quot;&gt;&lt;a href=&quot;#1-描述文件引起的问题。&quot; class=&quot;headerlink&quot; title=&quot;1.描述文件引起的问题。&quot;&gt;&lt;/a&gt;1.描述文件引起的问题。&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;Provisioning profile “iOS Team Provisioning Profile: com.ccc.xxxx” is Xcode managed, but signing settings require a manually managed profile.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这个问题是由于在自动管理证书时，直接运行生成的描述文件（也就是Target-&amp;gt;General-&amp;gt;Automatically manage signing打勾的情况，这个描述文件在开发者中心是找不到的，只存在本地），这个描述文件与填写的证书所需的描述文件不一致造成的（天知道为什么不同  T_T），重新再去开发者中心生成新的再安装就好了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="sh" scheme="http://agoninemo.github.io/blog/tags/sh/"/>
-    
-      <category term="Python" scheme="http://agoninemo.github.io/blog/tags/Python/"/>
     
   </entry>
   
