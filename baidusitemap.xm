@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://agoninemo.github.io/blog/blog/2018/09/06/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</loc>
-    <lastmod>2018-09-06T12:14:07.533Z</lastmod>
+    <loc>http://agoninemo.github.io/blog/blog/2018/08/28/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</loc>
+    <lastmod>2018-09-06T13:28:38.525Z</lastmod>
     <data>
         <display>
         <title>vue视频添加键盘事件</title>
-        <pubTime>2018-09-06T11:28:25.000Z</pubTime>
+        <pubTime>2018-08-28T11:28:25.000Z</pubTime>
         
         <tag>vue</tag>
          
