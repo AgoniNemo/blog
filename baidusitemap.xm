@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/09/08/vue%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-09-08T15:30:04.580Z</lastmod>
+    <data>
+        <display>
+        <title>vue技巧使用</title>
+        <pubTime>2018-09-08T14:12:06.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+        <tag>Element</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/08/28/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</loc>
     <lastmod>2018-09-06T13:28:38.525Z</lastmod>
     <data>

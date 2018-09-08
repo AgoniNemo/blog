@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>用UIWebView加载本地文件（设置fragment问题） | AgoniNemo&#39;s blog</title>
+  <title>vue技巧使用 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样： 别告诉我你不知道怎么加载蓝色的文件？PS:好吧，下面就是加载方法：">
-<meta name="keywords" content="ios,UIWebView">
+  <meta name="description" content="前言突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。">
+<meta name="keywords" content="vue,Element">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用UIWebView加载本地文件（设置fragment问题）">
-<meta property="og:url" content="http://agoninemo.github.io/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/index.html">
+<meta property="og:title" content="vue技巧使用">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2018/09/08/vue技巧使用/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样： 别告诉我你不知道怎么加载蓝色的文件？PS:好吧，下面就是加载方法：">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-7fdc735aff652472.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-10T12:19:32.000Z">
+<meta property="og:description" content="前言突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。">
+<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/1486368214291404.jpg">
+<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG141.jpeg">
+<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG144.jpeg">
+<meta property="og:updated_time" content="2018-09-08T15:30:04.580Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用UIWebView加载本地文件（设置fragment问题）">
-<meta name="twitter:description" content="在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样： 别告诉我你不知道怎么加载蓝色的文件？PS:好吧，下面就是加载方法：">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="vue技巧使用">
+<meta name="twitter:description" content="前言突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。">
+<meta name="twitter:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/1486368214291404.jpg">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -167,36 +168,35 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-用UIWebView加载本地文件（设置fragment问题）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue技巧使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      用UIWebView加载本地文件（设置fragment问题）
+      vue技巧使用
     </h1>
   
 
         
-        <a href="/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/" class="archive-article-date">
-  	<time datetime="2017-06-10T11:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10 19:54:26</time>
+        <a href="/blog/2018/09/08/vue技巧使用/" class="archive-article-date">
+  	<time datetime="2018-09-08T14:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08 22:12:06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在加载网络的html的时候，有些html加载太慢了，所以就把整个包文件给放到项目中去了。比如像下面这样：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1610969-db40573326464895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="记得选creat folder references"><br>别告诉我你不知道怎么加载蓝色的文件？<br>PS:好吧，下面就是加载方法：<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/1610969-7fdc735aff652472.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="拖文件到项目中的选项"><br>为什么要这么选？因为选第一个的话，你本地的html文件里引用的其他js,css文件就要修改路径了，如果文件多的话，工作量就大了。<br>下面问题就来了，比如网络加载的html的URL是这样的：</p>
-<blockquote>
-<p><a href="http://www.xxx.com/#!/cb" target="_blank" rel="external">http://www.xxx.com/#!/cb</a></p>
-</blockquote>
-<p>下面是博主加载本地html的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;index&quot; ofType:@&quot;html&quot; inDirectory:@&quot;dist&quot;];</div><div class="line">NSURL * url = [NSURL fileURLWithPath:path];</div><div class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</div><div class="line">[_webView loadRequest:request];</div></pre></td></tr></table></figure></p>
-<p>然后加载出来了一个空的界面，最后发现要加index.html后面加#!/cb的，当然就想这个容易。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSURL * url = [NSURL fileURLWithPath:[NSString stringWithFormat:@&quot;%@#!/cb&quot;,path]];</div></pre></td></tr></table></figure></p>
-<p>URL改成上面那种后，就连界面都加载不出来了，T^T<br>查看了下加载的错误信息，发现是#号被转义了，在网上找下转义的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *encodedString = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)url, (CFStringRef)@&quot;!NULL,&apos;()*+,-./:;=?@_~%#[]&quot;, NULL, kCFStringEncodingUTF8);</div></pre></td></tr></table></figure></p>
-<p>然后还是没什么用还是加载失败！！！<br>后来发现是方向有问题，URL创建的方法是fileURLWithPath，这个是给个路径的，在后面加东西肯定会出错的，因为这个路径是不存在的。在网上查了下资料，#号叫锚点，是网页内部的超级链接。于是就想像是不是在URL内部设置的。去stackoverflow搜索了下，找到了解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSURL * url = [NSURL fileURLWithPath:path];</div><div class="line">NSString *fragment = @&quot;#!/cb&quot;;</div><div class="line">url = [NSURL URLWithString:fragment relativeToURL:url];</div><div class="line">NSURLRequest *request = [NSURLRequest requestWithURL:url];</div></pre></td></tr></table></figure></p>
-<p>PS：如果还有更好的方法请在下面评论或者私信博主。</p>
+        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/1486368214291404.jpg" alt="1"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。</p>
+<a id="more"></a>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>博主开发项目时，这样一个需求，如下图<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG141.jpeg" alt="2"><br>点击<code>展开</code>时，变成<code>收起</code>，项目中用到饿了么的UI组件<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="external">Element</a>里的Table表格，可以设置<code>type=&quot;expand&quot;</code>和<code>Scoped slot</code>来达到设置展开效果，但是这个点击展开的组件是没有属性可以设置。<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG144.jpeg" alt="3"><br>博主原来的想法是操作DOM添加文字，后来前端大佬如果这么做，数据多的话，会有问题，所以博主就在样式下，下功夫，最后添加如下样式，实现效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.cell &#123;</div><div class="line">    .el-table__expand-icon &#123;</div><div class="line">        i &#123;</div><div class="line">            left: 0;</div><div class="line">            color: #66b1ff;</div><div class="line">            font-size: 14px;</div><div class="line">        &#125;</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;展开&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    .el-table__expand-icon--expanded &#123;</div><div class="line">        transform:rotate(0);</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;收起&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"><a href="#PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）" class="headerlink" title="PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"></a>PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）</h5><p>下一个需求就是城市二级选择器，这个需求使用到了<a href="http://element-cn.eleme.io/#/zh-CN/component/cascader" target="_blank" rel="external">Cascader 级联选择器</a>，数据的话，是前端大佬弄好的，博主做了一些修改，就成了二级数据了，但是这里有个问题，就是设置<code>change-on-select</code>与<code>expand-trigger</code>为<code>hover</code>时，不可以选择一级，里面的只提供了一个<code>change</code>方法用于数据改变时的回调，但是博客的需求是可以选择一级，也可以选择二级。最初的想法，就是看下内部有没有点击事件，很遗憾，那个点击方法不合适，但是博主还是找到了有用的方法，在<code>main.vue</code>文件里的385行（查看于2018-09-08 22:12:06）<code>handleClickoutside</code>方法，一看就命名就知道是点击组件外时调用的，里面设置了<code>this.menuVisible = false</code>，这是用来打开与关闭组件用的。看到这里，博主有了思路，因为这个组件可以用<code>v-model</code>来绑定数据，那么可以在第一级组件里添加一个点击方法，达到可以让用户点击一级的效果，下面来看代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;el-cascader</div><div class="line">    size=&quot;large&quot;</div><div class="line">    placeholder=&quot;请选择&quot;</div><div class="line">    ref=&quot;cascader&quot;</div><div class="line">    :options=&quot;options&quot;</div><div class="line">    v-model=&quot;address&quot;</div><div class="line">    expand-trigger=&quot;hover&quot;</div><div class="line">    @focus=&quot;cityAction&quot;</div><div class="line">    popper-class=&quot;city-popper&quot;</div><div class="line">    change-on-select</div><div class="line">    clearable&gt;</div><div class="line">&lt;/el-cascader&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">	cityAction() &#123;</div><div class="line">	    setTimeout(()=&gt;&#123;</div><div class="line">	        let ul = document.getElementsByClassName(&apos;el-cascader-menu&apos;)[0];</div><div class="line">	        let than = this;</div><div class="line">	        if (!ul.onclick) &#123;</div><div class="line">	            ul.onclick = function () &#123;</div><div class="line">	                than.$refs.cascader.handleClickoutside();</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;, 300)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="细节说明"><a href="#细节说明" class="headerlink" title="细节说明"></a>细节说明</h4><p>组件里用到<code>focus</code>方法这个方法在源码的<code>main.vue</code>文件里397～398行（查看于2018-09-08 22:12:06）<code>this.$emit(&#39;focus&#39;, event)</code>，使用过<code>vue</code>的都知道，子组件与父组件组件通信，使用到<code>$emit</code>来传给父组件，所以博主在这里使用<code>focus</code>同步方法<code>cityAction</code>来监听用户点击选择器，在<code>cityAction</code>方法里，添加一级点击事件，并调用组件<code>handleClickoutside</code>方法来关闭选择器。</p>
 
       
 
@@ -241,11 +241,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">UIWebView</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Element</a>
         		</li>
       		
 		</ul>
@@ -301,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2017/06/10/用UIWebView加载本地文件（设置fragment问题）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2018/09/08/vue技巧使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +315,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/2017/06/10/iOS脚本打包/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS脚本打包
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2017/06/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/blog/2018/08/28/vue视频添加键盘事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue视频添加键盘事件</div>
       <i class="icon-circle-right"></i>
     </a>
   

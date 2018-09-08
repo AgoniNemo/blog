@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2018-09-06T13:28:38.525Z</updated>
+  <updated>2018-09-08T15:30:04.580Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue技巧使用</title>
+    <link href="http://agoninemo.github.io/blog/2018/09/08/vue%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8/"/>
+    <id>http://agoninemo.github.io/blog/2018/09/08/vue技巧使用/</id>
+    <published>2018-09-08T14:12:06.000Z</published>
+    <updated>2018-09-08T15:30:04.580Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/1486368214291404.jpg" alt="1"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。</p>
+<a id="more"></a>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>博主开发项目时，这样一个需求，如下图<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG141.jpeg" alt="2"><br>点击<code>展开</code>时，变成<code>收起</code>，项目中用到饿了么的UI组件<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="external">Element</a>里的Table表格，可以设置<code>type=&quot;expand&quot;</code>和<code>Scoped slot</code>来达到设置展开效果，但是这个点击展开的组件是没有属性可以设置。<br><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/WechatIMG144.jpeg" alt="3"><br>博主原来的想法是操作DOM添加文字，后来前端大佬如果这么做，数据多的话，会有问题，所以博主就在样式下，下功夫，最后添加如下样式，实现效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.cell &#123;</div><div class="line">    .el-table__expand-icon &#123;</div><div class="line">        i &#123;</div><div class="line">            left: 0;</div><div class="line">            color: #66b1ff;</div><div class="line">            font-size: 14px;</div><div class="line">        &#125;</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;展开&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    .el-table__expand-icon--expanded &#123;</div><div class="line">        transform:rotate(0);</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;收起&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"><a href="#PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）" class="headerlink" title="PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"></a>PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）</h5><p>下一个需求就是城市二级选择器，这个需求使用到了<a href="http://element-cn.eleme.io/#/zh-CN/component/cascader" target="_blank" rel="external">Cascader 级联选择器</a>，数据的话，是前端大佬弄好的，博主做了一些修改，就成了二级数据了，但是这里有个问题，就是设置<code>change-on-select</code>与<code>expand-trigger</code>为<code>hover</code>时，不可以选择一级，里面的只提供了一个<code>change</code>方法用于数据改变时的回调，但是博客的需求是可以选择一级，也可以选择二级。最初的想法，就是看下内部有没有点击事件，很遗憾，那个点击方法不合适，但是博主还是找到了有用的方法，在<code>main.vue</code>文件里的385行（查看于2018-09-08 22:12:06）<code>handleClickoutside</code>方法，一看就命名就知道是点击组件外时调用的，里面设置了<code>this.menuVisible = false</code>，这是用来打开与关闭组件用的。看到这里，博主有了思路，因为这个组件可以用<code>v-model</code>来绑定数据，那么可以在第一级组件里添加一个点击方法，达到可以让用户点击一级的效果，下面来看代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;el-cascader</div><div class="line">    size=&quot;large&quot;</div><div class="line">    placeholder=&quot;请选择&quot;</div><div class="line">    ref=&quot;cascader&quot;</div><div class="line">    :options=&quot;options&quot;</div><div class="line">    v-model=&quot;address&quot;</div><div class="line">    expand-trigger=&quot;hover&quot;</div><div class="line">    @focus=&quot;cityAction&quot;</div><div class="line">    popper-class=&quot;city-popper&quot;</div><div class="line">    change-on-select</div><div class="line">    clearable&gt;</div><div class="line">&lt;/el-cascader&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">	cityAction() &#123;</div><div class="line">	    setTimeout(()=&gt;&#123;</div><div class="line">	        let ul = document.getElementsByClassName(&apos;el-cascader-menu&apos;)[0];</div><div class="line">	        let than = this;</div><div class="line">	        if (!ul.onclick) &#123;</div><div class="line">	            ul.onclick = function () &#123;</div><div class="line">	                than.$refs.cascader.handleClickoutside();</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;, 300)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="细节说明"><a href="#细节说明" class="headerlink" title="细节说明"></a>细节说明</h4><p>组件里用到<code>focus</code>方法这个方法在源码的<code>main.vue</code>文件里397～398行（查看于2018-09-08 22:12:06）<code>this.$emit(&#39;focus&#39;, event)</code>，使用过<code>vue</code>的都知道，子组件与父组件组件通信，使用到<code>$emit</code>来传给父组件，所以博主在这里使用<code>focus</code>同步方法<code>cityAction</code>来监听用户点击选择器，在<code>cityAction</code>方法里，添加一级点击事件，并调用组件<code>handleClickoutside</code>方法来关闭选择器。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://orfd017lz.bkt.clouddn.com/assets/inset/1486368214291404.jpg&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，都其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！公司的处境感觉也不太妙，不知道能不能过完今天，能不能拿到融资，如果拿不到，年底就要换工作，唉，心累。好了，不发牢骚了，下面来说说，博客在项目遇到的问题，与解决方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://agoninemo.github.io/blog/tags/vue/"/>
+    
+      <category term="Element" scheme="http://agoninemo.github.io/blog/tags/Element/"/>
+    
+  </entry>
   
   <entry>
     <title>vue视频添加键盘事件</title>
@@ -790,7 +822,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1+XonmyVQlsfWL/KKFC8Sf/uMCSi47D5A4ztCTTUqME56/wY/cI+CrZfC0NBEv9QPy42Yh1n/3QVp6bUVl4mCXbHqPwfdGjgFJdKoKaUDzSgCjV9i/9LPr0wgq8EivF1q5wCb3xAkRymdCNWo7DSwdXnlS0ScC6fbHRnDd8eacYPcU7JkmgZTYF0uvZTBisE7gSW7JkY9MNtbK4V3MZPF/E8B8tm0QozmIvtmVspLrqnZnWv7d1MUELo4NibGHPHAiKILwsKnEy5SbGCTr62m4rpUNergqAhO5OhD7ZtWYzR2rCGcyGfUMJSoYnEd7KxNKyhyc6CxQvVht2dXQnGDprGBCo49IWWbyri0IAyJqyYzSS0j1GBbVDNTJqO1eQi1G62PeVCMV9PSP8/v+nA/8HZvproESnS1YSKngKKdsSxfzGLCKPHDqBHJeiXNqn4vUZHxwCYV0GjfFE2XGLUKQ/uOq4ZRg69RHy6rD9h+R4EDpBPTZvfkv23ZNviaY2PJeuaVWGEwB5cPOExykj0u5/uC8+c4S6MUE=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX19Rr/76mlQYGJVjCmL3kvN/QREty7ZojLtSjB6pOUJV5AoZUaRs/vqho52x+3kTOXbg8IpX+cnoHhssdSrF8EoFjm6vKE6hEqU0cbZxFZ+xJamEyo4naQwMt9LfF/BNwGUaQy7+XPO5MG4YvpNlFT+CrdPXDWwbFmIezO74HL0oWQwcv7b8o5wkQrsq9C8ANFup0Wy0fVl03e+L/dQREgYmgPK5HzVx6ttm7nhPuoAlweYpjk8x4RC7k76/rLi1pwZ4fbbtgMExjhngWSqIP0ANo/EmNukCiWGp4evlxQnnI4lelIYn5cax95zfSS9sW/iKiobYEtuC+R0vAy8mpOL8Z531IkAQsJFU+qlk+HAwVOUr2RM7ny1rBbLWp+rYIp+fJJG1/c3SYIA8UDgGbDzTASXHXn6NOMktSQzGtJyYpLfwvZGu8sjYbG4iQ4WL08AYkSd0wJqHl1GKlOrr0/VailccVPZXfvZ+t+DgW1nGDKmeBWKjVuIVG11ce2kj0NfuBsIZILOo9ZhFAKbOtoiAjpY/0yRolzg=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -814,28 +846,6 @@ function doDecrypt(pwd, onError) {
     
     
       <category term="能看到吗？" scheme="http://agoninemo.github.io/blog/tags/%E8%83%BD%E7%9C%8B%E5%88%B0%E5%90%97%EF%BC%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随笔</title>
-    <link href="http://agoninemo.github.io/blog/2017/06/11/%E9%9A%8F%E7%AC%94/"/>
-    <id>http://agoninemo.github.io/blog/2017/06/11/随笔/</id>
-    <published>2017-06-11T09:38:19.000Z</published>
-    <updated>2017-06-11T10:15:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p> 就像你看到，这就是随笔！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 就像你看到，这就是随笔！&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://agoninemo.github.io/blog/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
