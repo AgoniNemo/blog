@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/09/08/vue%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2018-09-09T02:42:44.861Z</lastmod>
+    <lastmod>2018-09-09T05:02:32.300Z</lastmod>
     <data>
         <display>
         <title>vue技巧使用</title>
