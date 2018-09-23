@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2018-09-23T13:18:26.092Z</lastmod>
+    <data>
+        <display>
+        <title>Git命令整理</title>
+        <pubTime>2018-07-08T07:39:35.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/08/28/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</loc>
     <lastmod>2018-09-15T14:18:25.937Z</lastmod>
     <data>
@@ -33,23 +50,6 @@
         <tag>vue</tag>
          
         <tag>Element</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://agoninemo.github.io/blog/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2018-08-04T09:11:32.926Z</lastmod>
-    <data>
-        <display>
-        <title>Git命令整理</title>
-        <pubTime>2018-07-08T07:39:35.000Z</pubTime>
-        
-        <tag>git</tag>
          
          
            
