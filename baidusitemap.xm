@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/03/10/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <lastmod>2018-10-08T12:00:28.239Z</lastmod>
+    <data>
+        <display>
+        <title>shell学习（一）</title>
+        <pubTime>2018-03-10T04:58:04.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/</loc>
     <lastmod>2018-09-23T13:18:26.092Z</lastmod>
     <data>
@@ -99,23 +116,6 @@
         <display>
         <title>shell学习（二）</title>
         <pubTime>2018-04-01T05:47:31.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://agoninemo.github.io/blog/blog/2018/03/10/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
-    <lastmod>2018-04-01T05:48:24.688Z</lastmod>
-    <data>
-        <display>
-        <title>shell学习</title>
-        <pubTime>2018-03-10T04:58:04.000Z</pubTime>
         
         <tag>shell</tag>
          

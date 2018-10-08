@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>shell学习 | AgoniNemo&#39;s blog</title>
+  <title>shell学习（一） | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Shell脚本语言-echo    1、显示普通字符串         echo &amp;quot;iPhoneX&amp;quot;      2、显示转义字符         echo &amp;quot;  &amp;quot; hello world &amp;quot;  &amp;quot;      3、显示变量         h=&amp;quot;hello&amp;quot;         echo &amp;quot;${h} world&amp;">
 <meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell学习">
+<meta property="og:title" content="shell学习（一）">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2018/03/10/shell学习（一）/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="Shell脚本语言-echo    1、显示普通字符串         echo &amp;quot;iPhoneX&amp;quot;      2、显示转义字符         echo &amp;quot;  &amp;quot; hello world &amp;quot;  &amp;quot;      3、显示变量         h=&amp;quot;hello&amp;quot;         echo &amp;quot;${h} world&amp;">
-<meta property="og:updated_time" content="2018-04-01T05:48:24.688Z">
+<meta property="og:updated_time" content="2018-10-08T12:00:28.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell学习">
+<meta name="twitter:title" content="shell学习（一）">
 <meta name="twitter:description" content="Shell脚本语言-echo    1、显示普通字符串         echo &amp;quot;iPhoneX&amp;quot;      2、显示转义字符         echo &amp;quot;  &amp;quot; hello world &amp;quot;  &amp;quot;      3、显示变量         h=&amp;quot;hello&amp;quot;         echo &amp;quot;${h} world&amp;">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      shell学习
+      shell学习（一）
     </h1>
   
 
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
             if(age &gt; 100){
                 exit 1
             }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line"></div><div class="line">### Shell脚本语言-数组</div><div class="line"></div><div class="line">```	1、语法				数组名=(值1 值2 值3…)	2、初始化数组		方式一			name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)			#输出			echo $name			#默认：打印第一个元素		方式二			name=()			name[0]=&quot;404&quot;			name[1]=&quot;Andy&quot;			name[2]=&quot;柚芒子&quot;			name[3]=&quot;全班最菜&quot;			echo $&#123;name[0]&#125;  $&#123;name[1]&#125;	3、读取数组		语法结构：$&#123;数组名[下标]&#125;		name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)		#输出一个元素				echo $&#123;name[0]&#125;		#输出所有-&gt;&quot;@&quot;表示输出所有的数据		echo $&#123;name[@]&#125;	4、数组长度		方式一：获取数组元素个数			语法：$&#123;#数组名[@]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[@]&#125;			结果：4		方式二：获取数组元素个数			语法：$&#123;#数组名[*]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[*]&#125;			结果：4		方式三：获取单个元素-&gt;字符长度			语法：$&#123;#数组名[下标]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[2]&#125;			结果：3</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">以上是`echo`的基本用法，`echo`功能很强大，后面的学习中会说到。</div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line"></div><div class="line">### Shell脚本语言-数组</div><div class="line"></div><div class="line">```	1、语法				数组名=(值1 值2 值3…)	2、初始化数组		方式一			name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)			#输出			echo $name			#默认：打印第一个元素		方式二			name=()			name[0]=&quot;404&quot;			name[1]=&quot;Andy&quot;			name[2]=&quot;柚芒子&quot;			name[3]=&quot;全班最菜&quot;			echo $&#123;name[0]&#125;  $&#123;name[1]&#125;	3、读取数组		语法结构：$&#123;数组名[下标]&#125;		name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)		#输出一个元素				echo $&#123;name[0]&#125;		#输出所有-&gt;&quot;@&quot;表示输出所有的数据		echo $&#123;name[@]&#125;	4、数组长度		方式一：获取数组元素个数			语法：$&#123;#数组名[@]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[@]&#125;			结果：4		方式二：获取数组元素个数			语法：$&#123;#数组名[*]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[*]&#125;			结果：4		方式三：获取单个元素-&gt;字符长度			语法：$&#123;#数组名[下标]&#125;			代码：				name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)				echo $&#123;#name[2]&#125;			结果：3</div></pre></td></tr></table></figure>
 
 ### Shell脚本语言-传递参数
 </code></pre><pre><code>1、语法定义
