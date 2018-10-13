@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/03/10/shell%E5%AD%A6%E4%B9%A0(%E4%B8%80)/</loc>
-    <lastmod>2018-10-12T13:01:10.569Z</lastmod>
+    <lastmod>2018-10-13T11:59:20.817Z</lastmod>
     <data>
         <display>
         <title>shell学习（一）</title>
