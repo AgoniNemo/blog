@@ -412,7 +412,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
+        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+<h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/blog/2018/05/20/shell学习（三）/#more">more >></a>
         
@@ -473,7 +474,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题点"><a href="#问题点" class="headerlink" title="问题点"></a>问题点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;-­n&quot;使用问题</div><div class="line">			val=&quot;Hello&quot;			if [ -n &quot;$val&quot; ]			then				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi</div><div class="line">			</div><div class="line">[ -n &quot;$val&quot; ] 不能写成 [ -n $val ]</div></pre></td></tr></table></figure>
+        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+<h3 id="问题点"><a href="#问题点" class="headerlink" title="问题点"></a>问题点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;-­n&quot;使用问题</div><div class="line">			val=&quot;Hello&quot;			if [ -n &quot;$val&quot; ]			then				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi</div><div class="line">			</div><div class="line">[ -n &quot;$val&quot; ] 不能写成 [ -n $val ]</div></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/blog/2018/04/01/shell学习（二）/#more">more >></a>
         
@@ -595,7 +597,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
+        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+<h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
 <h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
 </code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
 #${0}-&gt;表示文件名称
@@ -671,7 +674,8 @@ $*：显示整个脚本输入参数列表
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Shell脚本语言-echo"><a href="#Shell脚本语言-echo" class="headerlink" title="Shell脚本语言-echo"></a>Shell脚本语言-echo</h3><pre><code># 显示普通字符串
+        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+<h3 id="Shell脚本语言-echo"><a href="#Shell脚本语言-echo" class="headerlink" title="Shell脚本语言-echo"></a>Shell脚本语言-echo</h3><pre><code># 显示普通字符串
     echo &quot;iPhoneX&quot;
 
 # 显示转义字符
