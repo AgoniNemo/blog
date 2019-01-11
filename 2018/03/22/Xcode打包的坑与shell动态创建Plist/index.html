@@ -15,18 +15,18 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知  你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。">
-<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/xcode9.jpg">
-<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Plist.jpg">
-<meta property="og:updated_time" content="2018-03-22T11:49:33.995Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Plist.jpg">
+<meta property="og:updated_time" content="2019-01-10T09:21:43.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode打包的坑与shell动态创建Plist">
 <meta name="twitter:description" content="再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知  你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。">
-<meta name="twitter:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/xcode9.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png">
   
   <link rel="stylesheet" type="text/css" href="/blog/./main.b3331d.css">
   <style type="text/css">
@@ -60,7 +60,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+			<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">AgoniNemo</a></h1>
@@ -116,7 +116,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+				<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">AgoniNemo</h1>
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/xcode9.jpg" alt="bg"></p>
+        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg" alt="bg"></p>
 <blockquote>
 <p>再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知</p>
 </blockquote>
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
 <li>在打包ipa的命令中需要添加<code>-allowProvisioningUpdates</code>来对钥匙串进行访问。命令：<br><code>xcodebuild  -exportArchive -archivePath xcarchive路径 -exportOptionsPlist plist文件路径 -exportPath ipa导出路径 -allowProvisioningUpdates</code><br><br></li>
 <li>原有的plist文件中只有一个必填的键值对<code>method</code>，现在多了一个<code>provisioningProfiles</code>字典，key为bundleID，value为配置文件的名字。(如下图)</li>
 </ul>
-<p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Plist.jpg" alt="p"></p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Plist.jpg" alt="p"></p>
 <p>如果你只想了解坑的话，看到这里，想法你已经明白怎么去修改自己的脚本，下面的你可以不需要看了。</p>
 <p>在之前博主就在想一个问题，就是能不能动态去生成plist文件，之前对这方面的需求不是很高，但是博主已经维护了一个开源的打包脚本，而且之前用Xcode8.3是可以打包的，现在如果还是按照之前的思路去创建三个Plist文件的话，这又多了三个文件，这可不是一个好的Coder习惯。随着最近比较系统的学习了shell之后，思路才算打开，Plist格式的文件其实是<code>xml</code>格式的，只要使用shell的重定向动态去写入，就肯定没问题。下面是用shell封装的脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#! /bin/bash</div><div class="line"></div><div class="line">outfile=ExportOptionsPlist.plist</div><div class="line">space=0</div><div class="line"></div><div class="line">output()&#123;</div><div class="line"> echo &apos;&lt;&apos;$&#123;*&#125;&apos;&gt;&apos; &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">output_head()&#123;</div><div class="line"> output &apos;?&apos;$&#123;1&#125;&apos;?&apos;</div><div class="line">&#125;</div><div class="line"># 打印空格</div><div class="line">out_space()&#123;</div><div class="line"> tmp=0</div><div class="line"> spacestr=&quot;&quot;</div><div class="line"> while [ $tmp -lt $((space)) ]</div><div class="line"> do</div><div class="line">  spacestr=$&#123;spacestr&#125;&apos;\t&apos;</div><div class="line">  tmp=$((tmp+1))</div><div class="line"> done</div><div class="line"> echo -e -n $spacestr &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">output_key()&#123;</div><div class="line">    out_space</div><div class="line">    echo &apos;&lt;&apos;$&#123;1&#125;&apos;&gt;&apos;$&#123;2&#125;&apos;&lt;/&apos;$&#123;1&#125;&apos;&gt;&apos; &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">key_start()&#123;</div><div class="line"> out_space</div><div class="line"> output $1</div><div class="line"> space=$((space+1))</div><div class="line">&#125;</div><div class="line"></div><div class="line">key_end()&#123;</div><div class="line"> space=$((space-1))</div><div class="line"> out_space</div><div class="line"> output &apos;/&apos;$&#123;1&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>使用起来也很简单,就拿上面截图的Plist文件举例</p>
@@ -221,13 +221,13 @@ var _hmt = _hmt || [];
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 AgoniNemo
+    		&copy; 2019 AgoniNemo
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

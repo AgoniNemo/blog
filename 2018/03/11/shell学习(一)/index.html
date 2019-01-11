@@ -15,17 +15,17 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2018/03/11/shell学习(一)/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="Shell脚本语言-传递参数``` 语法定义./文件名称.sh 参数1 参数2 参数3... 案例脚本内容如下： #${0}-&amp;gt;表示文件名称 #${1}-&amp;gt;表示参数1 #${2}-&amp;gt;表示参数2 echo ${0} ${1}  ${2} 执行脚本代码： ./hello.sh &amp;quot;hello&amp;quot; &amp;quot;world&amp;quot; 特殊字符$#：获得脚本输入参数个数">
-<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg">
-<meta property="og:updated_time" content="2018-10-14T04:17:35.239Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
+<meta property="og:updated_time" content="2019-01-10T09:23:31.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell学习（一）下篇">
 <meta name="twitter:description" content="Shell脚本语言-传递参数``` 语法定义./文件名称.sh 参数1 参数2 参数3... 案例脚本内容如下： #${0}-&amp;gt;表示文件名称 #${1}-&amp;gt;表示参数1 #${2}-&amp;gt;表示参数2 echo ${0} ${1}  ${2} 执行脚本代码： ./hello.sh &amp;quot;hello&amp;quot; &amp;quot;world&amp;quot; 特殊字符$#：获得脚本输入参数个数">
-<meta name="twitter:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png">
   
   <link rel="stylesheet" type="text/css" href="/blog/./main.b3331d.css">
   <style type="text/css">
@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+			<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">AgoniNemo</a></h1>
@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+				<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">AgoniNemo</h1>
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
 <h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
 <h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
 </code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
@@ -210,6 +210,7 @@ $*：显示整个脚本输入参数列表
    ./hello.sh &quot;hello&quot; &quot;world&quot;
    执行脚本结果：&quot;hello&quot; &quot;world&quot;
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Shell脚本语言-基本运算符</div><div class="line"></div><div class="line">```# 算数运算符  # &quot;+&quot;运算  #注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a + $b`	echo &quot;c的值：$c&quot;	# &quot;-&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a - $b`	echo &quot;c的值：$c&quot;	# &quot;*&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a \* $b`	echo &quot;c的值：$c&quot;	# &quot;/&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a / $b`	echo &quot;c的值：$c&quot;	# &quot;%&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a % $b`	echo &quot;c的值：$c&quot;	#&quot;=&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=$a	echo &quot;b的值：$b&quot;			# &quot;==&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	if [ $a == $b ]	then		echo &quot;a等于b&quot;	else		echo &quot;a不等于b&quot;	fi	#关系运算符		# &quot;-eq&quot;：检测两个数是否相等，当等返回true			a=100			b=200			if [ $a -eq $b ]			then				echo &quot;a等于b&quot;			else				echo &quot;a不等于b&quot;			fi		# &quot;-ne&quot;：检测两个数是否相等，不相等返回true			a=100			b=200			if [ $a -ne $b ]			then				echo &quot;a不等于b&quot;			else				echo &quot;a等于b&quot;			fi		# &quot;-gt&quot;：检测左边数是否大于右边数，如果是，返回true			a=100			b=200			if [ $a -gt $b ]			then				echo &quot;a大于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-lt&quot;：检测左边数是否小于右边数，如果是，返回true			a=100			b=200			if [ $a -lt $b ]			then				echo &quot;a小于b&quot;			else				echo &quot;a大于b&quot;			fi		# &quot;-ge&quot;：检测左边数是否(大于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -ge $b ]			then				echo &quot;a大于等于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-le&quot;：检测左边数是否(小于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -le $b ]			then				echo &quot;a小于等于b&quot;			else				echo &quot;a大于b&quot;			fi	# 布尔值运算符		# &quot;!&quot;：非运算，表达式为true，返回true，否则返回false			a=100			b=200			if [ $a != $b ]			then				echo &quot;a不等于b&quot;			fi		# &quot;-o&quot;：或运算，有一个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -o $b -gt 200 ]			then				echo &quot;成立&quot;			fi		3.3 &quot;-a&quot;：与运算，两个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -a $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	4、逻辑运算符		4.1 &quot;&amp;&amp;&quot;：逻辑且-&gt;and			a=100			b=200			if [ $a -lt 200 ] &amp;&amp; [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi			4.2 &quot;||&quot;：逻辑 OR			a=100			b=200			if [ $a -lt 200 ] || [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	5、字符串运算？		5.1 &quot;=&quot;：检测两个字符串是否相等，如果相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		5.2 &quot;!=&quot;：检测两个字符串是否相等，如果不相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a != $b ]			then				echo &quot;字符串a不等于字符串b&quot;			else				echo &quot;字符串a等于字符串b&quot;			fi			5.3 &quot;-z&quot;：检测字符串长度是否为0，如果是返回true			a=&quot;nemo&quot;			if [ -z $a ]			then				echo &quot;a不为空，存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.4 &quot;-n&quot;：检测字符串长度是否为0，如果不是0，返回true			a=&quot;nemo&quot;			if [ -n $a ]			then				echo &quot;a存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.5 &quot;字符串&quot;：检测字符串是否为空，不为空返回true			a=&quot;nemo&quot;			if [ $a ]			then				echo &quot;a不为空&quot;			else				echo &quot;a为空&quot;			fi	6、文件测试运算符？		file=&quot;/Users/name/Desktop/test.sh&quot;		6.1 &quot;-d file&quot;：检测文件是不是一个目录，如果是，那么返回true			if [ -d $file ]			then 				echo &quot;是一个目录&quot;			else				echo &quot;不是一个目录&quot;			fi		6.2 &quot;-r file&quot;：检测文件是否可读，如果是，那么返回true			if [ -r $file ]			then 				echo &quot;可读&quot;			else				echo &quot;不可读&quot;			fi		6.3 &quot;-w file&quot;：检测文件是否可写，如果是，那么返回true			if [ -w $file ]			then 				echo &quot;可写&quot;			else				echo &quot;不可写&quot;			fi		6.4 &quot;-x file&quot;：检测文件是否是可执行文件，如果是，那么返回true			if [ -x $file ]			then 				echo &quot;可执行&quot;			else				echo &quot;不可执行&quot;			fi		6.5 &quot;-f file&quot;：检测文件是否是一个普通文件（既不是目录，也不是设备文件），如果是，那么返回true			if [ -f $file ]			then 				echo &quot;文件为普通文件&quot;			else				echo &quot;文件为特殊文件&quot;			fi		6.6 &quot;-s file&quot;：检测文件是否为空（文件有内容），如果是，那么返回true			if [ -s $file ]			then 				echo &quot;文件有内容&quot;			else				echo &quot;文件没有内容&quot;			fi		6.7 &quot;-e file&quot;：检测文件是否存在（包含了：目录和文件），如果是，那么返回true			if [ -e $file ]			then 				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi```### Shell脚本语言-流程控制</div><div class="line">```		1、&quot;if&quot;语句		语法结构			if [条件]			then				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			fi	2、&quot;if else&quot;语句		语法结构			if [条件]			then				代码			else				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi	3、&quot;if-else-if-else&quot;		语法结构			if [条件]			then				代码			elif [条件]			then				代码			else				代码			fi				代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			elif [ $a ]			then				echo &quot;字符串a不为空&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		4、&quot;for&quot;循环语句		语法结构			for 变量名 in item1 item2 item3 …			do				代码			done		代码案例一			for name in &quot;nemo&quot; &quot;嗯&quot; &quot;嘻嘻&quot; &quot;月眼&quot;			do   				echo $&#123;name&#125;			done			5、&quot;while&quot;循环		语法结构			while(条件)			do				代码			done		代码案例一			a=1			while(($a&lt;10))			do   				echo $&#123;a&#125;				a=`expr $a + 1`			done	6、&quot;case&quot;语句		语法结构			case 值 in			模式1)				代码				;;			模式2)				代码				;;			模式3)				代码				;;			sac		代码案例一			number=1			case $number in			1) echo &quot;等于1&quot;				;;			2) echo &quot;等于2&quot;				;;			3) echo &quot;等于3&quot;				;;			esac</div></pre></td></tr></table></figure>
+
       
 
       
@@ -226,13 +227,13 @@ $*：显示整个脚本输入参数列表
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -376,7 +377,7 @@ $*：显示整个脚本输入参数列表
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 AgoniNemo
+    		&copy; 2019 AgoniNemo
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

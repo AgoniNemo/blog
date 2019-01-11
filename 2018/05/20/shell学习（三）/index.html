@@ -15,17 +15,17 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2018/05/20/shell学习（三）/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="Shell脚本-&amp;gt;重定向学习12# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据">
-<meta property="og:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg">
-<meta property="og:updated_time" content="2018-10-14T04:18:30.597Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
+<meta property="og:updated_time" content="2019-01-10T09:23:50.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell学习（三）">
 <meta name="twitter:description" content="Shell脚本-&amp;gt;重定向学习12# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据">
-<meta name="twitter:image" content="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png">
   
   <link rel="stylesheet" type="text/css" href="/blog/./main.b3331d.css">
   <style type="text/css">
@@ -59,7 +59,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+			<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">AgoniNemo</a></h1>
@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://orfd017lz.bkt.clouddn.com/assets/img/avatar.png" class="js-avatar">
+				<img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">AgoniNemo</h1>
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://orfd017lz.bkt.clouddn.com/assets/inset/Shell.jpg" alt="shell.jpg"></p>
+        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
 <h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 关闭文件描述符</div><div class="line">关闭：读写都是不允许的		语法结构：exec 3&gt;&amp;-		案例一			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#再次写入文件				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3			执行脚本				Dream$ ./fileA.sh				./fileA.sh: line 9: 3: Bad file descriptor			细节：如果说关闭文件描述符，那么你写入内容会报错		案例二			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#打印文件内容				cat fileContent.sh				#重新打开				exec 3&gt; fileContent.sh				#向文件写入内容				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3						执行脚本				Dream$ ./fileA.sh# 列举打开的文件描述</div><div class="line">语法结构：lsof命令（隐藏比较深，找不到，为了安全起见）				非系统管理员用户也可以采用这个命令插件系统信息			命令路径：/usr/sbin/lsof			执行命令：查看结果			Dream$ /usr/sbin/lsof -a -p $$ -d 0,1,2			COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME			bash    5824 Dream    0u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    1u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    2u   CHR   16,0   0t1800  829 /dev/ttys000		分析命令			/usr/sbin/lsof-&gt;表示lsof命令			&quot;-a&quot;-&gt;表示将两个选项结果进行(AND操作)拼接（格式化输出）			&quot;-p&quot;-&gt;进程ID			&quot;$$&quot;-&gt;表示环境变量			&quot;-d&quot;-&gt;表示文件描述符(例如：0、1、2)		分析结果			COMMAND-&gt;表示正在运行的命令名称（取出名字前9个字符）-&gt;由于名字太长我们可以截取				例如：adbfgtyyththhghg				取出：adbfgtyyt						PID-&gt;进程ID			USER-&gt;进程所属登录名（登录用户）				例如：管理员、成员			FD-&gt;文件描述符号以及访问类型（r表示读，w表示写，u表示读写）			TYPE-&gt;表示文件类型（CHR：表示字符型，BLK表示块型，DIR表示目录，REG表示文件）			DEVICE-&gt;表示设备号			SIZE/OFF-&gt;如果存在，那么表示文件大小			NODE-&gt;表示本地问你节点号			NAME-&gt;表示文件名称（文件路径）		案例一：错误代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2			执行脚本				Dream$ ./fileA.sh			总结：没有打印当前执行命令信息，因为你没有指定文件描述符		案例二：正确代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2,3,6,7			执行脚本				Dream$ ./fileA.sh				COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF     NODE NAME				bash    6608 Dream    0u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    1u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    2u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    3w   REG    1,4        0 66971592 /Users/yangshaohong/Desktop/fileContent.sh				bash    6608 Dream    6w   REG    1,4        0 66754302 /Users/yangshaohong/Desktop/fileB.sh				bash    6608 Dream    7r   REG    1,4        0 66762178 /Users/yangshaohong/Desktop/fileErr.sh</div></pre></td></tr></table></figure>
@@ -195,6 +195,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在/temp目录下创建临时文件</div><div class="line">案例一：&quot;-t&quot;选项使用				Dream$ mktemp -t testfile.XXXXXX				/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T/testfile.XXXXXX.ftrZp5qX				注意一：&quot;/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T&quot;系统提供临时目录				注意二：不同系统临时目录是不一样			案例二：在Shell脚本中应用临时目录				#!/bin/bash				#创建临时文件（系统临时目录下）				tempfile=$(mktemp -t testfile.XXXXXX)				#写入内容				echo &quot;我不是傻逼，我不喜欢傻逼&quot; &gt; $tempfile				#追加内容				echo &quot;我不是傻逼，我不喜欢傻逼，你是不是&quot; &gt;&gt; $tempfile				#打印文件路径				echo &quot;文件名称：$tempfile&quot;				#将文件内容输出到控制台				cat $tempfile				#删除文件				rm -f $tempfile						5.3 创建临时目录			&quot;-d&quot;创建目录			脚本代码				#!/bin/bash				#当前目录下创建临时目录				tempfile=$(mktemp -d testfile.XXXXXX)				#进入临时目录				cd $tempfile				#在临时目录下创建临时文件				tempfile1=$(mktemp testfile.XXXXXX)				tempfile2=$(mktemp testfile.XXXXXX)				#自定义文件描述符-&gt;重定向输出				exec 7&gt; $tempfile1				exec 8&gt; $tempfile2				#打印临时目录路径				echo &quot;临时目录路径：$tempfile&quot;				#向临时文件写入内容				echo &quot;你好，我不想跪键盘，因为我怕&quot; &gt;&amp;7				echo &quot;你好，我不喜欢&quot; &gt;&amp;8			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 记录消息</div><div class="line">作用：将输出同时发送显示器和日志文件，这个时候你可以采用重定向两次，才可以实现，现在我才用tee命令一步实现（简化版）		案例一：重定向-&gt;输出-&gt;覆盖			Dream$ date | tee fileContent.sh			2017年11月 6日 星期一 22时40分18秒 CST		案例二：重定向-&gt;输出-&gt;追加-&gt;&quot;-a&quot;			Dream$ date | tee -a fileContent.sh		案例三：应用到脚本中			脚本代码-&gt;fileA.sh				#!/bin/bash				#定义文件名称				tempfile=&quot;testfile&quot;				echo &quot;我要输出到控制台和文件&quot; | tee $tempfile				echo &quot;我要追加内容&quot; | tee -a $tempfile			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
 <h3 id="Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件"><a href="#Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件" class="headerlink" title="Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件"></a>Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">场景：别人给你一个exel表格	注意：导出.csv格式	需求：将.csv文件转成.sql文件	打印：Dream$ cat test.csv	总结：每一行数据，每一个元素之间都是通过&quot;,&quot;分割	脚本实现		#!/bin/bash		#定义数据库文件(.sql)文件		outfile=&apos;test.sql&apos;		#定义域分隔符-&gt;分割字符串		IFS=&apos;,&apos;		while read name sex age mv yd phone		do			cat &gt;&gt; $outfile &lt;&lt; EOF				INSERT INTO t_test (name, sex, age, mv, yd, phone) VALUES (&apos;$name&apos;, &apos;$sex&apos;, &apos;$age&apos;, &apos;$mv&apos;, &apos;$yd&apos;, &apos;$phone&apos;);			EOF		done &lt; $&#123;1&#125;	执行脚本		Dream$ ./fileA.sh test.csv		注意：原始数据空出一行	分析含义		3个重定向操作		第一个：输入重定向			done &lt; $&#123;1&#125;			$&#123;1&#125;恰好是一个文件			read通过循环一行行读取内容			同时read非常智能还会通过IFS进行字符串分割，分割之后会自动给参数赋值		第二个：输出重定向			cat &gt;&gt; test.sql			以上语法：等待输入内容，敲回车，然后输出到指定的重定向文件			第三个：输入重定向-&quot;&lt;&lt;&quot;-&gt;追加			(cat &gt;&gt; test.sql ) &lt;&lt; sql语句</div></pre></td></tr></table></figure>
+
       
 
       
@@ -211,13 +212,13 @@ var _hmt = _hmt || [];
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/zfb.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://orfd017lz.bkt.clouddn.com/assets/img/wx.png">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -365,7 +366,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 AgoniNemo
+    		&copy; 2019 AgoniNemo
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
