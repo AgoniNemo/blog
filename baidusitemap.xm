@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/11/15/RN%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</loc>
+    <lastmod>2019-01-19T10:19:29.340Z</lastmod>
+    <data>
+        <display>
+        <title>RN问题汇总</title>
+        <pubTime>2018-11-15T10:16:04.000Z</pubTime>
+        
+        <tag>React-native</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/10/18/iOS%E4%B8%AD%E7%9A%84%E5%85%B3%E4%BA%8E%E5%AD%97%E8%8A%82%E6%95%B4%E7%90%86/</loc>
     <lastmod>2019-01-18T07:10:37.673Z</lastmod>
     <data>

@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>AgoniNemo&#39;s blog</title>
+  <title>Archives: 2018/11 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="来自Nemo的故事">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/index.html">
+<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2018/11/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="来自Nemo的故事">
 <meta name="twitter:card" content="summary">
@@ -164,59 +164,34 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-RN问题汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/blog/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/blog/2018/11/15/RN问题汇总/" class="archive-article-date">
+  	<time datetime="2018-11-15T10:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15 18:16:04</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/11/15/RN问题汇总/">RN问题汇总</a>
+      <a class="archive-article-title" href="/blog/2018/11/15/RN问题汇总/">RN问题汇总</a>
     </h1>
   
 
-        
-        <a href="/blog/2018/11/15/RN问题汇总/" class="archive-article-date">
-  	<time datetime="2018-11-15T10:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15 18:16:04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Cannot find module ‘./lib/extract_requires’</p>
-</blockquote>
-<p>解决方法:<code>rm -rf node_modules &amp;&amp; npm install</code></p>
-<blockquote>
-<p>打开远程调试出现警告  Remote debugger is in a background tab which may cause apps to perform slowly </p>
-</blockquote>
-<p>这是提示要要把调试界面的Tab页保持最前，停留在chrome调试界面解决问题</p>
-<blockquote>
-<p>Warning: Failed child context type: Invalid child context <code>virtualizedCell.cellKey</code> of type <code>number</code> supplied to <code>CellRenderer</code>, expected <code>string</code></p>
-</blockquote>
-<p>使用了<code>FlatList</code>组件出去的问题  这是类型不正确引起的 解决方法：<code>FlatList</code>加入方法<code>keyExtractor={(item, index) =&gt; index.toString()}</code></p>
-<blockquote>
-<p>android库的安装问题</p>
-</blockquote>
-<p>一般按照android安装的方法 安装没问题 用的时候出问题  可以试试从android studio运行一篇 都能解决大部分问题</p>
-<blockquote>
-<p>‘config.h’ file not found</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd node_modules/react-native/third-party/glog-0.3.4</div><div class="line">../../scripts/ios-configure-glog.sh</div></pre></td></tr></table></figure>
-<p>PS:上面的是两行命令，如果直接进入<code>scripts</code>里执行脚本，会失败</p>
-<blockquote>
-<p>执行某个模拟器<br><code>react-native run-ios --simulator=&quot;iPhone 8&quot;</code></p>
-<p>app一打开就闪退问题（可能是用到的assets没有创建）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p android/app/src/main/assets</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,576 +203,19 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
   
-    <article id="post-iOS中的关于字节整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/10/18/iOS中的关于字节整理/">iOS中的关于字节整理</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/10/18/iOS中的关于字节整理/" class="archive-article-date">
-  	<time datetime="2018-10-18T11:09:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18 19:09:33</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>字节顺序是指占内存多于一个字节类型的数据在内存中的存放顺序，通常有小端、大端两种字节顺序。</p>
-<p>小端字节序指低字节数据存放在内存低地址处，高字节数据存放在内存高地址处；</p>
-<p>大端字节序是高字节数据存放在低地址处，低字节数据存放在高地址处。</p>
-<p>正因为有字节顺序的差别，所以在网络传输的时候定义了所有字节顺序相关的数据都使用big-endian，BSD的代码中定义了四个宏来理：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#define ntohs(n)      //网络字节顺序到主机字节顺序 n代表net, h代表host, s代表short</div><div class="line">#define htons(n)      //主机字节顺序到网络字节顺序 n代表net, h代表host, s代表short</div><div class="line">#define ntohl(n)      //网络字节顺序到主机字节顺序 n代表net, h代表host, s代表long</div><div class="line">#define htonl(n)      //主机字节顺序到网络字节顺序 n代表net, h代表host, s代表long</div></pre></td></tr></table></figure>
-<p>计算机容量单位的换算关系:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1Byte=8bit</div><div class="line">1KB=1024B</div><div class="line">1MB=1024KB</div><div class="line">1GB=1024MB</div><div class="line">1TB=1024GB</div><div class="line">1PB=1024TB</div><div class="line">1EB=1024PB</div><div class="line">1ZB=1024EB</div><div class="line">1YB=1024ZB</div></pre></td></tr></table></figure>
-<p>各种数据类型的取值范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">char  -128 ~ +127 (1 Byte)</div><div class="line">short -32767 ~ + 32768 (2 Bytes)</div><div class="line">unsigned short  0 ~ 65536 (2 Bytes)</div><div class="line">int -2147483648 ~ +2147483647 (4 Bytes)</div><div class="line">unsigned int 0 ~ 4294967295 (4 Bytes)</div><div class="line">long == int</div><div class="line">long long -9223372036854775808 ~ +9223372036854775807 (8 Bytes)</div><div class="line">double 1.7 * 10^308 (8 Bytes)</div><div class="line"></div><div class="line">unsigned int 0～4294967295 </div><div class="line">long long的最大值9223372036854775807</div><div class="line">long long的最小值-9223372036854775808</div><div class="line">unsigned long long的最大值1844674407370955161</div><div class="line"></div><div class="line">__int64的最大值9223372036854775807</div><div class="line">__int64的最小值-9223372036854775808</div><div class="line">unsigned __int64的最大值18446744073709551615</div></pre></td></tr></table></figure>
-<h4 id="iOS的类型字节大小"><a href="#iOS的类型字节大小" class="headerlink" title="iOS的类型字节大小"></a>iOS的类型字节大小</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Base integer types for all target OS&apos;s and CPU&apos;s</div><div class="line">    </div><div class="line">UInt8            8-bit unsigned integer </div><div class="line">SInt8            8-bit signed integer</div><div class="line">UInt16          16-bit unsigned integer </div><div class="line">SInt16          16-bit signed integer           </div><div class="line">UInt32          32-bit unsigned integer </div><div class="line">SInt32          32-bit signed integer   </div><div class="line">UInt64          64-bit unsigned integer </div><div class="line">SInt64          64-bit signed integer</div></pre></td></tr></table></figure>
-<h4 id="iOS的字节序"><a href="#iOS的字节序" class="headerlink" title="iOS的字节序"></a>iOS的字节序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (NSHostByteOrder() == NS_LittleEndian) &#123;</div><div class="line">        NSLog(@&quot;小端字节序&quot;);</div><div class="line">&#125;else if(NSHostByteOrder() == NS_BigEndian)&#123;</div><div class="line">        NSLog(@&quot;大端字节序&quot;);</div><div class="line">&#125;else &#123;</div><div class="line">        NSLog(@&quot;未知&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过上述代码打印出来的log，可以知道iOS系统目前采用的是小端序。因此在进行socket网络传输之类的工作时，要记得先把字节序进行转换，然后再传输。iOS自身提供了相应的转换方法，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UInt16 byte = 0x1234;</div><div class="line">HTONS(byte);//转换</div><div class="line">NSLog(@&quot;Byte == %x&quot;,Byte);//打印出来发现顺序变了</div></pre></td></tr></table></figure>
-<p>上述代码中 HTONS(x) 是对2字节进行转换,为什么是2个字节?从Xcode里点进去你就会发现<code>typedef unsigned short</code>,而<code>unsigned short</code>是2个字节的,也可以根据上面的类型字节大小转换,<code>UInt16</code>是<code>16bit</code>,而<code>1Byte=8bit</code>,所以是2个字节,如果要对4字节进行转换，就要用 HTONL(x)进行转换了，要对更高字节，比如8字节（64位）进行转换，就要自己写转换的方法了。</p>
-<p>参考文章:</p>
-<p><a href="http://alex1212112.github.io/ios/2014/08/12/ioszhong-de-zi-jie-xu.html" target="_blank" rel="external">http://alex1212112.github.io/ios/2014/08/12/ioszhong-de-zi-jie-xu.html</a><br><a href="http://blog.csdn.net/wanwenweifly4/article/details/6627122" target="_blank" rel="external">http://blog.csdn.net/wanwenweifly4/article/details/6627122</a><br><a href="http://blog.csdn.net/will130/article/details/48735769" target="_blank" rel="external">http://blog.csdn.net/will130/article/details/48735769</a><br><br><a href="http://lib.csdn.net/article/c/26419" target="_blank" rel="external">http://lib.csdn.net/article/c/26419</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-vue技巧使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/09/08/vue技巧使用/">vue技巧使用</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/09/08/vue技巧使用/" class="archive-article-date">
-  	<time datetime="2018-09-08T15:40:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08 23:40:06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/1486368214291404.jpg" alt="1"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，被其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！唉，心累。好了，不发牢骚了，下面来说说，博主在项目遇到的问题与解决方法。</p>
-        
-          <a class="article-more-a" href="/blog/2018/09/08/vue技巧使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Element</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-vue视频添加键盘事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/08/28/vue视频添加键盘事件/">vue视频添加键盘事件</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/08/28/vue视频添加键盘事件/" class="archive-article-date">
-  	<time datetime="2018-08-28T11:28:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-28 19:28:25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/vue1.jpg" alt="vue"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。</p>
-        
-          <a class="article-more-a" href="/blog/2018/08/28/vue视频添加键盘事件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">video</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Git命令整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/07/08/Git命令整理/">Git命令整理</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/07/08/Git命令整理/" class="archive-article-date">
-  	<time datetime="2018-07-08T07:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08 15:39:35</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"># 基于master创建的Develop分支</div><div class="line">git checkout -b develop master</div><div class="line"></div><div class="line"># 基于远程origin/develop分支创建本地develop分支</div><div class="line">git checkout -b develop origin/develop</div><div class="line"></div><div class="line"># 切换到Master分支(本地的)</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 查看远程分支</div><div class="line">git branch -r</div><div class="line"></div><div class="line"># 切换到origin/develop分支(远程的)</div><div class="line">git checkout origin/develop</div><div class="line"></div><div class="line"># 对Develop分支进行合并</div><div class="line">git merge --no-ff -m&apos;注释&apos; develop</div><div class="line"></div><div class="line"># 删除本地feature分支</div><div class="line">git branch -D feature-x</div><div class="line"></div><div class="line"># 删除远程feature分支</div><div class="line">git push origin :feature-x</div><div class="line"></div><div class="line"># 删除预发布分支（D与d的区别在于D为强制删除）</div><div class="line">git branch -d release-1.2</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/blog/2018/07/08/Git命令整理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-初探-vue-router" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/06/10/初探-vue-router/">初探 vue-router</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/06/10/初探-vue-router/" class="archive-article-date">
-  	<time datetime="2018-06-10T12:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10 20:03:48</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://upload-images.jianshu.io/upload_images/1610969-3c8ad3a79dec789f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"></p>
-<h3 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h3><p>已经有好些日子没有更新了，是因为博主最近公司的项目比较的忙，加班比较的晚，回到家就不想动了，趁着前天刚上完项目，有点时间去整理，一些学习的东西。</p>
-        
-          <a class="article-more-a" href="/blog/2018/06/10/初探-vue-router/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-shell学习（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/05/20/shell学习（三）/">shell学习（三）</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/05/20/shell学习（三）/" class="archive-article-date">
-  	<time datetime="2018-05-20T01:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 09:56:01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/blog/2018/05/20/shell学习（三）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-shell学习（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/04/01/shell学习（二）/">shell学习（二）</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/04/01/shell学习（二）/" class="archive-article-date">
-  	<time datetime="2018-04-01T05:47:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01 13:47:31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="问题点"><a href="#问题点" class="headerlink" title="问题点"></a>问题点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;-­n&quot;使用问题</div><div class="line">			val=&quot;Hello&quot;			if [ -n &quot;$val&quot; ]			then				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi</div><div class="line">			</div><div class="line">[ -n &quot;$val&quot; ] 不能写成 [ -n $val ]</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/blog/2018/04/01/shell学习（二）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Xcode打包的坑与shell动态创建Plist" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/">Xcode打包的坑与shell动态创建Plist</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/" class="archive-article-date">
-  	<time datetime="2018-03-22T10:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22 18:50:41</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg" alt="bg"></p>
-<blockquote>
-<p>再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知</p>
-</blockquote>
-<p>你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。<br>
-        
-          <a class="article-more-a" href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xcodebuild</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-shell学习(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/03/11/shell学习(一)/">shell学习（一）下篇</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/03/11/shell学习(一)/" class="archive-article-date">
-  	<time datetime="2018-03-11T04:58:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11 12:58:04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
-<h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
-</code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
-#${0}-&gt;表示文件名称
-#${1}-&gt;表示参数1
-#${2}-&gt;表示参数2
-echo ${0} ${1}  ${2}
-执行脚本代码：
-./hello.sh &quot;hello&quot; &quot;world&quot;
-</code></pre><h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><pre><code>$#：获得脚本输入参数个数
-   脚本内容如下：
-   echo ${#}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：2
-
-$*：显示整个脚本输入参数列表
-   脚本内容如下：
-   echo ${*}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：&quot;hello&quot; &quot;world&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Shell脚本语言-基本运算符</div><div class="line"></div><div class="line">```# 算数运算符  # &quot;+&quot;运算  #注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a + $b`	echo &quot;c的值：$c&quot;	# &quot;-&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a - $b`	echo &quot;c的值：$c&quot;	# &quot;*&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a \* $b`	echo &quot;c的值：$c&quot;	# &quot;/&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a / $b`	echo &quot;c的值：$c&quot;	# &quot;%&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a % $b`	echo &quot;c的值：$c&quot;	#&quot;=&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=$a	echo &quot;b的值：$b&quot;			# &quot;==&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	if [ $a == $b ]	then		echo &quot;a等于b&quot;	else		echo &quot;a不等于b&quot;	fi	#关系运算符		# &quot;-eq&quot;：检测两个数是否相等，当等返回true			a=100			b=200			if [ $a -eq $b ]			then				echo &quot;a等于b&quot;			else				echo &quot;a不等于b&quot;			fi		# &quot;-ne&quot;：检测两个数是否相等，不相等返回true			a=100			b=200			if [ $a -ne $b ]			then				echo &quot;a不等于b&quot;			else				echo &quot;a等于b&quot;			fi		# &quot;-gt&quot;：检测左边数是否大于右边数，如果是，返回true			a=100			b=200			if [ $a -gt $b ]			then				echo &quot;a大于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-lt&quot;：检测左边数是否小于右边数，如果是，返回true			a=100			b=200			if [ $a -lt $b ]			then				echo &quot;a小于b&quot;			else				echo &quot;a大于b&quot;			fi		# &quot;-ge&quot;：检测左边数是否(大于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -ge $b ]			then				echo &quot;a大于等于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-le&quot;：检测左边数是否(小于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -le $b ]			then				echo &quot;a小于等于b&quot;			else				echo &quot;a大于b&quot;			fi	# 布尔值运算符		# &quot;!&quot;：非运算，表达式为true，返回true，否则返回false			a=100			b=200			if [ $a != $b ]			then				echo &quot;a不等于b&quot;			fi		# &quot;-o&quot;：或运算，有一个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -o $b -gt 200 ]			then				echo &quot;成立&quot;			fi		3.3 &quot;-a&quot;：与运算，两个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -a $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	4、逻辑运算符		4.1 &quot;&amp;&amp;&quot;：逻辑且-&gt;and			a=100			b=200			if [ $a -lt 200 ] &amp;&amp; [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi			4.2 &quot;||&quot;：逻辑 OR			a=100			b=200			if [ $a -lt 200 ] || [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	5、字符串运算？		5.1 &quot;=&quot;：检测两个字符串是否相等，如果相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		5.2 &quot;!=&quot;：检测两个字符串是否相等，如果不相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a != $b ]			then				echo &quot;字符串a不等于字符串b&quot;			else				echo &quot;字符串a等于字符串b&quot;			fi			5.3 &quot;-z&quot;：检测字符串长度是否为0，如果是返回true			a=&quot;nemo&quot;			if [ -z $a ]			then				echo &quot;a不为空，存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.4 &quot;-n&quot;：检测字符串长度是否为0，如果不是0，返回true			a=&quot;nemo&quot;			if [ -n $a ]			then				echo &quot;a存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.5 &quot;字符串&quot;：检测字符串是否为空，不为空返回true			a=&quot;nemo&quot;			if [ $a ]			then				echo &quot;a不为空&quot;			else				echo &quot;a为空&quot;			fi	6、文件测试运算符？		file=&quot;/Users/name/Desktop/test.sh&quot;		6.1 &quot;-d file&quot;：检测文件是不是一个目录，如果是，那么返回true			if [ -d $file ]			then 				echo &quot;是一个目录&quot;			else				echo &quot;不是一个目录&quot;			fi		6.2 &quot;-r file&quot;：检测文件是否可读，如果是，那么返回true			if [ -r $file ]			then 				echo &quot;可读&quot;			else				echo &quot;不可读&quot;			fi		6.3 &quot;-w file&quot;：检测文件是否可写，如果是，那么返回true			if [ -w $file ]			then 				echo &quot;可写&quot;			else				echo &quot;不可写&quot;			fi		6.4 &quot;-x file&quot;：检测文件是否是可执行文件，如果是，那么返回true			if [ -x $file ]			then 				echo &quot;可执行&quot;			else				echo &quot;不可执行&quot;			fi		6.5 &quot;-f file&quot;：检测文件是否是一个普通文件（既不是目录，也不是设备文件），如果是，那么返回true			if [ -f $file ]			then 				echo &quot;文件为普通文件&quot;			else				echo &quot;文件为特殊文件&quot;			fi		6.6 &quot;-s file&quot;：检测文件是否为空（文件有内容），如果是，那么返回true			if [ -s $file ]			then 				echo &quot;文件有内容&quot;			else				echo &quot;文件没有内容&quot;			fi		6.7 &quot;-e file&quot;：检测文件是否存在（包含了：目录和文件），如果是，那么返回true			if [ -e $file ]			then 				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi```### Shell脚本语言-流程控制</div><div class="line">```		1、&quot;if&quot;语句		语法结构			if [条件]			then				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			fi	2、&quot;if else&quot;语句		语法结构			if [条件]			then				代码			else				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi	3、&quot;if-else-if-else&quot;		语法结构			if [条件]			then				代码			elif [条件]			then				代码			else				代码			fi				代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			elif [ $a ]			then				echo &quot;字符串a不为空&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		4、&quot;for&quot;循环语句		语法结构			for 变量名 in item1 item2 item3 …			do				代码			done		代码案例一			for name in &quot;nemo&quot; &quot;嗯&quot; &quot;嘻嘻&quot; &quot;月眼&quot;			do   				echo $&#123;name&#125;			done			5、&quot;while&quot;循环		语法结构			while(条件)			do				代码			done		代码案例一			a=1			while(($a&lt;10))			do   				echo $&#123;a&#125;				a=`expr $a + 1`			done	6、&quot;case&quot;语句		语法结构			case 值 in			模式1)				代码				;;			模式2)				代码				;;			模式3)				代码				;;			sac		代码案例一			number=1			case $number in			1) echo &quot;等于1&quot;				;;			2) echo &quot;等于2&quot;				;;			3) echo &quot;等于3&quot;				;;			esac</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -819,9 +237,9 @@ $*：显示整个脚本输入参数列表
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
