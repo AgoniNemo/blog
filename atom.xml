@@ -68,7 +68,7 @@
     <link href="http://agoninemo.github.io/blog/2018/10/18/iOS%E4%B8%AD%E7%9A%84%E5%85%B3%E4%BA%8E%E5%AD%97%E8%8A%82%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2018/10/18/iOS中的关于字节整理/</id>
     <published>2018-10-18T11:09:33.000Z</published>
-    <updated>2019-01-18T07:10:37.673Z</updated>
+    <updated>2019-01-19T10:23:46.320Z</updated>
     
     <content type="html"><![CDATA[<p>字节顺序是指占内存多于一个字节类型的数据在内存中的存放顺序，通常有小端、大端两种字节顺序。</p>
 <p>小端字节序指低字节数据存放在内存低地址处，高字节数据存放在内存高地址处；</p>
@@ -97,6 +97,10 @@
     
     </summary>
     
+    
+      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
+    
+      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
     
   </entry>
   
