@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2019/01/21/Square-%E6%94%AF%E4%BB%98SDK%E9%9B%86%E6%88%90/</loc>
+    <lastmod>2019-07-21T05:30:31.929Z</lastmod>
+    <data>
+        <display>
+        <title>Square 支付SDK集成</title>
+        <pubTime>2019-01-21T04:14:30.000Z</pubTime>
+        
+        <tag>Square</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/10/18/iOS%E4%B8%AD%E7%9A%84%E5%85%B3%E4%BA%8E%E5%AD%97%E8%8A%82%E6%95%B4%E7%90%86/</loc>
     <lastmod>2019-01-19T10:23:46.320Z</lastmod>
     <data>

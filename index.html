@@ -164,6 +164,75 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Square-支付SDK集成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/01/21/Square-支付SDK集成/">Square 支付SDK集成</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2019/01/21/Square-支付SDK集成/" class="archive-article-date">
+  	<time datetime="2019-01-21T04:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21 12:14:30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍（最后更新2019-7-15）"><a href="#介绍（最后更新2019-7-15）" class="headerlink" title="介绍（最后更新2019-7-15）"></a>介绍（最后更新2019-7-15）</h3><p>因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的<a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>.<br><a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的<a href="https://github.com/square/in-app-payments-ios-quickstart" target="_blank" rel="external">Demo</a>就是Swift写的。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>先说明下，这个支付SDK，官方说只支付<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以上，所以<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以下的还是另外考虑吧</p>
+<ul>
+<li>1.和国内支付一样，需要申请一个key一样的东西这块不是笔主弄的，看<a href="https://developer.squareup.com/docs/in-app-payments-sdk/quick-start/start" target="_blank" rel="external">官方文档</a>吧。</li>
+<li>2.使用<a href="https://developer.squareup.com/docs/in-app-payments-sdk/installation" target="_blank" rel="external">cocoapods</a>集成<code>pod &#39;SquareInAppPaymentsSDK&#39;</code>.</li>
+<li>3.代码编写.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;SquareInAppPaymentsSDK/SquareInAppPaymentsSDK.h&gt;</div><div class="line"></div><div class="line">信用卡代理：SQIPCardEntryViewControllerDelegate</div><div class="line">apple pay代理：PKPaymentAuthorizationViewControllerDelegate</div><div class="line">按照自己需要设置</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@property (nonatomic, strong) SQIPCardEntryViewController *cardEntryForm;</div><div class="line"></div><div class="line">/// 这个key填第一步申请的 类似 sandbox-xxxxx-xxxx-x-_x 这里要注意，key里有sandbox 是沙盒环境</div><div class="line"> [SQIPInAppPaymentsSDK setSquareApplicationID:@&quot;key&quot;];</div><div class="line"> SQIPTheme *theme = [[SQIPTheme alloc] init];</div><div class="line"> theme.errorColor = [UIColor redColor];</div><div class="line"> theme.tintColor = [UIColor redColor];</div><div class="line"> theme.saveButtonTitle = @&quot;保存&quot;;</div><div class="line"> self.cardEntryForm = [[SQIPCardEntryViewController alloc] initWithTheme:theme];</div><div class="line"> self.cardEntryForm.delegate  = self;</div><div class="line"> self.cardEntryForm.collectPostalCode = NO;</div></pre></td></tr></table></figure>
+<h3 id="信用卡支付"><a href="#信用卡支付" class="headerlink" title="信用卡支付"></a>信用卡支付</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/// 结束返回</div><div class="line">- (void)cardEntryViewController:(nonnull SQIPCardEntryViewController *)cardEntryViewController didCompleteWithStatus:(SQIPCardEntryCompletionStatus)status &#123;</div><div class="line">    NSLog(@&quot;status:%ld&quot;,status);</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">    </div><div class="line">    if (status == SQIPCardEntryCompletionStatusSuccess) &#123;</div><div class="line">        /// 支付成功</div><div class="line">    &#125;else&#123;</div><div class="line">        /// 支付失败</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">/// 获取令牌</div><div class="line">- (void)cardEntryViewController:(nonnull SQIPCardEntryViewController *)cardEntryViewController didObtainCardDetails:(nonnull SQIPCardDetails *)cardDetails</div><div class="line">              completionHandler:(void (^_Nonnull)(NSError *_Nullable))completionHandler &#123;</div><div class="line">    /// 把cardDetails.nonce发给后端</div><div class="line">    NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line">	/// 然后调用completionHandler回调，如果有错误，就替换nil</div><div class="line">    completionHandler(nil);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="苹果支付"><a href="#苹果支付" class="headerlink" title="苹果支付"></a><a href="https://developer.squareup.com/docs/in-app-payments-sdk/add-digital-wallets/apple-pay" target="_blank" rel="external">苹果支付</a></h3><p>PS：关于<a href="https://www.jianshu.com/p/8bd69e91c5c0" target="_blank" rel="external">apple pay的证书配置</a>不是本文范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (void)requestApplePayAuthorization &#123;</div><div class="line">    if (!SQIPInAppPaymentsSDK.canUseApplePay) &#123;</div><div class="line">        // 判断是否能使用Apple Pay</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    PKPaymentRequest *paymentRequest = [PKPaymentRequest squarePaymentRequestWithMerchantIdentifier:@&quot;苹果支付ID&quot;</div><div class="line">                                                     countryCode:@&quot;AU&quot;</div><div class="line">                                                    currencyCode:@&quot;USD&quot;];</div><div class="line">    </div><div class="line">    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:@&quot;1.0&quot;];</div><div class="line">    </div><div class="line">    paymentRequest.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:@&quot;公司名&quot; amount:amount]];</div><div class="line">    </div><div class="line">    PKPaymentAuthorizationViewController *paymentAuthorizationViewController =</div><div class="line">    [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:paymentRequest];</div><div class="line">    </div><div class="line">    paymentAuthorizationViewController.delegate = self;</div><div class="line">    [self presentViewController:paymentAuthorizationViewController animated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">#pragma --mark PKPaymentAuthorizationViewControllerDelegate</div><div class="line"></div><div class="line">- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller</div><div class="line">                       didAuthorizePayment:(PKPayment *)payment</div><div class="line">                                   handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion API_AVAILABLE(ios(11.0))&#123;</div><div class="line">    // TODO: Add payment-&gt;nonce exchange logic. See Step 5: Request a Square nonce</div><div class="line">    [self popHintView];</div><div class="line">    SQIPApplePayNonceRequest *nonceRequest = [[SQIPApplePayNonceRequest alloc] initWithPayment:payment];</div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    [nonceRequest performWithCompletionHandler:^(SQIPCardDetails * _Nullable cardDetails,</div><div class="line">                                                 NSError * _Nullable error) &#123;</div><div class="line">        if (error) &#123;</div><div class="line">            if (@available(iOS 11.0, *)) &#123;</div><div class="line">                PKPaymentAuthorizationResult *errorResult =</div><div class="line">                [[PKPaymentAuthorizationResult alloc]</div><div class="line">                 initWithStatus:PKPaymentAuthorizationStatusFailure errors:@[error]];</div><div class="line">                completion(errorResult);</div><div class="line">                </div><div class="line">            &#125; else &#123;</div><div class="line">                // Fallback on earlier versions</div><div class="line">            &#125;</div><div class="line">            /// 支付失败</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        // Send the card nonce to your server to charge the card or store the card on file.</div><div class="line">        NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line">      /** 支付成功</div><div class="line">		PKPaymentAuthorizationResult *successResult = [[PKPaymentAuthorizationResult alloc]initWithStatus:PKPaymentAuthorizationStatusSuccess errors:nil];</div><div class="line">       completion(successResult);</div><div class="line">		*/</div><div class="line">		</div><div class="line">		/** 支付失败</div><div class="line"> 		PKPaymentAuthorizationResult *errorResult = [[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:@[error]];</div><div class="line">       completion(errorResult);</div><div class="line">		*/</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line">- (void)paymentAuthorizationViewControllerDidFinish:(nonnull PKPaymentAuthorizationViewController *)controller &#123;</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">&#125;</div><div class="line">- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller</div><div class="line">                       didAuthorizePayment:(PKPayment *)payment</div><div class="line">                                completion:(void (^)(PKPaymentAuthorizationStatus))completion &#123;</div><div class="line">    // TODO: Add payment-&gt;nonce exchange logic. See Step 5: Request a Square nonce</div><div class="line">   </div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    SQIPApplePayNonceRequest *nonceRequest = [[SQIPApplePayNonceRequest alloc] initWithPayment:payment];</div><div class="line">    [nonceRequest performWithCompletionHandler:^(SQIPCardDetails * _Nullable cardDetails, NSError * _Nullable error) &#123;</div><div class="line">        if (error) &#123;</div><div class="line">            completion(PKPaymentAuthorizationStatusFailure);</div><div class="line">            /// 支付失败</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // Send the card nonce to your server to charge the card or store the card on file.</div><div class="line">        NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line"></div><div class="line">        /// 把cardDetails.nonce发送到后端</div><div class="line">        /// 支付失败 调用completion(PKPaymentAuthorizationStatusFailure);</div><div class="line">        /// 支付成功 调用completion(PKPaymentAuthorizationStatusSuccess);</div><div class="line">            </div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/// 点击支付</div><div class="line">- (void)clickApplePay:(BOOL)b &#123;</div><div class="line">	</div><div class="line">	if (b) &#123;</div><div class="line">	</div><div class="line">	  [self requestApplePayAuthorization];</div><div class="line"></div><div class="line">	&#125; else &#123;</div><div class="line">		UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.cardEntryForm];</div><div class="line">    	[self presentViewController:nav animated:YES completion:nil];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ps:说点其他的，后端可以控制支付卡的保存，还有不明白的看<a href="https://developer.squareup.com/docs/in-app-payments-sdk/what-it-does" target="_blank" rel="external">官方文档</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Square</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-RN问题汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -730,84 +799,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-shell学习(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/03/11/shell学习(一)/">shell学习（一）下篇</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/03/11/shell学习(一)/" class="archive-article-date">
-  	<time datetime="2018-03-11T04:58:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11 12:58:04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
-<h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
-</code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
-#${0}-&gt;表示文件名称
-#${1}-&gt;表示参数1
-#${2}-&gt;表示参数2
-echo ${0} ${1}  ${2}
-执行脚本代码：
-./hello.sh &quot;hello&quot; &quot;world&quot;
-</code></pre><h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><pre><code>$#：获得脚本输入参数个数
-   脚本内容如下：
-   echo ${#}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：2
-
-$*：显示整个脚本输入参数列表
-   脚本内容如下：
-   echo ${*}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：&quot;hello&quot; &quot;world&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Shell脚本语言-基本运算符</div><div class="line"></div><div class="line">```# 算数运算符  # &quot;+&quot;运算  #注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a + $b`	echo &quot;c的值：$c&quot;	# &quot;-&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a - $b`	echo &quot;c的值：$c&quot;	# &quot;*&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a \* $b`	echo &quot;c的值：$c&quot;	# &quot;/&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a / $b`	echo &quot;c的值：$c&quot;	# &quot;%&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a % $b`	echo &quot;c的值：$c&quot;	#&quot;=&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=$a	echo &quot;b的值：$b&quot;			# &quot;==&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	if [ $a == $b ]	then		echo &quot;a等于b&quot;	else		echo &quot;a不等于b&quot;	fi	#关系运算符		# &quot;-eq&quot;：检测两个数是否相等，当等返回true			a=100			b=200			if [ $a -eq $b ]			then				echo &quot;a等于b&quot;			else				echo &quot;a不等于b&quot;			fi		# &quot;-ne&quot;：检测两个数是否相等，不相等返回true			a=100			b=200			if [ $a -ne $b ]			then				echo &quot;a不等于b&quot;			else				echo &quot;a等于b&quot;			fi		# &quot;-gt&quot;：检测左边数是否大于右边数，如果是，返回true			a=100			b=200			if [ $a -gt $b ]			then				echo &quot;a大于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-lt&quot;：检测左边数是否小于右边数，如果是，返回true			a=100			b=200			if [ $a -lt $b ]			then				echo &quot;a小于b&quot;			else				echo &quot;a大于b&quot;			fi		# &quot;-ge&quot;：检测左边数是否(大于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -ge $b ]			then				echo &quot;a大于等于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-le&quot;：检测左边数是否(小于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -le $b ]			then				echo &quot;a小于等于b&quot;			else				echo &quot;a大于b&quot;			fi	# 布尔值运算符		# &quot;!&quot;：非运算，表达式为true，返回true，否则返回false			a=100			b=200			if [ $a != $b ]			then				echo &quot;a不等于b&quot;			fi		# &quot;-o&quot;：或运算，有一个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -o $b -gt 200 ]			then				echo &quot;成立&quot;			fi		3.3 &quot;-a&quot;：与运算，两个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -a $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	4、逻辑运算符		4.1 &quot;&amp;&amp;&quot;：逻辑且-&gt;and			a=100			b=200			if [ $a -lt 200 ] &amp;&amp; [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi			4.2 &quot;||&quot;：逻辑 OR			a=100			b=200			if [ $a -lt 200 ] || [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	5、字符串运算？		5.1 &quot;=&quot;：检测两个字符串是否相等，如果相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		5.2 &quot;!=&quot;：检测两个字符串是否相等，如果不相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a != $b ]			then				echo &quot;字符串a不等于字符串b&quot;			else				echo &quot;字符串a等于字符串b&quot;			fi			5.3 &quot;-z&quot;：检测字符串长度是否为0，如果是返回true			a=&quot;nemo&quot;			if [ -z $a ]			then				echo &quot;a不为空，存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.4 &quot;-n&quot;：检测字符串长度是否为0，如果不是0，返回true			a=&quot;nemo&quot;			if [ -n $a ]			then				echo &quot;a存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.5 &quot;字符串&quot;：检测字符串是否为空，不为空返回true			a=&quot;nemo&quot;			if [ $a ]			then				echo &quot;a不为空&quot;			else				echo &quot;a为空&quot;			fi	6、文件测试运算符？		file=&quot;/Users/name/Desktop/test.sh&quot;		6.1 &quot;-d file&quot;：检测文件是不是一个目录，如果是，那么返回true			if [ -d $file ]			then 				echo &quot;是一个目录&quot;			else				echo &quot;不是一个目录&quot;			fi		6.2 &quot;-r file&quot;：检测文件是否可读，如果是，那么返回true			if [ -r $file ]			then 				echo &quot;可读&quot;			else				echo &quot;不可读&quot;			fi		6.3 &quot;-w file&quot;：检测文件是否可写，如果是，那么返回true			if [ -w $file ]			then 				echo &quot;可写&quot;			else				echo &quot;不可写&quot;			fi		6.4 &quot;-x file&quot;：检测文件是否是可执行文件，如果是，那么返回true			if [ -x $file ]			then 				echo &quot;可执行&quot;			else				echo &quot;不可执行&quot;			fi		6.5 &quot;-f file&quot;：检测文件是否是一个普通文件（既不是目录，也不是设备文件），如果是，那么返回true			if [ -f $file ]			then 				echo &quot;文件为普通文件&quot;			else				echo &quot;文件为特殊文件&quot;			fi		6.6 &quot;-s file&quot;：检测文件是否为空（文件有内容），如果是，那么返回true			if [ -s $file ]			then 				echo &quot;文件有内容&quot;			else				echo &quot;文件没有内容&quot;			fi		6.7 &quot;-e file&quot;：检测文件是否存在（包含了：目录和文件），如果是，那么返回true			if [ -e $file ]			then 				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi```### Shell脚本语言-流程控制</div><div class="line">```		1、&quot;if&quot;语句		语法结构			if [条件]			then				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			fi	2、&quot;if else&quot;语句		语法结构			if [条件]			then				代码			else				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi	3、&quot;if-else-if-else&quot;		语法结构			if [条件]			then				代码			elif [条件]			then				代码			else				代码			fi				代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			elif [ $a ]			then				echo &quot;字符串a不为空&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		4、&quot;for&quot;循环语句		语法结构			for 变量名 in item1 item2 item3 …			do				代码			done		代码案例一			for name in &quot;nemo&quot; &quot;嗯&quot; &quot;嘻嘻&quot; &quot;月眼&quot;			do   				echo $&#123;name&#125;			done			5、&quot;while&quot;循环		语法结构			while(条件)			do				代码			done		代码案例一			a=1			while(($a&lt;10))			do   				echo $&#123;a&#125;				a=`expr $a + 1`			done	6、&quot;case&quot;语句		语法结构			case 值 in			模式1)				代码				;;			模式2)				代码				;;			模式3)				代码				;;			sac		代码案例一			number=1			case $number in			1) echo &quot;等于1&quot;				;;			2) echo &quot;等于2&quot;				;;			3) echo &quot;等于3&quot;				;;			esac</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -910,10 +901,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
@@ -926,6 +913,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">heroku</a>
               </li>
              
@@ -934,11 +929,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">React-native</a>
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">React-native</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,10 +957,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
@@ -974,6 +969,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
@@ -982,15 +985,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -998,11 +993,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Element</a>
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
