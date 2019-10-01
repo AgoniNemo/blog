@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2018/12/13/%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8Cweb%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2019-10-01T14:54:18.259Z</lastmod>
+    <data>
+        <display>
+        <title>Mac本地运行web项目</title>
+        <pubTime>2018-12-13T14:53:30.000Z</pubTime>
+        
+        <tag>web</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2019/02/01/iOS-%E8%B0%93%E8%AF%8D/</loc>
     <lastmod>2019-10-01T14:49:51.380Z</lastmod>
     <data>
