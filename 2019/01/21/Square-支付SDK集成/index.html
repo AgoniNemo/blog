@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
   <title>Square 支付SDK集成 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。 正文先说明下，这个支付">
+  <meta name="description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
 <meta name="keywords" content="Square">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Square 支付SDK集成">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2019/01/21/Square-支付SDK集成/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。 正文先说明下，这个支付">
-<meta property="og:updated_time" content="2019-07-21T05:30:31.929Z">
+<meta property="og:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
+<meta property="og:updated_time" content="2019-10-01T13:50:36.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Square 支付SDK集成">
-<meta name="twitter:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。 正文先说明下，这个支付">
+<meta name="twitter:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -185,6 +185,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="介绍（最后更新2019-7-15）"><a href="#介绍（最后更新2019-7-15）" class="headerlink" title="介绍（最后更新2019-7-15）"></a>介绍（最后更新2019-7-15）</h3><p>因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的<a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>.<br><a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的<a href="https://github.com/square/in-app-payments-ios-quickstart" target="_blank" rel="external">Demo</a>就是Swift写的。</p>
+<a id="more"></a>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>先说明下，这个支付SDK，官方说只支付<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以上，所以<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以下的还是另外考虑吧</p>
 <ul>
 <li>1.和国内支付一样，需要申请一个key一样的东西这块不是笔主弄的，看<a href="https://developer.squareup.com/docs/in-app-payments-sdk/quick-start/start" target="_blank" rel="external">官方文档</a>吧。</li>
@@ -312,6 +313,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/blog/2019/02/01/iOS-谓词/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS 谓词（NSPredicate）
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2018/11/15/RN问题汇总/" id="article-nav-older" class="article-nav-link-wrap">
@@ -445,15 +455,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">aws</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,15 +483,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
+                <a href="javascript:void(0)" class="js-tag color3">React-native</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">React-native</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,15 +499,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,14 +519,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
@@ -529,11 +527,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,6 +547,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -553,11 +563,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+                <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
              
               <li class="article-tag-list-item">

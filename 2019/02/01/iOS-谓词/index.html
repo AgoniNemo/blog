@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Archives: 2018/6 | AgoniNemo&#39;s blog</title>
+  <title>iOS 谓词（NSPredicate） | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2018/06/index.html">
+  <meta name="description" content="最近在项目中，需要比较复杂的查询与比较，所以用的NSPredicate类比较多，下面来说下这个NSPredicate类是用来干嘛的。其实NSPredicate类是用来定义逻辑条件约束的获取或内存中的过滤搜索。">
+<meta name="keywords" content="NSPredicate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 谓词（NSPredicate）">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2019/02/01/iOS-谓词/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="最近在项目中，需要比较复杂的查询与比较，所以用的NSPredicate类比较多，下面来说下这个NSPredicate类是用来干嘛的。其实NSPredicate类是用来定义逻辑条件约束的获取或内存中的过滤搜索。">
+<meta property="og:updated_time" content="2019-10-01T14:49:51.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="iOS 谓词（NSPredicate）">
+<meta name="twitter:description" content="最近在项目中，需要比较复杂的查询与比较，所以用的NSPredicate类比较多，下面来说下这个NSPredicate类是用来干嘛的。其实NSPredicate类是用来定义逻辑条件约束的获取或内存中的过滤搜索。">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,49 +164,184 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS-谓词" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/06/10/初探-vue-router/" class="archive-article-date">
-  	<time datetime="2018-06-10T12:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10 20:03:48</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/06/10/初探-vue-router/">初探 vue-router</a>
+    <h1 class="article-title" itemprop="name">
+      iOS 谓词（NSPredicate）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/blog/2019/02/01/iOS-谓词/" class="archive-article-date">
+  	<time datetime="2019-02-01T13:49:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-01 21:49:05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在项目中，需要比较复杂的查询与比较，所以用的NSPredicate类比较多，下面来说下这个NSPredicate类是用来干嘛的。其实NSPredicate类是用来定义逻辑条件约束的获取或内存中的过滤搜索。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@class Dog;</div><div class="line">@interface Person : NSObject</div><div class="line">@property (nonatomic, strong) NSString *name;</div><div class="line">@property (nonatomic, assign) NSInteger age;</div><div class="line">@property (nonatomic, strong) Dog *likeDog;</div><div class="line">@property (nonatomic, strong) NSArray &lt;Dog *&gt;*dogs;</div><div class="line">@end</div><div class="line"></div><div class="line">@interface Dog : NSObject</div><div class="line">@property (nonatomic, strong) NSString *name;</div><div class="line">@end</div><div class="line"></div><div class="line">NSArray &lt;Person *&gt;*dataSource = ....</div></pre></td></tr></table></figure>
+<p>1.查找</p>
+<p>例子：在一个模型数组里找到符合条件的模型，一般大家开始想到的是就是循环这个模型数组，然后对比条件，这个比较的简单，但是如果这个模型数组里的模型属性又有一个模型数组呢，又是一个循环？不需要，下面我们用NSPredicate来实现这样的需求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">一个人类模型，里面有一个狗的数组</div><div class="line"></div><div class="line">比如：dataSource里装了n个人，每个人又有m个狗，怎么找到里面`name`叫`jack`的狗呢？</div><div class="line">for (Person *per in dataSource)&#123;</div><div class="line">	NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;SELF.name = %@&quot;,@&quot;jack&quot;];</div><div class="line">	NSArray *result = [per.dogs filteredArrayUsingPredicate: pre];</div><div class="line">	if (result.count &gt; 0) &#123;</div><div class="line">		NSLog(@&quot;%@&quot;,result);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">再来个例子</div><div class="line">如：dataSource里装了n个人，每个人都有一个likeDog，怎么找到里面`name`叫`Rose`的狗呢？</div><div class="line">NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;SELF.likeDog.name = %@&quot;,@&quot;jack&quot;];</div><div class="line">NSArray *result = [per.dogs filteredArrayUsingPredicate: pre];</div><div class="line">if (result.count &gt; 0) &#123;</div><div class="line">		NSLog(@&quot;%@&quot;,result);</div><div class="line">&#125;</div><div class="line"></div><div class="line">对就是这么简单，你想要找里面的某个模型里的属性可以直接点下去就想上面的例子一样</div><div class="line"></div><div class="line">IN：等价于SQL语句中的IN运算符，只有当左边表达式或值出现在右边的集合中才会返回YES。我们通过一个例子来看一下</div><div class="line"># 查找name为`Rose`与`jace`的人</div><div class="line">NSArray *array = @[@&quot;Rose&quot;, @&quot;jace&quot;];</div><div class="line">NSPredicate *predicate = [NSPredicate predicateWithFormat:@&quot;(SELF.name IN %@)&quot;, array];</div><div class="line">NSArray *result = [dataSource filteredArrayUsingPredicate: pre];</div><div class="line">if (result.count &gt; 0) &#123;</div><div class="line">	NSLog(@&quot;%@&quot;,result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 查找age大于50的人</div><div class="line">NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF.age &gt; %@&quot;,@&quot;50&quot;];</div><div class="line"> </div><div class="line">NSArray *result = [dataSource filteredArrayUsingPredicate: pre];</div><div class="line">if (result.count &gt; 0) &#123;</div><div class="line">		NSLog(@&quot;%@&quot;,result);</div><div class="line">&#125;</div><div class="line"></div><div class="line">MATCHES：检查某个字符串是否匹配指定的正则表达式。虽然正则表达式的执行效率是最低的，但其功能是最强大的，也是我们最常用的。</div><div class="line"># 查找name包含jace的人</div><div class="line"></div><div class="line">NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;name CONTAINS &apos;%@&apos;&quot;,@&quot;jace&quot;];</div><div class="line">NSArray * result = [dataSource filteredArrayUsingPredicate: pred];</div></pre></td></tr></table></figure>
+<p>以上只是项目中用到<code>NSPredicate</code>比较多的用法，其实<code>NSPredicate</code>还有很多的用法，大家可以自行百度</p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NSPredicate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2019/02/01/iOS-谓词/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2019/01/21/Square-支付SDK集成/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Square 支付SDK集成</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -227,8 +364,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

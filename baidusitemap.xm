@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2019/02/01/iOS-%E8%B0%93%E8%AF%8D/</loc>
+    <lastmod>2019-10-01T14:49:51.380Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 谓词（NSPredicate）</title>
+        <pubTime>2019-02-01T13:49:05.000Z</pubTime>
+        
+        <tag>NSPredicate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2019/01/21/Square-%E6%94%AF%E4%BB%98SDK%E9%9B%86%E6%88%90/</loc>
-    <lastmod>2019-07-21T05:30:31.929Z</lastmod>
+    <lastmod>2019-10-01T13:50:36.489Z</lastmod>
     <data>
         <display>
         <title>Square 支付SDK集成</title>
