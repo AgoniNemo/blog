@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-61f1be1fa85ca968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-0a1b3dd83bf12d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1610969-2cef18369a97d0e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-15T15:03:44.950Z">
+<meta property="og:updated_time" content="2019-11-06T05:54:58.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AWS搭建SS">
 <meta name="twitter:description" content="前文之前博主使用的是XX-net,虽然不是很快但是用来查资料也是够用了，但是用了一年后，用了不，可用的IP都被封了，坑爹呀，查个资料，百度个半天都没百出来。所以博主决定自己梯子，于是有了下面这篇文章。">
@@ -212,10 +212,10 @@ var _hmt = _hmt || [];
 <p>博主用的是mac，所以可以在终端中直接连接，打开终端运行命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#  /Users/xxx/Downloads/SecretKeyValue.pem为你下载的密钥对绝对路径</div><div class="line">chmod 400 /Users/xxx/Downloads/SecretKeyValue.pem</div><div class="line"></div><div class="line"># 连接远程虚拟机（ec2-user 是用户名，Amazon Linux AMI默认的是ec2-user，</div><div class="line">ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com 是你的服务器的公有DNS，这些信息右键点击你的实例，点击连接，弹出的提示框里都写着）</div><div class="line">ssh -i /Users/xxx/Downloads/SecretKeyValue.pem ec2-user@ec2-11-111-11-111.ap-northeast-1.compute.amazonaws.com</div><div class="line"></div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
 <h3 id="Debian-Ubuntu-安装方式"><a href="#Debian-Ubuntu-安装方式" class="headerlink" title="Debian/Ubuntu:安装方式"></a>Debian/Ubuntu:安装方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 更新apt-get，这里要注意，如果上面的虚拟机选择的是centos的话，是没有apt-get的，centos用的是yum，下面有介绍安装方法</div><div class="line">apt-get update</div><div class="line"></div><div class="line"># 安装python包管理工具(安装shadowsocks需要,提示时填yes)</div><div class="line">apt-get install python-setuptools</div><div class="line">apt-get install python-pip</div></pre></td></tr></table></figure>
-<h3 id="CentOS安装方式（如果是Ubuntu，可以跳这一步）"><a href="#CentOS安装方式（如果是Ubuntu，可以跳这一步）" class="headerlink" title="CentOS安装方式（如果是Ubuntu，可以跳这一步）"></a>CentOS安装方式（如果是Ubuntu，可以跳这一步）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装shadowsocks（提示时填yes）</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
+<h3 id="CentOS安装方式（如果是Ubuntu，可以跳这一步）"><a href="#CentOS安装方式（如果是Ubuntu，可以跳这一步）" class="headerlink" title="CentOS安装方式（如果是Ubuntu，可以跳这一步）"></a>CentOS安装方式（如果是Ubuntu，可以跳这一步）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div></pre></td></tr></table></figure>
+<h3 id="安装方式-shadowsocks"><a href="#安装方式-shadowsocks" class="headerlink" title="安装方式 shadowsocks"></a>安装方式 shadowsocks</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装shadowsocks（提示时填yes）</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
 <h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>多个用户使用的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;  </div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;，  </div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,  </div><div class="line"> &quot;local_port&quot;:1080,  </div><div class="line">  &quot;port_password&quot;: &#123;  </div><div class="line">     &quot;8381&quot;: &quot;foobar1&quot;,  </div><div class="line">     &quot;8382&quot;: &quot;foobar2&quot;,  </div><div class="line">     &quot;8383&quot;: &quot;foobar3&quot;,  </div><div class="line">     &quot;8384&quot;: &quot;foobar4&quot;  </div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;  </div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,</div><div class="line"> &quot;local_port&quot;:1080,</div><div class="line">  &quot;port_password&quot;: &#123;  </div><div class="line">     &quot;8381&quot;: &quot;foobar1&quot;,  </div><div class="line">     &quot;8382&quot;: &quot;foobar2&quot;,  </div><div class="line">     &quot;8383&quot;: &quot;foobar3&quot;,  </div><div class="line">     &quot;8384&quot;: &quot;foobar4&quot;  </div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>单个用户使用的配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;: 8381,</div><div class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;foobar1&quot;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,</div><div class="line">    &quot;fast_open&quot;:false,</div><div class="line">    &quot;workers&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="配置完成后重启配置"><a href="#配置完成后重启配置" class="headerlink" title="配置完成后重启配置"></a>配置完成后重启配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 启动Shadowsocks</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure>
@@ -488,19 +488,23 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">aws</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +520,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,15 +552,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color2">Centos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +580,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,23 +612,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,23 +628,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

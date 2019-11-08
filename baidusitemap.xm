@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/</loc>
+    <lastmod>2019-11-06T08:21:00.170Z</lastmod>
+    <data>
+        <display>
+        <title>Google Cloud搭建ssr</title>
+        <pubTime>2019-11-05T12:53:39.000Z</pubTime>
+        
+        <tag>vpn</tag>
+         
+        <tag>ssr</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://agoninemo.github.io/blog/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/</loc>
+    <lastmod>2019-11-06T05:54:58.954Z</lastmod>
+    <data>
+        <display>
+        <title>AWS搭建SS</title>
+        <pubTime>2017-11-14T12:00:33.000Z</pubTime>
+        
+        <tag>ss</tag>
+         
+        <tag>aws</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2018/12/13/%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8Cweb%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2019-10-01T14:54:18.259Z</lastmod>
     <data>
@@ -368,25 +406,6 @@
         <pubTime>2017-06-11T10:13:53.000Z</pubTime>
         
         <tag>能看到吗？</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://agoninemo.github.io/blog/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/</loc>
-    <lastmod>2017-11-15T15:03:44.950Z</lastmod>
-    <data>
-        <display>
-        <title>AWS搭建SS</title>
-        <pubTime>2017-11-14T12:00:33.000Z</pubTime>
-        
-        <tag>ss</tag>
-         
-        <tag>aws</tag>
          
          
            

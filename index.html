@@ -164,6 +164,88 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Google-Cloud搭建ssr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/11/05/Google-Cloud搭建ssr/">Google Cloud搭建ssr</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2019/11/05/Google-Cloud搭建ssr/" class="archive-article-date">
+  	<time datetime="2019-11-05T12:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05 20:53:39</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png" alt="1"><br>国家选<code>美国</code>，3月之前还是有<code>中国</code>的，但是后面就没了</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-2.png" alt="1"><br>账号类型选<code>个人</code>，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-1.png" alt="1"><br>进入这个界面可以看到成功了</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g0-2.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g0-1.png" alt="1"><br>创建防火墙规则</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g1.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g2.png" alt="2"><br>分别创建<code>入站</code>与<code>出站</code>规则</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g2-1.png" alt="1"><br>创建<code>入站</code>与<code>出站</code>规则完成后的界面</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g3.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4.png" alt="1"><br>创建VM实例</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4-1.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4-2.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g5.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g6.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g7.png" alt="1"><br>VM实例配置</p>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g8.png" alt="1"><br>名称随便填（英文）</p>
+<h4 id="创建ssh-key"><a href="#创建ssh-key" class="headerlink" title="创建ssh-key"></a>创建ssh-key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 打开终端输入下面命令</div><div class="line"># 用户名：为创建VM实例的谷歌用户名（没试过其他的名称）</div><div class="line"># 命令： 系统在路径为~/.ssh/的文件夹下生成名为 google 的私钥文件和一个名为 google.pub 的公钥文件</div><div class="line"># 提示填yes</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/google -C 用户名</div><div class="line"></div><div class="line"># 将打印出来的字符全复制到下面的图中</div><div class="line">cat ~/.ssh/google.pub</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
+<h4 id="连接到google-cloud"><a href="#连接到google-cloud" class="headerlink" title="连接到google cloud"></a>连接到google cloud</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 连接到google cloud（提示时填yes）</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
+<h4 id="安装BBR"><a href="#安装BBR" class="headerlink" title="安装BBR"></a>安装BBR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">yum install -y wget</div><div class="line"></div><div class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</div><div class="line"></div><div class="line">chmod +x bbr.sh</div><div class="line"></div><div class="line">./bbr.sh</div><div class="line"></div><div class="line">安装完成后，脚本会提示需要重启VPS，输入 y 并回车后重启，可能需要几分钟</div><div class="line"></div><div class="line"># 几分钟过后 连接到google cloud</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div><div class="line"></div><div class="line">###### 验证是否安装成功</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_available_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_congestion_control = bbr</div><div class="line"></div><div class="line">sysctl net.core.default_qdisc</div><div class="line">返回值一般为：</div><div class="line">net.core.default_qdisc = fq</div><div class="line"></div><div class="line">lsmod | grep bbr</div><div class="line">返回值有 tcp_bbr 模块即说明bbr已启动</div></pre></td></tr></table></figure>
+<h3 id="安装SSR"><a href="#安装SSR" class="headerlink" title="安装SSR"></a>安装SSR</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line"></div><div class="line"># 安装shadowsocks</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><h4 id="多个用户使用的配置"><a href="#多个用户使用的配置" class="headerlink" title="多个用户使用的配置"></a>多个用户使用的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,  </div><div class="line"> &quot;local_port&quot;:1080,  </div><div class="line"> &quot;port_password&quot;: &#123;   </div><div class="line">     &quot;8987&quot;: &quot;密码&quot;,    </div><div class="line">     &quot;8988&quot;: &quot;密码&quot;,</div><div class="line">     &quot;8989&quot;: &quot;密码&quot;</div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="单用户使用的配置"><a href="#单用户使用的配置" class="headerlink" title="单用户使用的配置"></a>单用户使用的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;server&quot;: &quot;0.0.0.0&quot;,</div><div class="line">  &quot;server_port&quot;:  8838,</div><div class="line">  &quot;local_address&quot;:  &quot;127.0.0.1&quot;,</div><div class="line">  &quot;local_port&quot;: 1080,</div><div class="line">  &quot;password&quot;: &quot;密码&quot;,</div><div class="line">  &quot;timeout&quot;:  300,</div><div class="line">  &quot;method&quot;: &quot;aes-256-cfb&quot;,</div><div class="line">  &quot;fast_open&quot;:false,</div><div class="line">  &quot;workers&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 启动Shadowsocks</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure>
+<h3 id="配置开机启动"><a href="#配置开机启动" class="headerlink" title="配置开机启动"></a>配置开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 打开配置文件</div><div class="line">sudo vi /etc/rc.local</div><div class="line"></div><div class="line"># 加入下面配置</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d start</div></pre></td></tr></table></figure>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 停止Shadowsocks</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d stop</div><div class="line"></div><div class="line"># 重启Shadowsocks服务</div><div class="line">sudo ssserver -c /etc/shadowsocks/config.json -d restart</div></pre></td></tr></table></figure>
+<h3 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h3><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">Windows客户端下载地址</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="external">macOS客户端下载地址</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-qt5/releases" target="_blank" rel="external">Linux客户端下载地址</a></p>
+<p>安装之后，添加服务器，地址为AWS的外网地址，登录AWS控制台，查看正在运行中的实例，在右边<code>外部 IP</code>找到。 端口号为刚才配置Shadowsocks服务器时的端口号，密码也是刚才配置的，设置完之后保存，接下来就可以自由的浪了！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vpn</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssr</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-iOS-谓词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -715,68 +797,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-shell学习（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/05/20/shell学习（三）/">shell学习（三）</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/05/20/shell学习（三）/" class="archive-article-date">
-  	<time datetime="2018-05-20T01:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 09:56:01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/blog/2018/05/20/shell学习（三）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -879,19 +899,23 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">aws</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,7 +931,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,15 +963,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color2">Centos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -951,11 +991,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ipa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -971,23 +1023,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,23 +1039,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Square 支付SDK集成 | AgoniNemo&#39;s blog</title>
+  <title>Tag: ssr | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
-<meta name="keywords" content="Square">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Square 支付SDK集成">
-<meta property="og:url" content="http://agoninemo.github.io/blog/2019/01/21/Square-支付SDK集成/index.html">
+  <meta name="description" content="来自Nemo的故事">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AgoniNemo&#39;s blog">
+<meta property="og:url" content="http://agoninemo.github.io/blog/tags/ssr/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
-<meta property="og:updated_time" content="2019-10-01T13:50:36.489Z">
+<meta property="og:description" content="来自Nemo的故事">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Square 支付SDK集成">
-<meta name="twitter:description" content="介绍（最后更新2019-7-15）因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的Square.Square支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的Demo就是Swift写的。">
+<meta name="twitter:title" content="AgoniNemo&#39;s blog">
+<meta name="twitter:description" content="来自Nemo的故事">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -164,200 +162,64 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Square-支付SDK集成" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Square 支付SDK集成
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/blog/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/blog/2019/11/05/Google-Cloud搭建ssr/" class="archive-article-date">
+  	<time datetime="2019-11-05T12:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05 20:53:39</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/blog/2019/11/05/Google-Cloud搭建ssr/">Google Cloud搭建ssr</a>
     </h1>
   
 
-        
-        <a href="/blog/2019/01/21/Square-支付SDK集成/" class="archive-article-date">
-  	<time datetime="2019-01-21T04:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21 12:14:30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍（最后更新2019-7-15）"><a href="#介绍（最后更新2019-7-15）" class="headerlink" title="介绍（最后更新2019-7-15）"></a>介绍（最后更新2019-7-15）</h3><p>因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的<a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>.<br><a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的<a href="https://github.com/square/in-app-payments-ios-quickstart" target="_blank" rel="external">Demo</a>就是Swift写的。</p>
-<a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>先说明下，这个支付SDK，官方说只支付<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以上，所以<a href="https://developer.squareup.com/docs/in-app-payments-sdk/build-on-ios" target="_blank" rel="external">iOS 10</a>以下的还是另外考虑吧</p>
-<ul>
-<li>1.和国内支付一样，需要申请一个key一样的东西这块不是笔主弄的，看<a href="https://developer.squareup.com/docs/in-app-payments-sdk/quick-start/start" target="_blank" rel="external">官方文档</a>吧。</li>
-<li>2.使用<a href="https://developer.squareup.com/docs/in-app-payments-sdk/installation" target="_blank" rel="external">cocoapods</a>集成<code>pod &#39;SquareInAppPaymentsSDK&#39;</code>.</li>
-<li>3.代码编写.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;SquareInAppPaymentsSDK/SquareInAppPaymentsSDK.h&gt;</div><div class="line"></div><div class="line">信用卡代理：SQIPCardEntryViewControllerDelegate</div><div class="line">apple pay代理：PKPaymentAuthorizationViewControllerDelegate</div><div class="line">按照自己需要设置</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@property (nonatomic, strong) SQIPCardEntryViewController *cardEntryForm;</div><div class="line"></div><div class="line">/// 这个key填第一步申请的 类似 sandbox-xxxxx-xxxx-x-_x 这里要注意，key里有sandbox 是沙盒环境</div><div class="line"> [SQIPInAppPaymentsSDK setSquareApplicationID:@&quot;key&quot;];</div><div class="line"> SQIPTheme *theme = [[SQIPTheme alloc] init];</div><div class="line"> theme.errorColor = [UIColor redColor];</div><div class="line"> theme.tintColor = [UIColor redColor];</div><div class="line"> theme.saveButtonTitle = @&quot;保存&quot;;</div><div class="line"> self.cardEntryForm = [[SQIPCardEntryViewController alloc] initWithTheme:theme];</div><div class="line"> self.cardEntryForm.delegate  = self;</div><div class="line"> self.cardEntryForm.collectPostalCode = NO;</div></pre></td></tr></table></figure>
-<h3 id="信用卡支付"><a href="#信用卡支付" class="headerlink" title="信用卡支付"></a>信用卡支付</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/// 结束返回</div><div class="line">- (void)cardEntryViewController:(nonnull SQIPCardEntryViewController *)cardEntryViewController didCompleteWithStatus:(SQIPCardEntryCompletionStatus)status &#123;</div><div class="line">    NSLog(@&quot;status:%ld&quot;,status);</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">    </div><div class="line">    if (status == SQIPCardEntryCompletionStatusSuccess) &#123;</div><div class="line">        /// 支付成功</div><div class="line">    &#125;else&#123;</div><div class="line">        /// 支付失败</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">/// 获取令牌</div><div class="line">- (void)cardEntryViewController:(nonnull SQIPCardEntryViewController *)cardEntryViewController didObtainCardDetails:(nonnull SQIPCardDetails *)cardDetails</div><div class="line">              completionHandler:(void (^_Nonnull)(NSError *_Nullable))completionHandler &#123;</div><div class="line">    /// 把cardDetails.nonce发给后端</div><div class="line">    NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line">	/// 然后调用completionHandler回调，如果有错误，就替换nil</div><div class="line">    completionHandler(nil);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="苹果支付"><a href="#苹果支付" class="headerlink" title="苹果支付"></a><a href="https://developer.squareup.com/docs/in-app-payments-sdk/add-digital-wallets/apple-pay" target="_blank" rel="external">苹果支付</a></h3><p>PS：关于<a href="https://www.jianshu.com/p/8bd69e91c5c0" target="_blank" rel="external">apple pay的证书配置</a>不是本文范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (void)requestApplePayAuthorization &#123;</div><div class="line">    if (!SQIPInAppPaymentsSDK.canUseApplePay) &#123;</div><div class="line">        // 判断是否能使用Apple Pay</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    PKPaymentRequest *paymentRequest = [PKPaymentRequest squarePaymentRequestWithMerchantIdentifier:@&quot;苹果支付ID&quot;</div><div class="line">                                                     countryCode:@&quot;AU&quot;</div><div class="line">                                                    currencyCode:@&quot;USD&quot;];</div><div class="line">    </div><div class="line">    NSDecimalNumber *amount = [NSDecimalNumber decimalNumberWithString:@&quot;1.0&quot;];</div><div class="line">    </div><div class="line">    paymentRequest.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:@&quot;公司名&quot; amount:amount]];</div><div class="line">    </div><div class="line">    PKPaymentAuthorizationViewController *paymentAuthorizationViewController =</div><div class="line">    [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:paymentRequest];</div><div class="line">    </div><div class="line">    paymentAuthorizationViewController.delegate = self;</div><div class="line">    [self presentViewController:paymentAuthorizationViewController animated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">#pragma --mark PKPaymentAuthorizationViewControllerDelegate</div><div class="line"></div><div class="line">- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller</div><div class="line">                       didAuthorizePayment:(PKPayment *)payment</div><div class="line">                                   handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion API_AVAILABLE(ios(11.0))&#123;</div><div class="line">    // TODO: Add payment-&gt;nonce exchange logic. See Step 5: Request a Square nonce</div><div class="line">    [self popHintView];</div><div class="line">    SQIPApplePayNonceRequest *nonceRequest = [[SQIPApplePayNonceRequest alloc] initWithPayment:payment];</div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    [nonceRequest performWithCompletionHandler:^(SQIPCardDetails * _Nullable cardDetails,</div><div class="line">                                                 NSError * _Nullable error) &#123;</div><div class="line">        if (error) &#123;</div><div class="line">            if (@available(iOS 11.0, *)) &#123;</div><div class="line">                PKPaymentAuthorizationResult *errorResult =</div><div class="line">                [[PKPaymentAuthorizationResult alloc]</div><div class="line">                 initWithStatus:PKPaymentAuthorizationStatusFailure errors:@[error]];</div><div class="line">                completion(errorResult);</div><div class="line">                </div><div class="line">            &#125; else &#123;</div><div class="line">                // Fallback on earlier versions</div><div class="line">            &#125;</div><div class="line">            /// 支付失败</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        // Send the card nonce to your server to charge the card or store the card on file.</div><div class="line">        NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line">      /** 支付成功</div><div class="line">		PKPaymentAuthorizationResult *successResult = [[PKPaymentAuthorizationResult alloc]initWithStatus:PKPaymentAuthorizationStatusSuccess errors:nil];</div><div class="line">       completion(successResult);</div><div class="line">		*/</div><div class="line">		</div><div class="line">		/** 支付失败</div><div class="line"> 		PKPaymentAuthorizationResult *errorResult = [[PKPaymentAuthorizationResult alloc] initWithStatus:PKPaymentAuthorizationStatusFailure errors:@[error]];</div><div class="line">       completion(errorResult);</div><div class="line">		*/</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line">- (void)paymentAuthorizationViewControllerDidFinish:(nonnull PKPaymentAuthorizationViewController *)controller &#123;</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">&#125;</div><div class="line">- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller</div><div class="line">                       didAuthorizePayment:(PKPayment *)payment</div><div class="line">                                completion:(void (^)(PKPaymentAuthorizationStatus))completion &#123;</div><div class="line">    // TODO: Add payment-&gt;nonce exchange logic. See Step 5: Request a Square nonce</div><div class="line">   </div><div class="line">    __weak typeof(self) weakSelf = self;</div><div class="line">    SQIPApplePayNonceRequest *nonceRequest = [[SQIPApplePayNonceRequest alloc] initWithPayment:payment];</div><div class="line">    [nonceRequest performWithCompletionHandler:^(SQIPCardDetails * _Nullable cardDetails, NSError * _Nullable error) &#123;</div><div class="line">        if (error) &#123;</div><div class="line">            completion(PKPaymentAuthorizationStatusFailure);</div><div class="line">            /// 支付失败</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // Send the card nonce to your server to charge the card or store the card on file.</div><div class="line">        NSLog(@&quot;%@&quot;,cardDetails.nonce);</div><div class="line"></div><div class="line">        /// 把cardDetails.nonce发送到后端</div><div class="line">        /// 支付失败 调用completion(PKPaymentAuthorizationStatusFailure);</div><div class="line">        /// 支付成功 调用completion(PKPaymentAuthorizationStatusSuccess);</div><div class="line">            </div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/// 点击支付</div><div class="line">- (void)clickApplePay:(BOOL)b &#123;</div><div class="line">	</div><div class="line">	if (b) &#123;</div><div class="line">	</div><div class="line">	  [self requestApplePayAuthorization];</div><div class="line"></div><div class="line">	&#125; else &#123;</div><div class="line">		UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.cardEntryForm];</div><div class="line">    	[self presentViewController:nav animated:YES completion:nil];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>ps:说点其他的，后端可以控制支付卡的保存，还有不明白的看<a href="https://developer.squareup.com/docs/in-app-payments-sdk/what-it-does" target="_blank" rel="external">官方文档</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Square</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vpn</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssr</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2019/01/21/Square-支付SDK集成/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/blog/2019/02/01/iOS-谓词/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS 谓词（NSPredicate）
-        
-      </div>
-    </a>
   
   
-    <a href="/blog/2018/12/13/本地运行web项目/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac本地运行web项目</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-    <section id="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </section>
-  
+    
 
 
           </div>
@@ -380,9 +242,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/blog/",
