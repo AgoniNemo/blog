@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://agoninemo.github.io/blog/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/</loc>
-    <lastmod>2019-11-06T08:21:00.170Z</lastmod>
+    <lastmod>2019-11-10T14:06:20.117Z</lastmod>
     <data>
         <display>
         <title>Google Cloud搭建ssr</title>

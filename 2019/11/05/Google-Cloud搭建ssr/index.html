@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
   <title>Google Cloud搭建ssr | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。 国家选美国，3月之前还是有中国的，但是后面就没了 账号类型选个人，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。 进入这个界面可以看到成功了 创建防">
+  <meta name="description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。">
 <meta name="keywords" content="vpn,ssr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Google Cloud搭建ssr">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2019/11/05/Google-Cloud搭建ssr/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。 国家选美国，3月之前还是有中国的，但是后面就没了 账号类型选个人，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。 进入这个界面可以看到成功了 创建防">
+<meta property="og:description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-1.png">
@@ -33,10 +33,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg">
-<meta property="og:updated_time" content="2019-11-06T08:21:00.170Z">
+<meta property="og:updated_time" content="2019-11-10T14:06:20.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Cloud搭建ssr">
-<meta name="twitter:description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。 国家选美国，3月之前还是有中国的，但是后面就没了 账号类型选个人，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。 进入这个界面可以看到成功了 创建防">
+<meta name="twitter:description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
@@ -204,6 +204,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
+<a id="more"></a>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png" alt="1"><br>国家选<code>美国</code>，3月之前还是有<code>中国</code>的，但是后面就没了</p>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-2.png" alt="1"><br>账号类型选<code>个人</code>，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。</p>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-1.png" alt="1"><br>进入这个界面可以看到成功了</p>
@@ -477,6 +478,18 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">aws</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -489,18 +502,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">aws</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">heroku</a>
               </li>
              
@@ -509,11 +510,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +534,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +547,66 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,74 +623,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ipa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

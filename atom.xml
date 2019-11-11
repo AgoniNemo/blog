@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2019-11-06T08:21:00.170Z</updated>
+  <updated>2019-11-10T14:06:20.117Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://agoninemo.github.io/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/"/>
     <id>http://agoninemo.github.io/blog/2019/11/05/Google-Cloud搭建ssr/</id>
     <published>2019-11-05T12:53:39.000Z</published>
-    <updated>2019-11-06T08:21:00.170Z</updated>
+    <updated>2019-11-10T14:06:20.117Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
+<a id="more"></a>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png" alt="1"><br>国家选<code>美国</code>，3月之前还是有<code>中国</code>的，但是后面就没了</p>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-2.png" alt="1"><br>账号类型选<code>个人</code>，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。</p>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-1.png" alt="1"><br>进入这个界面可以看到成功了</p>
@@ -50,7 +51,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws&lt;a href=&quot;https://agoninemo.github.
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws&lt;a href=&quot;https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more&quot;&gt;一年的免费流量&lt;/a&gt;之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。&lt;/p&gt;
     
     </summary>
     
