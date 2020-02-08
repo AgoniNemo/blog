@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-01-31T11:44:50.023Z</updated>
+  <updated>2020-02-08T05:18:08.350Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://agoninemo.github.io/blog/2020/01/31/LLDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89/"/>
     <id>http://agoninemo.github.io/blog/2020/01/31/LLDB调试程序（笔记）/</id>
     <published>2020-01-31T11:43:23.000Z</published>
-    <updated>2020-01-31T11:44:50.023Z</updated>
+    <updated>2020-02-08T05:18:08.350Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="LLDB调试程序（笔记）"><a href="#LLDB调试程序（笔记）" class="headerlink" title="LLDB调试程序（笔记）"></a>LLDB调试程序（笔记）</h1><h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
+    <content type="html"><![CDATA[<h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 命令别名</div><div class="line">command alias &lt;alias name&gt; expression -l objc -O —-</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">## 获取图层</div><div class="line">e id $view = (id) 0x7fbd71432590</div><div class="line">## 更改图层信息</div><div class="line">e (void) [$view setBackgroundColor:[UIColor redColor]]</div><div class="line">## 刷新界面</div><div class="line">e (void)[CATransaction flush]</div></pre></td></tr></table></figure>
@@ -48,7 +48,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;LLDB调试程序（笔记）&quot;&gt;&lt;a href=&quot;#LLDB调试程序（笔记）&quot; class=&quot;headerlink&quot; title=&quot;LLDB调试程序（笔记）&quot;&gt;&lt;/a&gt;LLDB调试程序（笔记）&lt;/h1&gt;&lt;h2 id=&quot;全称expression，可简写为e&quot;&gt;&lt;a href=&quot;#全称expression，可简写为e&quot; class=&quot;headerlink&quot; title=&quot;全称expression，可简写为e&quot;&gt;&lt;/a&gt;全称expression，可简写为e&lt;/h2&gt;&lt;p&gt;p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息&lt;br&gt;po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)&lt;br&gt;call 同po或p一样, 也是调用. 当不需要显示输出时使用.&lt;/p&gt;
+      &lt;h2 id=&quot;全称expression，可简写为e&quot;&gt;&lt;a href=&quot;#全称expression，可简写为e&quot; class=&quot;headerlink&quot; title=&quot;全称expression，可简写为e&quot;&gt;&lt;/a&gt;全称expression，可简写为e&lt;/h2&gt;&lt;p&gt;p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息&lt;br&gt;po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)&lt;br&gt;call 同po或p一样, 也是调用. 当不需要显示输出时使用.&lt;/p&gt;
     
     </summary>
     
