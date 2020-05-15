@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-02-08T05:18:08.350Z</updated>
+  <updated>2020-05-15T04:35:37.680Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>那些音乐神评论</title>
+    <link href="http://agoninemo.github.io/blog/2020/05/15/%E9%82%A3%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
+    <id>http://agoninemo.github.io/blog/2020/05/15/那些音乐神评论/</id>
+    <published>2020-05-15T04:25:29.000Z</published>
+    <updated>2020-05-15T04:35:37.680Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;何谓烈酒？&quot;</div><div class="line">&quot;凌晨，宿醉，浑浑噩噩。&quot;</div><div class="line">&quot;可否具体？&quot;  </div><div class="line">&quot;烧心，烫喉，一醉方休。&quot;</div><div class="line">&quot;可否再具体？&quot;</div><div class="line">&quot;醉时有你。&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">那个酒馆里的老板娘生的一副好模样唇红齿白眉目如画就是脾气火爆</div><div class="line">她好喝酒但从不与人对饮</div><div class="line">直到那一天她喝醉了她流泪了她说她在等一个人一个没有告别就远走的人</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="神评论" scheme="http://agoninemo.github.io/blog/tags/%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>LLDB调试程序（笔记）</title>
@@ -771,75 +792,6 @@ $*：显示整个脚本输入参数列表
       <category term="ss" scheme="http://agoninemo.github.io/blog/tags/ss/"/>
     
       <category term="aws" scheme="http://agoninemo.github.io/blog/tags/aws/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins从零开始</title>
-    <link href="http://agoninemo.github.io/blog/2017/11/06/Jenkins%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/"/>
-    <id>http://agoninemo.github.io/blog/2017/11/06/Jenkins从零开始/</id>
-    <published>2017-11-06T11:48:24.000Z</published>
-    <updated>2017-11-06T11:53:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1610969-75b3f9d0e4cdcbd4.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>要做到项目的自动构建，你需求了解下Jenkins的安装，这文章是博主从零开始安装的过程，记录下了踩过的坑，分享给有需要的童鞋。</p>
-<a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>因为Jenkins是一个用Java编写的开源的持续集成工具，所以需要java环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 查看CentOS自带JDK是否已安装</div><div class="line">yum list installed |grep java</div><div class="line"></div><div class="line"># 卸载JDK相关文件 java-1.7.0-openjdk（根据你上面的打印出的log，*表示卸载掉java 1.7.0的所有openjdk相关文件）</div><div class="line">yum -y remove java-1.7.0-openjdk*</div><div class="line"></div><div class="line"># 卸载tzdata-java</div><div class="line">yum -y remove tzdata-java.noarch</div></pre></td></tr></table></figure>
-<h3 id="查看yum库中的Java安装包"><a href="#查看yum库中的Java安装包" class="headerlink" title="查看yum库中的Java安装包"></a>查看yum库中的Java安装包</h3><blockquote>
-<p>yum -y list java*</p>
-</blockquote>
-<p>以下为打印的log</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">已加载插件：fastestmirror</div><div class="line">Loading mirror speeds from cached hostfile</div><div class="line">* base: mirrors.njupt.edu.cn</div><div class="line">* extras: mirror.bit.edu.cn</div><div class="line">* updates: mirrors.aliyun.com</div><div class="line">base                                                                                                        | 3.7 kB     00:00</div><div class="line">extras                                                                                                      | 3.4 kB     00:00</div><div class="line">gitlab_gitlab-ee/signature                                                                                  |  836 B     00:00</div><div class="line">gitlab_gitlab-ee/signature                                                                                  | 1.0 kB     00:00 ...</div><div class="line">gitlab_gitlab-ee-source/signature                                                                           |  836 B     00:00</div><div class="line">gitlab_gitlab-ee-source/signature                                                                           |  951 B     00:00 ...</div><div class="line">updates                                                                                                     | 3.4 kB     00:00</div><div class="line">updates/primary_db                                                                                          | 4.7 MB     00:00</div><div class="line">可安装的软件包</div><div class="line">java-1.5.0-gcj.x86_64                                                1.5.0.0-29.1.el6                                       base</div><div class="line">java-1.5.0-gcj-devel.x86_64                                          1.5.0.0-29.1.el6                                       base</div><div class="line">java-1.5.0-gcj-javadoc.x86_64                                        1.5.0.0-29.1.el6                                       base</div><div class="line">java-1.5.0-gcj-src.x86_64                                            1.5.0.0-29.1.el6                                       base</div><div class="line">java-1.6.0-openjdk.x86_64                                            1:1.6.0.41-1.13.13.1.el6_8                             base</div><div class="line">java-1.6.0-openjdk-demo.x86_64                                       1:1.6.0.41-1.13.13.1.el6_8                             base</div><div class="line">java-1.6.0-openjdk-devel.x86_64                                      1:1.6.0.41-1.13.13.1.el6_8                             base</div><div class="line">java-1.6.0-openjdk-javadoc.x86_64                                    1:1.6.0.41-1.13.13.1.el6_8                             base</div><div class="line">java-1.6.0-openjdk-src.x86_64                                        1:1.6.0.41-1.13.13.1.el6_8                             base</div><div class="line">java-1.7.0-openjdk.x86_64                                            1:1.7.0.151-2.6.11.0.el6_9                             updates</div><div class="line">java-1.7.0-openjdk-demo.x86_64                                       1:1.7.0.151-2.6.11.0.el6_9                             updates</div><div class="line">java-1.7.0-openjdk-devel.x86_64                                      1:1.7.0.151-2.6.11.0.el6_9                             updates</div><div class="line">java-1.7.0-openjdk-javadoc.noarch                                    1:1.7.0.151-2.6.11.0.el6_9                             updates</div><div class="line">java-1.7.0-openjdk-src.x86_64                                        1:1.7.0.151-2.6.11.0.el6_9                             updates</div><div class="line">java-1.8.0-openjdk.x86_64                                            1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-debug.x86_64                                      1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-demo.x86_64                                       1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-demo-debug.x86_64                                 1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-devel.x86_64                                      1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-devel-debug.x86_64                                1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-headless.x86_64                                   1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-headless-debug.x86_64                             1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-javadoc.noarch                                    1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-javadoc-debug.noarch                              1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-src.x86_64                                        1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java-1.8.0-openjdk-src-debug.x86_64                                  1:1.8.0.151-1.b12.el6_9                                updates</div><div class="line">java_cup.x86_64                                                      1:0.10k-5.el6                                          base</div><div class="line">java_cup-javadoc.x86_64                                              1:0.10k-5.el6                                          base</div><div class="line">java_cup-manual.x86_64                                               1:0.10k-5.el6                                          base</div><div class="line">javacc.x86_64                                                        4.1-0.5.el6                                            base</div><div class="line">javacc-demo.x86_64                                                   4.1-0.5.el6                                            base</div><div class="line">javacc-manual.x86_64                                                 4.1-0.5.el6                                            base</div><div class="line">javassist.noarch                                                     3.9.0-6.el6                                            base</div><div class="line">javassist-javadoc.noarch                                             3.9.0-6.el6                                            base</div></pre></td></tr></table></figure>
-<h4 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令"></a>执行安装命令</h4><blockquote>
-<p> yum -y install java-1.8.0-openjdk*</p>
-</blockquote>
-<p>Jenkins需要用到git，在安装git之前，要安装一些依赖（主要原因是minimal版的centos没有相应的工具，如果你的有可以不要安装，但是博主建议你升级下）</p>
-<blockquote>
-<p>sudo yum -y install gcc autoconf automake libtool make gettext zlib zlib-devel</p>
-<p>sudo yum -y install perl-ExtUtils-MakeMaker package</p>
-</blockquote>
-<p>git下载（版本号可以自己修改，现在最新的是2.15的，博主下2.14的就可以了）</p>
-<blockquote>
-<p>wget <a href="https://Github.com/Git/Git/archive/v2.14.3.tar.gz" target="_blank" rel="external">https://Github.com/Git/Git/archive/v2.14.3.tar.gz</a></p>
-</blockquote>
-<p>解压git</p>
-<blockquote>
-<p>tar -xvf v2.14.3.tar.gz -C /usr/git/</p>
-</blockquote>
-<p>编译，安装git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make configure</div><div class="line">./configure --prefix=/usr/local/ --with-curl --with-expat</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<p>设置环境变量，编辑<code>sudo vim /etc/profile</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export GIT_HOME=/usr/local/git</div><div class="line">export PATH=$PATH:$GIT_HOME/bin:$GIT_HOME/libexec/git-core</div></pre></td></tr></table></figure>
-<p>保存后使其立即生效:<br><code>source /etc/profile</code></p>
-<p>安装git可能通到的报错：</p>
-<p>1.In file included from credential-store.c:1:<br>cache.h:43:18: 警告：zlib.h：</p>
-<p>解决方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install zlib zlib-devel expat-devel</div></pre></td></tr></table></figure>
-<p>2.tclsh failed; using unoptimized loading</p>
-<p>解决方法：<br><code>yum install -y gettext</code></p>
-<h4 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h4><p>因为是网络安装，可能会出现404，多试几次，就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo</div><div class="line">rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</div><div class="line">yum install jenkins</div></pre></td></tr></table></figure>
-<h4 id="修改Jenkins配置"><a href="#修改Jenkins配置" class="headerlink" title="修改Jenkins配置"></a>修改Jenkins配置</h4><p>进入到配置文件<code>vi /etc/sysconfig/jenkins</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># 端口修改</div><div class="line">将</div><div class="line">JENKINS_PORT=&quot;8080&quot;</div><div class="line">修改为</div><div class="line">JENKINS_PORT=&quot;12000&quot;</div><div class="line"></div><div class="line">开启端口</div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 12000 -j ACCEPT</div><div class="line"></div><div class="line">防火墙规则保</div><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 启动jenkins</div><div class="line">service jenkins start</div></pre></td></tr></table></figure>
-<p>安装完成后，下面可以使用<code>http://&lt;域名&gt;:12000</code>登录了，第一次登录时，会有个密码，这个界面会提供一个像这样的<code>/var/lib/jenkins/secrets/initialAdminPassword</code>路径，密码就在里面，可以使用<code>cat</code>命令查看密码。在下一个界面，选择默认的安装方式就可以了。再下一个界面就是要创建管理员，然后就可以使用了。</p>
-<p>参考文章：</p>
-<p><a href="http://www.cnblogs.com/boxuan/articles/6434109.html" target="_blank" rel="external">http://www.cnblogs.com/boxuan/articles/6434109.html</a></p>
-<p><a href="http://www.cnblogs.com/yangcb/p/5852380.html" target="_blank" rel="external">http://www.cnblogs.com/yangcb/p/5852380.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1610969-75b3f9d0e4cdcbd4.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;要做到项目的自动构建，你需求了解下Jenkins的安装，这文章是博主从零开始安装的过程，记录下了踩过的坑，分享给有需要的童鞋。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Jenkins" scheme="http://agoninemo.github.io/blog/tags/Jenkins/"/>
-    
-      <category term="Git" scheme="http://agoninemo.github.io/blog/tags/Git/"/>
     
   </entry>
   
