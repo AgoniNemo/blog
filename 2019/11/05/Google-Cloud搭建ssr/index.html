@@ -33,7 +33,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg">
-<meta property="og:updated_time" content="2019-11-10T14:06:20.117Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g11.jpeg">
+<meta property="og:updated_time" content="2020-07-17T07:08:13.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Cloud搭建ssr">
 <meta name="twitter:description" content="前言自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws一年的免费流量之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。">
@@ -217,6 +218,11 @@ var _hmt = _hmt || [];
 <h4 id="创建ssh-key"><a href="#创建ssh-key" class="headerlink" title="创建ssh-key"></a>创建ssh-key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 打开终端输入下面命令</div><div class="line"># 用户名：为创建VM实例的谷歌用户名（没试过其他的名称）</div><div class="line"># 命令： 系统在路径为~/.ssh/的文件夹下生成名为 google 的私钥文件和一个名为 google.pub 的公钥文件</div><div class="line"># 提示填yes</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/google -C 用户名</div><div class="line"></div><div class="line"># 将打印出来的字符全复制到下面的图中</div><div class="line">cat ~/.ssh/google.pub</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
 <h4 id="连接到google-cloud"><a href="#连接到google-cloud" class="headerlink" title="连接到google cloud"></a>连接到google cloud</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 连接到google cloud（提示时填yes）</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
+<h3 id="PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下："><a href="#PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下：" class="headerlink" title="PS：可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下："></a>PS：<code>可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下：</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">ssh -i ~/.ssh/google xxx@xxx</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:8hgJ8jpcBr1tm6HS72FpXwMrjba8MQqlqYJQLPB/Qf4.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xxx/.ssh/known_hosts:26</div><div class="line">ECDSA host key for 47.98.233.15 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
+<p><code>根据上面的信息 Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 编辑文件</div><div class="line">vi 文件路径（比如：/User/xxx/.ssh/known_hosts）</div></pre></td></tr></table></figure>
+<p><code>输入i 进入编辑模式，找下图信息中找到ip为47.98.233.15的记录，删除，如下图</code><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g11.jpeg" alt="1"></p>
+<p><code>这里的ip与上面错误信息的ip是一致的，要根据自己的错误信息查找。</code></p>
 <h4 id="安装BBR"><a href="#安装BBR" class="headerlink" title="安装BBR"></a>安装BBR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">yum install -y wget</div><div class="line"></div><div class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</div><div class="line"></div><div class="line">chmod +x bbr.sh</div><div class="line"></div><div class="line">./bbr.sh</div><div class="line"></div><div class="line">安装完成后，脚本会提示需要重启VPS，输入 y 并回车后重启，可能需要几分钟</div><div class="line"></div><div class="line"># 几分钟过后 连接到google cloud</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div><div class="line"></div><div class="line">###### 验证是否安装成功</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_available_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_congestion_control = bbr</div><div class="line"></div><div class="line">sysctl net.core.default_qdisc</div><div class="line">返回值一般为：</div><div class="line">net.core.default_qdisc = fq</div><div class="line"></div><div class="line">lsmod | grep bbr</div><div class="line">返回值有 tcp_bbr 模块即说明bbr已启动</div></pre></td></tr></table></figure>
 <h3 id="安装SSR"><a href="#安装SSR" class="headerlink" title="安装SSR"></a>安装SSR</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line"></div><div class="line"># 安装shadowsocks</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
 <h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><h4 id="多个用户使用的配置"><a href="#多个用户使用的配置" class="headerlink" title="多个用户使用的配置"></a>多个用户使用的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,  </div><div class="line"> &quot;local_port&quot;:1080,  </div><div class="line"> &quot;port_password&quot;: &#123;   </div><div class="line">     &quot;8987&quot;: &quot;密码&quot;,    </div><div class="line">     &quot;8988&quot;: &quot;密码&quot;,</div><div class="line">     &quot;8989&quot;: &quot;密码&quot;</div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -346,11 +352,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/2020/01/31/LLDB调试程序（笔记）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2020/05/15/那些音乐神评论/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          LLDB调试程序（笔记）
+          那些音乐神评论
         
       </div>
     </a>
@@ -487,10 +493,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
@@ -535,15 +537,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +553,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,6 +577,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -587,10 +593,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">sh</a>
               </li>
              
@@ -599,11 +601,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +618,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Archives: 2018/3 | AgoniNemo&#39;s blog</title>
+  <title>LLDB调试程序（笔记） | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2018/03/index.html">
+  <meta name="description" content="全称expression，可简写为ep（print) 功能是输出原生类型（boolean、integer、float、etc）的信息po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)call 同po或p一样, 也是调用. 当不需要显示输出时使用.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLDB调试程序（笔记）">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="全称expression，可简写为ep（print) 功能是输出原生类型（boolean、integer、float、etc）的信息po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)call 同po或p一样, 也是调用. 当不需要显示输出时使用.">
+<meta property="og:updated_time" content="2020-08-14T14:25:34.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="LLDB调试程序（笔记）">
+<meta name="twitter:description" content="全称expression，可简写为ep（print) 功能是输出原生类型（boolean、integer、float、etc）的信息po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)call 同po或p一样, 也是调用. 当不需要显示输出时使用.">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,140 +163,186 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-LLDB调试程序（笔记）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LLDB调试程序（笔记）
+    </h1>
+  
+
+        
+        <a href="/blog/2020/08/11/LLDB调试程序（笔记）/" class="archive-article-date">
+  	<time datetime="2020-08-11T11:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11 19:43:23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 命令别名</div><div class="line">command alias &lt;alias name&gt; expression -l objc -O —-</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">## 获取图层</div><div class="line">e id $view = (id) 0x7fbd71432590</div><div class="line">## 更改图层信息</div><div class="line">e (void) [$view setBackgroundColor:[UIColor redColor]]</div><div class="line">## 刷新界面</div><div class="line">e (void)[CATransaction flush]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## 定义一个变量str</div><div class="line">e NSString *$str = @&quot;text&quot;</div><div class="line"></div><div class="line"># 普通类型</div><div class="line">e int $a = 2</div><div class="line"></div><div class="line"># 打印结果</div><div class="line">p $a * 19</div><div class="line"></div><div class="line"># 定义数组</div><div class="line">e NSArray *$array = @[ @&quot;1&quot;, @&quot;2&quot;, @&quot;3&quot; ]</div><div class="line"></div><div class="line"># 打印数组个数</div><div class="line">p [$array count]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">## 例子</div><div class="line">e id $nvc = [[[UIApplication sharedApplication] keyWindow] rootViewController]</div><div class="line">e id $vc = [UIViewController new]                                //生成一个vc</div><div class="line">e (void)[[$vc view] setBackgroundColor:[UIColor redColor]]</div><div class="line">e (void)[$vc setTitle:@&quot;new ViewController!&quot;]</div><div class="line">e (void)[$nvc pushViewController:$vc animated:YES]</div><div class="line">e [CATransaction flush]</div></pre></td></tr></table></figure>
+<p><code>bt (全称thread backtrace) 打印调用堆栈，加all可打印所有thread的堆栈。程序出错时可使用这个命令.可以把断点放在函数的开头，然后用 thread return 命令重写函数的行为，然后继续。</code></p>
+<h2 id="查看所有线程调用栈"><a href="#查看所有线程调用栈" class="headerlink" title="查看所有线程调用栈"></a>查看所有线程调用栈</h2><p>thread backtrace all</p>
+<h2 id="列出所有线程"><a href="#列出所有线程" class="headerlink" title="列出所有线程"></a>列出所有线程</h2><p>thread list</p>
+<h2 id="可用来控制程序流程-伪造返回值"><a href="#可用来控制程序流程-伪造返回值" class="headerlink" title="可用来控制程序流程, 伪造返回值"></a>可用来控制程序流程, 伪造返回值</h2><p>thread return <exp></exp></p>
+<h1 id="获取全部变量值"><a href="#获取全部变量值" class="headerlink" title="获取全部变量值"></a>获取全部变量值</h1><p>frame variable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 也可以获取单个变量值</div><div class="line">frame v self-&gt;testVar</div><div class="line"># 当前的行数和源码文件，以及其他一些信息</div><div class="line">frame info</div></pre></td></tr></table></figure>
+<p>image 可用于寻址，有多个组合命令。常用于寻找栈地址对应的代码位置, 用于查错(能定位出错误代码行数)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 最后为栈地址</div><div class="line">image lookup --address 0x0000000100004af8</div></pre></td></tr></table></figure>
+<p>breakpoint(或简写为b) 设置断点. (可在运行过程中添加)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 第10行设置断点</div><div class="line">breakpoint set -f XXX.m -l 10</div><div class="line"></div><div class="line"># 第10行设置断点(xxx.m也一样)</div><div class="line">b ViewController.swift:10</div><div class="line"></div><div class="line"># 功能同上</div><div class="line">b 10</div><div class="line"></div><div class="line"># 直接指定函数(符号断点:Xcode GUI中只要方法执行就触发断点, 这里只针对本类)</div><div class="line">b myfunc</div><div class="line"></div><div class="line"># 数组根据Index获取object处设置断点</div><div class="line">b -[NSArray objectAtIndex:]</div><div class="line"></div><div class="line"># 列出所有断点. 简写br li</div><div class="line">breakpoint list</div><div class="line"></div><div class="line"># 禁用1号断点</div><div class="line">br dis 1</div><div class="line"></div><div class="line"># 删除9号断点</div><div class="line">breakpoint delete 9</div></pre></td></tr></table></figure>
+<p>断点调试命令: c 即process continue，n 即step over下一步, s即step in, thread step-out即step out. (n,s比较常用)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 下一步</div><div class="line">n</div><div class="line"></div><div class="line"># 进入</div><div class="line">s</div></pre></td></tr></table></figure>
+<p>watchpoint: 监听某个实例的变化. (等同于在Xcode调试变量窗口—&gt;右键某个变量—&gt;Watch xx) 注意: watchpoint是分类型的，包括read，write或者read_write类型. 通过Xcode右键添加的只能是write类型.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 为该变量地址设置watchpoint</div><div class="line">watchpoint set self-&gt;test</div><div class="line"></div><div class="line"># 为btn变量设置read_write类型的监听</div><div class="line">watchpoint set v -w read_write btn</div><div class="line"></div><div class="line"># 为该内存地址设置watchpoint，内存地址可从前文提及的`p`命令获取</div><div class="line">watchpoint set expression 0x00007fb27b4969e0</div><div class="line"></div><div class="line"># 为watchpoint 1号加上子命令 `frame info`</div><div class="line">watchpoint command add -o &apos;frame info&apos; 1</div><div class="line"></div><div class="line"># 列出所有watchpoint</div><div class="line">watchpoint list  </div><div class="line"></div><div class="line"># 删除所有watchpoint</div><div class="line">watchpoint delete</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 查看可用平台</div><div class="line">platform list</div><div class="line"></div><div class="line"># 选择运行平台</div><div class="line">platform select ios-simulator</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 当遇到 Thread 5: EXC_BAD_ACCESS (code=1, address=0x0)</div><div class="line"># thread backtrace，作用是打印当前线程信息</div><div class="line">bt</div><div class="line"></div><div class="line"># 所有线程的调用栈</div><div class="line">thread backtrace all</div><div class="line"></div><div class="line"># 检查帧参数和本地变量</div><div class="line">frame variable</div><div class="line"></div><div class="line"># 使用image 来定位崩溃</div><div class="line">image lookup --address 0x0000000100000de0</div><div class="line"></div><div class="line">frame variable *self</div><div class="line"></div><div class="line"># 查看具体的对象的声明类型</div><div class="line">image lookup --type &lt;Class&gt;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/" class="archive-article-date">
-  	<time datetime="2018-03-22T10:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22 18:50:41</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/">Xcode打包的坑与shell动态创建Plist</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">xcodebuild</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/03/11/shell学习(一)/" class="archive-article-date">
-  	<time datetime="2018-03-11T04:58:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11 12:58:04</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/03/11/shell学习(一)/">shell学习（一）下篇</a>
-    </h1>
+  
+    <a href="/blog/2020/05/15/那些音乐神评论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">那些音乐神评论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/03/10/shell学习（一）上篇/" class="archive-article-date">
-  	<time datetime="2018-03-10T04:58:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10 12:58:04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/03/10/shell学习（一）上篇/">shell学习（一）上篇</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
 
-    
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -318,8 +365,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

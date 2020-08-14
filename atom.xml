@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-05-15T04:35:37.680Z</updated>
+  <updated>2020-08-14T14:25:34.263Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -16,32 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>那些音乐神评论</title>
-    <link href="http://agoninemo.github.io/blog/2020/05/15/%E9%82%A3%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
-    <id>http://agoninemo.github.io/blog/2020/05/15/那些音乐神评论/</id>
-    <published>2020-05-15T04:25:29.000Z</published>
-    <updated>2020-05-15T04:35:37.680Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;何谓烈酒？&quot;</div><div class="line">&quot;凌晨，宿醉，浑浑噩噩。&quot;</div><div class="line">&quot;可否具体？&quot;  </div><div class="line">&quot;烧心，烫喉，一醉方休。&quot;</div><div class="line">&quot;可否再具体？&quot;</div><div class="line">&quot;醉时有你。&quot;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">那个酒馆里的老板娘生的一副好模样唇红齿白眉目如画就是脾气火爆</div><div class="line">她好喝酒但从不与人对饮</div><div class="line">直到那一天她喝醉了她流泪了她说她在等一个人一个没有告别就远走的人</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
-    
-    </summary>
-    
-    
-      <category term="神评论" scheme="http://agoninemo.github.io/blog/tags/%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>LLDB调试程序（笔记）</title>
-    <link href="http://agoninemo.github.io/blog/2020/01/31/LLDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89/"/>
-    <id>http://agoninemo.github.io/blog/2020/01/31/LLDB调试程序（笔记）/</id>
-    <published>2020-01-31T11:43:23.000Z</published>
-    <updated>2020-02-08T05:18:08.350Z</updated>
+    <link href="http://agoninemo.github.io/blog/2020/08/11/LLDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89/"/>
+    <id>http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/</id>
+    <published>2020-08-11T11:43:23.000Z</published>
+    <updated>2020-08-14T14:25:34.263Z</updated>
     
     <content type="html"><![CDATA[<h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
 <a id="more"></a>
@@ -77,11 +56,32 @@
   </entry>
   
   <entry>
+    <title>那些音乐神评论</title>
+    <link href="http://agoninemo.github.io/blog/2020/05/15/%E9%82%A3%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
+    <id>http://agoninemo.github.io/blog/2020/05/15/那些音乐神评论/</id>
+    <published>2020-05-15T04:25:29.000Z</published>
+    <updated>2020-05-15T04:35:37.680Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;何谓烈酒？&quot;</div><div class="line">&quot;凌晨，宿醉，浑浑噩噩。&quot;</div><div class="line">&quot;可否具体？&quot;  </div><div class="line">&quot;烧心，烫喉，一醉方休。&quot;</div><div class="line">&quot;可否再具体？&quot;</div><div class="line">&quot;醉时有你。&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">那个酒馆里的老板娘生的一副好模样唇红齿白眉目如画就是脾气火爆</div><div class="line">她好喝酒但从不与人对饮</div><div class="line">直到那一天她喝醉了她流泪了她说她在等一个人一个没有告别就远走的人</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+    
+    </summary>
+    
+    
+      <category term="神评论" scheme="http://agoninemo.github.io/blog/tags/%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Google Cloud搭建ssr</title>
     <link href="http://agoninemo.github.io/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/"/>
     <id>http://agoninemo.github.io/blog/2019/11/05/Google-Cloud搭建ssr/</id>
     <published>2019-11-05T12:53:39.000Z</published>
-    <updated>2019-11-10T14:06:20.117Z</updated>
+    <updated>2020-07-17T07:08:13.551Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
 <a id="more"></a>
@@ -97,6 +97,11 @@
 <h4 id="创建ssh-key"><a href="#创建ssh-key" class="headerlink" title="创建ssh-key"></a>创建ssh-key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 打开终端输入下面命令</div><div class="line"># 用户名：为创建VM实例的谷歌用户名（没试过其他的名称）</div><div class="line"># 命令： 系统在路径为~/.ssh/的文件夹下生成名为 google 的私钥文件和一个名为 google.pub 的公钥文件</div><div class="line"># 提示填yes</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/google -C 用户名</div><div class="line"></div><div class="line"># 将打印出来的字符全复制到下面的图中</div><div class="line">cat ~/.ssh/google.pub</div></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
 <h4 id="连接到google-cloud"><a href="#连接到google-cloud" class="headerlink" title="连接到google cloud"></a>连接到google cloud</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 连接到google cloud（提示时填yes）</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
+<h3 id="PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下："><a href="#PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下：" class="headerlink" title="PS：可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下："></a>PS：<code>可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下：</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">ssh -i ~/.ssh/google xxx@xxx</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:8hgJ8jpcBr1tm6HS72FpXwMrjba8MQqlqYJQLPB/Qf4.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xxx/.ssh/known_hosts:26</div><div class="line">ECDSA host key for 47.98.233.15 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
+<p><code>根据上面的信息 Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 编辑文件</div><div class="line">vi 文件路径（比如：/User/xxx/.ssh/known_hosts）</div></pre></td></tr></table></figure>
+<p><code>输入i 进入编辑模式，找下图信息中找到ip为47.98.233.15的记录，删除，如下图</code><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g11.jpeg" alt="1"></p>
+<p><code>这里的ip与上面错误信息的ip是一致的，要根据自己的错误信息查找。</code></p>
 <h4 id="安装BBR"><a href="#安装BBR" class="headerlink" title="安装BBR"></a>安装BBR</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">yum install -y wget</div><div class="line"></div><div class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</div><div class="line"></div><div class="line">chmod +x bbr.sh</div><div class="line"></div><div class="line">./bbr.sh</div><div class="line"></div><div class="line">安装完成后，脚本会提示需要重启VPS，输入 y 并回车后重启，可能需要几分钟</div><div class="line"></div><div class="line"># 几分钟过后 连接到google cloud</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div><div class="line"></div><div class="line">###### 验证是否安装成功</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_available_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</div><div class="line"></div><div class="line">sysctl net.ipv4.tcp_congestion_control</div><div class="line">返回值一般为：</div><div class="line">net.ipv4.tcp_congestion_control = bbr</div><div class="line"></div><div class="line">sysctl net.core.default_qdisc</div><div class="line">返回值一般为：</div><div class="line">net.core.default_qdisc = fq</div><div class="line"></div><div class="line">lsmod | grep bbr</div><div class="line">返回值有 tcp_bbr 模块即说明bbr已启动</div></pre></td></tr></table></figure>
 <h3 id="安装SSR"><a href="#安装SSR" class="headerlink" title="安装SSR"></a>安装SSR</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line"></div><div class="line"># 安装shadowsocks</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line"># 创建shadowsocks文件夹用来放一些配置文件</div><div class="line">mkdir /etc/shadowsocks</div><div class="line"></div><div class="line"># 编辑配置文件</div><div class="line">vim /etc/shadowsocks/config.json</div></pre></td></tr></table></figure>
 <h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><h4 id="多个用户使用的配置"><a href="#多个用户使用的配置" class="headerlink" title="多个用户使用的配置"></a>多个用户使用的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line"> &quot;local_address&quot;: &quot;127.0.0.1&quot;,  </div><div class="line"> &quot;local_port&quot;:1080,  </div><div class="line"> &quot;port_password&quot;: &#123;   </div><div class="line">     &quot;8987&quot;: &quot;密码&quot;,    </div><div class="line">     &quot;8988&quot;: &quot;密码&quot;,</div><div class="line">     &quot;8989&quot;: &quot;密码&quot;</div><div class="line"> &#125;,  </div><div class="line"> &quot;timeout&quot;:300,  </div><div class="line"> &quot;method&quot;:&quot;aes-256-cfb&quot;,  </div><div class="line"> &quot;fast_open&quot;: false  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -293,9 +298,9 @@
     </summary>
     
     
-      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
-    
       <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
+    
+      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
     
   </entry>
   
