@@ -104,6 +104,100 @@
   </entry>
   
   <entry>
+    <title>一些面试题整理</title>
+    <link href="http://agoninemo.github.io/blog/2020/06/25/%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+    <id>http://agoninemo.github.io/blog/2020/06/25/一些面试题整理/</id>
+    <published>2020-06-25T11:53:48.000Z</published>
+    <updated>2020-08-31T04:06:34.048Z</updated>
+    
+    <content type="html"><![CDATA[<p>更新于：2020.9.1</p>
+<h3 id="常见的网络协议有哪些"><a href="#常见的网络协议有哪些" class="headerlink" title="常见的网络协议有哪些"></a>常见的网络协议有哪些</h3><p>其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。</p>
+<ul>
+<li>ARP(Address Resolution Protocol)地址解析协议</li>
+<li>SNMP(Simple network management p)网络管理协议</li>
+<li>BGP4(Border Gateway Protocol vertion 4)边界网关协议-版本4</li>
+<li>DHCP(Dynamic Host Configuration Protocol)动态主机配置协议</li>
+<li>FTP(File Transfer Protocol)文件传输协议</li>
+<li>HDLC(High-Level Data Link Control)高层数据链路协议</li>
+<li>HTTP(Hypertext Transfer Protocol) 超文本传输协议</li>
+<li>HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议</li>
+<li>ICMP(Internet Control Message Protocol)Internet控制信息协议</li>
+<li>IPv6(Internet Protocol Version 6)Internet协议-版本6</li>
+<li>OSPF(Open Shortest Path First)开放最短路优先</li>
+<li>POP3(Post Office Protocol Version 3)邮局协议-版本3</li>
+<li>RIP(Routing Infomation Protocol)路由信息协议</li>
+<li>SMTP(Simple Mail Transfer Protocol)简单邮件传送协议</li>
+<li>TCP/IP(Transmission Control Protocol/Internet Protocol)传输控制协议/Internet协议</li>
+<li>TELNET Protocol虚拟终端协议</li>
+<li>Time Protocol时间协议</li>
+<li>TFTP(Trivial File Transfer Protocol)小文件传输协议</li>
+<li>UDP(User Datagram Protocol)用户数据报协议</li>
+</ul>
+<a id="more"></a>
+<h4 id="HTTP又分为三个版本，分别为HTTP1-0、HTTP1-1、HTTP2-0"><a href="#HTTP又分为三个版本，分别为HTTP1-0、HTTP1-1、HTTP2-0" class="headerlink" title="HTTP又分为三个版本，分别为HTTP1.0、HTTP1.1、HTTP2.0"></a>HTTP又分为三个版本，分别为HTTP1.0、HTTP1.1、HTTP2.0</h4><ul>
+<li>HTTP1.1默认持久化连接，建立一次连接，多次请求均由这个连接完成！(如果阻塞了，还是会开新的TCP连接的)，HTTP 1.1中增加host字段，引入了Chunked transfer-coding，范围请求，实现断点续传(实际上就是利用HTTP消息头使用分块传输编码，将实体主体分块传输)，HTTP 1.1管线化(pipelining)理论，客户端可以同时发出多个HTTP请求，而不用一个个等待响应之后再请求，但是这个理论仅仅是限于理论场景下，大部分桌面浏览器仍然会选择默认关闭HTTP pipelining！所以现在使用HTTP1.1协议的应用，都是有可能会开多个TCP连接的！</li>
+<li>HTTP1.0默认是短连接，简单说来就是每次与服务器交互，都需要新开一个连接！</li>
+<li>HTTP2与HTTP1.1最重要的区别就是解决了线头阻塞的问题！其中最重要的改动是：多路复用 (Multiplexing)，HTTP2所有性能增强的核心在于新的二进制分帧层(不再以文本格式来传输了)，它定义了如何封装http消息并在客户端与服务器之间传输。使用HPACK对HTTP/2头部压缩，服务器推送，针对传输中的流进行控制(TCP默认的粒度是针对连接)，流优先级（Stream Priority）它被用来告诉对端哪个流更重要。</li>
+</ul>
+<h4 id="MVC、MVP、MVVM的区别，使用场景"><a href="#MVC、MVP、MVVM的区别，使用场景" class="headerlink" title="MVC、MVP、MVVM的区别，使用场景"></a>MVC、MVP、MVVM的区别，使用场景</h4><ul>
+<li>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写。MVC开始是存在于桌面程序中的，M是指业务模型，V是指用户界面，C则是控制器，使用MVC的目的是将M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式</li>
+<li>MVVM（Model-View-ViewModel）框架的由来便是MVP（Model-View-Presenter）模式与WPF结合的应用方式时发展演变过来的一种新型架构框架。它立足于原有MVP框架并且把WPF的新特性糅合进去，以应对客户日益复杂的需求变化。</li>
+<li>而 MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。 唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。这样开发者就不用处理接收事件和View更新的工作，框架已经帮你做好了</li>
+<li>在MVP里，Presenter完全把Model和View进行了分离，主要的程序逻辑在Presenter里实现。</li>
+</ul>
+<p>PS:<a href="https://zhuanlan.zhihu.com/p/87752772" target="_blank" rel="external">参考链接</a></p>
+<h4 id="对Runtime的了解，使用场景（runtime方便的，消息转发，weak，associate，category）"><a href="#对Runtime的了解，使用场景（runtime方便的，消息转发，weak，associate，category）" class="headerlink" title="对Runtime的了解，使用场景（runtime方便的，消息转发，weak，associate，category）"></a>对Runtime的了解，使用场景（runtime方便的，消息转发，weak，associate，category）</h4><ul>
+<li>耦合度低</li>
+<li>RunTime简称运行时。就是系统在运行的时候的一些机制</li>
+<li>字典转换Model、热更新、给Category添加属性、Method Swizzling（系统方法替换）、兼容系统API迭代、实现多重代理、间接实现多继承</li>
+<li>runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil</li>
+</ul>
+<h4 id="Aspects使用"><a href="#Aspects使用" class="headerlink" title="Aspects使用"></a>Aspects使用</h4><ul>
+<li>优点：不会影响其他对象，降低耦合度，当你在 remove aspects 的时候，如果发现当前对象的 aspect 都被移除了，那么，你可以将 isa 指针重新指回对象本身的类，从而消除了该对象的 swizzle</li>
+<li>没有解决originalMethod 中使用 _cmd 的问题</li>
+</ul>
+<h4 id="HTTP与HTTPS有什么区别"><a href="#HTTP与HTTPS有什么区别" class="headerlink" title="HTTP与HTTPS有什么区别"></a>HTTP与HTTPS有什么区别</h4><ul>
+<li>https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用</li>
+<li>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议</li>
+<li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443</li>
+<li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;更新于：2020.9.1&lt;/p&gt;
+&lt;h3 id=&quot;常见的网络协议有哪些&quot;&gt;&lt;a href=&quot;#常见的网络协议有哪些&quot; class=&quot;headerlink&quot; title=&quot;常见的网络协议有哪些&quot;&gt;&lt;/a&gt;常见的网络协议有哪些&lt;/h3&gt;&lt;p&gt;其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ARP(Address Resolution Protocol)地址解析协议&lt;/li&gt;
+&lt;li&gt;SNMP(Simple network management p)网络管理协议&lt;/li&gt;
+&lt;li&gt;BGP4(Border Gateway Protocol vertion 4)边界网关协议-版本4&lt;/li&gt;
+&lt;li&gt;DHCP(Dynamic Host Configuration Protocol)动态主机配置协议&lt;/li&gt;
+&lt;li&gt;FTP(File Transfer Protocol)文件传输协议&lt;/li&gt;
+&lt;li&gt;HDLC(High-Level Data Link Control)高层数据链路协议&lt;/li&gt;
+&lt;li&gt;HTTP(Hypertext Transfer Protocol) 超文本传输协议&lt;/li&gt;
+&lt;li&gt;HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议&lt;/li&gt;
+&lt;li&gt;ICMP(Internet Control Message Protocol)Internet控制信息协议&lt;/li&gt;
+&lt;li&gt;IPv6(Internet Protocol Version 6)Internet协议-版本6&lt;/li&gt;
+&lt;li&gt;OSPF(Open Shortest Path First)开放最短路优先&lt;/li&gt;
+&lt;li&gt;POP3(Post Office Protocol Version 3)邮局协议-版本3&lt;/li&gt;
+&lt;li&gt;RIP(Routing Infomation Protocol)路由信息协议&lt;/li&gt;
+&lt;li&gt;SMTP(Simple Mail Transfer Protocol)简单邮件传送协议&lt;/li&gt;
+&lt;li&gt;TCP/IP(Transmission Control Protocol/Internet Protocol)传输控制协议/Internet协议&lt;/li&gt;
+&lt;li&gt;TELNET Protocol虚拟终端协议&lt;/li&gt;
+&lt;li&gt;Time Protocol时间协议&lt;/li&gt;
+&lt;li&gt;TFTP(Trivial File Transfer Protocol)小文件传输协议&lt;/li&gt;
+&lt;li&gt;UDP(User Datagram Protocol)用户数据报协议&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://agoninemo.github.io/blog/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>那些音乐神评论</title>
     <link href="http://agoninemo.github.io/blog/2020/05/15/%E9%82%A3%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
     <id>http://agoninemo.github.io/blog/2020/05/15/那些音乐神评论/</id>
@@ -755,39 +849,6 @@ $*：显示整个脚本输入参数列表
       <category term="git" scheme="http://agoninemo.github.io/blog/tags/git/"/>
     
       <category term="ssh" scheme="http://agoninemo.github.io/blog/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>First Translation</title>
-    <link href="http://agoninemo.github.io/blog/2017/11/18/First%20Translation/"/>
-    <id>http://agoninemo.github.io/blog/2017/11/18/First Translation/</id>
-    <published>2017-11-18T05:26:33.000Z</published>
-    <updated>2019-01-10T09:22:48.488Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/timg.jpg" alt="pic"></p>
-<h3 id="前方"><a href="#前方" class="headerlink" title="前方"></a>前方</h3><p>当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 </p>
-<h4 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h4><p>欢迎来到Swift.org<br><br>欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。<br></p>
-<p>在2014公布后，它很快成为发展最快的语言之一。Swift 使写的软件（编程）极其安全与快速的设计。我们的目标与野心：我们想要编程简单的事变成更简单，困难的事变成也可能实现。</p>
-<p>对于学习者来说，学习Swift 能更好的了解现在编程的概念与更好的实践。现在Swift 开源了，他们将可以运用到更广泛的平台中，从移动设置到桌面到云平台。<br></p>
-<a id="more"></a>
-<h4 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Welcome to Swift.org</div><div class="line"></div><div class="line">Welcome to the Swift community. Together we are working to build a programming language to empower everyone to turn their ideas into apps on any platform.</div><div class="line"></div><div class="line">Announced in 2014, the Swift programming language has quickly become one of the fastest growing languages in history. Swift makes it easy to write software that is incredibly fast and safe by design. Our goals for Swift are ambitious: we want to make programming simple things easy, and difficult things possible.</div><div class="line"></div><div class="line">For students, learning Swift has been a great introduction to modern programming concepts and best practices. And because it is open, their Swift skills will be able to be applied to an even broader range of platforms, from mobile devices to the desktop to the cloud.</div></pre></td></tr></table></figure>
-<p>部分词：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">excited 兴奋</div><div class="line">chapter 章</div><div class="line">quickly 快速</div><div class="line">became 成为</div><div class="line">one of 其中之一</div><div class="line">design 设计</div><div class="line">general 普通</div><div class="line">purpose 用途</div><div class="line">modern 现代</div><div class="line">programming 编程</div><div class="line">concepts 概念</div><div class="line">Announced 公布</div><div class="line">goals 目标</div><div class="line">difficult 困难</div><div class="line">possible 可能</div><div class="line">introduction 采用</div><div class="line">devices 设置</div><div class="line">desktop 桌面</div><div class="line">cloud 云</div><div class="line">applied 应用的</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/timg.jpg&quot; alt=&quot;pic&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;前方&quot;&gt;&lt;a href=&quot;#前方&quot; class=&quot;headerlink&quot; title=&quot;前方&quot;&gt;&lt;/a&gt;前方&lt;/h3&gt;&lt;p&gt;当你的知识支撑不了你的野心时，你就该静下心去学习！—–无名者 &lt;/p&gt;
-&lt;h4 id=&quot;译文&quot;&gt;&lt;a href=&quot;#译文&quot; class=&quot;headerlink&quot; title=&quot;译文&quot;&gt;&lt;/a&gt;译文&lt;/h4&gt;&lt;p&gt;欢迎来到Swift.org&lt;br&gt;&lt;br&gt;欢迎来到Swift 社区，让我们一起构建一种编程语言，让它在任何平台都可以把每一个人的想法变成应用程序。&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;在2014公布后，它很快成为发展最快的语言之一。Swift 使写的软件（编程）极其安全与快速的设计。我们的目标与野心：我们想要编程简单的事变成更简单，困难的事变成也可能实现。&lt;/p&gt;
-&lt;p&gt;对于学习者来说，学习Swift 能更好的了解现在编程的概念与更好的实践。现在Swift 开源了，他们将可以运用到更广泛的平台中，从移动设置到桌面到云平台。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="swift" scheme="http://agoninemo.github.io/blog/tags/swift/"/>
     
   </entry>
   
