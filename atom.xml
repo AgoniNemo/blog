@@ -108,28 +108,17 @@
     <link href="http://agoninemo.github.io/blog/2020/06/25/%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2020/06/25/一些面试题整理/</id>
     <published>2020-06-25T11:53:48.000Z</published>
-    <updated>2020-08-31T04:06:34.048Z</updated>
+    <updated>2020-09-13T13:52:15.447Z</updated>
     
-    <content type="html"><![CDATA[<p>更新于：2020.9.1</p>
+    <content type="html"><![CDATA[<p>更新于：2020.9.13</p>
 <h3 id="常见的网络协议有哪些"><a href="#常见的网络协议有哪些" class="headerlink" title="常见的网络协议有哪些"></a>常见的网络协议有哪些</h3><p>其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。</p>
 <ul>
-<li>ARP(Address Resolution Protocol)地址解析协议</li>
-<li>SNMP(Simple network management p)网络管理协议</li>
-<li>BGP4(Border Gateway Protocol vertion 4)边界网关协议-版本4</li>
-<li>DHCP(Dynamic Host Configuration Protocol)动态主机配置协议</li>
-<li>FTP(File Transfer Protocol)文件传输协议</li>
-<li>HDLC(High-Level Data Link Control)高层数据链路协议</li>
 <li>HTTP(Hypertext Transfer Protocol) 超文本传输协议</li>
 <li>HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议</li>
-<li>ICMP(Internet Control Message Protocol)Internet控制信息协议</li>
 <li>IPv6(Internet Protocol Version 6)Internet协议-版本6</li>
-<li>OSPF(Open Shortest Path First)开放最短路优先</li>
 <li>POP3(Post Office Protocol Version 3)邮局协议-版本3</li>
-<li>RIP(Routing Infomation Protocol)路由信息协议</li>
 <li>SMTP(Simple Mail Transfer Protocol)简单邮件传送协议</li>
 <li>TCP/IP(Transmission Control Protocol/Internet Protocol)传输控制协议/Internet协议</li>
-<li>TELNET Protocol虚拟终端协议</li>
-<li>Time Protocol时间协议</li>
 <li>TFTP(Trivial File Transfer Protocol)小文件传输协议</li>
 <li>UDP(User Datagram Protocol)用户数据报协议</li>
 </ul>
@@ -156,36 +145,116 @@
 <li>优点：不会影响其他对象，降低耦合度，当你在 remove aspects 的时候，如果发现当前对象的 aspect 都被移除了，那么，你可以将 isa 指针重新指回对象本身的类，从而消除了该对象的 swizzle</li>
 <li>没有解决originalMethod 中使用 _cmd 的问题</li>
 </ul>
+<h4 id="runtime-如何实现-weak-属性"><a href="#runtime-如何实现-weak-属性" class="headerlink" title="runtime 如何实现 weak 属性"></a>runtime 如何实现 weak 属性</h4><ul>
+<li>特点：weak 此特质表明该属性定义了一种“非拥有关系” (nonowning relationship)。为这种属性设置新值时，设置方法既不保留新值，也不释放旧值。此特质同 assign 类似， 然而在属性所指的对象遭到摧毁时，属性值也会清空(nil out)</li>
+<li>1、weak的原理在于底层维护了一张weak_table_t结构的hash表，key是所指对象的地址，value是weak指针的地址数组</li>
+<li>2、weak 关键字的作用是弱引用，所引用对象的计数器不会加1，并在引用对象被释放的时候自动被设置为 nil</li>
+<li>对象释放时，调用clearDeallocating函数根据对象地址获取所有weak指针地址的数组，然后遍历这个数组把其中的数据设为nil，最后把这个entry从weak表中删除，最后清理对象的记录</li>
+</ul>
+<h4 id="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"><a href="#当weak指向的对象被释放时，如何让weak指针置为nil的呢？" class="headerlink" title="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"></a>当weak指向的对象被释放时，如何让weak指针置为nil的呢？</h4><ul>
+<li>从weak表中获取废弃对象的地址为键值的记录.</li>
+<li>将包含在记录中的所有附有 weak修饰符变量的地址，赋值为   nil</li>
+<li>将weak表中该记录删除</li>
+<li>从引用计数表中删除废弃对象的地址为键值的记录</li>
+</ul>
+<h4 id="为什么修饰代理使用weak而不是用assign？"><a href="#为什么修饰代理使用weak而不是用assign？" class="headerlink" title="为什么修饰代理使用weak而不是用assign？"></a>为什么修饰代理使用weak而不是用assign？</h4><p>assign可用来修饰基本数据类型，也可修饰OC的对象，但如果用assign修饰对象类型指向的是一个强指针，当指向的这个指针释放之后，它仍指向这块内存，必须要手动给置为nil，否则会产生野指针，如果还通过此指针操作那块内存，会导致EXC_BAD_ACCESS错误，调用了已经被释放的内存空间；而weak只能用来修饰OC对象，而且相比assign比较安全，如果指向的对象消失了，那么它会自动置为nil，不会导致野指针</p>
+<h4 id="那么-runtime-如何实现-weak-变量的自动置nil？"><a href="#那么-runtime-如何实现-weak-变量的自动置nil？" class="headerlink" title="那么 runtime 如何实现 weak 变量的自动置nil？"></a>那么 runtime 如何实现 weak 变量的自动置nil？</h4><p>runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。</p>
+<h4 id="什么是RunLoop"><a href="#什么是RunLoop" class="headerlink" title="什么是RunLoop"></a>什么是RunLoop</h4><ul>
+<li>运行循环，在程序运行过程中循环做一些事情。iOS中有2套API来访问和使用RunLoop √ Foundation：NSRunLoop √ Core Foundation：CFRunLoopRef 。NSRunLoop和CFRunLoopRef都代表着RunLoop对象。NSRunLoop是基于CFRunLoopRef的一层OC包装。CFRunLoopRef是开源的</li>
+<li>RunLoop的基本作用： 1、保持程序的持续运行 2、处理App中的各种事件（比如触摸事件、定时器事件等） 3、节省CPU资源，提高程序性能：该做事时做事，该休息时休息</li>
+<li>RunLoop在实际开中的应用 √ 控制线程生命周期（线程保活） √ 解决NSTimer在滑动时停止工作的问题 √ 监控应用卡顿 √ 性能优化</li>
+</ul>
+<h4 id="RunLoop与线程关系"><a href="#RunLoop与线程关系" class="headerlink" title="RunLoop与线程关系"></a>RunLoop与线程关系</h4><ul>
+<li>每条线程都有唯一的一个与之对应的RunLoop对象</li>
+<li>RunLoop保存在一个全局的Dictionary里，线程作为key，RunLoop作为value</li>
+<li>线程刚创建时并没有RunLoop对象，RunLoop会在第一次获取它时创建</li>
+<li>RunLoop会在线程结束时销毁</li>
+<li>主线程的RunLoop已经自动获取（创建），子线程默认没有开启RunLoop</li>
+<li>运行逻辑<br>01、通知Observers：进入Loop<br>02、通知Observers：即将处理Timers<br>03、通知Observers：即将处理Sources<br>04、处理Blocks<br>05、处理Source0（可能会再次处理Blocks）<br>06、如果存在Source1，就跳转到第8步<br>07、通知Observers：开始休眠（等待消息唤醒）<br>08、通知Observers：结束休眠（被某个消息唤醒）<br>01&gt; 处理Timer<br>02&gt; 处理GCD Async To Main Queue<br>03&gt; 处理Source1<br>09、处理Blocks<br>10、根据前面的执行结果，决定如何操作<br>01&gt; 回到第02步<br>02&gt; 退出Loop<br>11、通知Observers：退出Loop</li>
+</ul>
 <h4 id="HTTP与HTTPS有什么区别"><a href="#HTTP与HTTPS有什么区别" class="headerlink" title="HTTP与HTTPS有什么区别"></a>HTTP与HTTPS有什么区别</h4><ul>
 <li>https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用</li>
 <li>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议</li>
 <li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443</li>
 <li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全</li>
 </ul>
+<h4 id="聊聊iOS的内存管理"><a href="#聊聊iOS的内存管理" class="headerlink" title="聊聊iOS的内存管理"></a>聊聊iOS的内存管理</h4><ul>
+<li>OC的内存管理主要有三种方式：ARC、MRC、内存池</li>
+</ul>
+<h4 id="简要阐述内存相关的关键字"><a href="#简要阐述内存相关的关键字" class="headerlink" title="简要阐述内存相关的关键字"></a>简要阐述内存相关的关键字</h4><ul>
+<li>Strong 修饰符表示指向并持有该对象，其修饰对象的引用计数会加1。该对象只要引用计数不为0就不会被销毁。当然可以通过将变量强制赋值 nil 来进行销毁</li>
+<li>weak 修饰符指向但是并不持有该对象，引用计数也不会加1。在 Runtime 中对该属性进行了相关操作，无需处理，可以自动销毁。weak用来修饰对象，多用于避免循环引用的地方。weak 不可以修饰基本数据类型</li>
+<li>assign主要用于修饰基本数据类型，例如NSInteger，CGFloat，存储在栈中，内存不用程序员管理。assign是可以修饰对象的，但是会出现问题</li>
+<li>copy关键字和 strong类似，copy 多用于修饰有可变类型的不可变对象上 NSString,NSArray,NSDictionary上</li>
+<li>__unsafe_unretain 类似于 weak ，但是当对象被释放后，指针已然保存着之前的地址，被释放后的地址变为 僵尸对象，访问被释放的地址就会出问题，所以说他是不安全的</li>
+<li>将对象赋值给附有 __autoreleasing修饰的变量等同于 ARC 无效时调用对象的 autorelease 方法,实质就是扔进了自动释放池</li>
+</ul>
+<h4 id="图片加载占用内存对比"><a href="#图片加载占用内存对比" class="headerlink" title="图片加载占用内存对比"></a>图片加载占用内存对比</h4><ul>
+<li>使用<code>imageName:</code>加载图片：1.加载到内存当中后，占据内存空间较大。2.相同的图片，图片不会重复加载。3.加载内存当中之后，会一直停留在内存当中，不会随着对象销毁而销毁。4.加载进去图片之后，占用的内存归系统管理，我们无法管理。</li>
+<li>使用<code>imageWithContentsOfFile:</code>加载图片：1.加载到内存当中后,占据内存空间较小。2.相同的图片会被重复加载内存当中。3.对象销毁的时候,加载到内存中图片会随着一起销毁。</li>
+<li>图片较小，并且使用频繁，使用<code>imageName:</code>来加载(按钮图标/主页里面图片)，图片较大，并且使用较少，使用 imageWithContentsOfFile: 来加载(版本新特性/相册)</li>
+</ul>
+<h4 id="图片在沙盒中的存在形式"><a href="#图片在沙盒中的存在形式" class="headerlink" title="图片在沙盒中的存在形式"></a>图片在沙盒中的存在形式</h4><ul>
+<li>小图片\使用频率比较高的图片放在Images.xcassets里面</li>
+<li>大图片\使用频率比较低的图片(一次性的图片, 比如版本新特性的图片)不要放在Images.xcassets里面</li>
+</ul>
+<h4 id="说说你对-tableview-性能优化方法"><a href="#说说你对-tableview-性能优化方法" class="headerlink" title="说说你对 tableview 性能优化方法"></a>说说你对 tableview 性能优化方法</h4><ul>
+<li>tableview懒加载、cell重用</li>
+<li>高度缓存（因为 heightForRowAtIndexPath: 是调用最频繁的方法）</li>
+<li>数据处理：使用正确的数据结构来存储数据、数据尽量采用局部的 section，或 cellRow 的刷新，避免 reloadData、大量数据操作时，使用异步子线程处理，避免主线程中直接操作、大量数据操作时，使用异步子线程处理，避免主线程中直接操作</li>
+<li>异步加载图片：使用异步子线程处理，然后再返回主线程操作、图片缓存处理，避免多次处理操作、图片圆角处理时，设置 layer 的 shouldRasterize 属性为 YES，可以将负载转移给 CPU</li>
+<li>按需加载内容：滑动操作时，只显示目标范围内的cell内容，显示过的超出目标范围内之后则进行清除、滑动过程中，不加载显示图片，停止时才加载显示图片</li>
+<li>视图层面：减少 subviews 的数量，自定义的子视图可以整合在形成一个整体的就整合成一个整体的子视图、使用 drawRect 进行绘制（即将 GPU 的部分渲染转接给 CPU ），或 CALayer 进行文本或图片的绘制。在实现 drawRect 方法的时候注意减少多余的绘制操作，它的参数 rect 就是我们需要绘制的区域，在 rect 范围之外的区域我们不需要进行绘制，否则会消耗相当大的资源、异步绘制，且设置属性 self.layer.drawsAsynchronously = YES;（遇到复杂界面，遇到性能瓶颈时，可能就是突破口）、定义一种(尽量少)类型的 Cell 及善用 hidden 隐藏(显示) subviews、尽量使所有的 view 的 opaque 属性为 YES，包括 cell 自身，以提高视图渲染速度（避免无用的 alpha 通道合成，降低 GPU 负载）、避免渐变，图片缩放的操作、使用 shadowPath 来画阴影、尽量不使用 cellForRowAtIndexPath: ，如果你需要用到它，只用一次然后缓存结果、cellForRowAtIndexPath 不要做耗时操作：如不读取文件 / 写入文件；尽量少用 addView 给 Cell 动态添加 View，可以初始化时就添加，然后通过 hide 来控制是否显示、我们在 cell 上添加系统控件的时候，实际上系统都会调用底层的接口进行绘制，大量添加控件时，会消耗很大的资源并且也会影响渲染的性能。当使用默认的 UITableViewCell 并且在它的 ContentView 上面添加控件时会相当消耗性能。所以目前最佳的方法还是继承 UITableViewCell，并重写 drawRect 方法、当我们需要圆角效果时，可以使用一张中间透明图片蒙上去使用 ShadowPath 指定 layer 阴影效果路径使用异步进行 layer 渲染（Facebook 开源的异步绘制框架 AsyncDisplayKit ）设置 layer 的 opaque 值为 YES ，减少复杂图层合成尽量使用不包含透明（alpha）通道的图片资源尽量设置 layer 的大小值为整形值直接让美工把图片切成圆角进行显示，这是效率最高的一种方案很多情况下用户上传图片进行显示，可以让服务端处理圆角使用代码手动生成圆角 Image 设置到要显示的 View 上，利用 UIBezierPath ( CoreGraphics 框架）画出来圆角图片</li>
+</ul>
+<h4 id="离屏渲染触发条件"><a href="#离屏渲染触发条件" class="headerlink" title="离屏渲染触发条件"></a>离屏渲染触发条件</h4><ul>
+<li>custom drawRect: (any, even if you simply fill the background with color)</li>
+<li>CALayer mask</li>
+<li>CALayer shadow</li>
+<li>any custom drawing using CGContext<br>具体表现为mask（遮罩）、 shadow（阴影）、shouldRasterize（光栅化）、edge antialiasing（抗锯齿）、group opacity（不透明）、复杂形状设置圆角等、渐变</li>
+<li>CPU和GPU： CPU，负责视图相关的计算工作并告知GPU应该怎么绘图； GPU，进行图形的绘制、渲染等工作</li>
+</ul>
+<h5 id="什么是block"><a href="#什么是block" class="headerlink" title="什么是block"></a>什么是block</h5><ul>
+<li>block是对象，它封装了一段代码，这段代码可以在任何时候执行。block可以作为函数参数或者函数的返回值，而其本身又可以带输入参数或返回值。与代理协议的功能一样,也可以用于事件通信</li>
+<li>Block使用注意点：防止循环引用，在block中用到外部变量都是只读拷贝的，栈block超过作用域就被自动释放了，堆block需要手动释放</li>
+</ul>
+<h4 id="说一下什么是悬垂指针？什么是野指针？"><a href="#说一下什么是悬垂指针？什么是野指针？" class="headerlink" title="说一下什么是悬垂指针？什么是野指针？"></a>说一下什么是悬垂指针？什么是野指针？</h4><ul>
+<li>指针指向的内存已经被释放了，但是指针还存在，这就是一个<code>悬垂指针</code>或者说 <code>迷途指针</code></li>
+<li>没有进行初始化的指针，其实都是<code>野指针</code></li>
+</ul>
+<h5 id="Block变量截获"><a href="#Block变量截获" class="headerlink" title="Block变量截获"></a>Block变量截获</h5><ul>
+<li>分为全局Block(_NSConcreteGlobalBlock)、栈Block(_NSConcreteStackBlock)、堆Block(_NSConcreteMallocBlock)三种形式</li>
+<li>不使用外部变量的block是全局block</li>
+<li>使用外部变量并且未进行copy操作的block是栈block</li>
+<li>对栈block进行copy操作，就是堆block，而对全局block进行copy，仍是全局block</li>
+<li>局部变量截获是值截获</li>
+<li>局部静态变量截获是指针截获</li>
+<li>全局变量，静态全局变量截获：不截获,直接取值</li>
+</ul>
+<h5 id="Swift中的Class和Struct"><a href="#Swift中的Class和Struct" class="headerlink" title="Swift中的Class和Struct"></a>Swift中的Class和Struct</h5><ul>
+<li>Class是引用类型，当值传递的时候，它是传递对已有instance（实例）的引用</li>
+<li>Struct是值类型，当值进行传递的时候，它会copy传递的值</li>
+<li>项目中默认使用struct，当你需要继承Objective-C某些类的的时候使用class，当你需要控制唯一性时使用class，使用struct和protocol来实现model继承和共享行为。</li>
+<li>struct好处，使用struct不需要考虑内存泄漏和多线程读写的问题，因为在传递值的时候它会进行值的copy，struct存储在stack中，class存储在heap中，struct更快</li>
+<li>class支持继承；struct不支持继承</li>
+<li>class声明的方法修改属性不需要<code>mutating</code>关键字；struct需要</li>
+<li>class没有提供默认的memberwise initializer（成员初始化）；struct提供默认的memberwise initializer</li>
+<li>class支持引用计数(Reference counting)；struct不支持</li>
+<li>class支持Type casting；struct不支持</li>
+<li>class支持Deinitializers（反初始化器）；struct不支持</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;更新于：2020.9.1&lt;/p&gt;
+      &lt;p&gt;更新于：2020.9.13&lt;/p&gt;
 &lt;h3 id=&quot;常见的网络协议有哪些&quot;&gt;&lt;a href=&quot;#常见的网络协议有哪些&quot; class=&quot;headerlink&quot; title=&quot;常见的网络协议有哪些&quot;&gt;&lt;/a&gt;常见的网络协议有哪些&lt;/h3&gt;&lt;p&gt;其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;ARP(Address Resolution Protocol)地址解析协议&lt;/li&gt;
-&lt;li&gt;SNMP(Simple network management p)网络管理协议&lt;/li&gt;
-&lt;li&gt;BGP4(Border Gateway Protocol vertion 4)边界网关协议-版本4&lt;/li&gt;
-&lt;li&gt;DHCP(Dynamic Host Configuration Protocol)动态主机配置协议&lt;/li&gt;
-&lt;li&gt;FTP(File Transfer Protocol)文件传输协议&lt;/li&gt;
-&lt;li&gt;HDLC(High-Level Data Link Control)高层数据链路协议&lt;/li&gt;
 &lt;li&gt;HTTP(Hypertext Transfer Protocol) 超文本传输协议&lt;/li&gt;
 &lt;li&gt;HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议&lt;/li&gt;
-&lt;li&gt;ICMP(Internet Control Message Protocol)Internet控制信息协议&lt;/li&gt;
 &lt;li&gt;IPv6(Internet Protocol Version 6)Internet协议-版本6&lt;/li&gt;
-&lt;li&gt;OSPF(Open Shortest Path First)开放最短路优先&lt;/li&gt;
 &lt;li&gt;POP3(Post Office Protocol Version 3)邮局协议-版本3&lt;/li&gt;
-&lt;li&gt;RIP(Routing Infomation Protocol)路由信息协议&lt;/li&gt;
 &lt;li&gt;SMTP(Simple Mail Transfer Protocol)简单邮件传送协议&lt;/li&gt;
 &lt;li&gt;TCP/IP(Transmission Control Protocol/Internet Protocol)传输控制协议/Internet协议&lt;/li&gt;
-&lt;li&gt;TELNET Protocol虚拟终端协议&lt;/li&gt;
-&lt;li&gt;Time Protocol时间协议&lt;/li&gt;
 &lt;li&gt;TFTP(Trivial File Transfer Protocol)小文件传输协议&lt;/li&gt;
 &lt;li&gt;UDP(User Datagram Protocol)用户数据报协议&lt;/li&gt;
 &lt;/ul&gt;
@@ -440,9 +509,9 @@
     </summary>
     
     
-      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
-    
       <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
+    
+      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
     
   </entry>
   
