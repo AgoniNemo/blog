@@ -108,7 +108,7 @@
     <link href="http://agoninemo.github.io/blog/2020/06/25/%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2020/06/25/一些面试题整理/</id>
     <published>2020-06-25T11:53:48.000Z</published>
-    <updated>2020-09-13T13:52:15.447Z</updated>
+    <updated>2020-09-17T14:13:32.341Z</updated>
     
     <content type="html"><![CDATA[<p>更新于：2020.9.13</p>
 <h3 id="常见的网络协议有哪些"><a href="#常见的网络协议有哪些" class="headerlink" title="常见的网络协议有哪些"></a>常见的网络协议有哪些</h3><p>其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。</p>
@@ -153,7 +153,7 @@
 </ul>
 <h4 id="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"><a href="#当weak指向的对象被释放时，如何让weak指针置为nil的呢？" class="headerlink" title="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"></a>当weak指向的对象被释放时，如何让weak指针置为nil的呢？</h4><ul>
 <li>从weak表中获取废弃对象的地址为键值的记录.</li>
-<li>将包含在记录中的所有附有 weak修饰符变量的地址，赋值为   nil</li>
+<li>将包含在记录中的所有附有 weak修饰符变量的地址，赋值为 nil</li>
 <li>将weak表中该记录删除</li>
 <li>从引用计数表中删除废弃对象的地址为键值的记录</li>
 </ul>
@@ -229,6 +229,7 @@
 <li>局部变量截获是值截获</li>
 <li>局部静态变量截获是指针截获</li>
 <li>全局变量，静态全局变量截获：不截获,直接取值</li>
+<li>总结：auto（默认就有 auto修饰，离开作用域就销毁）修饰的局部变量，是值传递。static修饰的局部变量，是指针传递。</li>
 </ul>
 <h5 id="Swift中的Class和Struct"><a href="#Swift中的Class和Struct" class="headerlink" title="Swift中的Class和Struct"></a>Swift中的Class和Struct</h5><ul>
 <li>Class是引用类型，当值传递的时候，它是传递对已有instance（实例）的引用</li>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2020/06/25/一些面试题整理/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="更新于：2020.9.13 常见的网络协议有哪些其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。  HTTP(Hypertext Transfer Protocol) 超文本传输协议 HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议 IPv6(Internet Protocol Ver">
-<meta property="og:updated_time" content="2020-09-13T13:52:15.447Z">
+<meta property="og:updated_time" content="2020-09-17T14:13:32.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些面试题整理">
 <meta name="twitter:description" content="更新于：2020.9.13 常见的网络协议有哪些其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。  HTTP(Hypertext Transfer Protocol) 超文本传输协议 HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议 IPv6(Internet Protocol Ver">
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
 </ul>
 <h4 id="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"><a href="#当weak指向的对象被释放时，如何让weak指针置为nil的呢？" class="headerlink" title="当weak指向的对象被释放时，如何让weak指针置为nil的呢？"></a>当weak指向的对象被释放时，如何让weak指针置为nil的呢？</h4><ul>
 <li>从weak表中获取废弃对象的地址为键值的记录.</li>
-<li>将包含在记录中的所有附有 weak修饰符变量的地址，赋值为   nil</li>
+<li>将包含在记录中的所有附有 weak修饰符变量的地址，赋值为 nil</li>
 <li>将weak表中该记录删除</li>
 <li>从引用计数表中删除废弃对象的地址为键值的记录</li>
 </ul>
@@ -303,6 +303,7 @@ var _hmt = _hmt || [];
 <li>局部变量截获是值截获</li>
 <li>局部静态变量截获是指针截获</li>
 <li>全局变量，静态全局变量截获：不截获,直接取值</li>
+<li>总结：auto（默认就有 auto修饰，离开作用域就销毁）修饰的局部变量，是值传递。static修饰的局部变量，是指针传递。</li>
 </ul>
 <h5 id="Swift中的Class和Struct"><a href="#Swift中的Class和Struct" class="headerlink" title="Swift中的Class和Struct"></a>Swift中的Class和Struct</h5><ul>
 <li>Class是引用类型，当值传递的时候，它是传递对已有instance（实例）的引用</li>
