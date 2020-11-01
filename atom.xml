@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-09-29T06:54:55.798Z</updated>
+  <updated>2020-11-01T08:12:00.625Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>组件化一些注意与问题</title>
+    <link href="http://agoninemo.github.io/blog/2020/11/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%B8%8E%E9%97%AE%E9%A2%98/"/>
+    <id>http://agoninemo.github.io/blog/2020/11/01/组件化一些注意与问题/</id>
+    <published>2020-11-01T08:10:21.000Z</published>
+    <updated>2020-11-01T08:12:00.625Z</updated>
+    
+    <content type="html"><![CDATA[<p>创建模板与推着的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">创建模板：pod lib create 名字</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pod repo add Specs 地址</div><div class="line"></div><div class="line">pod lib lint --allow-warnings</div><div class="line"></div><div class="line">pod repo push Specs name.podspec --allow-warnings</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># podspec文件的依赖问题</div><div class="line">假设私有库叫NMKit,在Classes里，分别有A、B、C、D 4个文件夹和NMKit.h文件，A文件夹有A.h、A.m文件，B文件夹有B.h、B.m文件，C文件夹有C.h、C.m文件，D文件夹有D.h、D.m文件。</div><div class="line">他们的依赖关系是A依赖B，B依赖C，C依赖D。</div><div class="line"></div><div class="line">podspec文件应该是这样的：</div><div class="line"></div><div class="line">s.source_files = &apos;NMKit/Classes/NMKit.h&apos;</div><div class="line"></div><div class="line">s.subspec &apos;D&apos; do |ss|</div><div class="line">	ss.source_files = &apos;NMKit/Classes/D/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;C&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/D&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/C/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;B&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/C&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/B/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;A&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/B&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/A/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line">  </div><div class="line"></div><div class="line">PS:可以看出依赖的写法路径是生成Pod后的路径,同一个文件夹下的文件引用，不需要添加依赖</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># The repo `Specs` at `../../../../.cocoapods/repos/Specs` is not clean</div><div class="line"># git 已经变动 </div><div class="line">cd ../../../../.cocoapods/repos/Specs （这是上面给的路径）</div><div class="line">git clean -f</div><div class="line">pod cache clean --all</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pod install 出错</div><div class="line">[!] CocoaPods could not find compatible versions for pod &quot;NMNetwork/Main&quot;:</div><div class="line">  In Podfile:</div><div class="line">    Network (from `../`) was resolved to 0.1.0, which depends on</div><div class="line">      Network/Main (= 0.1.0)</div><div class="line"></div><div class="line">Specs satisfying the `Network/Main (= 0.1.0)` dependency were found, but they required a higher minimum deployment target.</div><div class="line"></div><div class="line">检查Podfile里的platform :ios与xx.podspec文件中的s.ios.deployment_target是否一致</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">pod lib lint 出错</div><div class="line"></div><div class="line"> -&gt; NMKit (0.1.0)</div><div class="line">    - ERROR | [iOS] unknown: Encountered an unknown error (Unable to find a specification for `NMXXX` depended upon by `NMKit `</div><div class="line"></div><div class="line">You have either:</div><div class="line"> * out-of-date source repos which you can update with `pod repo update` or with `pod install --repo-update`.</div><div class="line"> * mistyped the name or version.</div><div class="line"> * not added the source repo that hosts the Podspec to your Podfile.</div><div class="line"></div><div class="line">Note: as of CocoaPods 1.0, `pod repo update` does not happen on `pod install` by default.</div><div class="line">) during validation.</div><div class="line"></div><div class="line">--private 代表私有</div><div class="line">--use-libraries 依赖了静态库</div><div class="line">--allow-warnings 允许警告</div><div class="line"> --sources= 指定了私有Repo地址和cocoapods官方的Repo</div><div class="line">pod lib lint --sources=git@git.xxxx.git,https://github.com/CocoaPods/Specs.git --private --use-libraries --allow-warnings</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># --no-mangle</div><div class="line">表示不使用name mangling技术，pod package默认是使用这个技术的。我们能在用pod package生成二进制库的时候会看到终端有输出Mangling symbols和Building mangled framework。表示使用了这个技术。如果你的pod库没有其他依赖的话，那么不使用这个命令也不会报错。但是如果有其他依赖，不使用--no-mangle这个命令的话，那么你在工程里使用生成的二进制库的时候就会报错：Undefined symbols for architecture x86_64</div><div class="line"></div><div class="line"># 加 --library 表示打包.a</div><div class="line"># --force 强制覆盖之前存在的文件</div><div class="line"># --embedded 生成静态.framework </div><div class="line">pod package name.podspec --library --force --no-mangle --spec-sources=http://xxx.git,https://github.com/CocoaPods/Specs.git</div></pre></td></tr></table></figure>
+<h4 id="源码与静态库切换"><a href="#源码与静态库切换" class="headerlink" title="源码与静态库切换"></a>源码与静态库切换</h4><p>方案一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#默认使用Framework</div><div class="line">s.default_subspec = &apos;Framework&apos;</div><div class="line"></div><div class="line">s.subspec &apos;Source&apos; do |ss|</div><div class="line">  [这里放源码]</div><div class="line">   ss.source_files = &apos;A/Classes/**/*&apos;,</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;Framework&apos; do |ss|</div><div class="line">	[这里放静态库头文件]</div><div class="line">	 ss.source_files = &apos;A/Classes/**/*&apos;</div><div class="line">  if ENV[&apos;ENV&apos;]</div><div class="line">      ss.vendored_frameworks = &apos;ProductsTest.framework&apos;</div><div class="line">  else</div><div class="line">      ss.vendored_frameworks = &apos;UniversalTest.framework&apos;</div><div class="line">  end</div><div class="line">end</div><div class="line"></div><div class="line"></div><div class="line">#使用使用源码</div><div class="line">#pod &apos;NMImagePicker/Source&apos;</div><div class="line">#使用使用静态库</div><div class="line">#pod &apos;NMImagePicker/Framework&apos;</div><div class="line">#使用使用生产环境静态库</div><div class="line">ENV pod install</div></pre></td></tr></table></figure>
+<p>方案二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">if ENV[&apos;ENV&apos;] == &apos;1&apos;</div><div class="line">  ss.source_files = &apos;Test/Classes/Test.h&apos; </div><div class="line">  s.vendored_frameworks = &apos;Test/Products/Test.framework&apos;</div><div class="line">elsif ENV[&apos;ENV&apos;] == &apos;2&apos;</div><div class="line">  s.source_files = &apos;Test/Classes/Test.h&apos;</div><div class="line">  s.vendored_frameworks = &apos;Test/Universal/Test.framework&apos;</div><div class="line">else</div><div class="line">  s.source_files = &apos;Test/Classes/**/*&apos;</div><div class="line">end</div><div class="line"></div><div class="line"></div><div class="line">ENV=2 pod install</div></pre></td></tr></table></figure>
+<p>两种方案都差不多，第二种看来比较简单，但是如果记错了<code>ENV</code>，也是很头痛的。第一种方案，在于默认加载静态库，后面只需要一个<code>ENV</code>来判断版本，比第二种，有优势，看各人选择吧。</p>
+<h3 id="关于iOS架构方面的知识"><a href="#关于iOS架构方面的知识" class="headerlink" title="关于iOS架构方面的知识"></a>关于iOS架构方面的知识</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">arm64：iPhone5s，iPhone6、7、8，iPhone6、7、8 Plus，iPhone X，iPad Air，iPad mini2(iPad mini with Retina Display)，</div><div class="line">arm64e：XS/XS Max/XR/ iPhone 11, iPhone 11 pro</div><div class="line">armv7s：iPhone5｜iPhone5C｜iPad4(iPad with Retina Display)</div><div class="line">armv7：iPhone4｜iPhone4S｜iPad｜iPad2｜iPad3(The New iPad)｜iPad mini｜iPod Touch 3G｜iPod Touch4</div><div class="line"></div><div class="line">i386是针对intel通用微处理器32位处理器</div><div class="line">x86_64是针对x86架构的64位处理器</div><div class="line"></div><div class="line">模拟器32位处理器测试需要i386架构，</div><div class="line">模拟器64位处理器测试需要x86_64架构，</div><div class="line">真机32位处理器需要armv7,或者armv7s架构，</div><div class="line">真机64位处理器需要arm64架构。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">模拟器连接了arm64架构包</div><div class="line"></div><div class="line">ld: in Test.framework/Test(Test.o), building for iOS Simulator, but linking in object file built for iOS, file &apos;/Test.framework/Test&apos; for architecture arm64</div><div class="line">    clang: error: linker command failed with exit code 1 (use -v to see invocation)</div><div class="line">    </div><div class="line">    ** BUILD FAILED **</div></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/63607158/xcode-12-building-for-ios-simulator-but-linking-in-object-file-built-for-ios" target="_blank" rel="external">Xcode 12, building for iOS Simulator, but linking in object file built for iOS, for architecture arm64</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ld: warning: ignoring file Test.framework/Test, missing required architecture i386 in file Test.framework/Test</div><div class="line"></div><div class="line">pod校验的时候，全校验模拟器架构，说的是缺少所需的i386架构，问题是打的静态库已经不再提供i386架构了，所以只能跳过这个错误，使用以下命令</div><div class="line"></div><div class="line">pod lib lint --skip-import-validation</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;创建模板与推着的命令&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;创建模板：pod lib create 名字&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;pod repo add Specs 地址&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod lib lint --allow-warnings&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod repo push Specs name.podspec --allow-warnings&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="pod" scheme="http://agoninemo.github.io/blog/tags/pod/"/>
+    
+      <category term="组件" scheme="http://agoninemo.github.io/blog/tags/%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Vapor 4.0开启</title>
@@ -808,114 +850,6 @@ $*：显示整个脚本输入参数列表
     
       &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg&quot; alt=&quot;shell.jpg&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Shell脚本语言-传递参
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell学习（一）上篇</title>
-    <link href="http://agoninemo.github.io/blog/2018/03/10/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%E4%B8%8A%E7%AF%87/"/>
-    <id>http://agoninemo.github.io/blog/2018/03/10/shell学习（一）上篇/</id>
-    <published>2018-03-10T04:58:04.000Z</published>
-    <updated>2019-01-10T09:24:07.769Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本语言-echo"><a href="#Shell脚本语言-echo" class="headerlink" title="Shell脚本语言-echo"></a>Shell脚本语言-echo</h3><pre><code># 显示普通字符串
-    echo &quot;iPhoneX&quot;
-
-# 显示转义字符
-    echo &quot;  &quot; hello world &quot;  &quot;
-
-# 显示变量
-    h=&quot;hello&quot;
-    echo &quot;${h} world&quot;
-
-# 显示换行
-    正确写法（-e：表示开启转义功能）
-    echo -e &quot;hello \n world未来&quot;
-
-# 不换行
-    注意：&quot;-e&quot;开启转义功能，&quot;\c&quot;表示不换行
-    echo -e &quot;hello未来 \c &quot;
-    echo &quot;科技&quot;
-
-# 显示一个执行命令
-    要求：输出当前时间
-    echo `date`
-
-# 退出命令
-    语法：exit 状态-&gt;退出程序
-    写法一
-    h=&quot;hello world&quot;
-    echo ${h}
-    exit
-    echo &quot;出bug了！&quot;
-    写法二
-    h=&quot;404找不到错误&quot;
-    echo ${h}
-    exit 0    
-
-    age=100
-    if(age &gt; 100){
-        exit 1
-    }
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">以上是echo的基本用法，echo功能很强大，后面的学习中会说到。</div><div class="line"></div><div class="line">&lt;!---more---&gt;</div></pre></td></tr></table></figure>
-
-# 语法        
-    数组名=(值1 值2 值3…)
-# 初始化数组
-    方式一
-        name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)
-        #输出
-        echo $name
-        #默认：打印第一个元素
-    方式二
-        name=()
-        name[0]=&quot;404&quot;
-        name[1]=&quot;Andy&quot;
-        name[2]=&quot;柚芒子&quot;
-        name[3]=&quot;全班最菜&quot;
-        echo ${name[0]}  ${name[1]}
-
-# 读取数组
-    语法结构：${数组名[下标]}
-    name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)
-    #输出一个元素        
-    echo ${name[0]}
-    #输出所有-&gt;&quot;@&quot;表示输出所有的数据
-    echo ${name[@]}
-
-# 数组长度
-    方式一：获取数组元素个数
-    语法：${#数组名[@]}
-    代码：
-        name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)
-        echo ${#name[@]}
-        结果：4
-    方式二：获取数组元素个数
-    语法：${#数组名[*]}
-    代码：
-        name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)
-        echo ${#name[*]}
-        结果：4
-
-    方式三：获取单个元素-&gt;字符长度
-    语法：${#数组名[下标]}
-    代码：
-        name=(&quot;404&quot; &quot;503&quot; &quot;200&quot; &quot;501&quot;)
-        echo ${#name[2]}
-        结果：3
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg&quot; alt=&quot;shell.jpg&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Shell脚本语言-ech
     
     </summary>
     
