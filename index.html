@@ -164,6 +164,65 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vapor-4-0开启" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/09/29/Vapor-4-0开启/">Vapor 4.0开启</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2020/09/29/Vapor-4-0开启/" class="archive-article-date">
+  	<time datetime="2020-09-29T06:00:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29 14:00:09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在Vapor还是2.0，swift使用的还是3.0的时候，博主已经用vapor开发过一个小视频的网站了，虽然有这样，那样的问题，但是还是成功的部署在Heroku，就在前几天，更新也Xcode，发现已经不支持<code>swift 3.0</code>了，索性把Vapor和Herku都升级了，现在使用Vapor 4.0开发。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>博主使用的是<code>brew</code>安装的，怕旧版本的<code>Vapor</code>会影响安装，所以先把旧的删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew upgrade vapor</div></pre></td></tr></table></figure>
+<p>然后出现以下问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Error: Checksum mismatch.</div><div class="line">Expected: ab81211a2052ccaa6d050741c433b728d0641523d8742eef23a5b450811e5104</div><div class="line">  Actual: ab087b15a24b842c6ecfbcddf1695f8e975c73151ddd605b3e1dac1362984d46</div><div class="line"> Archive: /Users/xxx/Library/Caches/Homebrew/portable-ruby-2.6.3.mavericks.bottle.tar.gz</div><div class="line">To retry an incomplete download, remove the file above.</div><div class="line">Error: Failed to upgrade vendor Ruby.</div><div class="line">/usr/local/Homebrew/Library/Homebrew/brew.rb:10:in `&lt;main&gt;&apos;: Homebrew must be run under Ruby 2.6! You&apos;re running 2.3.7. (RuntimeError)</div></pre></td></tr></table></figure>
+<p>大概意思是<code>Homebrew</code>要使用<code>ruby 2.6</code>,而你本机运行的是<code>ruby 2.3.7</code>，版本太低，但是帮你自动下载的<code>2.6.3</code>版本又出错，所以你需要先删除那个下载的文件。路径上面已经给出了<code>/Users/xxx/Library/Caches/Homebrew/portable-ruby-2.6.3.mavericks.bottle.tar.gz</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /Users/xxx/Library/Caches/Homebrew/portable-ruby-2.6.3.mavericks.bottle.tar.gz</div></pre></td></tr></table></figure>
+<p>然后再<code>brew upgrade vapor</code>删除旧版本，删除完成，再下载新版本<code>brew install vapor</code>，再使用<code>brew list</code>就可以看到安装好的<code>Vapor</code>。</p>
+<h4 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h4><p>先<code>cd</code>到创建好的项目目录，使用下面的命令创建项目。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vapor new &lt;#项目名字#&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Would you like to use Fluent? (–fluent)</p>
+</blockquote>
+<p>这个是问你是不是需要使用<code>Fluent</code>，填入<code>y</code>。Fluent是Swift的ORM框架。它利用Swift的强大类型系统为你的数据库提供易于使用的界面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Which database would you like to use? (--fluent.db)</div><div class="line">1: Postgres (Recommended)</div><div class="line">2: MySQL</div><div class="line">3: SQLite</div><div class="line">4: Mongo</div></pre></td></tr></table></figure>
+<p>这个是问你使用什么数据库，填入<code>1</code>，这是它推荐的。还是一个原因是如果你要部署在<code>Herku</code>上，这个<code>Postgres</code>比其他的数据库实惠。然后就可以看到项目已经构建完成了，你可以看到成功信息，<code>cd</code>到你的项目根目录里，使用<code>vapor xcode</code>使用<code>Xcode</code>打开你的项目，最后等待<code>Vapor</code>安装一些使用到的库，安装完成后，才可以运行。PS：这是需要注意的一点就是使用Xcode运行时，左上角菜单查看<code>Xcode -&gt; Toolchains</code>里的<code>swift</code>版本,博主就在这被坑到了，因为之前选择了3.1的版本，一运行就出错，这是建议选<code>Xcode 12</code>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-V2Ray科学搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -700,80 +759,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-iOS中的关于字节整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/10/18/iOS中的关于字节整理/">iOS中的关于字节整理</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/10/18/iOS中的关于字节整理/" class="archive-article-date">
-  	<time datetime="2018-10-18T11:09:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18 19:09:33</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>字节顺序是指占内存多于一个字节类型的数据在内存中的存放顺序，通常有小端、大端两种字节顺序。</p>
-<p>小端字节序指低字节数据存放在内存低地址处，高字节数据存放在内存高地址处；</p>
-<p>大端字节序是高字节数据存放在低地址处，低字节数据存放在高地址处。</p>
-<p>正因为有字节顺序的差别，所以在网络传输的时候定义了所有字节顺序相关的数据都使用big-endian，BSD的代码中定义了四个宏来理：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#define ntohs(n)      //网络字节顺序到主机字节顺序 n代表net, h代表host, s代表short</div><div class="line">#define htons(n)      //主机字节顺序到网络字节顺序 n代表net, h代表host, s代表short</div><div class="line">#define ntohl(n)      //网络字节顺序到主机字节顺序 n代表net, h代表host, s代表long</div><div class="line">#define htonl(n)      //主机字节顺序到网络字节顺序 n代表net, h代表host, s代表long</div></pre></td></tr></table></figure>
-<p>计算机容量单位的换算关系:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1Byte=8bit</div><div class="line">1KB=1024B</div><div class="line">1MB=1024KB</div><div class="line">1GB=1024MB</div><div class="line">1TB=1024GB</div><div class="line">1PB=1024TB</div><div class="line">1EB=1024PB</div><div class="line">1ZB=1024EB</div><div class="line">1YB=1024ZB</div></pre></td></tr></table></figure>
-<p>各种数据类型的取值范围</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">char  -128 ~ +127 (1 Byte)</div><div class="line">short -32767 ~ + 32768 (2 Bytes)</div><div class="line">unsigned short  0 ~ 65536 (2 Bytes)</div><div class="line">int -2147483648 ~ +2147483647 (4 Bytes)</div><div class="line">unsigned int 0 ~ 4294967295 (4 Bytes)</div><div class="line">long == int</div><div class="line">long long -9223372036854775808 ~ +9223372036854775807 (8 Bytes)</div><div class="line">double 1.7 * 10^308 (8 Bytes)</div><div class="line"></div><div class="line">unsigned int 0～4294967295 </div><div class="line">long long的最大值9223372036854775807</div><div class="line">long long的最小值-9223372036854775808</div><div class="line">unsigned long long的最大值1844674407370955161</div><div class="line"></div><div class="line">__int64的最大值9223372036854775807</div><div class="line">__int64的最小值-9223372036854775808</div><div class="line">unsigned __int64的最大值18446744073709551615</div></pre></td></tr></table></figure>
-<h4 id="iOS的类型字节大小"><a href="#iOS的类型字节大小" class="headerlink" title="iOS的类型字节大小"></a>iOS的类型字节大小</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Base integer types for all target OS&apos;s and CPU&apos;s</div><div class="line">    </div><div class="line">UInt8            8-bit unsigned integer </div><div class="line">SInt8            8-bit signed integer</div><div class="line">UInt16          16-bit unsigned integer </div><div class="line">SInt16          16-bit signed integer           </div><div class="line">UInt32          32-bit unsigned integer </div><div class="line">SInt32          32-bit signed integer   </div><div class="line">UInt64          64-bit unsigned integer </div><div class="line">SInt64          64-bit signed integer</div></pre></td></tr></table></figure>
-<h4 id="iOS的字节序"><a href="#iOS的字节序" class="headerlink" title="iOS的字节序"></a>iOS的字节序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (NSHostByteOrder() == NS_LittleEndian) &#123;</div><div class="line">        NSLog(@&quot;小端字节序&quot;);</div><div class="line">&#125;else if(NSHostByteOrder() == NS_BigEndian)&#123;</div><div class="line">        NSLog(@&quot;大端字节序&quot;);</div><div class="line">&#125;else &#123;</div><div class="line">        NSLog(@&quot;未知&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过上述代码打印出来的log，可以知道iOS系统目前采用的是小端序。因此在进行socket网络传输之类的工作时，要记得先把字节序进行转换，然后再传输。iOS自身提供了相应的转换方法，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UInt16 byte = 0x1234;</div><div class="line">HTONS(byte);//转换</div><div class="line">NSLog(@&quot;Byte == %x&quot;,Byte);//打印出来发现顺序变了</div></pre></td></tr></table></figure>
-<p>上述代码中 HTONS(x) 是对2字节进行转换,为什么是2个字节?从Xcode里点进去你就会发现<code>typedef unsigned short</code>,而<code>unsigned short</code>是2个字节的,也可以根据上面的类型字节大小转换,<code>UInt16</code>是<code>16bit</code>,而<code>1Byte=8bit</code>,所以是2个字节,如果要对4字节进行转换，就要用 HTONL(x)进行转换了，要对更高字节，比如8字节（64位）进行转换，就要自己写转换的方法了。</p>
-<p>参考文章:</p>
-<p><a href="http://alex1212112.github.io/ios/2014/08/12/ioszhong-de-zi-jie-xu.html" target="_blank" rel="external">http://alex1212112.github.io/ios/2014/08/12/ioszhong-de-zi-jie-xu.html</a><br><a href="http://blog.csdn.net/wanwenweifly4/article/details/6627122" target="_blank" rel="external">http://blog.csdn.net/wanwenweifly4/article/details/6627122</a><br><a href="http://blog.csdn.net/will130/article/details/48735769" target="_blank" rel="external">http://blog.csdn.net/will130/article/details/48735769</a><br><br><a href="http://lib.csdn.net/article/c/26419" target="_blank" rel="external">http://lib.csdn.net/article/c/26419</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">byte</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -876,26 +861,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">heroku</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vapor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
@@ -908,7 +873,27 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">heroku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vapor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,27 +901,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vmess</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vmess</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +921,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,7 +941,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Element</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -980,11 +973,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Element</a>
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,11 +981,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,7 +993,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
