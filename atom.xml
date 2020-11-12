@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-11-01T08:12:00.625Z</updated>
+  <updated>2020-11-03T07:57:17.879Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://agoninemo.github.io/blog/2020/11/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%B8%8E%E9%97%AE%E9%A2%98/"/>
     <id>http://agoninemo.github.io/blog/2020/11/01/组件化一些注意与问题/</id>
     <published>2020-11-01T08:10:21.000Z</published>
-    <updated>2020-11-01T08:12:00.625Z</updated>
+    <updated>2020-11-03T07:57:17.879Z</updated>
     
     <content type="html"><![CDATA[<p>创建模板与推着的命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">创建模板：pod lib create 名字</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pod repo add Specs 地址</div><div class="line"></div><div class="line">pod lib lint --allow-warnings</div><div class="line"></div><div class="line">pod repo push Specs name.podspec --allow-warnings</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># 添加索引库</div><div class="line">pod repo add Specs 地址</div><div class="line"></div><div class="line"># 校验本地库</div><div class="line">pod lib lint --allow-warnings</div><div class="line"></div><div class="line"># 推送静态库的索引</div><div class="line">pod repo push Specs name.podspec --allow-warnings</div><div class="line"></div><div class="line"># 更新某个索引</div><div class="line">pod repo update Specs</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># podspec文件的依赖问题</div><div class="line">假设私有库叫NMKit,在Classes里，分别有A、B、C、D 4个文件夹和NMKit.h文件，A文件夹有A.h、A.m文件，B文件夹有B.h、B.m文件，C文件夹有C.h、C.m文件，D文件夹有D.h、D.m文件。</div><div class="line">他们的依赖关系是A依赖B，B依赖C，C依赖D。</div><div class="line"></div><div class="line">podspec文件应该是这样的：</div><div class="line"></div><div class="line">s.source_files = &apos;NMKit/Classes/NMKit.h&apos;</div><div class="line"></div><div class="line">s.subspec &apos;D&apos; do |ss|</div><div class="line">	ss.source_files = &apos;NMKit/Classes/D/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;C&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/D&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/C/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;B&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/C&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/B/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;A&apos; do |ss|</div><div class="line">	ss.dependency &apos;NMKit/B&apos;</div><div class="line">	ss.source_files = &apos;NMKit/Classes/A/*.&#123;h,m&#125;&apos;</div><div class="line">end</div><div class="line">  </div><div class="line"></div><div class="line">PS:可以看出依赖的写法路径是生成Pod后的路径,同一个文件夹下的文件引用，不需要添加依赖</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># The repo `Specs` at `../../../../.cocoapods/repos/Specs` is not clean</div><div class="line"># git 已经变动 </div><div class="line">cd ../../../../.cocoapods/repos/Specs （这是上面给的路径）</div><div class="line">git clean -f</div><div class="line">pod cache clean --all</div></pre></td></tr></table></figure>
@@ -46,7 +46,7 @@
     
       &lt;p&gt;创建模板与推着的命令&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;创建模板：pod lib create 名字&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;pod repo add Specs 地址&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod lib lint --allow-warnings&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod repo push Specs name.podspec --allow-warnings&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 添加索引库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod repo add Specs 地址&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 校验本地库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod lib lint --allow-warnings&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 推送静态库的索引&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod repo push Specs name.podspec --allow-warnings&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 更新某个索引&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pod repo update Specs&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -369,7 +369,7 @@
     <link href="http://agoninemo.github.io/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/"/>
     <id>http://agoninemo.github.io/blog/2019/11/05/Google-Cloud搭建ssr/</id>
     <published>2019-11-05T12:53:39.000Z</published>
-    <updated>2020-11-01T08:07:49.351Z</updated>
+    <updated>2020-11-01T09:31:52.387Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
 <a id="more"></a>
@@ -381,7 +381,7 @@
 <p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g2-1.png" alt="1"><br>创建<code>入站</code>与<code>出站</code>规则完成后的界面</p>
 <p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g3.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4.png" alt="1"><br>创建VM实例</p>
 <p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4-1.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4-2.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g5.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g6.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g7.png" alt="1"><br>VM实例配置</p>
-<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g8.png" alt="1"><br>名称随便填（英文）</p>
+<p>这里是外部ip<br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g8.png" alt="1"><br>名称随便填（英文）</p>
 <h4 id="创建ssh-key"><a href="#创建ssh-key" class="headerlink" title="创建ssh-key"></a>创建ssh-key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 打开终端输入下面命令</div><div class="line"># 用户名：为创建VM实例的谷歌用户名（没试过其他的名称）</div><div class="line"># 命令： 系统在路径为~/.ssh/的文件夹下生成名为 google 的私钥文件和一个名为 google.pub 的公钥文件</div><div class="line"># 提示填yes</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/google -C 用户名</div><div class="line"></div><div class="line"># 将打印出来的字符全复制到下面的图中</div><div class="line">cat ~/.ssh/google.pub</div></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g9.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
 <h4 id="连接到google-cloud"><a href="#连接到google-cloud" class="headerlink" title="连接到google cloud"></a>连接到google cloud</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 连接到google cloud（提示时填yes）</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
@@ -586,9 +586,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
-    
       <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
+    
+      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
     
   </entry>
   
