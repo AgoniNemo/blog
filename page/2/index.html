@@ -164,6 +164,62 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-本地运行web项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/12/13/本地运行web项目/">Mac本地运行web项目</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2018/12/13/本地运行web项目/" class="archive-article-date">
+  	<time datetime="2018-12-13T14:53:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13 22:53:30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="如何在本地加载打包的web"><a href="#如何在本地加载打包的web" class="headerlink" title="如何在本地加载打包的web"></a>如何在本地加载打包的web</h4><h4 id="一、Mac-OS-X-自带了-Apache-环境"><a href="#一、Mac-OS-X-自带了-Apache-环境" class="headerlink" title="一、Mac OS X 自带了 Apache 环境"></a>一、Mac OS X 自带了 Apache 环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Apache服务器默认的web根目录在：/Library/WebServer/Documents</div><div class="line">Apache的配置文件在：/etc/apache2</div><div class="line"></div><div class="line">将index.html文件拷贝到 /Library/WebServer/Documents 目录下</div><div class="line">将static文件夹拷贝到 /Library/WebServer/Documents 目录下</div><div class="line"></div><div class="line">在terminal终端直接运行Apache的启动命令来打开：sudo apachectl start</div><div class="line"></div><div class="line">在浏览器 输入地址 规则为：IP/index.html 比如：http://192.168.0.5/index.html</div><div class="line">IP为本机的IP</div><div class="line"></div><div class="line">停止 Apache：sudo apachectl stop</div><div class="line">重启 Apache：sudo apachectl restart</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">上面的步骤只能  打开一些静态界面，需要网络请求 会遇到跨域问题</div><div class="line">解决方法 如下</div></pre></td></tr></table></figure>
+<h4 id="二、跨域问题"><a href="#二、跨域问题" class="headerlink" title="二、跨域问题"></a>二、跨域问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.建立本地跨域文件夹</div><div class="line">这个文件夹是浏览器打开时候进行设置一些基本文件，因为需要关闭浏览器的安全策略。</div><div class="line">命令：cd /Users/[用户名]/Documents/ 然后建立个文件夹：命令是mkdir ChromeDevData</div><div class="line"></div><div class="line">参数：ChromeDevData可以自己命名，只要与下面的命令中的ChromeDevData保持一致就行</div><div class="line"></div><div class="line">2.打开浏览器增加参数</div><div class="line">命令：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/[用户名]/Documents/ChromeDevData</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-RN问题汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -730,84 +786,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-shell学习(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/03/11/shell学习(一)/">shell学习（一）下篇</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2018/03/11/shell学习(一)/" class="archive-article-date">
-  	<time datetime="2018-03-11T04:58:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11 12:58:04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
-<h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
-</code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
-#${0}-&gt;表示文件名称
-#${1}-&gt;表示参数1
-#${2}-&gt;表示参数2
-echo ${0} ${1}  ${2}
-执行脚本代码：
-./hello.sh &quot;hello&quot; &quot;world&quot;
-</code></pre><h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><pre><code>$#：获得脚本输入参数个数
-   脚本内容如下：
-   echo ${#}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：2
-
-$*：显示整个脚本输入参数列表
-   脚本内容如下：
-   echo ${*}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：&quot;hello&quot; &quot;world&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Shell脚本语言-基本运算符</div><div class="line"></div><div class="line">```# 算数运算符  # &quot;+&quot;运算  #注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a + $b`	echo &quot;c的值：$c&quot;	# &quot;-&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a - $b`	echo &quot;c的值：$c&quot;	# &quot;*&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a \* $b`	echo &quot;c的值：$c&quot;	# &quot;/&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a / $b`	echo &quot;c的值：$c&quot;	# &quot;%&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a % $b`	echo &quot;c的值：$c&quot;	#&quot;=&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=$a	echo &quot;b的值：$b&quot;			# &quot;==&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	if [ $a == $b ]	then		echo &quot;a等于b&quot;	else		echo &quot;a不等于b&quot;	fi	#关系运算符		# &quot;-eq&quot;：检测两个数是否相等，当等返回true			a=100			b=200			if [ $a -eq $b ]			then				echo &quot;a等于b&quot;			else				echo &quot;a不等于b&quot;			fi		# &quot;-ne&quot;：检测两个数是否相等，不相等返回true			a=100			b=200			if [ $a -ne $b ]			then				echo &quot;a不等于b&quot;			else				echo &quot;a等于b&quot;			fi		# &quot;-gt&quot;：检测左边数是否大于右边数，如果是，返回true			a=100			b=200			if [ $a -gt $b ]			then				echo &quot;a大于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-lt&quot;：检测左边数是否小于右边数，如果是，返回true			a=100			b=200			if [ $a -lt $b ]			then				echo &quot;a小于b&quot;			else				echo &quot;a大于b&quot;			fi		# &quot;-ge&quot;：检测左边数是否(大于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -ge $b ]			then				echo &quot;a大于等于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-le&quot;：检测左边数是否(小于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -le $b ]			then				echo &quot;a小于等于b&quot;			else				echo &quot;a大于b&quot;			fi	# 布尔值运算符		# &quot;!&quot;：非运算，表达式为true，返回true，否则返回false			a=100			b=200			if [ $a != $b ]			then				echo &quot;a不等于b&quot;			fi		# &quot;-o&quot;：或运算，有一个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -o $b -gt 200 ]			then				echo &quot;成立&quot;			fi		3.3 &quot;-a&quot;：与运算，两个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -a $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	4、逻辑运算符		4.1 &quot;&amp;&amp;&quot;：逻辑且-&gt;and			a=100			b=200			if [ $a -lt 200 ] &amp;&amp; [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi			4.2 &quot;||&quot;：逻辑 OR			a=100			b=200			if [ $a -lt 200 ] || [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	5、字符串运算？		5.1 &quot;=&quot;：检测两个字符串是否相等，如果相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		5.2 &quot;!=&quot;：检测两个字符串是否相等，如果不相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a != $b ]			then				echo &quot;字符串a不等于字符串b&quot;			else				echo &quot;字符串a等于字符串b&quot;			fi			5.3 &quot;-z&quot;：检测字符串长度是否为0，如果是返回true			a=&quot;nemo&quot;			if [ -z $a ]			then				echo &quot;a不为空，存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.4 &quot;-n&quot;：检测字符串长度是否为0，如果不是0，返回true			a=&quot;nemo&quot;			if [ -n $a ]			then				echo &quot;a存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.5 &quot;字符串&quot;：检测字符串是否为空，不为空返回true			a=&quot;nemo&quot;			if [ $a ]			then				echo &quot;a不为空&quot;			else				echo &quot;a为空&quot;			fi	6、文件测试运算符？		file=&quot;/Users/name/Desktop/test.sh&quot;		6.1 &quot;-d file&quot;：检测文件是不是一个目录，如果是，那么返回true			if [ -d $file ]			then 				echo &quot;是一个目录&quot;			else				echo &quot;不是一个目录&quot;			fi		6.2 &quot;-r file&quot;：检测文件是否可读，如果是，那么返回true			if [ -r $file ]			then 				echo &quot;可读&quot;			else				echo &quot;不可读&quot;			fi		6.3 &quot;-w file&quot;：检测文件是否可写，如果是，那么返回true			if [ -w $file ]			then 				echo &quot;可写&quot;			else				echo &quot;不可写&quot;			fi		6.4 &quot;-x file&quot;：检测文件是否是可执行文件，如果是，那么返回true			if [ -x $file ]			then 				echo &quot;可执行&quot;			else				echo &quot;不可执行&quot;			fi		6.5 &quot;-f file&quot;：检测文件是否是一个普通文件（既不是目录，也不是设备文件），如果是，那么返回true			if [ -f $file ]			then 				echo &quot;文件为普通文件&quot;			else				echo &quot;文件为特殊文件&quot;			fi		6.6 &quot;-s file&quot;：检测文件是否为空（文件有内容），如果是，那么返回true			if [ -s $file ]			then 				echo &quot;文件有内容&quot;			else				echo &quot;文件没有内容&quot;			fi		6.7 &quot;-e file&quot;：检测文件是否存在（包含了：目录和文件），如果是，那么返回true			if [ -e $file ]			then 				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi```### Shell脚本语言-流程控制</div><div class="line">```		1、&quot;if&quot;语句		语法结构			if [条件]			then				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			fi	2、&quot;if else&quot;语句		语法结构			if [条件]			then				代码			else				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi	3、&quot;if-else-if-else&quot;		语法结构			if [条件]			then				代码			elif [条件]			then				代码			else				代码			fi				代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			elif [ $a ]			then				echo &quot;字符串a不为空&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		4、&quot;for&quot;循环语句		语法结构			for 变量名 in item1 item2 item3 …			do				代码			done		代码案例一			for name in &quot;nemo&quot; &quot;嗯&quot; &quot;嘻嘻&quot; &quot;月眼&quot;			do   				echo $&#123;name&#125;			done			5、&quot;while&quot;循环		语法结构			while(条件)			do				代码			done		代码案例一			a=1			while(($a&lt;10))			do   				echo $&#123;a&#125;				a=`expr $a + 1`			done	6、&quot;case&quot;语句		语法结构			case 值 in			模式1)				代码				;;			模式2)				代码				;;			模式3)				代码				;;			sac		代码案例一			number=1			case $number in			1) echo &quot;等于1&quot;				;;			2) echo &quot;等于2&quot;				;;			3) echo &quot;等于3&quot;				;;			esac</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/3/">Next &raquo;</a>
@@ -1079,6 +1057,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
             
             <div class="clearfix"></div>

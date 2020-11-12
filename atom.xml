@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-11-03T07:57:17.879Z</updated>
+  <updated>2020-11-12T15:13:31.544Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>活着</title>
+    <link href="http://agoninemo.github.io/blog/2020/11/09/%E6%B4%BB%E7%9D%80/"/>
+    <id>http://agoninemo.github.io/blog/2020/11/09/活着/</id>
+    <published>2020-11-08T16:13:44.000Z</published>
+    <updated>2020-11-12T15:13:31.544Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。</p>
+<p>更新于 2020-11-12  00:30:48</p>
+<h4 id="感慨"><a href="#感慨" class="headerlink" title="感慨"></a>感慨</h4><p>刚读完，就一个字，惨。福贵是真的惨，亲手把一个又一个的亲人给送走。其实开始的时候，福贵这么一个人设很不讨读者喜欢。年经的时候，什么都沾，真的败家，不过话又说回来了，如果他真不败家，可能在那个特殊时期，就要被斗倒了。在家珍被他爹接回家的时候，博主开始同情了福贵，之前的种种，也随着故事的开展而消散了。在那种送走了自己的儿子，又送走自己的老婆时，博主是真的哭了，一个三十岁的大男人，哭得像个孩子一样，不知道是为了福贵，还是为未知的将来。也就在这时，博主才真正的了解到书名《活着》，在那种情况，人很难再活下去，精神都要崩溃了。也为里面的福贵的那种一定要活下去的情绪感染了。其实在那个时期，能活下去是真的难，博主命还算好，没有经历过那个时期，但是，小时候，博主也是苦呀，家里也很苦难，想起来，也为自己的父母感慨，真不知道那么难的日子他们是怎么过的。想想现在的日子，不知道我们欲望太高了，还是生活太好过了，人的想法多了，总感觉自己的日子苦。其实比起书里的福贵，我们的生活好太多了，一万倍都有了，人也许要常常的忆苦思甜才行，要不幸福感太低了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，
+    
+    </summary>
+    
+    
+      <category term="reading" scheme="http://agoninemo.github.io/blog/tags/reading/"/>
+    
+  </entry>
   
   <entry>
     <title>组件化一些注意与问题</title>
@@ -810,51 +833,6 @@
       <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
     
       <category term="xcodebuild" scheme="http://agoninemo.github.io/blog/tags/xcodebuild/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell学习（一）下篇</title>
-    <link href="http://agoninemo.github.io/blog/2018/03/11/shell%E5%AD%A6%E4%B9%A0(%E4%B8%80)/"/>
-    <id>http://agoninemo.github.io/blog/2018/03/11/shell学习(一)/</id>
-    <published>2018-03-11T04:58:04.000Z</published>
-    <updated>2019-01-10T09:23:31.120Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本语言-传递参数"><a href="#Shell脚本语言-传递参数" class="headerlink" title="Shell脚本语言-传递参数"></a>Shell脚本语言-传递参数</h3><p>```</p>
-<h1 id="语法定义"><a href="#语法定义" class="headerlink" title="语法定义"></a>语法定义</h1><pre><code>./文件名称.sh 参数1 参数2 参数3...
-</code></pre><h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><pre><code>脚本内容如下：
-#${0}-&gt;表示文件名称
-#${1}-&gt;表示参数1
-#${2}-&gt;表示参数2
-echo ${0} ${1}  ${2}
-执行脚本代码：
-./hello.sh &quot;hello&quot; &quot;world&quot;
-</code></pre><h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><pre><code>$#：获得脚本输入参数个数
-   脚本内容如下：
-   echo ${#}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：2
-
-$*：显示整个脚本输入参数列表
-   脚本内容如下：
-   echo ${*}    
-   执行脚本代码：
-   ./hello.sh &quot;hello&quot; &quot;world&quot;
-   执行脚本结果：&quot;hello&quot; &quot;world&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Shell脚本语言-基本运算符</div><div class="line"></div><div class="line">```# 算数运算符  # &quot;+&quot;运算  #注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a + $b`	echo &quot;c的值：$c&quot;	# &quot;-&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a - $b`	echo &quot;c的值：$c&quot;	# &quot;*&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a \* $b`	echo &quot;c的值：$c&quot;	# &quot;/&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a / $b`	echo &quot;c的值：$c&quot;	# &quot;%&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	c=`expr $a % $b`	echo &quot;c的值：$c&quot;	#&quot;=&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=$a	echo &quot;b的值：$b&quot;			# &quot;==&quot;运算	#注意：&quot;expr&quot;规定命令	a=8388	b=9688	if [ $a == $b ]	then		echo &quot;a等于b&quot;	else		echo &quot;a不等于b&quot;	fi	#关系运算符		# &quot;-eq&quot;：检测两个数是否相等，当等返回true			a=100			b=200			if [ $a -eq $b ]			then				echo &quot;a等于b&quot;			else				echo &quot;a不等于b&quot;			fi		# &quot;-ne&quot;：检测两个数是否相等，不相等返回true			a=100			b=200			if [ $a -ne $b ]			then				echo &quot;a不等于b&quot;			else				echo &quot;a等于b&quot;			fi		# &quot;-gt&quot;：检测左边数是否大于右边数，如果是，返回true			a=100			b=200			if [ $a -gt $b ]			then				echo &quot;a大于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-lt&quot;：检测左边数是否小于右边数，如果是，返回true			a=100			b=200			if [ $a -lt $b ]			then				echo &quot;a小于b&quot;			else				echo &quot;a大于b&quot;			fi		# &quot;-ge&quot;：检测左边数是否(大于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -ge $b ]			then				echo &quot;a大于等于b&quot;			else				echo &quot;a小于b&quot;			fi		# &quot;-le&quot;：检测左边数是否(小于+等于)右边数，如果是，返回true			a=100			b=200			if [ $a -le $b ]			then				echo &quot;a小于等于b&quot;			else				echo &quot;a大于b&quot;			fi	# 布尔值运算符		# &quot;!&quot;：非运算，表达式为true，返回true，否则返回false			a=100			b=200			if [ $a != $b ]			then				echo &quot;a不等于b&quot;			fi		# &quot;-o&quot;：或运算，有一个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -o $b -gt 200 ]			then				echo &quot;成立&quot;			fi		3.3 &quot;-a&quot;：与运算，两个表达式为true，则返回true			a=100			b=200			if [ $a -lt 200 -a $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	4、逻辑运算符		4.1 &quot;&amp;&amp;&quot;：逻辑且-&gt;and			a=100			b=200			if [ $a -lt 200 ] &amp;&amp; [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi			4.2 &quot;||&quot;：逻辑 OR			a=100			b=200			if [ $a -lt 200 ] || [ $b -gt 200 ]			then				echo &quot;成立&quot;			else				echo &quot;不成立&quot;			fi	5、字符串运算？		5.1 &quot;=&quot;：检测两个字符串是否相等，如果相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		5.2 &quot;!=&quot;：检测两个字符串是否相等，如果不相等返回true			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a != $b ]			then				echo &quot;字符串a不等于字符串b&quot;			else				echo &quot;字符串a等于字符串b&quot;			fi			5.3 &quot;-z&quot;：检测字符串长度是否为0，如果是返回true			a=&quot;nemo&quot;			if [ -z $a ]			then				echo &quot;a不为空，存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.4 &quot;-n&quot;：检测字符串长度是否为0，如果不是0，返回true			a=&quot;nemo&quot;			if [ -n $a ]			then				echo &quot;a存在&quot;			else				echo &quot;a不存在值&quot;			fi		5.5 &quot;字符串&quot;：检测字符串是否为空，不为空返回true			a=&quot;nemo&quot;			if [ $a ]			then				echo &quot;a不为空&quot;			else				echo &quot;a为空&quot;			fi	6、文件测试运算符？		file=&quot;/Users/name/Desktop/test.sh&quot;		6.1 &quot;-d file&quot;：检测文件是不是一个目录，如果是，那么返回true			if [ -d $file ]			then 				echo &quot;是一个目录&quot;			else				echo &quot;不是一个目录&quot;			fi		6.2 &quot;-r file&quot;：检测文件是否可读，如果是，那么返回true			if [ -r $file ]			then 				echo &quot;可读&quot;			else				echo &quot;不可读&quot;			fi		6.3 &quot;-w file&quot;：检测文件是否可写，如果是，那么返回true			if [ -w $file ]			then 				echo &quot;可写&quot;			else				echo &quot;不可写&quot;			fi		6.4 &quot;-x file&quot;：检测文件是否是可执行文件，如果是，那么返回true			if [ -x $file ]			then 				echo &quot;可执行&quot;			else				echo &quot;不可执行&quot;			fi		6.5 &quot;-f file&quot;：检测文件是否是一个普通文件（既不是目录，也不是设备文件），如果是，那么返回true			if [ -f $file ]			then 				echo &quot;文件为普通文件&quot;			else				echo &quot;文件为特殊文件&quot;			fi		6.6 &quot;-s file&quot;：检测文件是否为空（文件有内容），如果是，那么返回true			if [ -s $file ]			then 				echo &quot;文件有内容&quot;			else				echo &quot;文件没有内容&quot;			fi		6.7 &quot;-e file&quot;：检测文件是否存在（包含了：目录和文件），如果是，那么返回true			if [ -e $file ]			then 				echo &quot;存在&quot;			else				echo &quot;不存在&quot;			fi```### Shell脚本语言-流程控制</div><div class="line">```		1、&quot;if&quot;语句		语法结构			if [条件]			then				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			fi	2、&quot;if else&quot;语句		语法结构			if [条件]			then				代码			else				代码			fi		代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi	3、&quot;if-else-if-else&quot;		语法结构			if [条件]			then				代码			elif [条件]			then				代码			else				代码			fi				代码结构			a=&quot;nemo&quot;			b=&quot;play&quot;			if [ $a = $b ]			then				echo &quot;字符串a等于字符串b&quot;			elif [ $a ]			then				echo &quot;字符串a不为空&quot;			else				echo &quot;字符串a不等于字符串b&quot;			fi		4、&quot;for&quot;循环语句		语法结构			for 变量名 in item1 item2 item3 …			do				代码			done		代码案例一			for name in &quot;nemo&quot; &quot;嗯&quot; &quot;嘻嘻&quot; &quot;月眼&quot;			do   				echo $&#123;name&#125;			done			5、&quot;while&quot;循环		语法结构			while(条件)			do				代码			done		代码案例一			a=1			while(($a&lt;10))			do   				echo $&#123;a&#125;				a=`expr $a + 1`			done	6、&quot;case&quot;语句		语法结构			case 值 in			模式1)				代码				;;			模式2)				代码				;;			模式3)				代码				;;			sac		代码案例一			number=1			case $number in			1) echo &quot;等于1&quot;				;;			2) echo &quot;等于2&quot;				;;			3) echo &quot;等于3&quot;				;;			esac</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg&quot; alt=&quot;shell.jpg&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Shell脚本语言-传递参
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
     
   </entry>
   

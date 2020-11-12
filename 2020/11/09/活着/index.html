@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>shell学习（三） | AgoniNemo&#39;s blog</title>
+  <title>活着 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shell脚本-&amp;gt;重定向学习12# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据">
-<meta name="keywords" content="shell,sql">
+  <meta name="description" content="前言以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。 更新于 2020-11-12  00:30:48 感慨刚读完，就一个字，惨。福贵是真的惨，亲手把一个又一个的亲人给送走。其实开始的时候，福贵这么一个人设很不讨读者喜欢。年经的">
+<meta name="keywords" content="reading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell学习（三）">
-<meta property="og:url" content="http://agoninemo.github.io/blog/2018/05/20/shell学习（三）/index.html">
+<meta property="og:title" content="活着">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2020/11/09/活着/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="Shell脚本-&amp;gt;重定向学习12# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据">
-<meta property="og:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
-<meta property="og:updated_time" content="2019-01-10T09:23:50.121Z">
+<meta property="og:description" content="前言以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。 更新于 2020-11-12  00:30:48 感慨刚读完，就一个字，惨。福贵是真的惨，亲手把一个又一个的亲人给送走。其实开始的时候，福贵这么一个人设很不讨读者喜欢。年经的">
+<meta property="og:updated_time" content="2020-11-12T15:13:31.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell学习（三）">
-<meta name="twitter:description" content="Shell脚本-&amp;gt;重定向学习12# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg">
+<meta name="twitter:title" content="活着">
+<meta name="twitter:description" content="前言以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。 更新于 2020-11-12  00:30:48 感慨刚读完，就一个字，惨。福贵是真的惨，亲手把一个又一个的亲人给送走。其实开始的时候，福贵这么一个人设很不讨读者喜欢。年经的">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -166,35 +164,29 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-shell学习（三）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-活着" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      shell学习（三）
+      活着
     </h1>
   
 
         
-        <a href="/blog/2018/05/20/shell学习（三）/" class="archive-article-date">
-  	<time datetime="2018-05-20T01:56:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20 09:56:01</time>
+        <a href="/blog/2020/11/09/活着/" class="archive-article-date">
+  	<time datetime="2020-11-08T16:13:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09 00:13:44</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 关闭文件描述符</div><div class="line">关闭：读写都是不允许的		语法结构：exec 3&gt;&amp;-		案例一			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#再次写入文件				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3			执行脚本				Dream$ ./fileA.sh				./fileA.sh: line 9: 3: Bad file descriptor			细节：如果说关闭文件描述符，那么你写入内容会报错		案例二			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#打印文件内容				cat fileContent.sh				#重新打开				exec 3&gt; fileContent.sh				#向文件写入内容				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3						执行脚本				Dream$ ./fileA.sh# 列举打开的文件描述</div><div class="line">语法结构：lsof命令（隐藏比较深，找不到，为了安全起见）				非系统管理员用户也可以采用这个命令插件系统信息			命令路径：/usr/sbin/lsof			执行命令：查看结果			Dream$ /usr/sbin/lsof -a -p $$ -d 0,1,2			COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME			bash    5824 Dream    0u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    1u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    2u   CHR   16,0   0t1800  829 /dev/ttys000		分析命令			/usr/sbin/lsof-&gt;表示lsof命令			&quot;-a&quot;-&gt;表示将两个选项结果进行(AND操作)拼接（格式化输出）			&quot;-p&quot;-&gt;进程ID			&quot;$$&quot;-&gt;表示环境变量			&quot;-d&quot;-&gt;表示文件描述符(例如：0、1、2)		分析结果			COMMAND-&gt;表示正在运行的命令名称（取出名字前9个字符）-&gt;由于名字太长我们可以截取				例如：adbfgtyyththhghg				取出：adbfgtyyt						PID-&gt;进程ID			USER-&gt;进程所属登录名（登录用户）				例如：管理员、成员			FD-&gt;文件描述符号以及访问类型（r表示读，w表示写，u表示读写）			TYPE-&gt;表示文件类型（CHR：表示字符型，BLK表示块型，DIR表示目录，REG表示文件）			DEVICE-&gt;表示设备号			SIZE/OFF-&gt;如果存在，那么表示文件大小			NODE-&gt;表示本地问你节点号			NAME-&gt;表示文件名称（文件路径）		案例一：错误代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2			执行脚本				Dream$ ./fileA.sh			总结：没有打印当前执行命令信息，因为你没有指定文件描述符		案例二：正确代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2,3,6,7			执行脚本				Dream$ ./fileA.sh				COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF     NODE NAME				bash    6608 Dream    0u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    1u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    2u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    3w   REG    1,4        0 66971592 /Users/yangshaohong/Desktop/fileContent.sh				bash    6608 Dream    6w   REG    1,4        0 66754302 /Users/yangshaohong/Desktop/fileB.sh				bash    6608 Dream    7r   REG    1,4        0 66762178 /Users/yangshaohong/Desktop/fileErr.sh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 阻止命令输出-&gt; /dev/null</div><div class="line">案例一：阻止输出			脚本代码				Dream$ ls -al &gt; /dev/null案例二：清空文件			脚本代码				#查看内容				Dream$ cat fileContent.sh				#清空内容				Dream$ cat /dev/null &gt; fileContent.sh				没有任何输出，文件为空</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建临时文件</div><div class="line">5.1 创建本地临时文件-&gt; mktemp			案例一：保证当前目录文件唯一				#动态生成文件-&gt;动态生成后缀名				Dream$ mktemp dream.XXXXXX				#指定文件名称-&gt;指定文件后缀名				Dream$ mktemp dream.sh			 案例二：在脚本使用这个命令				#!/bin/bash				#创建临时文件				tempfile=$(mktemp testfile.XXXXXX)				#重定向临时文件				exec 3&gt; $tempfile				#打印文件名称				echo &quot;文件名称：$tempfile&quot;				#输出文件内容				echo &quot;我不是傻逼，我不喜欢傻逼&quot; &gt;&amp;3				echo &quot;我不装逼，我不喜欢装逼&quot; &gt;&amp;3				echo &quot;不知道写什么&quot; &gt;&amp;3				#关闭文件				exec 3&gt;&amp;-				#打印文件内容				cat $tempfile				#删除文件				rm -f $tempfile 2&gt; /dev/null</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在/temp目录下创建临时文件</div><div class="line">案例一：&quot;-t&quot;选项使用				Dream$ mktemp -t testfile.XXXXXX				/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T/testfile.XXXXXX.ftrZp5qX				注意一：&quot;/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T&quot;系统提供临时目录				注意二：不同系统临时目录是不一样			案例二：在Shell脚本中应用临时目录				#!/bin/bash				#创建临时文件（系统临时目录下）				tempfile=$(mktemp -t testfile.XXXXXX)				#写入内容				echo &quot;我不是傻逼，我不喜欢傻逼&quot; &gt; $tempfile				#追加内容				echo &quot;我不是傻逼，我不喜欢傻逼，你是不是&quot; &gt;&gt; $tempfile				#打印文件路径				echo &quot;文件名称：$tempfile&quot;				#将文件内容输出到控制台				cat $tempfile				#删除文件				rm -f $tempfile						5.3 创建临时目录			&quot;-d&quot;创建目录			脚本代码				#!/bin/bash				#当前目录下创建临时目录				tempfile=$(mktemp -d testfile.XXXXXX)				#进入临时目录				cd $tempfile				#在临时目录下创建临时文件				tempfile1=$(mktemp testfile.XXXXXX)				tempfile2=$(mktemp testfile.XXXXXX)				#自定义文件描述符-&gt;重定向输出				exec 7&gt; $tempfile1				exec 8&gt; $tempfile2				#打印临时目录路径				echo &quot;临时目录路径：$tempfile&quot;				#向临时文件写入内容				echo &quot;你好，我不想跪键盘，因为我怕&quot; &gt;&amp;7				echo &quot;你好，我不喜欢&quot; &gt;&amp;8			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 记录消息</div><div class="line">作用：将输出同时发送显示器和日志文件，这个时候你可以采用重定向两次，才可以实现，现在我才用tee命令一步实现（简化版）		案例一：重定向-&gt;输出-&gt;覆盖			Dream$ date | tee fileContent.sh			2017年11月 6日 星期一 22时40分18秒 CST		案例二：重定向-&gt;输出-&gt;追加-&gt;&quot;-a&quot;			Dream$ date | tee -a fileContent.sh		案例三：应用到脚本中			脚本代码-&gt;fileA.sh				#!/bin/bash				#定义文件名称				tempfile=&quot;testfile&quot;				echo &quot;我要输出到控制台和文件&quot; | tee $tempfile				echo &quot;我要追加内容&quot; | tee -a $tempfile			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
-<h3 id="Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件"><a href="#Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件" class="headerlink" title="Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件"></a>Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">场景：别人给你一个exel表格	注意：导出.csv格式	需求：将.csv文件转成.sql文件	打印：Dream$ cat test.csv	总结：每一行数据，每一个元素之间都是通过&quot;,&quot;分割	脚本实现		#!/bin/bash		#定义数据库文件(.sql)文件		outfile=&apos;test.sql&apos;		#定义域分隔符-&gt;分割字符串		IFS=&apos;,&apos;		while read name sex age mv yd phone		do			cat &gt;&gt; $outfile &lt;&lt; EOF				INSERT INTO t_test (name, sex, age, mv, yd, phone) VALUES (&apos;$name&apos;, &apos;$sex&apos;, &apos;$age&apos;, &apos;$mv&apos;, &apos;$yd&apos;, &apos;$phone&apos;);			EOF		done &lt; $&#123;1&#125;	执行脚本		Dream$ ./fileA.sh test.csv		注意：原始数据空出一行	分析含义		3个重定向操作		第一个：输入重定向			done &lt; $&#123;1&#125;			$&#123;1&#125;恰好是一个文件			read通过循环一行行读取内容			同时read非常智能还会通过IFS进行字符串分割，分割之后会自动给参数赋值		第二个：输出重定向			cat &gt;&gt; test.sql			以上语法：等待输入内容，敲回车，然后输出到指定的重定向文件			第三个：输入重定向-&quot;&lt;&lt;&quot;-&gt;追加			(cat &gt;&gt; test.sql ) &lt;&lt; sql语句</div></pre></td></tr></table></figure>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。</p>
+<p>更新于 2020-11-12  00:30:48</p>
+<h4 id="感慨"><a href="#感慨" class="headerlink" title="感慨"></a>感慨</h4><p>刚读完，就一个字，惨。福贵是真的惨，亲手把一个又一个的亲人给送走。其实开始的时候，福贵这么一个人设很不讨读者喜欢。年经的时候，什么都沾，真的败家，不过话又说回来了，如果他真不败家，可能在那个特殊时期，就要被斗倒了。在家珍被他爹接回家的时候，博主开始同情了福贵，之前的种种，也随着故事的开展而消散了。在那种送走了自己的儿子，又送走自己的老婆时，博主是真的哭了，一个三十岁的大男人，哭得像个孩子一样，不知道是为了福贵，还是为未知的将来。也就在这时，博主才真正的了解到书名《活着》，在那种情况，人很难再活下去，精神都要崩溃了。也为里面的福贵的那种一定要活下去的情绪感染了。其实在那个时期，能活下去是真的难，博主命还算好，没有经历过那个时期，但是，小时候，博主也是苦呀，家里也很苦难，想起来，也为自己的父母感慨，真不知道那么难的日子他们是怎么过的。想想现在的日子，不知道我们欲望太高了，还是生活太好过了，人的想法多了，总感觉自己的日子苦。其实比起书里的福贵，我们的生活好太多了，一万倍都有了，人也许要常常的忆苦思甜才行，要不幸福感太低了。</p>
 
       
 
@@ -239,11 +231,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
         		</li>
       		
 		</ul>
@@ -299,7 +287,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2018/05/20/shell学习（三）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2020/11/09/活着/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +301,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/2018/06/10/初探-vue-router/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初探 vue-router
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2018/04/01/shell学习（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell学习（二）</div>
+    <a href="/blog/2020/11/01/组件化一些注意与问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">组件化一些注意与问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

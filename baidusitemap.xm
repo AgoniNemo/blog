@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2020/11/09/%E6%B4%BB%E7%9D%80/</loc>
+    <lastmod>2020-11-12T15:13:31.544Z</lastmod>
+    <data>
+        <display>
+        <title>活着</title>
+        <pubTime>2020-11-08T16:13:44.000Z</pubTime>
+        
+        <tag>reading</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2020/11/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%B8%8E%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-11-03T07:57:17.879Z</lastmod>
     <data>
