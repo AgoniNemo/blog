@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2020/12/13/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%ADpod%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2020-12-13T08:50:32.345Z</lastmod>
+    <data>
+        <display>
+        <title>组件化中pod报错记录与解决方案</title>
+        <pubTime>2020-12-13T08:49:49.000Z</pubTime>
+        
+        <tag>pod</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2020/11/09/%E6%B4%BB%E7%9D%80/</loc>
     <lastmod>2020-11-12T15:13:31.544Z</lastmod>
     <data>
@@ -253,9 +270,9 @@
         <title>iOS中的关于字节整理</title>
         <pubTime>2018-10-18T11:09:33.000Z</pubTime>
         
-        <tag>byte</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>byte</tag>
          
          
            

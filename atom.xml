@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2020-11-12T15:13:31.544Z</updated>
+  <updated>2020-12-13T08:50:32.345Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>组件化中pod报错记录与解决方案</title>
+    <link href="http://agoninemo.github.io/blog/2020/12/13/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%ADpod%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://agoninemo.github.io/blog/2020/12/13/组件化中pod报错记录与解决方案/</id>
+    <published>2020-12-13T08:49:49.000Z</published>
+    <updated>2020-12-13T08:50:32.345Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="集成cocoapods的时候报错"><a href="#集成cocoapods的时候报错" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSwift, and Result</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：在想应的pod &apos;ReactiveCocoa&apos;下添加use_frameworks!</div><div class="line">ps:注意use_frameworks!后面的！号</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-1"><a href="#集成cocoapods的时候报错-1" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>‘xxx’ file not found with  include; use “quotes” instead</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &lt;JSONModel.h&gt;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-2"><a href="#集成cocoapods的时候报错-2" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &quot;JSONModel.h&quot;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-3"><a href="#集成cocoapods的时候报错-3" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：如果第3条解决不了，在pod spec lint后添加--use-libraries。同时在pod trunk push 或者pod repo push 【私有库】的后添加--use-libraries</div><div class="line">--use-libraries表示使用静态库或者是framework，这里主要是解决当我们依赖一些framework库后校验提示找不到库的时候用到。</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-4"><a href="#集成cocoapods的时候报错-4" class="headerlink" title="集成cocoapods的时候报错:"></a>集成cocoapods的时候报错:</h3><p>Encountered an unknown error (Unable to find a specification for xxx depended upon by xxx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：在集成cocoapods的时候添加私有或者公有或者两者都有的sources。如公有的sources。pod repo push xiaofengCocoapodsRepo --sources=https://github.com/CocoaPods/Specs.git</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-5"><a href="#集成cocoapods的时候报错-5" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>The ‘Pods-<em>*</em>_Example’ target has transitive dependencies that include statically linked binaries: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Podfile 设置</div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">.podspec 设置</div><div class="line">s.static_framework = true</div></pre></td></tr></table></figure>
+<h3 id="repo-push的时候报错"><a href="#repo-push的时候报错" class="headerlink" title="repo push的时候报错"></a>repo push的时候报错</h3><ul>
+<li>ERROR | [iOS] [XXX/XXX] file patterns: The <code>vendored_frameworks</code> pattern did not match any file.  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">检查Frameworks的路径是不是正确的</div><div class="line">原因是git 没有push，repo push 走的是网络验证，pod lib lint 走的是本地验证</div></pre></td></tr></table></figure>
+<h3 id="以下报错缺少cup架构引起"><a href="#以下报错缺少cup架构引起" class="headerlink" title="以下报错缺少cup架构引起"></a>以下报错缺少cup架构引起</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 报错一</div><div class="line">ld: building for iOS Simulator, but linking in dylib built for iOS, file &apos;.framework/FBAllocationTracker&apos; for architecture arm64</div><div class="line"></div><div class="line"># 报错二</div><div class="line">Undefined symbols for architecture i386:</div><div class="line">  &quot;_OBJC_CLASS_$_NMRouter&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_Default&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate themeName] in QMUIConfigurationTemplate.o</div><div class="line">  &quot;_IdentifierDark&quot;, referenced from:</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_2 in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_3 in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark themeName] in QMUIConfigurationTemplateDark.o</div><div class="line">  &quot;_OBJC_CLASS_$_XXXXXX&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_XXXXXIdentifier&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate shouldApplyTemplateAutomatically] in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark shouldApplyTemplateAutomatically] in QMUIConfigurationTemplateDark.o</div><div class="line">ld: symbol(s) not found for architecture i386</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+<p>在 Build Setting -&gt; Excluded Architectures 添加 <code>Any iOS Simulator SDK</code> 对应的值为 <code>arm64 i386</code></p>
+<p>PS:这是设置为排除i386、arm64架构</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;集成cocoapods的时候报错&quot;&gt;&lt;a href=&quot;#集成cocoapods的时候报错&quot; class=&quot;headerlink&quot; title=&quot;集成cocoapods的时候报错&quot;&gt;&lt;/a&gt;集成cocoapods的时候报错&lt;/h3&gt;&lt;p&gt;Pods written i
+    
+    </summary>
+    
+    
+      <category term="pod" scheme="http://agoninemo.github.io/blog/tags/pod/"/>
+    
+  </entry>
   
   <entry>
     <title>活着</title>
@@ -609,9 +648,9 @@
     </summary>
     
     
-      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
-    
       <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
+    
+      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
     
   </entry>
   
@@ -790,49 +829,6 @@
     
     
       <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Xcode打包的坑与shell动态创建Plist</title>
-    <link href="http://agoninemo.github.io/blog/2018/03/22/Xcode%E6%89%93%E5%8C%85%E7%9A%84%E5%9D%91%E4%B8%8Eshell%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAPlist/"/>
-    <id>http://agoninemo.github.io/blog/2018/03/22/Xcode打包的坑与shell动态创建Plist/</id>
-    <published>2018-03-22T10:50:41.000Z</published>
-    <updated>2019-01-10T09:21:43.562Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg" alt="bg"></p>
-<blockquote>
-<p>再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知</p>
-</blockquote>
-<p>你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。<br><a id="more"></a></p>
-<ul>
-<li>在打包ipa的命令中需要添加<code>-allowProvisioningUpdates</code>来对钥匙串进行访问。命令：<br><code>xcodebuild  -exportArchive -archivePath xcarchive路径 -exportOptionsPlist plist文件路径 -exportPath ipa导出路径 -allowProvisioningUpdates</code><br><br></li>
-<li>原有的plist文件中只有一个必填的键值对<code>method</code>，现在多了一个<code>provisioningProfiles</code>字典，key为bundleID，value为配置文件的名字。(如下图)</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Plist.jpg" alt="p"></p>
-<p>如果你只想了解坑的话，看到这里，想法你已经明白怎么去修改自己的脚本，下面的你可以不需要看了。</p>
-<p>在之前博主就在想一个问题，就是能不能动态去生成plist文件，之前对这方面的需求不是很高，但是博主已经维护了一个开源的打包脚本，而且之前用Xcode8.3是可以打包的，现在如果还是按照之前的思路去创建三个Plist文件的话，这又多了三个文件，这可不是一个好的Coder习惯。随着最近比较系统的学习了shell之后，思路才算打开，Plist格式的文件其实是<code>xml</code>格式的，只要使用shell的重定向动态去写入，就肯定没问题。下面是用shell封装的脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#! /bin/bash</div><div class="line"></div><div class="line">outfile=ExportOptionsPlist.plist</div><div class="line">space=0</div><div class="line"></div><div class="line">output()&#123;</div><div class="line"> echo &apos;&lt;&apos;$&#123;*&#125;&apos;&gt;&apos; &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">output_head()&#123;</div><div class="line"> output &apos;?&apos;$&#123;1&#125;&apos;?&apos;</div><div class="line">&#125;</div><div class="line"># 打印空格</div><div class="line">out_space()&#123;</div><div class="line"> tmp=0</div><div class="line"> spacestr=&quot;&quot;</div><div class="line"> while [ $tmp -lt $((space)) ]</div><div class="line"> do</div><div class="line">  spacestr=$&#123;spacestr&#125;&apos;\t&apos;</div><div class="line">  tmp=$((tmp+1))</div><div class="line"> done</div><div class="line"> echo -e -n $spacestr &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">output_key()&#123;</div><div class="line">    out_space</div><div class="line">    echo &apos;&lt;&apos;$&#123;1&#125;&apos;&gt;&apos;$&#123;2&#125;&apos;&lt;/&apos;$&#123;1&#125;&apos;&gt;&apos; &gt;&gt; $outfile</div><div class="line">&#125;</div><div class="line"></div><div class="line">key_start()&#123;</div><div class="line"> out_space</div><div class="line"> output $1</div><div class="line"> space=$((space+1))</div><div class="line">&#125;</div><div class="line"></div><div class="line">key_end()&#123;</div><div class="line"> space=$((space-1))</div><div class="line"> out_space</div><div class="line"> output &apos;/&apos;$&#123;1&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用起来也很简单,就拿上面截图的Plist文件举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env bash</div><div class="line"></div><div class="line"># 获取当前路径</div><div class="line">path=$(dirname $0)</div><div class="line">path=$&#123;path/\./$(pwd)&#125;</div><div class="line">file=&quot;&#123;$path&#125;/ExportOptionsPlist&quot;</div><div class="line"></div><div class="line"># 导入上面的脚本</div><div class="line">source &apos;./create_xml.sh&apos;</div><div class="line"></div><div class="line">output_head &apos;xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;&apos;</div><div class="line">output &apos;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&apos;</div><div class="line">key_start &apos;plist version=&quot;1.0&quot;&apos;</div><div class="line">key_start &apos;dict&apos;</div><div class="line">output_key &apos;key&apos; &apos;method&apos;</div><div class="line">output_key &apos;string&apos; &apos;development&apos;</div><div class="line">output_key &apos;key&apos; &apos;provisioningProfiles&apos;</div><div class="line">key_start &apos;dict&apos;</div><div class="line">output_key &apos;key&apos; &apos;com.xxxx.xxxx&apos;</div><div class="line">output_key &apos;string&apos; &apos;Development_name&apos;</div><div class="line">key_end &apos;dict&apos;</div><div class="line">output_key &apos;key&apos; &apos;signingCertificate&apos;</div><div class="line">output_key &apos;string&apos; &quot;iPhone Development&quot;</div><div class="line">key_end &apos;dict&apos;</div><div class="line">key_end &apos;plist&apos;</div></pre></td></tr></table></figure>
-<p>到这里已经算是完成大部分了，接下来再说说一种修改Plist的工具—-PlistBuddy（这个是Mac自带的读写plist文件的工具）。为什么我们要用它呢？如果每次打包不一样，我们不需要每次都创建plist，只需要修改就行了。举个例子，把上面的<code>development</code>修改为<code>ad-hoc</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 设置 method</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set :method ad-hoc&quot; ExportOptionsPlist.plist</div><div class="line"></div><div class="line"># 删除 provisioningProfiles</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Delete :provisioningProfiles&quot; ExportOptionsPlist.plist</div><div class="line"></div><div class="line"># 先添加key值 provisioningProfiles</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Add :provisioningProfiles dict&quot; ExportOptionsPlist.plist</div><div class="line"></div><div class="line"># 添加value值</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Add :provisioningProfiles:com.xxx.xxx string ad-hoc_name&quot; ExportOptionsPlist.plist</div><div class="line"></div><div class="line"># 设置 signingCertificate</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set :signingCertificate iPhone Development&quot; ExportOptionsPlist.plist</div></pre></td></tr></table></figure>
-<p>PS：还有什么不明白的可以点<a href="https://github.com/AgoniNemo/Auto-IPA" target="_blank" rel="external">这里</a>下载完整的自动打包脚本。如果你有更好的办法，可以在下方留言，博主看到后会联系你的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/xcode9.jpg&quot; alt=&quot;bg&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;再牛逼的梦想，也抵不过傻逼似的坚持 ——— 未知&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;你更新了Xcode了吗？更新到9.2打包了吗？是不是用突然发现之前的打包命令出问题了？都没有？那恭喜你，反正博主的之前写的打包程序出问题了！天杀的苹果，为了再次体现“apple father”的威严，从Xcode 9后，限制了Xcode访问钥匙串，下面来说说打包中的两个坑吧。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
-    
-      <category term="xcodebuild" scheme="http://agoninemo.github.io/blog/tags/xcodebuild/"/>
     
   </entry>
   

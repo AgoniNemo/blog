@@ -164,6 +164,79 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-组件化中pod报错记录与解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/12/13/组件化中pod报错记录与解决方案/">组件化中pod报错记录与解决方案</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2020/12/13/组件化中pod报错记录与解决方案/" class="archive-article-date">
+  	<time datetime="2020-12-13T08:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13 16:49:49</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="集成cocoapods的时候报错"><a href="#集成cocoapods的时候报错" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSwift, and Result</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：在想应的pod &apos;ReactiveCocoa&apos;下添加use_frameworks!</div><div class="line">ps:注意use_frameworks!后面的！号</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-1"><a href="#集成cocoapods的时候报错-1" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>‘xxx’ file not found with  include; use “quotes” instead</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &lt;JSONModel.h&gt;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-2"><a href="#集成cocoapods的时候报错-2" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &quot;JSONModel.h&quot;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-3"><a href="#集成cocoapods的时候报错-3" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：如果第3条解决不了，在pod spec lint后添加--use-libraries。同时在pod trunk push 或者pod repo push 【私有库】的后添加--use-libraries</div><div class="line">--use-libraries表示使用静态库或者是framework，这里主要是解决当我们依赖一些framework库后校验提示找不到库的时候用到。</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-4"><a href="#集成cocoapods的时候报错-4" class="headerlink" title="集成cocoapods的时候报错:"></a>集成cocoapods的时候报错:</h3><p>Encountered an unknown error (Unable to find a specification for xxx depended upon by xxx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：在集成cocoapods的时候添加私有或者公有或者两者都有的sources。如公有的sources。pod repo push xiaofengCocoapodsRepo --sources=https://github.com/CocoaPods/Specs.git</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-5"><a href="#集成cocoapods的时候报错-5" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>The ‘Pods-<em>*</em>_Example’ target has transitive dependencies that include statically linked binaries: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Podfile 设置</div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">.podspec 设置</div><div class="line">s.static_framework = true</div></pre></td></tr></table></figure>
+<h3 id="repo-push的时候报错"><a href="#repo-push的时候报错" class="headerlink" title="repo push的时候报错"></a>repo push的时候报错</h3><ul>
+<li>ERROR | [iOS] [XXX/XXX] file patterns: The <code>vendored_frameworks</code> pattern did not match any file.  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">检查Frameworks的路径是不是正确的</div><div class="line">原因是git 没有push，repo push 走的是网络验证，pod lib lint 走的是本地验证</div></pre></td></tr></table></figure>
+<h3 id="以下报错缺少cup架构引起"><a href="#以下报错缺少cup架构引起" class="headerlink" title="以下报错缺少cup架构引起"></a>以下报错缺少cup架构引起</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 报错一</div><div class="line">ld: building for iOS Simulator, but linking in dylib built for iOS, file &apos;.framework/FBAllocationTracker&apos; for architecture arm64</div><div class="line"></div><div class="line"># 报错二</div><div class="line">Undefined symbols for architecture i386:</div><div class="line">  &quot;_OBJC_CLASS_$_NMRouter&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_Default&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate themeName] in QMUIConfigurationTemplate.o</div><div class="line">  &quot;_IdentifierDark&quot;, referenced from:</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_2 in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_3 in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark themeName] in QMUIConfigurationTemplateDark.o</div><div class="line">  &quot;_OBJC_CLASS_$_XXXXXX&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_XXXXXIdentifier&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate shouldApplyTemplateAutomatically] in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark shouldApplyTemplateAutomatically] in QMUIConfigurationTemplateDark.o</div><div class="line">ld: symbol(s) not found for architecture i386</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+<p>在 Build Setting -&gt; Excluded Architectures 添加 <code>Any iOS Simulator SDK</code> 对应的值为 <code>arm64 i386</code></p>
+<p>PS:这是设置为排除i386、arm64架构</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pod</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-活着" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -687,63 +760,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Square-支付SDK集成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2019/01/21/Square-支付SDK集成/">Square 支付SDK集成</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2019/01/21/Square-支付SDK集成/" class="archive-article-date">
-  	<time datetime="2019-01-21T04:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21 12:14:30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍（最后更新2019-7-15）"><a href="#介绍（最后更新2019-7-15）" class="headerlink" title="介绍（最后更新2019-7-15）"></a>介绍（最后更新2019-7-15）</h3><p>因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的<a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>.<br><a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的<a href="https://github.com/square/in-app-payments-ios-quickstart" target="_blank" rel="external">Demo</a>就是Swift写的。</p>
-        
-          <a class="article-more-a" href="/blog/2019/01/21/Square-支付SDK集成/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Square</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -846,15 +862,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">aws</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,10 +902,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
@@ -899,6 +911,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,15 +930,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,11 +950,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,15 +978,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -978,19 +994,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,10 +1035,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
             
             <div class="clearfix"></div>

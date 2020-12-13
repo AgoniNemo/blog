@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
-  <title>Archives: 2019/2 | AgoniNemo&#39;s blog</title>
+  <title>组件化中pod报错记录与解决方案 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Nemo的故事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AgoniNemo&#39;s blog">
-<meta property="og:url" content="http://agoninemo.github.io/blog/archives/2019/02/index.html">
+  <meta name="description" content="集成cocoapods的时候报错Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSw">
+<meta name="keywords" content="pod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组件化中pod报错记录与解决方案">
+<meta property="og:url" content="http://agoninemo.github.io/blog/2020/12/13/组件化中pod报错记录与解决方案/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="来自Nemo的故事">
+<meta property="og:description" content="集成cocoapods的时候报错Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSw">
+<meta property="og:updated_time" content="2020-12-13T08:50:32.345Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AgoniNemo&#39;s blog">
-<meta name="twitter:description" content="来自Nemo的故事">
+<meta name="twitter:title" content="组件化中pod报错记录与解决方案">
+<meta name="twitter:description" content="集成cocoapods的时候报错Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSw">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -162,60 +164,194 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-组件化中pod报错记录与解决方案" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2019/02/01/iOS-谓词/" class="archive-article-date">
-  	<time datetime="2019-02-01T13:49:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-01 21:49:05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/02/01/iOS-谓词/">iOS 谓词（NSPredicate）</a>
+    <h1 class="article-title" itemprop="name">
+      组件化中pod报错记录与解决方案
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/2020/12/13/组件化中pod报错记录与解决方案/" class="archive-article-date">
+  	<time datetime="2020-12-13T08:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13 16:49:49</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="集成cocoapods的时候报错"><a href="#集成cocoapods的时候报错" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSwift, and Result</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：在想应的pod &apos;ReactiveCocoa&apos;下添加use_frameworks!</div><div class="line">ps:注意use_frameworks!后面的！号</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-1"><a href="#集成cocoapods的时候报错-1" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>‘xxx’ file not found with  include; use “quotes” instead</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &lt;JSONModel.h&gt;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-2"><a href="#集成cocoapods的时候报错-2" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：引用路径的问题，更改引用路径。例如：#import &quot;JSONModel.h&quot;，改成#import &lt;JSONModel/JSONModel.h&gt; 就可以了</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-3"><a href="#集成cocoapods的时候报错-3" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>include of non-modular header inside framework module ‘XXX’: ‘XXX’ [-Werror,-Wnon-modular-include-in-framework-module]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：如果第3条解决不了，在pod spec lint后添加--use-libraries。同时在pod trunk push 或者pod repo push 【私有库】的后添加--use-libraries</div><div class="line">--use-libraries表示使用静态库或者是framework，这里主要是解决当我们依赖一些framework库后校验提示找不到库的时候用到。</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-4"><a href="#集成cocoapods的时候报错-4" class="headerlink" title="集成cocoapods的时候报错:"></a>集成cocoapods的时候报错:</h3><p>Encountered an unknown error (Unable to find a specification for xxx depended upon by xxx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决：在集成cocoapods的时候添加私有或者公有或者两者都有的sources。如公有的sources。pod repo push xiaofengCocoapodsRepo --sources=https://github.com/CocoaPods/Specs.git</div></pre></td></tr></table></figure>
+<h3 id="集成cocoapods的时候报错-5"><a href="#集成cocoapods的时候报错-5" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>The ‘Pods-<em>*</em>_Example’ target has transitive dependencies that include statically linked binaries: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Podfile 设置</div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">.podspec 设置</div><div class="line">s.static_framework = true</div></pre></td></tr></table></figure>
+<h3 id="repo-push的时候报错"><a href="#repo-push的时候报错" class="headerlink" title="repo push的时候报错"></a>repo push的时候报错</h3><ul>
+<li>ERROR | [iOS] [XXX/XXX] file patterns: The <code>vendored_frameworks</code> pattern did not match any file.  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">检查Frameworks的路径是不是正确的</div><div class="line">原因是git 没有push，repo push 走的是网络验证，pod lib lint 走的是本地验证</div></pre></td></tr></table></figure>
+<h3 id="以下报错缺少cup架构引起"><a href="#以下报错缺少cup架构引起" class="headerlink" title="以下报错缺少cup架构引起"></a>以下报错缺少cup架构引起</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 报错一</div><div class="line">ld: building for iOS Simulator, but linking in dylib built for iOS, file &apos;.framework/FBAllocationTracker&apos; for architecture arm64</div><div class="line"></div><div class="line"># 报错二</div><div class="line">Undefined symbols for architecture i386:</div><div class="line">  &quot;_OBJC_CLASS_$_NMRouter&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_Default&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate themeName] in QMUIConfigurationTemplate.o</div><div class="line">  &quot;_IdentifierDark&quot;, referenced from:</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_2 in QMUIConfigurationTemplate.o</div><div class="line">      ___55-[QMUIConfigurationTemplate applyConfigurationTemplate]_block_invoke_3 in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark themeName] in QMUIConfigurationTemplateDark.o</div><div class="line">  &quot;_OBJC_CLASS_$_XXXXXX&quot;, referenced from:</div><div class="line">      objc-class-ref in AppDelegate.o</div><div class="line">  &quot;_XXXXXIdentifier&quot;, referenced from:</div><div class="line">      -[QMUIConfigurationTemplate shouldApplyTemplateAutomatically] in QMUIConfigurationTemplate.o</div><div class="line">      -[QMUIConfigurationTemplateDark shouldApplyTemplateAutomatically] in QMUIConfigurationTemplateDark.o</div><div class="line">ld: symbol(s) not found for architecture i386</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+<p>在 Build Setting -&gt; Excluded Architectures 添加 <code>Any iOS Simulator SDK</code> 对应的值为 <code>arm64 i386</code></p>
+<p>PS:这是设置为排除i386、arm64架构</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝奶茶!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://pic.downk.cc/item/5f44f0e8160a154a6750e1ae.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://pic.downk.cc/item/5f44f0e8160a154a6750e1b2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NSPredicate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pod</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://agoninemo.github.io/blog/2020/12/13/组件化中pod报错记录与解决方案/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2020/11/09/活着/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">活着</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'nemoagoni'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -238,8 +374,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

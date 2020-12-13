@@ -164,6 +164,69 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Swift上传文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/09/01/Swift上传文件/">swift上传文件</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2017/09/01/Swift上传文件/" class="archive-article-date">
+  	<time datetime="2017-09-01T11:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01 19:41:19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-c87e0a95952f5395.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在使用Vapor遇到很多的问题，坑也填了不少，下面就来说说由这个坑引发一系列的问题。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>在应用里，需要使用保存用户的上传头像，那么问题来了，如果发布到heroku上，空间是有限的，然而用户量是不可估计的，所以在对比了国内几家的OSS后，选择了<a href="https://portal.qiniu.com/signup?code=3lcfmuw7yntci" target="_blank" rel="external">七牛对象存储</a>做为图片的存储空间，上传的图片的库已经找好，用的是Alamofire。<br>
+        
+          <a class="article-more-a" href="/blog/2017/09/01/Swift上传文件/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-blog首界面实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -383,7 +446,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19g7972OMCnUah05OewWliDxcmf+LNN2t75tcgfUHKgBnGnT6AHeJprVHDWJJg683rgNf72bc+hffDyck26HCJkMcdrYERiIE+DF5bKx9e90DIqHd6gSjqY5Mqfl9kmmozfi/XtaGBT0laHea28koyIVsr1fwSmej28AD5B/D14aXSQuwSC6jHoLoV4rq2zwrZDtsDxgwUtTZH9fLu04lz7TU6ENlzVeMQhJjFerARMNXTsYnrX31BEnsL4NhYIV4FgOzXlBMPHVBcsPP9iDPi0klZZMVYESNXG5NWnCHSs6CGK36dyoRIvkT4km1Al7S3/4u0+RI2y3Bwe6osMP1jHu7M8f/Ja4XxUEC7123LKqKznWweVCgzCuZ6URUMnwTg5VDrTEMdvWfQfMSsHJXEk15S0PenUHTJvwj1Tc2B+VwMAB6DNVLo6JNarR1zQsEBFLZ8+WD4QqEkvSUHXx6Jev/YzETapL3XVJKSTw7aaDQTbZJ0PPI5kWIAtjeVqJtkUtopqzfVIqU6Hvc/WdXNNb3+fEFNoCdo=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX19qUd7Oyv2fWR+N06FMUzlyMCEh1lQ4VLLs9YzdV/WWat0q1d41ZglovAamTw9ks9N61cyUCX1uZTuwtoqltt5OD9cUBIXpTmxGUshoo+RBxBhK/N9iGq/Sq3/wHESpHFRHYhZsSZmURKK0zLXNOSiB4VQSKflBFIrZfOY5zGeytYZRzy/wwq8oE83E+VWQc0mHCIoVMal/nZnpzP+V7G93oh7/OWkcTe48aQdqrO+37JNlIKwTDjV8GEsVgmvnO42BqAktRLHwI1hpIKfXlaUZ7a2hUMg9oUWCyhPtXO02BgdCc4RdyGkYd49Jmq7CKWKPbbtF4+t3KOZQinoabh4OKGWNnqjwb/d0iKruZJO3ern4TQuskZb+VOGmwulHAkMZtUNy3G4sW+4zZwRjMd5/TcvfOuaMpeVcTc13x7uCNwDcClg03slk12UHjUzb44jjZLwY8KQ6iIMONX6QCg9m6KZs7mNBfgcE4AdsKr7VrJXgRzlGs2f+v5CHr3PPEaOGLLReyYYea6DQzmnK7uXosbUg2yASidM=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -833,15 +896,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">aws</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,10 +936,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
@@ -886,6 +945,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,15 +964,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,11 +984,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,15 +1012,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,19 +1028,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pod</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,10 +1069,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
             
             <div class="clearfix"></div>
