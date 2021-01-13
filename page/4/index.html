@@ -164,6 +164,68 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Heroku休眠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2017/09/09/Heroku休眠问题/">Heroku休眠问题</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2017/09/09/Heroku休眠问题/" class="archive-article-date">
+  	<time datetime="2017-09-08T16:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09 00:16:04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1610969-4ba1b1ccb1800215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic.jpg"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在使用Heroku部署应用时，都会遇到一个问题，就是免费的Heroku，在30分钟之内没有访问的话，应用会进入休眠，如果你的应用有一个时间间隔的轮询或者你的应用需要做一些后台操作，这时，会被Heroku强行给休眠。只有当下次有访问时，应用才会被唤醒。而且，还有一个限制就是一天之内最长存活时间不能大于18个小时，所以当前问题就是要解决如何在18个小时的限制内合理的让应用存活。</p>
+        
+          <a class="article-more-a" href="/blog/2017/09/09/Heroku休眠问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">heroku</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vapor</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Swift上传文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -446,7 +508,7 @@ function doDecrypt(pwd, onError) {
    document.getElementById("enc_passwd").style.display = "none";
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19qUd7Oyv2fWR+N06FMUzlyMCEh1lQ4VLLs9YzdV/WWat0q1d41ZglovAamTw9ks9N61cyUCX1uZTuwtoqltt5OD9cUBIXpTmxGUshoo+RBxBhK/N9iGq/Sq3/wHESpHFRHYhZsSZmURKK0zLXNOSiB4VQSKflBFIrZfOY5zGeytYZRzy/wwq8oE83E+VWQc0mHCIoVMal/nZnpzP+V7G93oh7/OWkcTe48aQdqrO+37JNlIKwTDjV8GEsVgmvnO42BqAktRLHwI1hpIKfXlaUZ7a2hUMg9oUWCyhPtXO02BgdCc4RdyGkYd49Jmq7CKWKPbbtF4+t3KOZQinoabh4OKGWNnqjwb/d0iKruZJO3ern4TQuskZb+VOGmwulHAkMZtUNy3G4sW+4zZwRjMd5/TcvfOuaMpeVcTc13x7uCNwDcClg03slk12UHjUzb44jjZLwY8KQ6iIMONX6QCg9m6KZs7mNBfgcE4AdsKr7VrJXgRzlGs2f+v5CHr3PPEaOGLLReyYYea6DQzmnK7uXosbUg2yASidM=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<div id="enc_content" style="display:none">U2FsdGVkX18ugU2qnKVEBrUkhWKxLyMybunNMT+bl+JCKW9MM/nRRHKTh51bFd6hsOkn9lSDb9KY8M74GnUj/DNBpcH8nwlD6hU/my7byipdvbZ6rVEvYdz0qG7QVA1rTNk5spban5xpbxCpRu3670y3BiNszhUUFzMNPF8dIN9+2RQroluwwpi7WfZ3F524D2dJpjUS9qSZo/446ueidX8/q4Rkai2xU3x0LSFevgh2lqU9PtI38cZLHbLjPtin8oTr2EXLjvkJcfQp/BOyOyCGPWLvtnuyGYX7N30XKYle6ij7/zGYGSe96dN/beiZFc2MPgB4cYA5hE4UyIxfWUR5lm4AL048LzHeDzR0oXonchB7XNRA7PGM120tCYOR+CHr2Uo2R2k7s5Wp1DB/C7xpyl9xpSIuHWtR7v/2KuLLIwSPzexSqWBewzTLr75B0b9LCwRQaROQnr63tpfL8tNPW0miKSavyOaTTFKdMVd5xFPk6dpPgfOAZsu/+RkWsJr8C5DivkomfjS5A3W5eI9a4h9WtYgFboKAxKkdsPs=</div><div id="enc_passwd"> <input id="enc_pwd_input" type="text" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
 	document.getElementById("enc_error").innerHTML = "password error!"
@@ -737,66 +799,9 @@ doDecrypt(passwd, onError);
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2017/06/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2017/06/10/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-10T05:10:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10 13:10:11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/blog/2017/06/10/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -808,7 +813,7 @@ doDecrypt(passwd, onError);
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 AgoniNemo
+    		&copy; 2021 AgoniNemo
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -936,6 +941,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Square</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vmess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
@@ -948,14 +961,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Square</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vmess</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -964,15 +969,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,10 +990,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">打包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1009,6 +1014,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1040,10 +1049,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">神评论</a>
               </li>
              
@@ -1061,6 +1066,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
