@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2021-01-13T13:16:37.143Z</updated>
+  <updated>2021-01-13T14:25:50.895Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://agoninemo.github.io/blog/2021/01/13/hello-world/"/>
+    <id>http://agoninemo.github.io/blog/2021/01/13/hello-world/</id>
+    <published>2021-01-13T14:25:50.895Z</published>
+    <updated>2021-01-13T14:25:50.895Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hello" scheme="http://agoninemo.github.io/blog/tags/Hello/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS组件化开发-上篇</title>
     <link href="http://agoninemo.github.io/blog/2021/01/13/iOS%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E4%B8%8A%E7%AF%87/"/>
     <id>http://agoninemo.github.io/blog/2021/01/13/iOS组件化开发-上篇/</id>
     <published>2021-01-13T13:15:30.000Z</published>
-    <updated>2021-01-13T13:16:37.143Z</updated>
+    <updated>2021-01-13T14:25:50.909Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/iu.jpeg" alt="IU引流"></p>
 <h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>在还没有<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>的时候，iOS开发都自己去<code>GitHub</code>上，下载自己需要的第三方库然后通过源码集成，然后每次第三方库更新的时候，还要再去<code>GitHub</code>下载，一个还好，如果多个，就很繁琐，还浪费时间。于是基于这样的情况下，使用<code>ruby</code>语言由<code>Eloy Durán</code>与<code>Fabio Pelosin</code>开发的<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>孕育而生。当然iOS的组件化，也开始了大规模的发展。</p>
@@ -98,7 +128,7 @@
     <link href="http://agoninemo.github.io/blog/2020/12/13/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%ADpod%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     <id>http://agoninemo.github.io/blog/2020/12/13/组件化中pod报错记录与解决方案/</id>
     <published>2020-12-13T08:49:49.000Z</published>
-    <updated>2020-12-13T08:50:32.345Z</updated>
+    <updated>2021-01-13T14:25:51.024Z</updated>
     
     <content type="html"><![CDATA[<h3 id="集成cocoapods的时候报错"><a href="#集成cocoapods的时候报错" class="headerlink" title="集成cocoapods的时候报错"></a>集成cocoapods的时候报错</h3><p>Pods written in Swift can only be integrated as frameworks; add use_frameworks! to your Podfile or target to opt into using it. The Swift Pods being used are: ReactiveCocoa, ReactiveSwift, and Result</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">解决：在想应的pod &apos;ReactiveCocoa&apos;下添加use_frameworks!</div><div class="line">ps:注意use_frameworks!后面的！号</div></pre></td></tr></table></figure>
@@ -137,7 +167,7 @@
     <link href="http://agoninemo.github.io/blog/2020/11/09/%E6%B4%BB%E7%9D%80/"/>
     <id>http://agoninemo.github.io/blog/2020/11/09/活着/</id>
     <published>2020-11-08T16:13:44.000Z</published>
-    <updated>2020-11-12T15:13:31.544Z</updated>
+    <updated>2021-01-13T14:25:51.002Z</updated>
     
     <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>以前博主很喜欢看小说，也许是喜欢那种精神上的满足感吧。后来，写的小一点的小说越来越少了，就在网上找了下。开始注意到这个小说是因为它的名字吧，在开篇里，作者都在用一种欣慰的语气来述说这个写作经历。怀着好奇，博主开始了阅读。</p>
 <p>更新于 2020-11-12  00:30:48</p>
@@ -160,7 +190,7 @@
     <link href="http://agoninemo.github.io/blog/2020/11/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%B8%8E%E9%97%AE%E9%A2%98/"/>
     <id>http://agoninemo.github.io/blog/2020/11/01/组件化一些注意与问题/</id>
     <published>2020-11-01T08:10:21.000Z</published>
-    <updated>2020-11-03T07:57:17.879Z</updated>
+    <updated>2021-01-13T14:25:51.050Z</updated>
     
     <content type="html"><![CDATA[<p>创建模板与推着的命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">创建模板：pod lib create 名字</div></pre></td></tr></table></figure>
@@ -202,7 +232,7 @@
     <link href="http://agoninemo.github.io/blog/2020/09/29/Vapor-4-0%E5%BC%80%E5%90%AF/"/>
     <id>http://agoninemo.github.io/blog/2020/09/29/Vapor-4-0开启/</id>
     <published>2020-09-29T06:00:09.000Z</published>
-    <updated>2020-09-29T06:54:55.798Z</updated>
+    <updated>2021-01-13T14:25:50.885Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在Vapor还是2.0，swift使用的还是3.0的时候，博主已经用vapor开发过一个小视频的网站了，虽然有这样，那样的问题，但是还是成功的部署在Heroku，就在前几天，更新也Xcode，发现已经不支持<code>swift 3.0</code>了，索性把Vapor和Herku都升级了，现在使用Vapor 4.0开发。</p>
 <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>博主使用的是<code>brew</code>安装的，怕旧版本的<code>Vapor</code>会影响安装，所以先把旧的删除。</p>
@@ -236,26 +266,26 @@
     <link href="http://agoninemo.github.io/blog/2020/08/21/V2Ray%E7%A7%91%E5%AD%A6%E6%90%AD%E5%BB%BA/"/>
     <id>http://agoninemo.github.io/blog/2020/08/21/V2Ray科学搭建/</id>
     <published>2020-08-21T04:27:15.000Z</published>
-    <updated>2020-08-21T05:18:23.092Z</updated>
+    <updated>2021-01-13T14:25:50.882Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>博主的梯子是19年在Google Cloud搭的，开始的很爽，用了几个月后就开始用不了，后来Google了一些资料，发现SS被针对了，于是开始找新的梯子，找到了用Vmess协议的V2Ray，博主用的是之前Google Cloud搭的，如果你已经有服务器，可以点<a href="#准备">这里跳过</a>，如果你想用AWS来搭建可以看<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">这里</a>。</p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-3.png" alt="1"><br>国家选<code>美国</code>，3月之前还是有<code>中国</code>的，但是后面就没了</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-2.png" alt="1"><br>账号类型选<code>个人</code>，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g-1.png" alt="1"><br>进入这个界面可以看到成功了</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g0-2.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g0-1.png" alt="1"><br>创建防火墙规则</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g1.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g2.png" alt="2"><br>分别创建<code>入站</code>与<code>出站</code>规则</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g2-1.png" alt="1"><br>创建<code>入站</code>与<code>出站</code>规则完成后的界面</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g3.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4.png" alt="1"><br>创建VM实例</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4-1.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g4-2.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g5.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g6.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g7.png" alt="1"><br>VM实例配置</p>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g8.png" alt="1"><br>名称随便填（英文）</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g-3.png" alt="1"><br>国家选<code>美国</code>，3月之前还是有<code>中国</code>的，但是后面就没了</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g-2.png" alt="1"><br>账号类型选<code>个人</code>，地址随便填，信用卡、电话填自己的，在成功的，信用卡会被扣1美元，过几分钟，就会返回来的。</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g-1.png" alt="1"><br>进入这个界面可以看到成功了</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g0-2.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g0-1.png" alt="1"><br>创建防火墙规则</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g1.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g2.png" alt="2"><br>分别创建<code>入站</code>与<code>出站</code>规则</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g2-1.png" alt="1"><br>创建<code>入站</code>与<code>出站</code>规则完成后的界面</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g3.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4.png" alt="1"><br>创建VM实例</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4-1.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g4-2.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g5.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g6.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g7.png" alt="1"><br>VM实例配置</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g8.png" alt="1"><br>名称随便填（英文）</p>
 <h4 id="创建ssh-key"><a href="#创建ssh-key" class="headerlink" title="创建ssh-key"></a>创建ssh-key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 打开终端输入下面命令</div><div class="line"># 用户名：为创建VM实例的谷歌用户名（没试过其他的名称）</div><div class="line"># 命令： 系统在路径为~/.ssh/的文件夹下生成名为 google 的私钥文件和一个名为 google.pub 的公钥文件</div><div class="line"># 提示填yes</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/google -C 用户名</div><div class="line"></div><div class="line"># 将打印出来的字符全复制到下面的图中</div><div class="line">cat ~/.ssh/google.pub</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g9.png" alt="1"><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
+<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g9.png" alt="1"><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g10.jpg" alt="1"><br>填入刚打印出来的字符</p>
 <h4 id="连接到google-cloud"><a href="#连接到google-cloud" class="headerlink" title="连接到google cloud"></a>连接到google cloud</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 连接到google cloud（提示时填yes）</div><div class="line">ssh -i ~/.ssh/google 用户名@外网的ip地址</div><div class="line"></div><div class="line"># 使用root权限</div><div class="line">sudo -s</div></pre></td></tr></table></figure>
 <h3 id="PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下："><a href="#PS：可能会遇到的问题-WARNING-REMOTE-HOST-IDENTIFICATION-HAS-CHANGED-如果出现以上错误，是因为本地的-ssh-known-hosts与远程机器的信息不一致引起的，解决如下：" class="headerlink" title="PS：可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下："></a>PS：<code>可能会遇到的问题 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 如果出现以上错误，是因为本地的.ssh/known_hosts与远程机器的信息不一致引起的，解决如下：</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">ssh -i ~/.ssh/google xxx@xxx</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:8hgJ8jpcBr1tm6HS72FpXwMrjba8MQqlqYJQLPB/Qf4.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xxx/.ssh/known_hosts:26</div><div class="line">ECDSA host key for 47.98.233.15 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
 <p><code>根据上面的信息 Add correct host key in /Users/xxx/.ssh/known_hosts to get rid of this message.</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 编辑文件</div><div class="line">vi 文件路径（比如：/User/xxx/.ssh/known_hosts）</div></pre></td></tr></table></figure>
-<p><code>输入i 进入编辑模式，找下图信息中找到ip为47.98.233.15的记录，删除，如下图</code><br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/g11.jpeg" alt="1"></p>
+<p><code>输入i 进入编辑模式，找下图信息中找到ip为47.98.233.15的记录，删除，如下图</code><br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/g11.jpeg" alt="1"></p>
 <p><code>这里的ip与上面错误信息的ip是一致的，要根据自己的错误信息查找。</code></p>
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">开始之前 你要确定你的系列已经有 Curl</div><div class="line">ubuntu/debian 系统安装 Curl 方法: apt-get update -y &amp;&amp; apt-get install curl -y</div><div class="line">centos 系统安装 Curl 方法: yum update -y &amp;&amp; yum install curl -y</div></pre></td></tr></table></figure>
 <h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</div></pre></td></tr></table></figure>
@@ -284,7 +314,7 @@
     <link href="http://agoninemo.github.io/blog/2020/08/11/LLDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89/"/>
     <id>http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/</id>
     <published>2020-08-11T11:43:23.000Z</published>
-    <updated>2020-08-14T14:25:34.263Z</updated>
+    <updated>2021-01-13T14:25:50.866Z</updated>
     
     <content type="html"><![CDATA[<h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
 <a id="more"></a>
@@ -324,7 +354,7 @@
     <link href="http://agoninemo.github.io/blog/2020/06/25/%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2020/06/25/一些面试题整理/</id>
     <published>2020-06-25T11:53:48.000Z</published>
-    <updated>2020-09-17T14:13:32.341Z</updated>
+    <updated>2021-01-13T14:25:51.043Z</updated>
     
     <content type="html"><![CDATA[<p>更新于：2020.9.13</p>
 <h3 id="常见的网络协议有哪些"><a href="#常见的网络协议有哪些" class="headerlink" title="常见的网络协议有哪些"></a>常见的网络协议有哪些</h3><p>其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。</p>
@@ -488,10 +518,11 @@
     <link href="http://agoninemo.github.io/blog/2020/05/15/%E9%82%A3%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%A5%9E%E8%AF%84%E8%AE%BA/"/>
     <id>http://agoninemo.github.io/blog/2020/05/15/那些音乐神评论/</id>
     <published>2020-05-15T04:25:29.000Z</published>
-    <updated>2020-05-15T04:35:37.680Z</updated>
+    <updated>2021-01-13T14:25:51.047Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;何谓烈酒？&quot;</div><div class="line">&quot;凌晨，宿醉，浑浑噩噩。&quot;</div><div class="line">&quot;可否具体？&quot;  </div><div class="line">&quot;烧心，烫喉，一醉方休。&quot;</div><div class="line">&quot;可否再具体？&quot;</div><div class="line">&quot;醉时有你。&quot;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">那个酒馆里的老板娘生的一副好模样唇红齿白眉目如画就是脾气火爆</div><div class="line">她好喝酒但从不与人对饮</div><div class="line">直到那一天她喝醉了她流泪了她说她在等一个人一个没有告别就远走的人</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">那个酒馆里的老板娘生的一副好模样唇红齿白眉目如画就是脾气火爆</div><div class="line">她好喝酒但从不与人对饮</div><div class="line">直到那一天她喝醉了她流泪了她说她在等一个人一个没有告别就远走的人</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -509,7 +540,7 @@
     <link href="http://agoninemo.github.io/blog/2019/11/05/Google-Cloud%E6%90%AD%E5%BB%BAssr/"/>
     <id>http://agoninemo.github.io/blog/2019/11/05/Google-Cloud搭建ssr/</id>
     <published>2019-11-05T12:53:39.000Z</published>
-    <updated>2020-11-01T09:31:52.387Z</updated>
+    <updated>2021-01-13T14:25:50.851Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>自从16年的在aws搭了梯子以后，从此开始了自由之路，但是在用完了aws<a href="https://agoninemo.github.io/blog/2017/11/14/AWS%E6%90%AD%E5%BB%BASS/#more">一年的免费流量</a>之后，再用回百度，怎么都感觉不爽，于是，就去招商开了一个visa的信用卡，从Google Cloud再次开起自由之路。</p>
 <a id="more"></a>
@@ -561,7 +592,7 @@
     <link href="http://agoninemo.github.io/blog/2019/02/01/iOS-%E8%B0%93%E8%AF%8D/"/>
     <id>http://agoninemo.github.io/blog/2019/02/01/iOS-谓词/</id>
     <published>2019-02-01T13:49:05.000Z</published>
-    <updated>2019-10-01T14:49:51.380Z</updated>
+    <updated>2021-01-13T14:25:50.898Z</updated>
     
     <content type="html"><![CDATA[<p>最近在项目中，需要比较复杂的查询与比较，所以用的NSPredicate类比较多，下面来说下这个NSPredicate类是用来干嘛的。其实NSPredicate类是用来定义逻辑条件约束的获取或内存中的过滤搜索。</p>
 <a id="more"></a>
@@ -590,7 +621,7 @@
     <link href="http://agoninemo.github.io/blog/2019/01/21/Square-%E6%94%AF%E4%BB%98SDK%E9%9B%86%E6%88%90/"/>
     <id>http://agoninemo.github.io/blog/2019/01/21/Square-支付SDK集成/</id>
     <published>2019-01-21T04:14:30.000Z</published>
-    <updated>2019-10-01T13:50:36.489Z</updated>
+    <updated>2021-01-13T14:25:50.873Z</updated>
     
     <content type="html"><![CDATA[<h3 id="介绍（最后更新2019-7-15）"><a href="#介绍（最后更新2019-7-15）" class="headerlink" title="介绍（最后更新2019-7-15）"></a>介绍（最后更新2019-7-15）</h3><p>因为要做一个海外项目，涉及到支付这块，公司调查了国外的支付情况，说是信用卡用得比较多，而移动支付又要收手续费，经过几个移动支付SDK比较，最后选择这个性价比高的<a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>.<br><a href="https://developer.squareup.com/docs/sample-apps" target="_blank" rel="external">Square</a>支付感觉比较的完善，支持多种环境React Native、Flutter、Swift、OC。本文主要使用OC SDK，因为官方的<a href="https://github.com/square/in-app-payments-ios-quickstart" target="_blank" rel="external">Demo</a>就是Swift写的。</p>
 <a id="more"></a>
@@ -626,11 +657,12 @@
     <link href="http://agoninemo.github.io/blog/2018/12/13/%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8Cweb%E9%A1%B9%E7%9B%AE/"/>
     <id>http://agoninemo.github.io/blog/2018/12/13/本地运行web项目/</id>
     <published>2018-12-13T14:53:30.000Z</published>
-    <updated>2019-10-01T14:54:18.259Z</updated>
+    <updated>2021-01-13T14:25:51.029Z</updated>
     
     <content type="html"><![CDATA[<h4 id="如何在本地加载打包的web"><a href="#如何在本地加载打包的web" class="headerlink" title="如何在本地加载打包的web"></a>如何在本地加载打包的web</h4><h4 id="一、Mac-OS-X-自带了-Apache-环境"><a href="#一、Mac-OS-X-自带了-Apache-环境" class="headerlink" title="一、Mac OS X 自带了 Apache 环境"></a>一、Mac OS X 自带了 Apache 环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Apache服务器默认的web根目录在：/Library/WebServer/Documents</div><div class="line">Apache的配置文件在：/etc/apache2</div><div class="line"></div><div class="line">将index.html文件拷贝到 /Library/WebServer/Documents 目录下</div><div class="line">将static文件夹拷贝到 /Library/WebServer/Documents 目录下</div><div class="line"></div><div class="line">在terminal终端直接运行Apache的启动命令来打开：sudo apachectl start</div><div class="line"></div><div class="line">在浏览器 输入地址 规则为：IP/index.html 比如：http://192.168.0.5/index.html</div><div class="line">IP为本机的IP</div><div class="line"></div><div class="line">停止 Apache：sudo apachectl stop</div><div class="line">重启 Apache：sudo apachectl restart</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">上面的步骤只能  打开一些静态界面，需要网络请求 会遇到跨域问题</div><div class="line">解决方法 如下</div></pre></td></tr></table></figure>
-<h4 id="二、跨域问题"><a href="#二、跨域问题" class="headerlink" title="二、跨域问题"></a>二、跨域问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.建立本地跨域文件夹</div><div class="line">这个文件夹是浏览器打开时候进行设置一些基本文件，因为需要关闭浏览器的安全策略。</div><div class="line">命令：cd /Users/[用户名]/Documents/ 然后建立个文件夹：命令是mkdir ChromeDevData</div><div class="line"></div><div class="line">参数：ChromeDevData可以自己命名，只要与下面的命令中的ChromeDevData保持一致就行</div><div class="line"></div><div class="line">2.打开浏览器增加参数</div><div class="line">命令：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/[用户名]/Documents/ChromeDevData</div></pre></td></tr></table></figure>]]></content>
+<h4 id="二、跨域问题"><a href="#二、跨域问题" class="headerlink" title="二、跨域问题"></a>二、跨域问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1.建立本地跨域文件夹</div><div class="line">这个文件夹是浏览器打开时候进行设置一些基本文件，因为需要关闭浏览器的安全策略。</div><div class="line">命令：cd /Users/[用户名]/Documents/ 然后建立个文件夹：命令是mkdir ChromeDevData</div><div class="line"></div><div class="line">参数：ChromeDevData可以自己命名，只要与下面的命令中的ChromeDevData保持一致就行</div><div class="line"></div><div class="line">2.打开浏览器增加参数</div><div class="line">命令：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/[用户名]/Documents/ChromeDevData</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -648,7 +680,7 @@
     <link href="http://agoninemo.github.io/blog/2018/11/15/RN%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
     <id>http://agoninemo.github.io/blog/2018/11/15/RN问题汇总/</id>
     <published>2018-11-15T10:16:04.000Z</published>
-    <updated>2019-01-19T10:19:29.340Z</updated>
+    <updated>2021-01-13T14:25:50.869Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Cannot find module ‘./lib/extract_requires’</p>
@@ -675,7 +707,8 @@
 <p>执行某个模拟器<br><code>react-native run-ios --simulator=&quot;iPhone 8&quot;</code></p>
 <p>app一打开就闪退问题（可能是用到的assets没有创建）</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p android/app/src/main/assets</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p android/app/src/main/assets</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -696,7 +729,7 @@
     <link href="http://agoninemo.github.io/blog/2018/10/18/iOS%E4%B8%AD%E7%9A%84%E5%85%B3%E4%BA%8E%E5%AD%97%E8%8A%82%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2018/10/18/iOS中的关于字节整理/</id>
     <published>2018-10-18T11:09:33.000Z</published>
-    <updated>2019-01-19T10:23:46.320Z</updated>
+    <updated>2021-01-13T14:25:50.914Z</updated>
     
     <content type="html"><![CDATA[<p>字节顺序是指占内存多于一个字节类型的数据在内存中的存放顺序，通常有小端、大端两种字节顺序。</p>
 <p>小端字节序指低字节数据存放在内存低地址处，高字节数据存放在内存高地址处；</p>
@@ -737,12 +770,12 @@
     <link href="http://agoninemo.github.io/blog/2018/09/08/vue%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8/"/>
     <id>http://agoninemo.github.io/blog/2018/09/08/vue技巧使用/</id>
     <published>2018-09-08T15:40:06.000Z</published>
-    <updated>2019-01-10T09:19:34.253Z</updated>
+    <updated>2021-01-13T14:25:50.963Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/1486368214291404.jpg" alt="1"></p>
+    <content type="html"><![CDATA[<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/1486368214291404.jpg" alt="1"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，被其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！唉，心累。好了，不发牢骚了，下面来说说，博主在项目遇到的问题与解决方法。</p>
 <a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>博主开发项目时，这样一个需求，如下图<br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/WechatIMG141.jpeg" alt="2"><br>点击<code>展开</code>时，变成<code>收起</code>，项目中用到饿了么的UI组件<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="external">Element</a>里的Table表格，可以设置<code>type=&quot;expand&quot;</code>和<code>Scoped slot</code>来达到设置展开效果，但是这个点击展开的组件是没有属性可以设置。<br><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/WechatIMG144.jpeg" alt="3"><br>博主原来的想法是操作DOM添加文字，后来前端大佬如果这么做，数据多的话，会有问题，所以博主就在样式方面下功夫，最后添加如下样式，实现效果。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>博主开发项目时，这样一个需求，如下图<br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/WechatIMG141.jpeg" alt="2"><br>点击<code>展开</code>时，变成<code>收起</code>，项目中用到饿了么的UI组件<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="external">Element</a>里的Table表格，可以设置<code>type=&quot;expand&quot;</code>和<code>Scoped slot</code>来达到设置展开效果，但是这个点击展开的组件是没有属性可以设置。<br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/WechatIMG144.jpeg" alt="3"><br>博主原来的想法是操作DOM添加文字，后来前端大佬如果这么做，数据多的话，会有问题，所以博主就在样式方面下功夫，最后添加如下样式，实现效果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.cell &#123;</div><div class="line">    .el-table__expand-icon &#123;</div><div class="line">        i &#123;</div><div class="line">            left: 0;</div><div class="line">            color: #66b1ff;</div><div class="line">            font-size: 14px;</div><div class="line">        &#125;</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;展开&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    .el-table__expand-icon--expanded &#123;</div><div class="line">        transform:rotate(0);</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;收起&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"><a href="#PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）" class="headerlink" title="PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"></a>PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）</h5><p>第二个需求就是城市二级选择器，这个需求使用到了<a href="http://element-cn.eleme.io/#/zh-CN/component/cascader" target="_blank" rel="external">Cascader 级联选择器</a>，数据的话，是前端大佬弄好的，博主做了一些修改，就成了二级数据了（想要的童鞋可以在下面留言）。但是这里有个问题，就是设置<code>change-on-select</code>与<code>expand-trigger</code>为<code>hover</code>时，不可以选择一级，里面的只提供了一个<code>change</code>方法用于数据改变时的回调，但是博客的需求是可以选择一级，也可以选择二级。最初的想法，就是看下内部有没有点击事件，很遗憾，那个点击方法不合适，但是博主还是找到了有用的方法，在<code>main.vue</code>文件里的385行（查看于2018-09-08 22:12:06）<code>handleClickoutside</code>方法，一看就命名就知道是点击组件外时调用的，里面设置了<code>this.menuVisible = false</code>，这是用来打开与关闭组件用的。看到这里，博主有了思路，因为这个组件可以用<code>v-model</code>来绑定数据，那么可以在第一级组件里添加一个点击方法，达到可以让用户点击一级的效果，下面来看代码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;el-cascader</div><div class="line">    size=&quot;large&quot;</div><div class="line">    placeholder=&quot;请选择&quot;</div><div class="line">    ref=&quot;cascader&quot;</div><div class="line">    :options=&quot;options&quot;</div><div class="line">    v-model=&quot;address&quot;</div><div class="line">    expand-trigger=&quot;hover&quot;</div><div class="line">    @focus=&quot;cityAction&quot;</div><div class="line">    popper-class=&quot;city-popper&quot;</div><div class="line">    change-on-select</div><div class="line">    clearable&gt;</div><div class="line">&lt;/el-cascader&gt;</div></pre></td></tr></table></figure>
@@ -753,7 +786,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/1486368214291404.jpg&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/1486368214291404.jpg&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，被其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！唉，心累。好了，不发牢骚了，下面来说说，博主在项目遇到的问题与解决方法。&lt;/p&gt;
     
     </summary>
@@ -770,9 +803,9 @@
     <link href="http://agoninemo.github.io/blog/2018/08/28/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
     <id>http://agoninemo.github.io/blog/2018/08/28/vue视频添加键盘事件/</id>
     <published>2018-08-28T11:28:25.000Z</published>
-    <updated>2019-01-10T09:20:17.145Z</updated>
+    <updated>2021-01-13T14:25:50.975Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/vue1.jpg" alt="vue"></p>
+    <content type="html"><![CDATA[<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/vue1.jpg" alt="vue"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。</p>
 <a id="more"></a>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>在个人项目中，使用到了<a href="https://github.com/surmon-china/vue-video-player" target="_blank" rel="external">vue的一个视频加载组件</a>，这个组件是比较多人用的，也是比较的容易使用</p>
@@ -783,7 +816,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/vue1.jpg&quot; alt=&quot;vue&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/vue1.jpg&quot; alt=&quot;vue&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。&lt;/p&gt;
     
     </summary>
@@ -800,7 +833,7 @@
     <link href="http://agoninemo.github.io/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
     <id>http://agoninemo.github.io/blog/2018/07/08/Git命令整理/</id>
     <published>2018-07-08T07:39:35.000Z</published>
-    <updated>2019-11-17T11:03:16.411Z</updated>
+    <updated>2021-01-13T14:25:50.844Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"># 基于master创建的Develop分支</div><div class="line">git checkout -b develop master</div><div class="line"></div><div class="line"># 基于远程origin/develop分支创建本地develop分支</div><div class="line">git checkout -b develop origin/develop</div><div class="line"></div><div class="line"># 切换到Master分支(本地的)</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 查看远程分支</div><div class="line">git branch -r</div><div class="line"></div><div class="line"># 切换到origin/develop分支(远程的)</div><div class="line">git checkout origin/develop</div><div class="line"></div><div class="line"># 对Develop分支进行合并</div><div class="line">git merge --no-ff -m&apos;注释&apos; develop</div><div class="line"></div><div class="line"># 删除本地feature分支</div><div class="line">git branch -D feature-x</div><div class="line"></div><div class="line"># 删除远程feature分支</div><div class="line">git push origin :feature-x</div><div class="line"></div><div class="line"># 删除预发布分支（D与d的区别在于D为强制删除）</div><div class="line">git branch -d release-1.2</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -809,7 +842,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</div><div class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</div><div class="line">git reset --hard HASH #返回到某个节点，不保留修改。</div><div class="line">git reset --soft HASH #返回到某个节点。保留修改</div><div class="line"></div><div class="line">git clean -df #返回到某个节点</div><div class="line">git clean 参数</div><div class="line">-n 显示 将要 删除的 文件 和  目录</div><div class="line">-f 删除 文件</div><div class="line">-df 删除 文件 和 目录</div><div class="line"></div><div class="line"># git 查看某个 commit 的改动</div><div class="line">git show d34ff657f5</div><div class="line">git diff d34ff657f5^!</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">本地仓库的回退（撤销本地的commit）： git  reset：</div><div class="line"></div><div class="line">reset命令有3种方式：</div><div class="line"></div><div class="line">git reset --mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息git </div><div class="line">reset --soft  HEAD^：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</div><div class="line">git reset --hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</div><div class="line">#回退所有内容到上一个版本  </div><div class="line">git reset HEAD^  </div><div class="line">#回退a.py这个文件的版本到上一个版本  </div><div class="line">git reset HEAD^ a.py  </div><div class="line">#向前回退到第3个版本</div><div class="line">git reset –-soft HEAD~3  </div><div class="line">#将本地的状态回退到和远程的一样  </div><div class="line">git reset –-hard origin/master  </div><div class="line">#回退到某个版本  </div><div class="line">git reset 057d  </div><div class="line">#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit  </div><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 查看log 一行一个commit</div><div class="line">git log --pretty=oneline</div><div class="line"></div><div class="line"># 可以看到fileName相关的commit记录</div><div class="line">git log filename</div><div class="line"></div><div class="line"># 可以显示每次提交的diff</div><div class="line">git log -p filename</div><div class="line"></div><div class="line"># 只看某次提交中的某个文件变化，可以直接加上fileName</div><div class="line">git show commit-id filename</div><div class="line"></div><div class="line"># 根据commit-id查看某个提交</div><div class="line">git show -s --pretty=raw ca53e82</div><div class="line"></div><div class="line">git rebase -i  开始commit  结束commit</div><div class="line"></div><div class="line">进入vim界面  编辑commit 以下为命令</div><div class="line"># pick：保留该commit（缩写:p）</div><div class="line"># reword：保留该commit，但我需要修改该commit的注释（缩写:r）</div><div class="line"># edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）</div><div class="line"># squash：将该commit和前一个commit合并（缩写:s）</div><div class="line"># fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）</div><div class="line"># exec：执行shell命令（缩写:x）</div><div class="line"># drop：我要丢弃该commit（缩写:d）</div><div class="line"></div><div class="line">wq保存退出后进入注释修改界面  可以再浏览态 按下两个dd可以删除一行</div><div class="line">编辑完保存即可完成commit的合并</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建新的节点</div><div class="line">git tag -a 0.1.1</div><div class="line"># 推送所有新节点</div><div class="line">git push --tags</div><div class="line"># 可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象</div><div class="line">git show v1.4</div><div class="line"># 如果你有自己的私钥，还可以用 GPG 来签署标签，只需要把之前的 -a 改为 -s （译注： 取 signed 的首字母）即可：</div><div class="line">git tag -s v1.5 -m &apos;my signed 1.5 tag&apos;</div><div class="line"># 给对应提交对象打tag</div><div class="line">git tag -a v1.2 9fceb02</div><div class="line"># 一次推送所有本地新增的标签</div><div class="line">git push origin --tags</div><div class="line"># 删除本地tag</div><div class="line">git tag -d v1.2</div><div class="line"># 删除远程tag</div><div class="line">git push origin :refs/tags/v1.2</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建新的节点</div><div class="line">git tag -a 0.1.1</div><div class="line"># 推送所有新节点</div><div class="line">git push --tags</div><div class="line"># 可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象</div><div class="line">git show v1.4</div><div class="line"># 如果你有自己的私钥，还可以用 GPG 来签署标签，只需要把之前的 -a 改为 -s （译注： 取 signed 的首字母）即可：</div><div class="line">git tag -s v1.5 -m &apos;my signed 1.5 tag&apos;</div><div class="line"># 给对应提交对象打tag</div><div class="line">git tag -a v1.2 9fceb02</div><div class="line"># 一次推送所有本地新增的标签</div><div class="line">git push origin --tags</div><div class="line"># 删除本地tag</div><div class="line">git tag -d v1.2</div><div class="line"># 删除远程tag</div><div class="line">git push origin :refs/tags/v1.2</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -827,7 +861,7 @@
     <link href="http://agoninemo.github.io/blog/2018/06/10/%E5%88%9D%E6%8E%A2-vue-router/"/>
     <id>http://agoninemo.github.io/blog/2018/06/10/初探-vue-router/</id>
     <published>2018-06-10T12:03:48.000Z</published>
-    <updated>2018-07-14T02:39:31.296Z</updated>
+    <updated>2021-01-13T14:25:50.996Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1610969-3c8ad3a79dec789f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"></p>
 <h3 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h3><p>已经有好些日子没有更新了，是因为博主最近公司的项目比较的忙，加班比较的晚，回到家就不想动了，趁着前天刚上完项目，有点时间去整理，一些学习的东西。</p>
@@ -850,38 +884,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>shell学习（三）</title>
-    <link href="http://agoninemo.github.io/blog/2018/05/20/shell%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://agoninemo.github.io/blog/2018/05/20/shell学习（三）/</id>
-    <published>2018-05-20T01:56:01.000Z</published>
-    <updated>2019-01-10T09:23:50.121Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg" alt="shell.jpg"></p>
-<h3 id="Shell脚本-gt-重定向学习"><a href="#Shell脚本-gt-重定向学习" class="headerlink" title="Shell脚本-&gt;重定向学习"></a>Shell脚本-&gt;重定向学习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建文件读写描述符？&quot;&lt;&gt;&quot;</div><div class="line">作用：这个文件可以读写		文件内容-&gt;fileContent.sh			吃饭			不吃饭		脚本代码-&gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&lt;&gt; fileContent.sh			#读取文件中的一行数据			read line &lt;&amp;3			#打印数据			echo &quot;读取数据：$line&quot;			#写入文件			echo &quot;谈恋爱是为了结婚，要不然就是耍流氓&quot; &gt;&amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 关闭文件描述符</div><div class="line">关闭：读写都是不允许的		语法结构：exec 3&gt;&amp;-		案例一			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#再次写入文件				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3			执行脚本				Dream$ ./fileA.sh				./fileA.sh: line 9: 3: Bad file descriptor			细节：如果说关闭文件描述符，那么你写入内容会报错		案例二			脚本代码				#!/bin/bash				#自定义输出描述符				exec 3&gt; fileContent.sh				#写入一句话道文件中				echo &quot;我是傻逼&quot; &gt;&amp;3				#关闭文件描述符				exec 3&gt;&amp;-				#打印文件内容				cat fileContent.sh				#重新打开				exec 3&gt; fileContent.sh				#向文件写入内容				echo &quot;但是我喜欢装逼&quot; &gt;&amp;3						执行脚本				Dream$ ./fileA.sh# 列举打开的文件描述</div><div class="line">语法结构：lsof命令（隐藏比较深，找不到，为了安全起见）				非系统管理员用户也可以采用这个命令插件系统信息			命令路径：/usr/sbin/lsof			执行命令：查看结果			Dream$ /usr/sbin/lsof -a -p $$ -d 0,1,2			COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME			bash    5824 Dream    0u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    1u   CHR   16,0   0t1800  829 /dev/ttys000			bash    5824 Dream    2u   CHR   16,0   0t1800  829 /dev/ttys000		分析命令			/usr/sbin/lsof-&gt;表示lsof命令			&quot;-a&quot;-&gt;表示将两个选项结果进行(AND操作)拼接（格式化输出）			&quot;-p&quot;-&gt;进程ID			&quot;$$&quot;-&gt;表示环境变量			&quot;-d&quot;-&gt;表示文件描述符(例如：0、1、2)		分析结果			COMMAND-&gt;表示正在运行的命令名称（取出名字前9个字符）-&gt;由于名字太长我们可以截取				例如：adbfgtyyththhghg				取出：adbfgtyyt						PID-&gt;进程ID			USER-&gt;进程所属登录名（登录用户）				例如：管理员、成员			FD-&gt;文件描述符号以及访问类型（r表示读，w表示写，u表示读写）			TYPE-&gt;表示文件类型（CHR：表示字符型，BLK表示块型，DIR表示目录，REG表示文件）			DEVICE-&gt;表示设备号			SIZE/OFF-&gt;如果存在，那么表示文件大小			NODE-&gt;表示本地问你节点号			NAME-&gt;表示文件名称（文件路径）		案例一：错误代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2			执行脚本				Dream$ ./fileA.sh			总结：没有打印当前执行命令信息，因为你没有指定文件描述符		案例二：正确代码			脚本代码				#!/bin/bash				exec 3&gt; fileContent.sh				exec 6&gt; fileB.sh				exec 7&lt; fileErr.sh								/usr/sbin/lsof -a -p $$ -d 0,1,2,3,6,7			执行脚本				Dream$ ./fileA.sh				COMMAND  PID  USER   FD   TYPE DEVICE SIZE/OFF     NODE NAME				bash    6608 Dream    0u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    1u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    2u   CHR   16,0    0t324      835 /dev/ttys000				bash    6608 Dream    3w   REG    1,4        0 66971592 /Users/yangshaohong/Desktop/fileContent.sh				bash    6608 Dream    6w   REG    1,4        0 66754302 /Users/yangshaohong/Desktop/fileB.sh				bash    6608 Dream    7r   REG    1,4        0 66762178 /Users/yangshaohong/Desktop/fileErr.sh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 阻止命令输出-&gt; /dev/null</div><div class="line">案例一：阻止输出			脚本代码				Dream$ ls -al &gt; /dev/null案例二：清空文件			脚本代码				#查看内容				Dream$ cat fileContent.sh				#清空内容				Dream$ cat /dev/null &gt; fileContent.sh				没有任何输出，文件为空</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 创建临时文件</div><div class="line">5.1 创建本地临时文件-&gt; mktemp			案例一：保证当前目录文件唯一				#动态生成文件-&gt;动态生成后缀名				Dream$ mktemp dream.XXXXXX				#指定文件名称-&gt;指定文件后缀名				Dream$ mktemp dream.sh			 案例二：在脚本使用这个命令				#!/bin/bash				#创建临时文件				tempfile=$(mktemp testfile.XXXXXX)				#重定向临时文件				exec 3&gt; $tempfile				#打印文件名称				echo &quot;文件名称：$tempfile&quot;				#输出文件内容				echo &quot;我不是傻逼，我不喜欢傻逼&quot; &gt;&amp;3				echo &quot;我不装逼，我不喜欢装逼&quot; &gt;&amp;3				echo &quot;不知道写什么&quot; &gt;&amp;3				#关闭文件				exec 3&gt;&amp;-				#打印文件内容				cat $tempfile				#删除文件				rm -f $tempfile 2&gt; /dev/null</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 在/temp目录下创建临时文件</div><div class="line">案例一：&quot;-t&quot;选项使用				Dream$ mktemp -t testfile.XXXXXX				/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T/testfile.XXXXXX.ftrZp5qX				注意一：&quot;/var/folders/7w/4gr2dxc57v3656mjgqmv9mkm0000gn/T&quot;系统提供临时目录				注意二：不同系统临时目录是不一样			案例二：在Shell脚本中应用临时目录				#!/bin/bash				#创建临时文件（系统临时目录下）				tempfile=$(mktemp -t testfile.XXXXXX)				#写入内容				echo &quot;我不是傻逼，我不喜欢傻逼&quot; &gt; $tempfile				#追加内容				echo &quot;我不是傻逼，我不喜欢傻逼，你是不是&quot; &gt;&gt; $tempfile				#打印文件路径				echo &quot;文件名称：$tempfile&quot;				#将文件内容输出到控制台				cat $tempfile				#删除文件				rm -f $tempfile						5.3 创建临时目录			&quot;-d&quot;创建目录			脚本代码				#!/bin/bash				#当前目录下创建临时目录				tempfile=$(mktemp -d testfile.XXXXXX)				#进入临时目录				cd $tempfile				#在临时目录下创建临时文件				tempfile1=$(mktemp testfile.XXXXXX)				tempfile2=$(mktemp testfile.XXXXXX)				#自定义文件描述符-&gt;重定向输出				exec 7&gt; $tempfile1				exec 8&gt; $tempfile2				#打印临时目录路径				echo &quot;临时目录路径：$tempfile&quot;				#向临时文件写入内容				echo &quot;你好，我不想跪键盘，因为我怕&quot; &gt;&amp;7				echo &quot;你好，我不喜欢&quot; &gt;&amp;8			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 记录消息</div><div class="line">作用：将输出同时发送显示器和日志文件，这个时候你可以采用重定向两次，才可以实现，现在我才用tee命令一步实现（简化版）		案例一：重定向-&gt;输出-&gt;覆盖			Dream$ date | tee fileContent.sh			2017年11月 6日 星期一 22时40分18秒 CST		案例二：重定向-&gt;输出-&gt;追加-&gt;&quot;-a&quot;			Dream$ date | tee -a fileContent.sh		案例三：应用到脚本中			脚本代码-&gt;fileA.sh				#!/bin/bash				#定义文件名称				tempfile=&quot;testfile&quot;				echo &quot;我要输出到控制台和文件&quot; | tee $tempfile				echo &quot;我要追加内容&quot; | tee -a $tempfile			执行脚本				Dream$ ./fileA.sh</div></pre></td></tr></table></figure>
-<h3 id="Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件"><a href="#Shell脚本-gt-案例-gt-数据操作-gt-导出SQL文件" class="headerlink" title="Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件"></a>Shell脚本-&gt;案例-&gt;数据操作-&gt;导出SQL文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">场景：别人给你一个exel表格	注意：导出.csv格式	需求：将.csv文件转成.sql文件	打印：Dream$ cat test.csv	总结：每一行数据，每一个元素之间都是通过&quot;,&quot;分割	脚本实现		#!/bin/bash		#定义数据库文件(.sql)文件		outfile=&apos;test.sql&apos;		#定义域分隔符-&gt;分割字符串		IFS=&apos;,&apos;		while read name sex age mv yd phone		do			cat &gt;&gt; $outfile &lt;&lt; EOF				INSERT INTO t_test (name, sex, age, mv, yd, phone) VALUES (&apos;$name&apos;, &apos;$sex&apos;, &apos;$age&apos;, &apos;$mv&apos;, &apos;$yd&apos;, &apos;$phone&apos;);			EOF		done &lt; $&#123;1&#125;	执行脚本		Dream$ ./fileA.sh test.csv		注意：原始数据空出一行	分析含义		3个重定向操作		第一个：输入重定向			done &lt; $&#123;1&#125;			$&#123;1&#125;恰好是一个文件			read通过循环一行行读取内容			同时read非常智能还会通过IFS进行字符串分割，分割之后会自动给参数赋值		第二个：输出重定向			cat &gt;&gt; test.sql			以上语法：等待输入内容，敲回车，然后输出到指定的重定向文件			第三个：输入重定向-&quot;&lt;&lt;&quot;-&gt;追加			(cat &gt;&gt; test.sql ) &lt;&lt; sql语句</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/AgoniNemo/ImageSave/master/assets/inset/Shell.jpg&quot; alt=&quot;shell.jpg&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Shell脚本-gt-重定向学习&quot;&gt;&lt;a href=&quot;#Shell脚本-gt-重定向学习&quot; class=&quot;headerlink&quot; title=&quot;Shell脚本-&amp;gt;重定向学习&quot;&gt;&lt;/a&gt;Shell脚本-&amp;gt;重定向学习&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 创建文件读写描述符？&amp;quot;&amp;lt;&amp;gt;&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;作用：这个文件可以读写		文件内容-&amp;gt;fileContent.sh			吃饭			不吃饭		脚本代码-&amp;gt;fileA.sh			#!/bin/bash			#创建文件读写描述符			exec 3&amp;lt;&amp;gt; fileContent.sh			#读取文件中的一行数据			read line &amp;lt;&amp;amp;3			#打印数据			echo &amp;quot;读取数据：$line&amp;quot;			#写入文件			echo &amp;quot;谈恋爱是为了结婚，要不然就是耍流氓&amp;quot; &amp;gt;&amp;amp;3		执行脚本			Dream$ cat fileContent.sh			装逼			不装逼			Dream$ ./fileA.sh			读取数据：吃饭&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="http://agoninemo.github.io/blog/tags/shell/"/>
-    
-      <category term="sql" scheme="http://agoninemo.github.io/blog/tags/sql/"/>
     
   </entry>
   
