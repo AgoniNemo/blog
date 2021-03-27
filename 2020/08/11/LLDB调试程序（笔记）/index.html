@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="全称expression，可简写为ep（print) 功能是输出原生类型（boolean、integer、float、etc）的信息po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)call 同po或p一样, 也是调用. 当不需要显示输出时使用.">
-<meta property="og:updated_time" content="2021-01-13T14:25:50.866Z">
+<meta property="og:updated_time" content="2021-03-27T03:11:51.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LLDB调试程序（笔记）">
 <meta name="twitter:description" content="全称expression，可简写为ep（print) 功能是输出原生类型（boolean、integer、float、etc）的信息po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)call 同po或p一样, 也是调用. 当不需要显示输出时使用.">
@@ -198,13 +198,13 @@ var _hmt = _hmt || [];
 <p>image 可用于寻址，有多个组合命令。常用于寻找栈地址对应的代码位置, 用于查错(能定位出错误代码行数)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 最后为栈地址</div><div class="line">image lookup --address 0x0000000100004af8</div></pre></td></tr></table></figure>
 <p>breakpoint(或简写为b) 设置断点. (可在运行过程中添加)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 第10行设置断点</div><div class="line">breakpoint set -f XXX.m -l 10</div><div class="line"></div><div class="line"># 第10行设置断点(xxx.m也一样)</div><div class="line">b ViewController.swift:10</div><div class="line"></div><div class="line"># 功能同上</div><div class="line">b 10</div><div class="line"></div><div class="line"># 直接指定函数(符号断点:Xcode GUI中只要方法执行就触发断点, 这里只针对本类)</div><div class="line">b myfunc</div><div class="line"></div><div class="line"># 数组根据Index获取object处设置断点</div><div class="line">b -[NSArray objectAtIndex:]</div><div class="line"></div><div class="line"># 列出所有断点. 简写br li</div><div class="line">breakpoint list</div><div class="line"></div><div class="line"># 禁用1号断点</div><div class="line">br dis 1</div><div class="line"></div><div class="line"># 删除9号断点</div><div class="line">breakpoint delete 9</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"># 第10行设置断点</div><div class="line">breakpoint set -f XXX.m -l 10</div><div class="line"></div><div class="line">breakpoint set -n XXX</div><div class="line">set 是子命令</div><div class="line">-n 是选项 是--name 的缩写</div><div class="line"></div><div class="line"># 第10行设置断点(xxx.m也一样)</div><div class="line">b ViewController.swift:10</div><div class="line"></div><div class="line"># 功能同上</div><div class="line">b 10</div><div class="line"></div><div class="line"># 直接指定函数(符号断点:Xcode GUI中只要方法执行就触发断点, 这里只针对本类)</div><div class="line">b myfunc</div><div class="line"></div><div class="line"># 数组根据Index获取object处设置断点</div><div class="line">b -[NSArray objectAtIndex:]</div><div class="line"></div><div class="line"># 列出所有断点. 简写br li</div><div class="line">breakpoint list</div><div class="line"></div><div class="line"># 禁用1号断点</div><div class="line">br dis 1</div><div class="line"></div><div class="line"># 删除9号断点</div><div class="line">breakpoint delete 9</div><div class="line"></div><div class="line"># 直接返回不执行后面的代码</div><div class="line">thread return</div><div class="line"></div><div class="line"># 禁用/启用</div><div class="line">breakpoint disable 禁用</div><div class="line">breakpoint enable  启用</div><div class="line"></div><div class="line"># 遍历整个项目中满足Game:这个字符的所有方法</div><div class="line">breakpoint set -r Game:</div></pre></td></tr></table></figure>
 <p>断点调试命令: c 即process continue，n 即step over下一步, s即step in, thread step-out即step out. (n,s比较常用)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 下一步</div><div class="line">n</div><div class="line"></div><div class="line"># 进入</div><div class="line">s</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 下一步，单步运行,将子函数当做整体一步执行</div><div class="line">n</div><div class="line"></div><div class="line"># 进入</div><div class="line">s</div><div class="line"></div><div class="line"># 继续执行</div><div class="line">c</div></pre></td></tr></table></figure>
 <p>watchpoint: 监听某个实例的变化. (等同于在Xcode调试变量窗口—&gt;右键某个变量—&gt;Watch xx) 注意: watchpoint是分类型的，包括read，write或者read_write类型. 通过Xcode右键添加的只能是write类型.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 为该变量地址设置watchpoint</div><div class="line">watchpoint set self-&gt;test</div><div class="line"></div><div class="line"># 为btn变量设置read_write类型的监听</div><div class="line">watchpoint set v -w read_write btn</div><div class="line"></div><div class="line"># 为该内存地址设置watchpoint，内存地址可从前文提及的`p`命令获取</div><div class="line">watchpoint set expression 0x00007fb27b4969e0</div><div class="line"></div><div class="line"># 为watchpoint 1号加上子命令 `frame info`</div><div class="line">watchpoint command add -o &apos;frame info&apos; 1</div><div class="line"></div><div class="line"># 列出所有watchpoint</div><div class="line">watchpoint list  </div><div class="line"></div><div class="line"># 删除所有watchpoint</div><div class="line">watchpoint delete</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 查看可用平台</div><div class="line">platform list</div><div class="line"></div><div class="line"># 选择运行平台</div><div class="line">platform select ios-simulator</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 当遇到 Thread 5: EXC_BAD_ACCESS (code=1, address=0x0)</div><div class="line"># thread backtrace，作用是打印当前线程信息</div><div class="line">bt</div><div class="line"></div><div class="line"># 所有线程的调用栈</div><div class="line">thread backtrace all</div><div class="line"></div><div class="line"># 检查帧参数和本地变量</div><div class="line">frame variable</div><div class="line"></div><div class="line"># 使用image 来定位崩溃</div><div class="line">image lookup --address 0x0000000100000de0</div><div class="line"></div><div class="line">frame variable *self</div><div class="line"></div><div class="line"># 查看具体的对象的声明类型</div><div class="line">image lookup --type &lt;Class&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 当遇到 Thread 5: EXC_BAD_ACCESS (code=1, address=0x0)</div><div class="line"># thread backtrace，作用是打印当前线程信息</div><div class="line">bt</div><div class="line"></div><div class="line"># 查看</div><div class="line">image list</div><div class="line"></div><div class="line"># 查看内存</div><div class="line">register read</div><div class="line"># 查看内存</div><div class="line">x</div><div class="line"></div><div class="line"># 所有线程的调用栈</div><div class="line">thread backtrace all</div><div class="line"></div><div class="line"># 检查帧参数和本地变量</div><div class="line">frame variable</div><div class="line"></div><div class="line"># 使用image 来定位崩溃</div><div class="line">image lookup --address 0x0000000100000de0</div><div class="line"></div><div class="line">frame variable *self</div><div class="line"></div><div class="line"># 查看具体的对象的声明类型</div><div class="line">image lookup --type &lt;Class&gt;</div></pre></td></tr></table></figure>
 
       
 
@@ -449,6 +449,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
@@ -457,23 +461,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,6 +470,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">vapor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vpn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +501,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,19 +517,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,63 +529,23 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Element</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pod</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,6 +566,66 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pod</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
               </li>
              
               <li class="article-tag-list-item">

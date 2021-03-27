@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2021-02-19T12:50:23.648Z</updated>
+  <updated>2021-03-27T09:35:14.399Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装MonkeyDev</title>
+    <link href="http://agoninemo.github.io/blog/2021/03/27/%E5%AE%89%E8%A3%85MonkeyDev/"/>
+    <id>http://agoninemo.github.io/blog/2021/03/27/安装MonkeyDev/</id>
+    <published>2021-03-27T09:33:58.000Z</published>
+    <updated>2021-03-27T09:35:14.399Z</updated>
+    
+    <content type="html"><![CDATA[<p>####安装MonkeyDev<br>1.环境要求</p>
+<ul>
+<li>安装最新的theos</li>
+</ul>
+<blockquote>
+<p>sudo git clone –recursive <a href="https://github.com/theos/theos.git" target="_blank" rel="external">https://github.com/theos/theos.git</a> /opt/theos</p>
+</blockquote>
+<ul>
+<li>安装ldid(如安装theos过程安装了ldid，跳过)</li>
+</ul>
+<blockquote>
+<p>brew install ldid</p>
+</blockquote>
+<a id="more"></a>
+<ul>
+<li>配置免密码登录越狱设备(如果没有越狱设备，跳过)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -P &apos;&apos;</div><div class="line">ssh-copy-id -i /Users/username/.ssh/id_rsa root@ip</div></pre></td></tr></table></figure>
+<h3 id="或者安装sshpass自己设置密码"><a href="#或者安装sshpass自己设置密码" class="headerlink" title="或者安装sshpass自己设置密码:"></a>或者安装sshpass自己设置密码:</h3><blockquote>
+<p>brew install <a href="https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb" target="_blank" rel="external">https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb</a></p>
+</blockquote>
+<h3 id="MonkeyDev的安装指令"><a href="#MonkeyDev的安装指令" class="headerlink" title="MonkeyDev的安装指令"></a>MonkeyDev的安装指令</h3><p>(1). 命令选择指定的Xcode进行安装</p>
+<p>sudo xcode-select -s /Applications/Xcode-beta.app</p>
+<h3 id="默认安装的Xcode为"><a href="#默认安装的Xcode为" class="headerlink" title="默认安装的Xcode为:"></a>默认安装的Xcode为:</h3><blockquote>
+<p>xcode-select -p</p>
+</blockquote>
+<h3 id="执行安装命令"><a href="#执行安装命令" class="headerlink" title="执行安装命令:"></a>执行安装命令:</h3><blockquote>
+<p>sudo /bin/sh -c “$(curl -fsSL <a href="https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install" target="_blank" rel="external">https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-install</a>)”</p>
+</blockquote>
+<h3 id="MonkeyDev卸载"><a href="#MonkeyDev卸载" class="headerlink" title="MonkeyDev卸载"></a>MonkeyDev卸载</h3><blockquote>
+<p>sudo /bin/sh -c “$(curl -fsSL <a href="https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall" target="_blank" rel="external">https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-uninstall</a>)”</p>
+</blockquote>
+<h3 id="MonkeyDev更新"><a href="#MonkeyDev更新" class="headerlink" title="MonkeyDev更新"></a>MonkeyDev更新</h3><p>如果没有发布特殊说明，使用如下命令更新即可:</p>
+<blockquote>
+<p>sudo /bin/sh -c “$(curl -fsSL <a href="https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update" target="_blank" rel="external">https://raw.githubusercontent.com/AloneMonkey/MonkeyDev/master/bin/md-update</a>)”</p>
+</blockquote>
+<h3 id="安装LookinServer"><a href="#安装LookinServer" class="headerlink" title="安装LookinServer"></a>安装LookinServer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod &apos;LookinServer&apos;, :configurations =&gt; [&apos;Debug&apos;]</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####安装MonkeyDev&lt;br&gt;1.环境要求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装最新的theos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo git clone –recursive &lt;a href=&quot;https://github.com/theos/theos.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/theos/theos.git&lt;/a&gt; /opt/theos&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;安装ldid(如安装theos过程安装了ldid，跳过)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;brew install ldid&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="ios" scheme="http://agoninemo.github.io/blog/tags/ios/"/>
+    
+      <category term="逆向" scheme="http://agoninemo.github.io/blog/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS组件化开发-下篇</title>
@@ -66,36 +137,6 @@
     
     
       <category term="组件化" scheme="http://agoninemo.github.io/blog/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://agoninemo.github.io/blog/2021/01/13/hello-world/"/>
-    <id>http://agoninemo.github.io/blog/2021/01/13/hello-world/</id>
-    <published>2021-01-13T14:25:50.895Z</published>
-    <updated>2021-01-13T14:25:50.895Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hello" scheme="http://agoninemo.github.io/blog/tags/Hello/"/>
     
   </entry>
   
@@ -368,7 +409,7 @@
     <link href="http://agoninemo.github.io/blog/2020/08/11/LLDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89/"/>
     <id>http://agoninemo.github.io/blog/2020/08/11/LLDB调试程序（笔记）/</id>
     <published>2020-08-11T11:43:23.000Z</published>
-    <updated>2021-01-13T14:25:50.866Z</updated>
+    <updated>2021-03-27T03:11:51.434Z</updated>
     
     <content type="html"><![CDATA[<h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
 <a id="more"></a>
@@ -385,13 +426,13 @@
 <p>image 可用于寻址，有多个组合命令。常用于寻找栈地址对应的代码位置, 用于查错(能定位出错误代码行数)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 最后为栈地址</div><div class="line">image lookup --address 0x0000000100004af8</div></pre></td></tr></table></figure>
 <p>breakpoint(或简写为b) 设置断点. (可在运行过程中添加)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 第10行设置断点</div><div class="line">breakpoint set -f XXX.m -l 10</div><div class="line"></div><div class="line"># 第10行设置断点(xxx.m也一样)</div><div class="line">b ViewController.swift:10</div><div class="line"></div><div class="line"># 功能同上</div><div class="line">b 10</div><div class="line"></div><div class="line"># 直接指定函数(符号断点:Xcode GUI中只要方法执行就触发断点, 这里只针对本类)</div><div class="line">b myfunc</div><div class="line"></div><div class="line"># 数组根据Index获取object处设置断点</div><div class="line">b -[NSArray objectAtIndex:]</div><div class="line"></div><div class="line"># 列出所有断点. 简写br li</div><div class="line">breakpoint list</div><div class="line"></div><div class="line"># 禁用1号断点</div><div class="line">br dis 1</div><div class="line"></div><div class="line"># 删除9号断点</div><div class="line">breakpoint delete 9</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"># 第10行设置断点</div><div class="line">breakpoint set -f XXX.m -l 10</div><div class="line"></div><div class="line">breakpoint set -n XXX</div><div class="line">set 是子命令</div><div class="line">-n 是选项 是--name 的缩写</div><div class="line"></div><div class="line"># 第10行设置断点(xxx.m也一样)</div><div class="line">b ViewController.swift:10</div><div class="line"></div><div class="line"># 功能同上</div><div class="line">b 10</div><div class="line"></div><div class="line"># 直接指定函数(符号断点:Xcode GUI中只要方法执行就触发断点, 这里只针对本类)</div><div class="line">b myfunc</div><div class="line"></div><div class="line"># 数组根据Index获取object处设置断点</div><div class="line">b -[NSArray objectAtIndex:]</div><div class="line"></div><div class="line"># 列出所有断点. 简写br li</div><div class="line">breakpoint list</div><div class="line"></div><div class="line"># 禁用1号断点</div><div class="line">br dis 1</div><div class="line"></div><div class="line"># 删除9号断点</div><div class="line">breakpoint delete 9</div><div class="line"></div><div class="line"># 直接返回不执行后面的代码</div><div class="line">thread return</div><div class="line"></div><div class="line"># 禁用/启用</div><div class="line">breakpoint disable 禁用</div><div class="line">breakpoint enable  启用</div><div class="line"></div><div class="line"># 遍历整个项目中满足Game:这个字符的所有方法</div><div class="line">breakpoint set -r Game:</div></pre></td></tr></table></figure>
 <p>断点调试命令: c 即process continue，n 即step over下一步, s即step in, thread step-out即step out. (n,s比较常用)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 下一步</div><div class="line">n</div><div class="line"></div><div class="line"># 进入</div><div class="line">s</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 下一步，单步运行,将子函数当做整体一步执行</div><div class="line">n</div><div class="line"></div><div class="line"># 进入</div><div class="line">s</div><div class="line"></div><div class="line"># 继续执行</div><div class="line">c</div></pre></td></tr></table></figure>
 <p>watchpoint: 监听某个实例的变化. (等同于在Xcode调试变量窗口—&gt;右键某个变量—&gt;Watch xx) 注意: watchpoint是分类型的，包括read，write或者read_write类型. 通过Xcode右键添加的只能是write类型.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 为该变量地址设置watchpoint</div><div class="line">watchpoint set self-&gt;test</div><div class="line"></div><div class="line"># 为btn变量设置read_write类型的监听</div><div class="line">watchpoint set v -w read_write btn</div><div class="line"></div><div class="line"># 为该内存地址设置watchpoint，内存地址可从前文提及的`p`命令获取</div><div class="line">watchpoint set expression 0x00007fb27b4969e0</div><div class="line"></div><div class="line"># 为watchpoint 1号加上子命令 `frame info`</div><div class="line">watchpoint command add -o &apos;frame info&apos; 1</div><div class="line"></div><div class="line"># 列出所有watchpoint</div><div class="line">watchpoint list  </div><div class="line"></div><div class="line"># 删除所有watchpoint</div><div class="line">watchpoint delete</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 查看可用平台</div><div class="line">platform list</div><div class="line"></div><div class="line"># 选择运行平台</div><div class="line">platform select ios-simulator</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 当遇到 Thread 5: EXC_BAD_ACCESS (code=1, address=0x0)</div><div class="line"># thread backtrace，作用是打印当前线程信息</div><div class="line">bt</div><div class="line"></div><div class="line"># 所有线程的调用栈</div><div class="line">thread backtrace all</div><div class="line"></div><div class="line"># 检查帧参数和本地变量</div><div class="line">frame variable</div><div class="line"></div><div class="line"># 使用image 来定位崩溃</div><div class="line">image lookup --address 0x0000000100000de0</div><div class="line"></div><div class="line">frame variable *self</div><div class="line"></div><div class="line"># 查看具体的对象的声明类型</div><div class="line">image lookup --type &lt;Class&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 当遇到 Thread 5: EXC_BAD_ACCESS (code=1, address=0x0)</div><div class="line"># thread backtrace，作用是打印当前线程信息</div><div class="line">bt</div><div class="line"></div><div class="line"># 查看</div><div class="line">image list</div><div class="line"></div><div class="line"># 查看内存</div><div class="line">register read</div><div class="line"># 查看内存</div><div class="line">x</div><div class="line"></div><div class="line"># 所有线程的调用栈</div><div class="line">thread backtrace all</div><div class="line"></div><div class="line"># 检查帧参数和本地变量</div><div class="line">frame variable</div><div class="line"></div><div class="line"># 使用image 来定位崩溃</div><div class="line">image lookup --address 0x0000000100000de0</div><div class="line"></div><div class="line">frame variable *self</div><div class="line"></div><div class="line"># 查看具体的对象的声明类型</div><div class="line">image lookup --type &lt;Class&gt;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -813,9 +854,9 @@
     </summary>
     
     
-      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
-    
       <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
+    
+      <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
     
   </entry>
   
