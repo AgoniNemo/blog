@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2021-05-01T02:17:14.766Z</updated>
+  <updated>2021-05-01T02:18:07.845Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -20,21 +20,19 @@
     <link href="http://agoninemo.github.io/blog/2021/04/23/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E4%B8%80/"/>
     <id>http://agoninemo.github.io/blog/2021/04/23/汇编学习一/</id>
     <published>2021-04-23T15:01:49.000Z</published>
-    <updated>2021-05-01T02:17:14.766Z</updated>
+    <updated>2021-05-01T02:18:07.845Z</updated>
     
-    <content type="html"><![CDATA[<p>####bl标号</p>
-<ul>
+    <content type="html"><![CDATA[<h4 id="bl标号"><a href="#bl标号" class="headerlink" title="bl标号"></a>bl标号</h4><ul>
 <li>将下一条指令的地址放入lr(x30)寄存器</li>
 <li>转到标号处执行指令</li>
 </ul>
-<p>####ret</p>
-<ul>
+<h4 id="ret"><a href="#ret" class="headerlink" title="ret"></a>ret</h4><ul>
 <li>默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!</li>
 </ul>
 <blockquote>
 <p>ARM64平台的特色指令,它面向硬件做了优化处理的</p>
 </blockquote>
-<p>####x30寄存器<br>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
+<h4 id="x30寄存器"><a href="#x30寄存器" class="headerlink" title="x30寄存器"></a>x30寄存器</h4><p>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
 <blockquote>
 <p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
 </blockquote>
@@ -92,14 +90,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;####bl标号&lt;/p&gt;
-&lt;ul&gt;
+      &lt;h4 id=&quot;bl标号&quot;&gt;&lt;a href=&quot;#bl标号&quot; class=&quot;headerlink&quot; title=&quot;bl标号&quot;&gt;&lt;/a&gt;bl标号&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;将下一条指令的地址放入lr(x30)寄存器&lt;/li&gt;
 &lt;li&gt;转到标号处执行指令&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;####ret&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!
+&lt;h4 
     
     </summary>
     

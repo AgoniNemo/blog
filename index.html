@@ -184,19 +184,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####bl标号</p>
-<ul>
+        <h4 id="bl标号"><a href="#bl标号" class="headerlink" title="bl标号"></a>bl标号</h4><ul>
 <li>将下一条指令的地址放入lr(x30)寄存器</li>
 <li>转到标号处执行指令</li>
 </ul>
-<p>####ret</p>
-<ul>
+<h4 id="ret"><a href="#ret" class="headerlink" title="ret"></a>ret</h4><ul>
 <li>默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!</li>
 </ul>
 <blockquote>
 <p>ARM64平台的特色指令,它面向硬件做了优化处理的</p>
 </blockquote>
-<p>####x30寄存器<br>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
+<h4 id="x30寄存器"><a href="#x30寄存器" class="headerlink" title="x30寄存器"></a>x30寄存器</h4><p>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
 <blockquote>
 <p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
 </blockquote>
