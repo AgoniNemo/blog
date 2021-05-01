@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://agoninemo.github.io/blog">
   <title>汇编学习一 | AgoniNemo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!  指令与寄存器 str/">
+  <meta name="description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!">
 <meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编学习一">
 <meta property="og:url" content="http://agoninemo.github.io/blog/2021/04/23/汇编学习一/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
-<meta property="og:description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!  指令与寄存器 str/">
-<meta property="og:updated_time" content="2021-05-01T02:18:07.845Z">
+<meta property="og:description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!">
+<meta property="og:updated_time" content="2021-05-01T02:19:32.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编学习一">
-<meta name="twitter:description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!  指令与寄存器 str/">
+<meta name="twitter:description" content="bl标号 将下一条指令的地址放入lr(x30)寄存器 转到标号处执行指令  ret 默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!   ARM64平台的特色指令,它面向硬件做了优化处理的  x30寄存器x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!  注意:在函数嵌套调用的时候.需要讲x30入栈!">
   
     <link rel="alternative" href="/atom.xml" title="AgoniNemo&#39;s blog" type="application/atom+xml">
   
@@ -198,6 +198,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="指令与寄存器"><a href="#指令与寄存器" class="headerlink" title="指令与寄存器"></a>指令与寄存器</h3><ul>
 <li>str/stp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从寄存器中读出来,存到内存中</li>
 <li>ldr/ldp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从内存中读出来,存到寄存器中</li>
@@ -362,6 +363,15 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/blog/2021/05/01/gulp-sass构建小程序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          gulp+sass构建小程序
+        
+      </div>
+    </a>
+  
   
     <a href="/blog/2021/04/03/命令收集/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">命令收集</div>
@@ -502,11 +512,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +556,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -554,11 +572,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,6 +628,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ios</a>
               </li>
              
@@ -626,15 +644,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汇编</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +652,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+                <a href="javascript:void(0)" class="js-tag color3">汇编</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
               </li>
              
               <li class="article-tag-list-item">

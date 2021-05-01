@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2021/05/01/gulp-sass%E6%9E%84%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2021-05-01T02:21:56.371Z</lastmod>
+    <data>
+        <display>
+        <title>gulp+sass构建小程序</title>
+        <pubTime>2021-05-01T02:21:04.000Z</pubTime>
+        
+        <tag>微信小程序</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2021/04/23/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E4%B8%80/</loc>
-    <lastmod>2021-05-01T02:18:07.845Z</lastmod>
+    <lastmod>2021-05-01T02:19:32.165Z</lastmod>
     <data>
         <display>
         <title>汇编学习一</title>

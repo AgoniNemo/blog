@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2021-05-01T02:18:07.845Z</updated>
+  <updated>2021-05-01T02:21:56.371Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>gulp+sass构建小程序</title>
+    <link href="http://agoninemo.github.io/blog/2021/05/01/gulp-sass%E6%9E%84%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://agoninemo.github.io/blog/2021/05/01/gulp-sass构建小程序/</id>
+    <published>2021-05-01T02:21:04.000Z</published>
+    <updated>2021-05-01T02:21:56.371Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>用原生的样式写小程序，在没用过<code>sass</code>写的样式，可能还好。如果用了<code>sass</code>写了之后，你就再也不想写原生的小程序样式了。太不习惯了，很多便利都享受不到，太痛苦了。于是，博主查阅了一些资料与文章，总结了一套方案。</p>
+<a id="more"></a>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>网上的方案主要流行的两种：</p>
+<blockquote>
+<p>使用vsCode里的一个插件<code>Easy Sass</code></p>
+</blockquote>
+<p>这个方案就是在编写<code>sass</code>保存后，会自动生成样式代码，你可以在设置里配置样式，比如<code>wxss</code>、<code>css</code>等等。</p>
+<blockquote>
+<p>gulp工作流</p>
+</blockquote>
+<p>通过<a href="https://www.gulpjs.com.cn/docs/getting-started/quick-start/" target="_blank" rel="external">gulp</a>编写脚本，把编写与运行的小程序分开，实时输出新的有效改动，生成相应的<code>sass</code>文件，还可以配置不同环境编译出来的代码与不同环境的打包。</p>
+<h3 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h3><p>由于要安装的比较多，就不一一给出了，这是总共需要安装的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&quot;devDependencies&quot;: &#123;</div><div class="line">&quot;autoprefixer&quot;: &quot;^9.7.3&quot;,（CSS前缀问题的神器，一些css兼容问题）</div><div class="line">&quot;babel-eslint&quot;: &quot;^10.1.0&quot;,（代码规范）</div><div class="line">&quot;del&quot;: &quot;^6.0.0&quot;,（文件删除）</div><div class="line">&quot;gulp&quot;: &quot;^4.0.2&quot;,（ci）</div><div class="line">&quot;gulp-imagemin&quot;: &quot;^7.1.0&quot;,（图片压缩）</div><div class="line">&quot;gulp-notify&quot;: &quot;^3.2.0&quot;,（用于log通知）</div><div class="line">&quot;gulp-plumber&quot;: &quot;^1.2.1&quot;,（阻止 gulp 出错导致进程退出并输出错误日志）</div><div class="line">&quot;gulp-postcss&quot;: &quot;^9.0.0&quot;,（JS插件来对CSS进行转换的工具）</div><div class="line">&quot;gulp-rename&quot;: &quot;^2.0.0&quot;,（重命名）</div><div class="line">&quot;gulp-replace&quot;: &quot;^1.0.0&quot;,（字符串替换）</div><div class="line">&quot;gulp-sass&quot;: &quot;^4.1.0&quot;,（编译sass文件）</div><div class="line">&quot;gulp-tap&quot;: &quot;^2.0.0&quot;,（遍历文件进行处理）</div><div class="line">&quot;path&quot;: &quot;^0.12.7&quot;,（path 模块提供了一些用于处理文件路径的小工具）</div><div class="line">&quot;yargs&quot;: &quot;^16.2.0&quot;（命令行构造工具Yargs）</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><p>wxml文件 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const wxml = () =&gt; &#123;</div><div class="line">return gulp</div><div class="line">        .src(wxmlFiles, &#123; since: gulp.lastRun(wxml) &#125;)</div><div class="line">        .pipe(gulp.dest(distPath));</div><div class="line">&#125;;</div><div class="line">gulp.task(wxml);</div></pre></td></tr></table></figure>
+<p>js文件 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const js = () =&gt; &#123;</div><div class="line">return gulp</div><div class="line">        .src(jsFiles, &#123; since: gulp.lastRun(js) &#125;)</div><div class="line">        .pipe(gulp.dest(distPath));</div><div class="line">&#125;;</div><div class="line">gulp.task(js);</div></pre></td></tr></table></figure>
+<p>json文件 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const json = () =&gt; &#123;</div><div class="line">return gulp</div><div class="line">        .src(jsonFiles, &#123; since: gulp.lastRun(json) &#125;)</div><div class="line">        .pipe(gulp.dest(distPath));</div><div class="line">&#125;;</div><div class="line">gulp.task(json);</div></pre></td></tr></table></figure>
+<p>图片文件压缩 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const img = () =&gt; &#123;</div><div class="line">return gulp</div><div class="line">        .src(imageFiles, &#123; since: gulp.lastRun(img) &#125;)</div><div class="line">        .pipe(imagemin())</div><div class="line">        .pipe(gulp.dest(distPath));</div><div class="line">&#125;;</div><div class="line">gulp.task(img);</div></pre></td></tr></table></figure>
+<p>创建watch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">gulp.task(&quot;watch&quot;, done =&gt; &#123;</div><div class="line">const watchSassFiles = [</div><div class="line">    ...sassFiles,</div><div class="line">    ...DIRECTIMPORT.map(item =&gt; `!$&#123;srcPath&#125;/$&#123;item&#125;/**/*`)</div><div class="line">];</div><div class="line">gulp.watch(jsFiles, js);</div><div class="line">gulp.watch(jsonFiles, json);</div><div class="line">gulp.watch(imageFiles, img);</div><div class="line">gulp.watch(wxmlFiles, wxml);</div><div class="line">done();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>dev工作流</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gulp.task(</div><div class="line">    &quot;dev&quot;,</div><div class="line">    gulp.series(</div><div class="line">        &quot;clean&quot;,</div><div class="line">        gulp.parallel(&quot;wxml&quot;, &quot;js&quot;, &quot;json&quot;, &quot;wxss&quot;, &quot;img&quot;, &quot;devEnv&quot;),</div><div class="line">        &quot;watch&quot;</div><div class="line">    )</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><code>gulp dev</code>命令就可以看到sass转换成原生样式的项目了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;用原生的样式写小程序，在没用过&lt;code&gt;sass&lt;/code&gt;写的样式，可能还好。如果用了&lt;code&gt;sass&lt;/code&gt;写了之后，你就再也不想写原生的小程序样式了。太不习惯了，很多便利都享受不到，太痛苦了。于是，博主查阅了一些资料与文章，总结了一套方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="http://agoninemo.github.io/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>汇编学习一</title>
     <link href="http://agoninemo.github.io/blog/2021/04/23/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E4%B8%80/"/>
     <id>http://agoninemo.github.io/blog/2021/04/23/汇编学习一/</id>
     <published>2021-04-23T15:01:49.000Z</published>
-    <updated>2021-05-01T02:18:07.845Z</updated>
+    <updated>2021-05-01T02:19:32.165Z</updated>
     
     <content type="html"><![CDATA[<h4 id="bl标号"><a href="#bl标号" class="headerlink" title="bl标号"></a>bl标号</h4><ul>
 <li>将下一条指令的地址放入lr(x30)寄存器</li>
@@ -36,6 +82,7 @@
 <blockquote>
 <p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="指令与寄存器"><a href="#指令与寄存器" class="headerlink" title="指令与寄存器"></a>指令与寄存器</h3><ul>
 <li>str/stp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从寄存器中读出来,存到内存中</li>
 <li>ldr/ldp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从内存中读出来,存到寄存器中</li>
@@ -94,7 +141,16 @@
 &lt;li&gt;将下一条指令的地址放入lr(x30)寄存器&lt;/li&gt;
 &lt;li&gt;转到标号处执行指令&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 
+&lt;h4 id=&quot;ret&quot;&gt;&lt;a href=&quot;#ret&quot; class=&quot;headerlink&quot; title=&quot;ret&quot;&gt;&lt;/a&gt;ret&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ARM64平台的特色指令,它面向硬件做了优化处理的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;x30寄存器&quot;&gt;&lt;a href=&quot;#x30寄存器&quot; class=&quot;headerlink&quot; title=&quot;x30寄存器&quot;&gt;&lt;/a&gt;x30寄存器&lt;/h4&gt;&lt;p&gt;x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意:在函数嵌套调用的时候.需要讲x30入栈!&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -966,39 +1022,6 @@
       <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
     
       <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue技巧使用</title>
-    <link href="http://agoninemo.github.io/blog/2018/09/08/vue%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8/"/>
-    <id>http://agoninemo.github.io/blog/2018/09/08/vue技巧使用/</id>
-    <published>2018-09-08T15:40:06.000Z</published>
-    <updated>2021-01-13T14:25:50.963Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/1486368214291404.jpg" alt="1"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，被其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！唉，心累。好了，不发牢骚了，下面来说说，博主在项目遇到的问题与解决方法。</p>
-<a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>博主开发项目时，这样一个需求，如下图<br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/WechatIMG141.jpeg" alt="2"><br>点击<code>展开</code>时，变成<code>收起</code>，项目中用到饿了么的UI组件<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="external">Element</a>里的Table表格，可以设置<code>type=&quot;expand&quot;</code>和<code>Scoped slot</code>来达到设置展开效果，但是这个点击展开的组件是没有属性可以设置。<br><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/WechatIMG144.jpeg" alt="3"><br>博主原来的想法是操作DOM添加文字，后来前端大佬如果这么做，数据多的话，会有问题，所以博主就在样式方面下功夫，最后添加如下样式，实现效果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.cell &#123;</div><div class="line">    .el-table__expand-icon &#123;</div><div class="line">        i &#123;</div><div class="line">            left: 0;</div><div class="line">            color: #66b1ff;</div><div class="line">            font-size: 14px;</div><div class="line">        &#125;</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;展开&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    .el-table__expand-icon--expanded &#123;</div><div class="line">        transform:rotate(0);</div><div class="line">        .el-icon-arrow-right:before &#123;</div><div class="line">            content: &apos;收起&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"><a href="#PS-建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）" class="headerlink" title="PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）"></a>PS:建议在cell外层再套一层，避免影响全局样式（再罗嗦一句，这里使用vue的scoped会找不到这个cell，原因的话，你可以看官方文档，所以不要在style里添加scoped）</h5><p>第二个需求就是城市二级选择器，这个需求使用到了<a href="http://element-cn.eleme.io/#/zh-CN/component/cascader" target="_blank" rel="external">Cascader 级联选择器</a>，数据的话，是前端大佬弄好的，博主做了一些修改，就成了二级数据了（想要的童鞋可以在下面留言）。但是这里有个问题，就是设置<code>change-on-select</code>与<code>expand-trigger</code>为<code>hover</code>时，不可以选择一级，里面的只提供了一个<code>change</code>方法用于数据改变时的回调，但是博客的需求是可以选择一级，也可以选择二级。最初的想法，就是看下内部有没有点击事件，很遗憾，那个点击方法不合适，但是博主还是找到了有用的方法，在<code>main.vue</code>文件里的385行（查看于2018-09-08 22:12:06）<code>handleClickoutside</code>方法，一看就命名就知道是点击组件外时调用的，里面设置了<code>this.menuVisible = false</code>，这是用来打开与关闭组件用的。看到这里，博主有了思路，因为这个组件可以用<code>v-model</code>来绑定数据，那么可以在第一级组件里添加一个点击方法，达到可以让用户点击一级的效果，下面来看代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;el-cascader</div><div class="line">    size=&quot;large&quot;</div><div class="line">    placeholder=&quot;请选择&quot;</div><div class="line">    ref=&quot;cascader&quot;</div><div class="line">    :options=&quot;options&quot;</div><div class="line">    v-model=&quot;address&quot;</div><div class="line">    expand-trigger=&quot;hover&quot;</div><div class="line">    @focus=&quot;cityAction&quot;</div><div class="line">    popper-class=&quot;city-popper&quot;</div><div class="line">    change-on-select</div><div class="line">    clearable&gt;</div><div class="line">&lt;/el-cascader&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">	cityAction() &#123;</div><div class="line">	    setTimeout(()=&gt;&#123;</div><div class="line">	        let ul = document.getElementsByClassName(&apos;el-cascader-menu&apos;)[0];</div><div class="line">	        let than = this;</div><div class="line">	        if (!ul.onclick) &#123;</div><div class="line">	            ul.onclick = function () &#123;</div><div class="line">	                than.$refs.cascader.handleClickoutside();</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;, 300)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="细节说明"><a href="#细节说明" class="headerlink" title="细节说明"></a>细节说明</h4><p>组件里用到<code>focus</code>方法这个方法在源码的<code>main.vue</code>文件里397～398行（查看于2018-09-08 22:12:06）<code>this.$emit(&#39;focus&#39;, event)</code>，使用过<code>vue</code>的都知道，子组件与父组件组件通信，使用到<code>$emit</code>来传给父组件，所以博主在这里使用<code>focus</code>同步方法<code>cityAction</code>来监听用户点击选择器，在<code>cityAction</code>方法里，添加一级点击事件，并调用组件<code>handleClickoutside</code>方法来关闭选择器。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实无论做什么，都要心静，这样才能更清晰的思路，在开发中，才更不容易出错。还有就是要不断的学习，特别是做技术的，不学习就后退，就会被淘汰。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/1486368214291404.jpg&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;突然想起自己好久没有更新博客了，最近都在开发web，前天被调去其他组做iOS，被其他的iOS嫌弃开发速度了，上次上线的个人web项目也因为视频来源挂，所以也看不了，真是好气呀！唉，心累。好了，不发牢骚了，下面来说说，博主在项目遇到的问题与解决方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://agoninemo.github.io/blog/tags/vue/"/>
-    
-      <category term="Element" scheme="http://agoninemo.github.io/blog/tags/Element/"/>
     
   </entry>
   
