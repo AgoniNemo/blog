@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://agoninemo.github.io/blog/"/>
-  <updated>2021-03-27T09:35:14.399Z</updated>
+  <updated>2021-05-01T02:17:14.766Z</updated>
   <id>http://agoninemo.github.io/blog/</id>
   
   <author>
@@ -16,13 +16,127 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>汇编学习一</title>
+    <link href="http://agoninemo.github.io/blog/2021/04/23/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A0%E4%B8%80/"/>
+    <id>http://agoninemo.github.io/blog/2021/04/23/汇编学习一/</id>
+    <published>2021-04-23T15:01:49.000Z</published>
+    <updated>2021-05-01T02:17:14.766Z</updated>
+    
+    <content type="html"><![CDATA[<p>####bl标号</p>
+<ul>
+<li>将下一条指令的地址放入lr(x30)寄存器</li>
+<li>转到标号处执行指令</li>
+</ul>
+<p>####ret</p>
+<ul>
+<li>默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!</li>
+</ul>
+<blockquote>
+<p>ARM64平台的特色指令,它面向硬件做了优化处理的</p>
+</blockquote>
+<p>####x30寄存器<br>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
+<blockquote>
+<p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
+</blockquote>
+<h3 id="指令与寄存器"><a href="#指令与寄存器" class="headerlink" title="指令与寄存器"></a>指令与寄存器</h3><ul>
+<li>str/stp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从寄存器中读出来,存到内存中</li>
+<li>ldr/ldp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从内存中读出来,存到寄存器中</li>
+<li>lr 寄存器，也叫x30 寄存器（里面保存着下一条执行的指令）</li>
+<li>pc 寄存器 指向马上要执行的代码地址</li>
+<li>sp 寄存器 指向了我们的栈，当操作了sp使用内存sub后，结束时要add, 这叫栈平衡（每个函数调用完毕之后，将拉伸的栈空间平衡（将sp加回去））</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>我们都知道函数调用会开辟一段空间（栈空间），但开辟的空间是和什么有关的呢？没错，就是函数的局部变量、参数决定的，系统每次拉伸都是0x10（16 Byte）对齐的。当然，如果这个函数不是叶子函数的话，那么还会涉及到x30、x29寄存器的保护。ARM64下函数的参数是存放到x0到x7(w0到w7)这8个寄存器里面，如果超过8个参数多余的就会入栈，通常情况下函数的返回值放在x0 寄存器里。</p>
+<blockquote>
+<p>函数嵌套调用：</p>
+</blockquote>
+<ul>
+<li>| - A(开辟) –&gt; B（开辟） –&gt; A（开辟）</li>
+<li>| - A&lt;–&gt;A 死的递归（内存溢出）</li>
+</ul>
+<blockquote>
+<p>内存分区域</p>
+</blockquote>
+<ul>
+<li>代码区  特点: 可读可写可执行</li>
+<li>栈区域  放参数和局部变量</li>
+<li>堆区域  动态申请 可读可写</li>
+<li>全局:   可读可写</li>
+<li>常量区: 只读!</li>
+</ul>
+<blockquote>
+<p>adrp  x0, 1</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>将1的值,左移12位 1 0000 0000 0000 == 0x1000</li>
+</ol>
+</li>
+<li><ol>
+<li>将PC寄存器的低12位清零 0x1002e6874  ==&gt; 0x1002e6000</li>
+</ol>
+</li>
+<li><ol>
+<li>0x1002e6000 + 0x1000 ==&gt; 0x1002e7000   给 X0 寄存器!!</li>
+</ol>
+</li>
+</ul>
+<p>##cmp（Compare）比较指令<br>CMP 把一个寄存器的内容和另一个寄存器的内容或立即数进行比较。但不存储结果，只是正确的更改标志。一般CMP做完判断后会进行跳转，后面通常会跟上B指令！</p>
+<ul>
+<li>BL 标号：跳转到标号处执行</li>
+<li>B.GT  标号：比较结果是<strong>大于（greater than）</strong>，执行标号，否则不跳转</li>
+<li>B.GE  标号：比较结果是<strong>大于等于（greater than or equal to）</strong>，执行标号，否则不跳转</li>
+<li>B.EQ  标号：比较结果是<strong>等于</strong>，执行标号，否则不跳转</li>
+<li>B.HI  标号：比较结果是<strong>无符号大于</strong>，执行标号，否则不跳转</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####bl标号&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将下一条指令的地址放入lr(x30)寄存器&lt;/li&gt;
+&lt;li&gt;转到标号处执行指令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;####ret&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!
+    
+    </summary>
+    
+    
+      <category term="汇编" scheme="http://agoninemo.github.io/blog/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>命令收集</title>
+    <link href="http://agoninemo.github.io/blog/2021/04/03/%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/"/>
+    <id>http://agoninemo.github.io/blog/2021/04/03/命令收集/</id>
+    <published>2021-04-03T04:43:29.000Z</published>
+    <updated>2021-04-03T05:54:57.919Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="lipo"><a href="#lipo" class="headerlink" title="lipo"></a>lipo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 查看架构</div><div class="line">$ lipo -info &lt;#构架路径#&gt;</div><div class="line"># 删除架构</div><div class="line">$ lipo &lt;#构架路径#&gt;-thin arm64 -output &lt;#新构架路径#&gt;</div><div class="line"># 合并架构</div><div class="line">$ lipo -create &lt;#构架路径1#&gt; &lt;#构架路径2#&gt; -output &lt;#新构架路径#&gt;</div></pre></td></tr></table></figure>
+<h2 id="monkeyparser"><a href="#monkeyparser" class="headerlink" title="monkeyparser"></a>monkeyparser</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 恢复符号表</div><div class="line">$ monkeyparser restoresymbol -t  &lt;#MACH-O#&gt; -o &lt;#新MACH-O#&gt;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;lipo&quot;&gt;&lt;a href=&quot;#lipo&quot; class=&quot;headerlink&quot; title=&quot;lipo&quot;&gt;&lt;/a&gt;lipo&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+    
+    </summary>
+    
+    
+      <category term="命令" scheme="http://agoninemo.github.io/blog/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装MonkeyDev</title>
     <link href="http://agoninemo.github.io/blog/2021/03/27/%E5%AE%89%E8%A3%85MonkeyDev/"/>
     <id>http://agoninemo.github.io/blog/2021/03/27/安装MonkeyDev/</id>
     <published>2021-03-27T09:33:58.000Z</published>
-    <updated>2021-03-27T09:35:14.399Z</updated>
+    <updated>2021-05-01T02:16:27.376Z</updated>
     
-    <content type="html"><![CDATA[<p>####安装MonkeyDev<br>1.环境要求</p>
+    <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>1.环境要求</p>
 <ul>
 <li>安装最新的theos</li>
 </ul>
@@ -63,7 +177,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;####安装MonkeyDev&lt;br&gt;1.环境要求&lt;/p&gt;
+      &lt;h4 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h4&gt;&lt;p&gt;1.环境要求&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;安装最新的theos&lt;/li&gt;
 &lt;/ul&gt;
@@ -854,9 +968,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
-    
       <category term="byte" scheme="http://agoninemo.github.io/blog/tags/byte/"/>
+    
+      <category term="iOS" scheme="http://agoninemo.github.io/blog/tags/iOS/"/>
     
   </entry>
   
@@ -890,64 +1004,6 @@
       <category term="vue" scheme="http://agoninemo.github.io/blog/tags/vue/"/>
     
       <category term="Element" scheme="http://agoninemo.github.io/blog/tags/Element/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue视频添加键盘事件</title>
-    <link href="http://agoninemo.github.io/blog/2018/08/28/vue%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://agoninemo.github.io/blog/2018/08/28/vue视频添加键盘事件/</id>
-    <published>2018-08-28T11:28:25.000Z</published>
-    <updated>2021-01-13T14:25:50.975Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/vue1.jpg" alt="vue"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。</p>
-<a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>在个人项目中，使用到了<a href="https://github.com/surmon-china/vue-video-player" target="_blank" rel="external">vue的一个视频加载组件</a>，这个组件是比较多人用的，也是比较的容易使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 因为博主很多地方都用到  所以全局引用</div><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import VideoPlayer from &apos;vue-video-player&apos;;</div><div class="line">import &apos;video.js/dist/video-js.css&apos;;</div><div class="line">Vue.use(VideoPlayer);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">#  组件使用</div><div class="line">&lt;template&gt;</div><div class="line">&lt;video-player class=&quot;vjs-custom-skin&quot;</div><div class="line">                ref=&quot;videoPlayer&quot;</div><div class="line">                :playsinline=&quot;true&quot;</div><div class="line">                :options=&quot;playerOptions&quot;&gt;</div><div class="line">        &lt;/video-player&gt;</div><div class="line">&lt;template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">import &#123; videoPlayer &#125; from &apos;vue-video-player&apos;;</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">	data() &#123;</div><div class="line">      return &#123;</div><div class="line">        playerOptions: &#123;</div><div class="line">          muted: false,  //默认情况下将会消除任何音频</div><div class="line">          language: &apos;zh-CN&apos;,</div><div class="line">          preload: &apos;atou&apos;,</div><div class="line">          playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度</div><div class="line">          aspectRatio: &apos;16:9&apos;, //将播放器置于流畅模式，并在计算播放器的动态大小时使用该值</div><div class="line">          fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。</div><div class="line">          notSupportedMessage: &apos;此视频暂无法播放，请稍后再试&apos;,</div><div class="line">          sources: [&#123;</div><div class="line">            type: &apos;video/mp4&apos;,</div><div class="line">            src: mp4</div><div class="line">          &#125;],</div><div class="line">          poster: &quot;bg.png&quot;  //封面地址</div><div class="line">        &#125;,</div><div class="line">        seekStep: 10, /// 后退与进行时间</div><div class="line">        volumeStep: 0.05, /// 加减音量</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    created() &#123;</div><div class="line">    	let than = this;</div><div class="line">      document.onkeydown = function(e) &#123;</div><div class="line">            if (e.keyCode === 32) &#123;</div><div class="line">              than.spaceAction();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 37) &#123;</div><div class="line">              than.controlLeft();</div><div class="line">            &#125; else if (e.keyCode === 38) &#123;</div><div class="line">              than.controlUp();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 39) &#123;</div><div class="line">              than.controlRight();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125; else if (e.keyCode === 40) &#123;</div><div class="line">              than.controlDown();</div><div class="line">              e.preventDefault();</div><div class="line">            &#125;</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123; </div><div class="line">      controlUp() &#123;</div><div class="line">        let currentVolume = this.$refs.videoPlayer.player.volume();</div><div class="line">        this.$refs.videoPlayer.player.volume(currentVolume + this.volumeStep);</div><div class="line">      &#125;,</div><div class="line">      controlDown() &#123;</div><div class="line">        let currentVolume = this.$refs.videoPlayer.player.volume();</div><div class="line">        this.$refs.videoPlayer.player.volume(currentVolume - this.volumeStep);</div><div class="line">      &#125;,</div><div class="line">      controlLeft() &#123;</div><div class="line">        let currentTime = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.currentTime(currentTime - this.seekStep);</div><div class="line">      &#125;,</div><div class="line">      controlRight() &#123;</div><div class="line">        let currentTime = this.$refs.videoPlayer.player.currentTime();</div><div class="line">        this.$refs.videoPlayer.player.currentTime(currentTime + this.seekStep);</div><div class="line">      &#125;,</div><div class="line">      spaceAction() &#123;</div><div class="line">        if (this.$refs.videoPlayer.player.paused()) &#123;</div><div class="line">            this.$refs.videoPlayer.player.play();</div><div class="line">        &#125; else &#123;</div><div class="line">            this.$refs.videoPlayer.player.pause();</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">        videoPlayer</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是全部的代码，现在来说下思路，当博主配置好这个组件时，发现没有用键盘控件的事件，所以就在<code>created</code>里给<code>document.onkeydown</code>添加监听键盘事件，博主也试过<code>vue</code>的键盘事件，但都没有生效。下面就是控制了视频了，当时博客以为可以在数组里修改数据达到目的，但是找了好久，都没找到方法或者属性，所以只能自己写逻辑，代码很简单，因为这个组件库就是对<code>videojs</code>的封装，可以调用<code>videojs</code>的方法与属性，使用<code>paused()</code>判断当前视频状态，使用控制空格的播放与暂停，使用<code>currentTime()</code>方法可以控制快进与后退，使用<code>volume()</code>方法控制音量大小。再说下<code>e.preventDefault</code>这个调用方法的作用，当我们使用空格时，系统默认会翻页，所以这是为了阻止这一事件的发生的，其他的事件也是一样的作用。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/AgoniNemo/nmimage/raw/master/assets/inset/vue1.jpg&quot; alt=&quot;vue&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;好久没有更新博客了，最近加班有点多，而且博主被公司安排去做web端去了，所以下班以后都在学习，没什么时候去更新。周末的时候，把自己的个人Web项目给上线了，有点小激动。现在把项目中遇到的一些问题给记录下来，希望能帮助到同样遇到这些问题的童鞋。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://agoninemo.github.io/blog/tags/vue/"/>
-    
-      <category term="video" scheme="http://agoninemo.github.io/blog/tags/video/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git命令整理</title>
-    <link href="http://agoninemo.github.io/blog/2018/07/08/Git%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/"/>
-    <id>http://agoninemo.github.io/blog/2018/07/08/Git命令整理/</id>
-    <published>2018-07-08T07:39:35.000Z</published>
-    <updated>2021-01-13T14:25:50.844Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"># 基于master创建的Develop分支</div><div class="line">git checkout -b develop master</div><div class="line"></div><div class="line"># 基于远程origin/develop分支创建本地develop分支</div><div class="line">git checkout -b develop origin/develop</div><div class="line"></div><div class="line"># 切换到Master分支(本地的)</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 查看远程分支</div><div class="line">git branch -r</div><div class="line"></div><div class="line"># 切换到origin/develop分支(远程的)</div><div class="line">git checkout origin/develop</div><div class="line"></div><div class="line"># 对Develop分支进行合并</div><div class="line">git merge --no-ff -m&apos;注释&apos; develop</div><div class="line"></div><div class="line"># 删除本地feature分支</div><div class="line">git branch -D feature-x</div><div class="line"></div><div class="line"># 删除远程feature分支</div><div class="line">git push origin :feature-x</div><div class="line"></div><div class="line"># 删除预发布分支（D与d的区别在于D为强制删除）</div><div class="line">git branch -d release-1.2</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="例子：发现bug"><a href="#例子：发现bug" class="headerlink" title="例子：发现bug"></a>例子：发现bug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 创建一个修补bug分支</div><div class="line">git checkout -b fixbug-0.1 master</div><div class="line"></div><div class="line"># 修补结束后切换master</div><div class="line">git checkout master</div><div class="line"></div><div class="line"># 合并到master分支</div><div class="line">git merge --no-ff -m&apos;注释&apos; fixbug-0.1</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># -b表示要从分支下载(git clone -b release git@xxxxx.git)</div><div class="line">git clone -b 分支名 地址</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</div><div class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</div><div class="line">git reset --hard HASH #返回到某个节点，不保留修改。</div><div class="line">git reset --soft HASH #返回到某个节点。保留修改</div><div class="line"></div><div class="line">git clean -df #返回到某个节点</div><div class="line">git clean 参数</div><div class="line">-n 显示 将要 删除的 文件 和  目录</div><div class="line">-f 删除 文件</div><div class="line">-df 删除 文件 和 目录</div><div class="line"></div><div class="line"># git 查看某个 commit 的改动</div><div class="line">git show d34ff657f5</div><div class="line">git diff d34ff657f5^!</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">本地仓库的回退（撤销本地的commit）： git  reset：</div><div class="line"></div><div class="line">reset命令有3种方式：</div><div class="line"></div><div class="line">git reset --mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息git </div><div class="line">reset --soft  HEAD^：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</div><div class="line">git reset --hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</div><div class="line">#回退所有内容到上一个版本  </div><div class="line">git reset HEAD^  </div><div class="line">#回退a.py这个文件的版本到上一个版本  </div><div class="line">git reset HEAD^ a.py  </div><div class="line">#向前回退到第3个版本</div><div class="line">git reset –-soft HEAD~3  </div><div class="line">#将本地的状态回退到和远程的一样  </div><div class="line">git reset –-hard origin/master  </div><div class="line">#回退到某个版本  </div><div class="line">git reset 057d  </div><div class="line">#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit  </div><div class="line">git revert HEAD</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 查看log 一行一个commit</div><div class="line">git log --pretty=oneline</div><div class="line"></div><div class="line"># 可以看到fileName相关的commit记录</div><div class="line">git log filename</div><div class="line"></div><div class="line"># 可以显示每次提交的diff</div><div class="line">git log -p filename</div><div class="line"></div><div class="line"># 只看某次提交中的某个文件变化，可以直接加上fileName</div><div class="line">git show commit-id filename</div><div class="line"></div><div class="line"># 根据commit-id查看某个提交</div><div class="line">git show -s --pretty=raw ca53e82</div><div class="line"></div><div class="line">git rebase -i  开始commit  结束commit</div><div class="line"></div><div class="line">进入vim界面  编辑commit 以下为命令</div><div class="line"># pick：保留该commit（缩写:p）</div><div class="line"># reword：保留该commit，但我需要修改该commit的注释（缩写:r）</div><div class="line"># edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）</div><div class="line"># squash：将该commit和前一个commit合并（缩写:s）</div><div class="line"># fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）</div><div class="line"># exec：执行shell命令（缩写:x）</div><div class="line"># drop：我要丢弃该commit（缩写:d）</div><div class="line"></div><div class="line">wq保存退出后进入注释修改界面  可以再浏览态 按下两个dd可以删除一行</div><div class="line">编辑完保存即可完成commit的合并</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建新的节点</div><div class="line">git tag -a 0.1.1</div><div class="line"># 推送所有新节点</div><div class="line">git push --tags</div><div class="line"># 可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象</div><div class="line">git show v1.4</div><div class="line"># 如果你有自己的私钥，还可以用 GPG 来签署标签，只需要把之前的 -a 改为 -s （译注： 取 signed 的首字母）即可：</div><div class="line">git tag -s v1.5 -m &apos;my signed 1.5 tag&apos;</div><div class="line"># 给对应提交对象打tag</div><div class="line">git tag -a v1.2 9fceb02</div><div class="line"># 一次推送所有本地新增的标签</div><div class="line">git push origin --tags</div><div class="line"># 删除本地tag</div><div class="line">git tag -d v1.2</div><div class="line"># 删除远程tag</div><div class="line">git push origin :refs/tags/v1.2</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# 基于master创建的Develop分支&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git checkout -b develop master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 基于远程origin/develop分支创建本地develop分支&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git checkout -b develop origin/develop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 切换到Master分支(本地的)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git checkout master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 查看远程分支&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git branch -r&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 切换到origin/develop分支(远程的)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git checkout origin/develop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 对Develop分支进行合并&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git merge --no-ff -m&amp;apos;注释&amp;apos; develop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 删除本地feature分支&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git branch -D feature-x&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 删除远程feature分支&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git push origin :feature-x&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# 删除预发布分支（D与d的区别在于D为强制删除）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git branch -d release-1.2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://agoninemo.github.io/blog/tags/git/"/>
     
   </entry>
   

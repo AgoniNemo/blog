@@ -164,6 +164,181 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-汇编学习一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2021/04/23/汇编学习一/">汇编学习一</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2021/04/23/汇编学习一/" class="archive-article-date">
+  	<time datetime="2021-04-23T15:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23 23:01:49</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####bl标号</p>
+<ul>
+<li>将下一条指令的地址放入lr(x30)寄存器</li>
+<li>转到标号处执行指令</li>
+</ul>
+<p>####ret</p>
+<ul>
+<li>默认使用lr(x30)寄存器的值,通过底层指令提示CPU此处作为下条指令地址!</li>
+</ul>
+<blockquote>
+<p>ARM64平台的特色指令,它面向硬件做了优化处理的</p>
+</blockquote>
+<p>####x30寄存器<br>x30寄存器存放的是函数的返回地址.当ret指令执行时刻,会寻找x30寄存器保存的地址值!</p>
+<blockquote>
+<p>注意:在函数嵌套调用的时候.需要讲x30入栈!</p>
+</blockquote>
+<h3 id="指令与寄存器"><a href="#指令与寄存器" class="headerlink" title="指令与寄存器"></a>指令与寄存器</h3><ul>
+<li>str/stp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从寄存器中读出来,存到内存中</li>
+<li>ldr/ldp(前者操作一个寄存器，后者前者操作两个寄存器) 指令 ：将数据从内存中读出来,存到寄存器中</li>
+<li>lr 寄存器，也叫x30 寄存器（里面保存着下一条执行的指令）</li>
+<li>pc 寄存器 指向马上要执行的代码地址</li>
+<li>sp 寄存器 指向了我们的栈，当操作了sp使用内存sub后，结束时要add, 这叫栈平衡（每个函数调用完毕之后，将拉伸的栈空间平衡（将sp加回去））</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>我们都知道函数调用会开辟一段空间（栈空间），但开辟的空间是和什么有关的呢？没错，就是函数的局部变量、参数决定的，系统每次拉伸都是0x10（16 Byte）对齐的。当然，如果这个函数不是叶子函数的话，那么还会涉及到x30、x29寄存器的保护。ARM64下函数的参数是存放到x0到x7(w0到w7)这8个寄存器里面，如果超过8个参数多余的就会入栈，通常情况下函数的返回值放在x0 寄存器里。</p>
+<blockquote>
+<p>函数嵌套调用：</p>
+</blockquote>
+<ul>
+<li>| - A(开辟) –&gt; B（开辟） –&gt; A（开辟）</li>
+<li>| - A&lt;–&gt;A 死的递归（内存溢出）</li>
+</ul>
+<blockquote>
+<p>内存分区域</p>
+</blockquote>
+<ul>
+<li>代码区  特点: 可读可写可执行</li>
+<li>栈区域  放参数和局部变量</li>
+<li>堆区域  动态申请 可读可写</li>
+<li>全局:   可读可写</li>
+<li>常量区: 只读!</li>
+</ul>
+<blockquote>
+<p>adrp  x0, 1</p>
+</blockquote>
+<ul>
+<li><ol>
+<li>将1的值,左移12位 1 0000 0000 0000 == 0x1000</li>
+</ol>
+</li>
+<li><ol>
+<li>将PC寄存器的低12位清零 0x1002e6874  ==&gt; 0x1002e6000</li>
+</ol>
+</li>
+<li><ol>
+<li>0x1002e6000 + 0x1000 ==&gt; 0x1002e7000   给 X0 寄存器!!</li>
+</ol>
+</li>
+</ul>
+<p>##cmp（Compare）比较指令<br>CMP 把一个寄存器的内容和另一个寄存器的内容或立即数进行比较。但不存储结果，只是正确的更改标志。一般CMP做完判断后会进行跳转，后面通常会跟上B指令！</p>
+<ul>
+<li>BL 标号：跳转到标号处执行</li>
+<li>B.GT  标号：比较结果是<strong>大于（greater than）</strong>，执行标号，否则不跳转</li>
+<li>B.GE  标号：比较结果是<strong>大于等于（greater than or equal to）</strong>，执行标号，否则不跳转</li>
+<li>B.EQ  标号：比较结果是<strong>等于</strong>，执行标号，否则不跳转</li>
+<li>B.HI  标号：比较结果是<strong>无符号大于</strong>，执行标号，否则不跳转</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-命令收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2021/04/03/命令收集/">命令收集</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2021/04/03/命令收集/" class="archive-article-date">
+  	<time datetime="2021-04-03T04:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-03 12:43:29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="lipo"><a href="#lipo" class="headerlink" title="lipo"></a>lipo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 查看架构</div><div class="line">$ lipo -info &lt;#构架路径#&gt;</div><div class="line"># 删除架构</div><div class="line">$ lipo &lt;#构架路径#&gt;-thin arm64 -output &lt;#新构架路径#&gt;</div><div class="line"># 合并架构</div><div class="line">$ lipo -create &lt;#构架路径1#&gt; &lt;#构架路径2#&gt; -output &lt;#新构架路径#&gt;</div></pre></td></tr></table></figure>
+<h2 id="monkeyparser"><a href="#monkeyparser" class="headerlink" title="monkeyparser"></a>monkeyparser</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 恢复符号表</div><div class="line">$ monkeyparser restoresymbol -t  &lt;#MACH-O#&gt; -o &lt;#新MACH-O#&gt;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-安装MonkeyDev" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,7 +359,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####安装MonkeyDev<br>1.环境要求</p>
+        <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>1.环境要求</p>
 <ul>
 <li>安装最新的theos</li>
 </ul>
@@ -692,120 +867,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-LLDB调试程序（笔记）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/08/11/LLDB调试程序（笔记）/">LLDB调试程序（笔记）</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2020/08/11/LLDB调试程序（笔记）/" class="archive-article-date">
-  	<time datetime="2020-08-11T11:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11 19:43:23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="全称expression，可简写为e"><a href="#全称expression，可简写为e" class="headerlink" title="全称expression，可简写为e"></a>全称expression，可简写为e</h2><p>p（print) 功能是输出原生类型（boolean、integer、float、etc）的信息<br>po（print object）功能是输出objective-c中对象（objects）的信息. (为e -o —的别名)<br>call 同po或p一样, 也是调用. 当不需要显示输出时使用.</p>
-        
-          <a class="article-more-a" href="/blog/2020/08/11/LLDB调试程序（笔记）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-一些面试题整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/06/25/一些面试题整理/">一些面试题整理</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2020/06/25/一些面试题整理/" class="archive-article-date">
-  	<time datetime="2020-06-25T11:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25 19:53:48</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>更新于：2020.9.13</p>
-<h3 id="常见的网络协议有哪些"><a href="#常见的网络协议有哪些" class="headerlink" title="常见的网络协议有哪些"></a>常见的网络协议有哪些</h3><p>其实说HTTP、HTTPS、TCP/IP、UDP这几个就可以了，其他的我们很少有用到。以下是一些更详细的说明。</p>
-<ul>
-<li>HTTP(Hypertext Transfer Protocol) 超文本传输协议</li>
-<li>HTTPS(Secure Hypertext Transfer Protocol)安全超文本传输协议</li>
-<li>IPv6(Internet Protocol Version 6)Internet协议-版本6</li>
-<li>POP3(Post Office Protocol Version 3)邮局协议-版本3</li>
-<li>SMTP(Simple Mail Transfer Protocol)简单邮件传送协议</li>
-<li>TCP/IP(Transmission Control Protocol/Internet Protocol)传输控制协议/Internet协议</li>
-<li>TFTP(Trivial File Transfer Protocol)小文件传输协议</li>
-<li>UDP(User Datagram Protocol)用户数据报协议</li>
-</ul>
-        
-          <a class="article-more-a" href="/blog/2020/06/25/一些面试题整理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -908,10 +969,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
              
@@ -920,19 +977,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">heroku</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vapor</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,6 +994,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">heroku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vapor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -960,10 +1021,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -972,11 +1029,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSPredicate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">byte</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -988,23 +1065,75 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">组件化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">byte</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Element</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">汇编</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pod</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1025,66 +1154,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">能看到吗？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UIWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pod</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">神评论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">xcodebuild</a>
               </li>
              
               <li class="article-tag-list-item">
