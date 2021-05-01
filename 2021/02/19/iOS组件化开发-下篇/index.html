@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://agoninemo.github.io/blog/2021/02/19/iOS组件化开发-下篇/index.html">
 <meta property="og:site_name" content="AgoniNemo&#39;s blog">
 <meta property="og:description" content="上篇回顾与补充上篇说到，我们要做项目的组件化，要用到cocoapods，这个是关键，然后用cocoapods做一个私有索引库，再利用cocoapods创建一个私有库，可以使用它的创建模板命令pod lib create &amp;lt;#type#&amp;gt;，在反馈的信息中，可以选择是否导入几个主流的测试框架对这个组件编写测试用例。然后是编写xxx.podSpec文件，这个文件比较的关键。在下篇中，我们会详">
-<meta property="og:updated_time" content="2021-02-19T12:50:23.648Z">
+<meta property="og:updated_time" content="2021-05-01T02:24:05.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS组件化开发-下篇">
 <meta name="twitter:description" content="上篇回顾与补充上篇说到，我们要做项目的组件化，要用到cocoapods，这个是关键，然后用cocoapods做一个私有索引库，再利用cocoapods创建一个私有库，可以使用它的创建模板命令pod lib create &amp;lt;#type#&amp;gt;，在反馈的信息中，可以选择是否导入几个主流的测试框架对这个组件编写测试用例。然后是编写xxx.podSpec文件，这个文件比较的关键。在下篇中，我们会详">
@@ -185,6 +185,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="上篇回顾与补充"><a href="#上篇回顾与补充" class="headerlink" title="上篇回顾与补充"></a>上篇回顾与补充</h3><p>上篇说到，我们要做项目的组件化，要用到<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>，这个是关键，然后用<code>cocoapods</code>做一个私有索引库，再利用<code>cocoapods</code>创建一个私有库，可以使用它的创建模板命令<code>pod lib create &lt;#type#&gt;</code>，在反馈的信息中，可以选择是否导入几个主流的测试框架对这个组件编写测试用例。然后是编写<code>xxx.podSpec</code>文件，这个文件比较的关键。在下篇中，我们会详细聊聊，上篇中我们已经完成了一个组件的创建、推送、导入，如果你的项目不做二进制化，那只能说组件化也只是完成了一小部分，项目的二进制化才是关键点，博主之前做过测试，同样的代码，二进制化的项目比源码的全量编译快<code>35%</code>，而且项目越大时间差距就越大。</p>
+<a id="more"></a>
 <h3 id="现有方案"><a href="#现有方案" class="headerlink" title="现有方案"></a>现有方案</h3><p>之前在做二进制化时，博主查找了大量的资料，对比了比较的多，先介绍下现有方案</p>
 <ul>
 <li>在<code>xxx.podSpec</code>文件里环境变量来判断</li>

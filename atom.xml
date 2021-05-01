@@ -256,9 +256,10 @@
     <link href="http://agoninemo.github.io/blog/2021/02/19/iOS%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E4%B8%8B%E7%AF%87/"/>
     <id>http://agoninemo.github.io/blog/2021/02/19/iOS组件化开发-下篇/</id>
     <published>2021-02-19T12:49:43.000Z</published>
-    <updated>2021-02-19T12:50:23.648Z</updated>
+    <updated>2021-05-01T02:24:05.254Z</updated>
     
     <content type="html"><![CDATA[<h3 id="上篇回顾与补充"><a href="#上篇回顾与补充" class="headerlink" title="上篇回顾与补充"></a>上篇回顾与补充</h3><p>上篇说到，我们要做项目的组件化，要用到<a href="https://cocoapods.org" target="_blank" rel="external">cocoapods</a>，这个是关键，然后用<code>cocoapods</code>做一个私有索引库，再利用<code>cocoapods</code>创建一个私有库，可以使用它的创建模板命令<code>pod lib create &lt;#type#&gt;</code>，在反馈的信息中，可以选择是否导入几个主流的测试框架对这个组件编写测试用例。然后是编写<code>xxx.podSpec</code>文件，这个文件比较的关键。在下篇中，我们会详细聊聊，上篇中我们已经完成了一个组件的创建、推送、导入，如果你的项目不做二进制化，那只能说组件化也只是完成了一小部分，项目的二进制化才是关键点，博主之前做过测试，同样的代码，二进制化的项目比源码的全量编译快<code>35%</code>，而且项目越大时间差距就越大。</p>
+<a id="more"></a>
 <h3 id="现有方案"><a href="#现有方案" class="headerlink" title="现有方案"></a>现有方案</h3><p>之前在做二进制化时，博主查找了大量的资料，对比了比较的多，先介绍下现有方案</p>
 <ul>
 <li>在<code>xxx.podSpec</code>文件里环境变量来判断</li>
@@ -296,7 +297,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;上篇回顾与补充&quot;&gt;&lt;a href=&quot;#上篇回顾与补充&quot; class=&quot;headerlink&quot; title=&quot;上篇回顾与补充&quot;&gt;&lt;/a&gt;上篇回顾与补充&lt;/h3&gt;&lt;p&gt;上篇说到，我们要做项目的组件化，要用到&lt;a href=&quot;https://cocoapods.org&quot;
+      &lt;h3 id=&quot;上篇回顾与补充&quot;&gt;&lt;a href=&quot;#上篇回顾与补充&quot; class=&quot;headerlink&quot; title=&quot;上篇回顾与补充&quot;&gt;&lt;/a&gt;上篇回顾与补充&lt;/h3&gt;&lt;p&gt;上篇说到，我们要做项目的组件化，要用到&lt;a href=&quot;https://cocoapods.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cocoapods&lt;/a&gt;，这个是关键，然后用&lt;code&gt;cocoapods&lt;/code&gt;做一个私有索引库，再利用&lt;code&gt;cocoapods&lt;/code&gt;创建一个私有库，可以使用它的创建模板命令&lt;code&gt;pod lib create &amp;lt;#type#&amp;gt;&lt;/code&gt;，在反馈的信息中，可以选择是否导入几个主流的测试框架对这个组件编写测试用例。然后是编写&lt;code&gt;xxx.podSpec&lt;/code&gt;文件，这个文件比较的关键。在下篇中，我们会详细聊聊，上篇中我们已经完成了一个组件的创建、推送、导入，如果你的项目不做二进制化，那只能说组件化也只是完成了一小部分，项目的二进制化才是关键点，博主之前做过测试，同样的代码，二进制化的项目比源码的全量编译快&lt;code&gt;35%&lt;/code&gt;，而且项目越大时间差距就越大。&lt;/p&gt;
     
     </summary>
     
