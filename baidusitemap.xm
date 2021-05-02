@@ -4,6 +4,57 @@
 
     
   <url>
+    <loc>http://agoninemo.github.io/blog/blog/2021/04/02/css%E6%A0%B7%E5%BC%8F/</loc>
+    <lastmod>2021-05-02T01:25:53.078Z</lastmod>
+    <data>
+        <display>
+        <title>css样式</title>
+        <pubTime>2021-04-02T13:25:19.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://agoninemo.github.io/blog/blog/2019/03/12/fix-command-error/</loc>
+    <lastmod>2021-05-02T01:20:26.319Z</lastmod>
+    <data>
+        <display>
+        <title>fix-command-error</title>
+        <pubTime>2019-03-12T11:09:23.000Z</pubTime>
+        
+        <tag>command</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://agoninemo.github.io/blog/blog/2019/06/02/Macros/</loc>
+    <lastmod>2021-05-02T01:17:50.551Z</lastmod>
+    <data>
+        <display>
+        <title>Macros</title>
+        <pubTime>2019-06-02T01:16:40.000Z</pubTime>
+        
+        <tag>宏定义</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://agoninemo.github.io/blog/blog/2021/02/19/iOS%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E4%B8%8B%E7%AF%87/</loc>
     <lastmod>2021-05-01T02:24:05.254Z</lastmod>
     <data>
